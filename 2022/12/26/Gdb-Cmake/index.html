@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- title -->
+
+
+    
+
+<!-- keywords -->
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="author" content="Lee Jet">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="Lee Jet">
+    
+        <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
+    
+    <meta name="description" content="">
+    <meta name="description" content="http:&#x2F;&#x2F;wuhongyi.cn&#x2F;CodeProject&#x2F;CodeProjectManual.html g++编译添加路径 cmake debug https:&#x2F;&#x2F;sqlpy.com&#x2F;blogs&#x2F;766226050 1234567891011121314# step 1 在CMakeLists.txt中添加下列3行即可 或者 运行cmake .. -DCMAKE_BUILD_TYPE&#x3D;Debu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gdb_Cmake">
+<meta property="og:url" content="https://lee-jet.github.io/ai_mj/2022/12/26/Gdb-Cmake/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="http:&#x2F;&#x2F;wuhongyi.cn&#x2F;CodeProject&#x2F;CodeProjectManual.html g++编译添加路径 cmake debug https:&#x2F;&#x2F;sqlpy.com&#x2F;blogs&#x2F;766226050 1234567891011121314# step 1 在CMakeLists.txt中添加下列3行即可 或者 运行cmake .. -DCMAKE_BUILD_TYPE&#x3D;Debu">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://lee-jet.github.io/images/Gdb-Cmake/image-20221226174609836.png">
+<meta property="og:image" content="https://lee-jet.github.io/images/Gdb-Cmake/image-20221226174632129.png">
+<meta property="og:image" content="https://lee-jet.github.io/images/Gdb-Cmake/image-20221226174707132.png">
+<meta property="og:image" content="https://lee-jet.github.io/images/Gdb-Cmake/image-20221226174719034.png">
+<meta property="og:image" content="https://lee-jet.github.io/images/Gdb-Cmake/image-20221226174754481.png">
+<meta property="og:image" content="https://lee-jet.github.io/images/Gdb-Cmake/image-20221226174803567.png">
+<meta property="og:image" content="https://lee-jet.github.io/images/Gdb-Cmake/image-20221226174825513.png">
+<meta property="og:image" content="https://lee-jet.github.io/images/Gdb-Cmake/image-20221226174830232.png">
+<meta property="og:image" content="https://lee-jet.github.io/images/Gdb-Cmake/image-20221226174903037.png">
+<meta property="og:image" content="https://lee-jet.github.io/images/Gdb-Cmake/image-20221226174844283.png">
+<meta property="og:image" content="https://lee-jet.github.io/images/Gdb-Cmake/image-20221226174857542.png">
+<meta property="og:image" content="https://lee-jet.github.io/images/Gdb-Cmake/image-20221226174914206.png">
+<meta property="og:image" content="https://lee-jet.github.io/images/Gdb-Cmake/image-20221226174918477.png">
+<meta property="og:image" content="https://lee-jet.github.io/images/Gdb-Cmake/image-20221226174921351.png">
+<meta property="og:image" content="https://lee-jet.github.io/images/Gdb-Cmake/image-20221226174932640.png">
+<meta property="og:image" content="https://lee-jet.github.io/images/Gdb-Cmake/image-20221226175000415.png">
+<meta property="article:published_time" content="2022-12-26T09:45:04.000Z">
+<meta property="article:modified_time" content="2022-12-26T09:51:34.118Z">
+<meta property="article:author" content="Lee Jet">
+<meta property="article:tag" content="Tech Share">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://lee-jet.github.io/images/Gdb-Cmake/image-20221226174609836.png">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="icon" href="/ai_mj/assets/favicon.ico">
+    
+    <title>Gdb_Cmake · fi3ework&#39;s Studio</title>
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+    (function (w) {
+        'use strict'
+        // rel=preload support test
+        if (!w.loadCSS) {
+            w.loadCSS = function () {}
+        }
+        // define on the loadCSS obj
+        var rp = (loadCSS.relpreload = {})
+        // rel=preload feature support test
+        // runs once and returns a function for compat purposes
+        rp.support = (function () {
+            var ret
+            try {
+                ret = w.document.createElement('link').relList.supports('preload')
+            } catch (e) {
+                ret = false
+            }
+            return function () {
+                return ret
+            }
+        })()
+
+        // if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+        // then change that media back to its intended value on load
+        rp.bindMediaToggle = function (link) {
+            // remember existing media attr for ultimate state, or default to 'all'
+            var finalMedia = link.media || 'all'
+
+            function enableStylesheet() {
+                link.media = finalMedia
+            }
+
+            // bind load handlers to enable media
+            if (link.addEventListener) {
+                link.addEventListener('load', enableStylesheet)
+            } else if (link.attachEvent) {
+                link.attachEvent('onload', enableStylesheet)
+            }
+
+            // Set rel and non-applicable media type to start an async request
+            // note: timeout allows this to happen async to let rendering continue in IE
+            setTimeout(function () {
+                link.rel = 'stylesheet'
+                link.media = 'only x'
+            })
+            // also enable media after 3 seconds,
+            // which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+            setTimeout(enableStylesheet, 3000)
+        }
+
+        // loop through link elements in DOM
+        rp.poly = function () {
+            // double check this to prevent external calls from running
+            if (rp.support()) {
+                return
+            }
+            var links = w.document.getElementsByTagName('link')
+            for (var i = 0; i < links.length; i++) {
+                var link = links[i]
+                // qualify links to those with rel=preload and as=style attrs
+                if (
+                    link.rel === 'preload' &&
+                    link.getAttribute('as') === 'style' &&
+                    !link.getAttribute('data-loadcss')
+                ) {
+                    // prevent rerunning on link
+                    link.setAttribute('data-loadcss', true)
+                    // bind listeners to toggle media back
+                    rp.bindMediaToggle(link)
+                }
+            }
+        }
+
+        // if unsupported, run the polyfill
+        if (!rp.support()) {
+            // run once at least
+            rp.poly()
+
+            // rerun poly on an interval until onload
+            var run = w.setInterval(rp.poly, 500)
+            if (w.addEventListener) {
+                w.addEventListener('load', function () {
+                    rp.poly()
+                    w.clearInterval(run)
+                })
+            } else if (w.attachEvent) {
+                w.attachEvent('onload', function () {
+                    rp.poly()
+                    w.clearInterval(run)
+                })
+            }
+        }
+
+        // commonjs
+        if (typeof exports !== 'undefined') {
+            exports.loadCSS = loadCSS
+        } else {
+            w.loadCSS = loadCSS
+        }
+    })(typeof global !== 'undefined' ? global : this)
+</script>
+
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/ai_mj/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+</style>
+
+    <link rel="preload" href="/ai_mj/css/style.css?v=20211217" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/ai_mj/css/dark.css?v=20211217" as="style">
+    <link rel="stylesheet" href="/ai_mj/css/dark.css">
+    <link rel="stylesheet" href="/ai_mj/css/mobile.css?v=20211217" media="(max-width: 960px)">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" as="script">
+    <link rel="preload" href="/ai_mj/scripts/main.js?v=20211217" as="script">
+    <link rel="preload" href="/ai_mj/scripts/dark.js?v=20211217" as="script">
+    <link rel="preload" href="/ai_mj/font/Oswald-Regular.ttf" as="font" crossorigin>
+    <link rel="preload" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" as="font" crossorigin>
+    <!-- algolia -->
+    
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ == undefined) {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/ai_mj/lib/jquery.min.js" />')
+        }
+    </script>
+    
+        <body class="post-body">
+    
+        <!-- header -->
+        <header class="header header-mobile">
+    <!-- top read progress line -->
+    <div class="header-element">
+        <div class="read-progress"></div>
+    </div>
+    <!-- sidebar menu button -->
+    <div class="header-element">
+        
+            <div class="header-sidebar-menu">
+        
+            
+                <div style="padding-left: 1px;">&#xe775;</div>
+            
+        </div>
+    </div>
+    <!-- header actions -->
+    <div class="header-actions">
+        <!-- theme mode switch button -->
+        <span class="header-theme-btn header-element">
+            <i class="fas fa-adjust"></i>
+        </span>
+        <!-- back to home page text -->
+        <span class="home-link header-element">
+            <a href=/ai_mj/>fi3ework's Studio.</a>
+        </span>
+    </div>
+    <!-- toggle banner for post layout -->
+    
+        
+            <div class="banner">
+        
+            <div class="blog-title header-element">
+                <a href="/ai_mj/">fi3ework&#39;s Studio.</a>
+            </div>
+            <div class="post-title header-element">
+                <a href="#" class="post-name">Gdb_Cmake</a>
+            </div>
+        </div>
+    
+</header>
+
+        <!-- fixed footer -->
+        <footer class="footer-fixed">
+    <!-- back to top button -->
+    <div class="footer-fixed-element">
+        
+            <div class="back-top back-top-hidden">
+        
+        
+            <div>&#xe639;</div>
+        
+        </div>
+    </div>
+</footer>
+
+        <!-- wrapper -->
+        <div class="wrapper">
+            <div class="site-intro" style="
+
+
+
+
+
+
+
+    height:50vh;
+
+">
+    
+    <!-- 主页  -->
+    
+        
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/ai_mj/intro/post-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+                Gdb_Cmake
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+                
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页 meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Tech Share">Tech Share</a>
+    
+</div>
+
+                
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count word-count">1.4k</span>Reading time: <span class="post-count reading-time">7 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <!-- 撰写日期 -->
+                    <span class="iconfont-archer post-intro-calander">&#xe676;</span>
+                    <span class="post-intro-time">2022/12/26</span>
+                    <!-- busuanzi -->
+                    
+                        <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                            <span class="iconfont-archer post-intro-busuanzi">&#xe602;</span>
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    
+                    <!-- 文章分享 -->
+                    <span class="share-wrapper">
+                        <span class="iconfont-archer share-icon">&#xe71d;</span>
+                        <span class="share-text">Share</span>
+                        <ul class="share-list">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+
+            <script>
+  // get user agent
+  function getBrowserVersions() {
+    var u = window.navigator.userAgent
+    return {
+      userAgent: u,
+      trident: u.indexOf('Trident') > -1, //IE内核
+      presto: u.indexOf('Presto') > -1, //opera内核
+      webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+      gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+      mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+      ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+      android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+      iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+      iPad: u.indexOf('iPad') > -1, //是否为iPad
+      webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+      weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+      uc: u.indexOf('UCBrowser') > -1, //是否为android下的UC浏览器
+    }
+  }
+  var browser = {
+    versions: getBrowserVersions(),
+  }
+  console.log('userAgent: ' + browser.versions.userAgent)
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded')
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document
+        .getElementsByClassName('intro-title')[0]
+        .classList.add('intro-fade-in')
+      document
+        .getElementsByClassName('intro-subtitle')[0]
+        .classList.add('intro-fade-in')
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in')
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb() {
+    if (browser.versions.uc) {
+      console.log('UCBrowser')
+      fontLoaded()
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular'],
+        },
+        loading: function () {
+          // 所有字体开始加载
+          // console.log('font loading');
+        },
+        active: function () {
+          // 所有字体已渲染
+          fontLoaded()
+        },
+        inactive: function () {
+          // 字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout')
+          fontLoaded()
+        },
+        timeout: 5000, // Set the timeout to two seconds
+      })
+    }
+  }
+
+  function asyncErr() {
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0]
+    o.src = u
+    if (cb) {
+      o.addEventListener(
+        'load',
+        function (e) {
+          cb(null, e)
+        },
+        false
+      )
+    }
+    if (err) {
+      o.addEventListener(
+        'error',
+        function (e) {
+          err(null, e)
+        },
+        false
+      )
+    }
+    s.parentNode.insertBefore(o, s)
+  }
+
+  var asyncLoadWithFallBack = function (arr, success, reject) {
+    var currReject = function () {
+      reject()
+      arr.shift()
+      if (arr.length) async(arr[0], success, currReject)
+    }
+
+    async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack(
+    [
+      'https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js',
+      'https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js',
+      "/ai_mj/lib/webfontloader.min.js",
+    ],
+    asyncCb,
+    asyncErr
+  )
+</script>
+
+            <img class="loading" src="/ai_mj/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+            <div class="container container-unloaded">
+                <main class="main post-page">
+    <article class="article-entry">
+        <p><a target="_blank" rel="noopener" href="http://wuhongyi.cn/CodeProject/CodeProjectManual.html"><strong>http://wuhongyi.cn/CodeProject/CodeProjectManual.html</strong></a></p>
+<h1 id="g-编译添加路径"><a href="#g-编译添加路径" class="headerlink" title="g++编译添加路径"></a><strong>g++编译添加路径</strong></h1><p><img src="/ai_mj/../images/Gdb-Cmake/image-20221226174609836.png" alt="image-20221226174609836"></p>
+<p>cmake debug</p>
+<p><a target="_blank" rel="noopener" href="https://sqlpy.com/blogs/766226050">https://sqlpy.com/blogs/766226050</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># step 1 在CMakeLists.txt中添加下列3行即可 或者 运行cmake .. -DCMAKE_BUILD_TYPE=Debug</span><br><span class="line">SET(CMAKE_BUILD_TYPE &quot;Debug&quot;)                                                                                                      </span><br><span class="line">SET(CMAKE_CXX_FLAGS_DEBUG &quot;$ENV&#123;CXXFLAGS&#125; -O0 -Wall -g2 -ggdb&quot;)                                                                    </span><br><span class="line">SET(CMAKE_CXX_FLAGS_RELEASE &quot;$ENV&#123;CXXFLAGS&#125; -O3 -Wall&quot;)  </span><br><span class="line"></span><br><span class="line"># step 2 编译成功得到可执行文件 比如yolov7</span><br><span class="line">cmake .. &amp;&amp; make &amp;&amp; make install</span><br><span class="line"></span><br><span class="line"># step 3 gdb调试编译好的可执行文件</span><br><span class="line">gdb  yolov7</span><br><span class="line"></span><br><span class="line"># step 4 gdb调试</span><br><span class="line">输入layout 按ctrl+x 按 1</span><br><span class="line">先打断点b 然后运行 run $1 （输入传参）</span><br></pre></td></tr></table></figure>
+
+<p><img src="/ai_mj/../images/Gdb-Cmake/image-20221226174632129.png" alt="image-20221226174632129"></p>
+<h1 id="CMakeLists-txt-模板"><a href="#CMakeLists-txt-模板" class="headerlink" title="CMakeLists.txt 模板"></a><strong>CMakeLists.txt 模板</strong></h1><p><a target="_blank" rel="noopener" href="https://github.com/shaoshengsong/DeepSORT/blob/master/CMakeLists.txt">https://github.com/shaoshengsong/DeepSORT/blob/master/CMakeLists.txt</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">cmake_minimum_required(VERSION 3.5)</span><br><span class="line"></span><br><span class="line">project(DeepSORT LANGUAGES CXX)</span><br><span class="line"></span><br><span class="line">set(CMAKE_CXX_STANDARD 11)</span><br><span class="line">set(CMAKE_CXX_STANDARD_REQUIRED ON)</span><br><span class="line"></span><br><span class="line"># 找第三方依赖库</span><br><span class="line">find_package (Eigen3 3.3 REQUIRED NO_MODULE)</span><br><span class="line">set(ONNXRUNTIME_DIR &quot;/home/a/lib/onnxruntime-linux-x64-1.12.1&quot;)</span><br><span class="line">include_directories(&quot;$&#123;ONNXRUNTIME_DIR&#125;/include&quot;)</span><br><span class="line">find_package(OpenCV 4 REQUIRED )</span><br><span class="line"></span><br><span class="line"># 将项目所有相关的.h加入</span><br><span class="line">include_directories(</span><br><span class="line">    $&#123;OpenCV_INCLUDE_DIRS&#125;/include</span><br><span class="line">    $&#123;CMAKE_SOURCE_DIR&#125;/tracker/deepsort/include</span><br><span class="line">    $&#123;CMAKE_SOURCE_DIR&#125;/detector/YOLOv5/include</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line"># 将项目所有相关的。cpp加入</span><br><span class="line">add_executable(DeepSORT</span><br><span class="line">    detector/YOLOv5/src/YOLOv5Detector.cpp</span><br><span class="line"></span><br><span class="line">    tracker/deepsort/src/FeatureTensor.cpp</span><br><span class="line">    tracker/deepsort/src/model.cpp</span><br><span class="line">    tracker/deepsort/src/kalmanfilter.cpp</span><br><span class="line">    tracker/deepsort/src/linear_assignment.cpp</span><br><span class="line">    tracker/deepsort/src/nn_matching.cpp</span><br><span class="line">    tracker/deepsort/src/track.cpp</span><br><span class="line">    tracker/deepsort/src/tracker.cpp</span><br><span class="line">    tracker/deepsort/src/munkres.cpp</span><br><span class="line">    tracker/deepsort/src/hungarianoper.cpp</span><br><span class="line">    </span><br><span class="line">    main.cpp)</span><br><span class="line"></span><br><span class="line"># 链接库 .a 静态 .so 动态库 等其它LIBS（编译生成的依赖库）——第三方库</span><br><span class="line">target_link_libraries(DeepSORT PRIVATE &quot;$&#123;ONNXRUNTIME_DIR&#125;/lib/libonnxruntime.so&quot; $&#123;OpenCV_LIBS&#125; Eigen3::Eigen)</span><br><span class="line"></span><br><span class="line"># --------------------------------------------------------------</span><br><span class="line">if(OpenCV_FOUND)</span><br><span class="line">    target_include_directories($&#123;name&#125; PRIVATE $&#123;OpenCV_INCLUDE_DIRS&#125;)</span><br><span class="line">    target_link_libraries($&#123;name&#125; PRIVATE ncnn $&#123;OpenCV_LIBS&#125;)</span><br><span class="line">elseif(NCNN_SIMPLEOCV)</span><br><span class="line">    target_compile_definitions($&#123;name&#125; PUBLIC USE_NCNN_SIMPLEOCV)</span><br><span class="line">    target_link_libraries($&#123;name&#125; PRIVATE ncnn)         </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 类型别名</span><br><span class="line">using MATCH_DATA = std::pair&lt;int, int&gt;; </span><br></pre></td></tr></table></figure>
+
+<h2 id="cmake链接库"><a href="#cmake链接库" class="headerlink" title="cmake链接库"></a><strong>cmake链接库</strong></h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/binbinjx/p/5626916.html">cmake 添加头文件目录，链接动态、静态库</a></p>
+<p><img src="/ai_mj/../images/Gdb-Cmake/image-20221226174707132.png" alt="image-20221226174707132"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">######################################################### 链接库开始 ###############################################################</span><br><span class="line"></span><br><span class="line"># 1，绝对路径方式</span><br><span class="line">#target_link_libraries(MyApp E:/cppTest/test1/lib/libutils.a)</span><br><span class="line"></span><br><span class="line"># 2，相对路径，使用相对路径必须先告诉从哪里链接，在这里调用link_directories()是无效的，只有在生成target之前调用才会有效</span><br><span class="line"># 在这里调用link_directories()是无效的，必须在生成可执行文件之前调用link_directories(),也就是在ADD_EXECUTABLE()之前调用</span><br><span class="line">#link_directories(E:/cppTest/test1/lib)</span><br><span class="line">#target_link_libraries(MyApp utils)</span><br><span class="line">#target_link_libraries(MyApp libutils.a)</span><br><span class="line">#message(STATUS &quot;LINK_DIRECTORIES = $&#123;LINK_DIRECTORIES&#125;&quot;)</span><br><span class="line"></span><br><span class="line"># 3，使用find_library()  </span><br><span class="line"># find_library (&lt;VAR&gt; name1 [path1 path2 ...])</span><br><span class="line">#find_library(LIB_UTILS utils E:/cppTest/test1/lib)</span><br><span class="line">#message(STATUS &quot;LIB_UTILS = $&#123;LIB_UTILS&#125;&quot;)</span><br><span class="line">#target_link_libraries(MyApp $&#123;LIB_UTILS&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 4，使用find_path()和find_library()类似,find_path()可以用来找任何文件</span><br><span class="line"># find_path (&lt;VAR&gt; name1 [path1 path2 ...])</span><br><span class="line">#find_path(LIB_UTILS_PATH libutils.a E:/cppTest/test1/lib)</span><br><span class="line">#message(STATUS &quot;LIB_UTILS_PATH = $&#123;LIB_UTILS_PATH&#125;&quot;)</span><br><span class="line">#target_link_libraries(MyApp $&#123;LIB_UTILS_PATH&#125;/libutils.a)</span><br><span class="line"></span><br><span class="line">#5，使用find_package(),这种需要先有模块，要么是系统提供的，要么是自己写的，本例中是自己写的Findutils.cmake</span><br><span class="line">#cmake提供的模块 D:\androidSDK\cmake\3.10.2.4988404\share\cmake-3.10\Modules下面</span><br><span class="line">#将自己写的自己写的Findutils.cmake设置到CMAKE_MODULE_PATH中</span><br><span class="line">set(CMAKE_MODULE_PATH $&#123;CMAKE_MODULE_PATH&#125; $&#123;PROJECT_SOURCE_DIR&#125;/cmake)</span><br><span class="line">find_package(utils)</span><br><span class="line">if(utils_FOUND)</span><br><span class="line">    # include_directories()作用是设置头文件的搜索路径</span><br><span class="line">    # 官方的解释：Add the given directories to those the compiler uses to search for include files</span><br><span class="line">    # utils_INCLUDE_DIR的值是在Findutils.cmake里面设置的</span><br><span class="line">    include_directories($&#123;utils_INCLUDE_DIR&#125;)</span><br><span class="line">    </span><br><span class="line">    #utils_LIBRARY的值是在Findutils.cmake里面设置的</span><br><span class="line">    target_link_libraries(MyApp $&#123;utils_LIBRARY&#125;)</span><br><span class="line">endif(utils_FOUND)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">######################################################### 链接库结束 ###############################################################</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/ai_mj/../images/Gdb-Cmake/image-20221226174719034.png" alt="image-20221226174719034"></p>
+<p>​    cmake生成makefile之后，make edit_cache可以编辑编译选项。</p>
+<h1 id="cmake-grammer"><a href="#cmake-grammer" class="headerlink" title="cmake grammer"></a><strong>cmake grammer</strong></h1><ul>
+<li><ul>
+<li><p>CMakeLists.txt 语法介绍与实例演练 <a target="_blank" rel="noopener" href="https://blog.csdn.net/afei__/article/details/81201039">https://blog.csdn.net/afei__/article/details/81201039</a></p>
+</li>
+<li><ul>
+<li><strong>命名必须是 CMakeLists.txt，注意大小写和不要漏字母</strong></li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://wuhongyi.cn/CodeProject/cmake/cmake.html">http://wuhongyi.cn/CodeProject/cmake/cmake.html</a></p>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"># 设置cmake版本，如果cmake版本过高，可能会出现错误</span><br><span class="line">cmake_minimum_required(VERSION 3.5.1)</span><br><span class="line">project(NCNN_test)</span><br><span class="line"></span><br><span class="line"># 设置C++编译版本</span><br><span class="line">set(CMAKE_CXX_STANDARD 11)</span><br><span class="line"></span><br><span class="line"># 设置程序编译出的可执行文件</span><br><span class="line">set(MAIN_FILE main.cpp)</span><br><span class="line">set(EXECUTABLE_OUTPUT_PATH ../)</span><br><span class="line"></span><br><span class="line"># 分别设置ncnn的链接库和头文件</span><br><span class="line">set(NCNN_LIBS /ncnn/build/install/lib/libncnn.a)</span><br><span class="line">set(NCNN_INCLUDE_DIRS /ncnn/build/install/include)</span><br><span class="line"></span><br><span class="line"># 配置OpenMP</span><br><span class="line">find_package(OpenMP REQUIRED)</span><br><span class="line">if(OPENMP_FOUND)</span><br><span class="line">    message(&quot;OPENMP FOUND&quot;)</span><br><span class="line">    set(CMAKE_C_FLAGS &quot;$&#123;CMAKE_C_FLAGS&#125; $&#123;OpenMP_C_FLAGS&#125;&quot;)</span><br><span class="line">    set(CMAKE_CXX_FLAGS &quot;$&#123;CMAKE_CXX_FLAGS&#125; $&#123;OpenMP_CXX_FLAGS&#125;&quot;)</span><br><span class="line">    set(CMAKE_EXE_LINKER_FLAGS &quot;$&#123;CMAKE_EXE_LINKER_FLAGS&#125; $&#123;OpenMP_EXE_LINKER_FLAGS&#125;&quot;)</span><br><span class="line">endif()</span><br><span class="line"></span><br><span class="line"># 配置OpenCV</span><br><span class="line">find_package(OpenCV REQUIRED)</span><br><span class="line">include_directories($&#123;OpenCV_INCLUDE_DIRS&#125;)</span><br><span class="line"></span><br><span class="line">include_directories($&#123;NCNN_INCLUDE_DIRS&#125;)</span><br><span class="line"></span><br><span class="line"># 建立链接依赖</span><br><span class="line">add_executable(NCNN main.cpp)</span><br><span class="line">target_link_libraries(NCNN $&#123;NCNN_LIBS&#125;)</span><br><span class="line">target_link_libraries(NCNN $&#123;OpenCV_LIBS&#125;)</span><br></pre></td></tr></table></figure>
+
+<h1 id="macro和function"><a href="#macro和function" class="headerlink" title="macro和function"></a><strong>macro和function</strong></h1><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/Braveliu/p/15621973.html">https://www.cnblogs.com/Braveliu/p/15621973.html</a></p>
+<p><img src="/ai_mj/../images/Gdb-Cmake/image-20221226174754481.png" alt="image-20221226174754481"></p>
+<p>区别：</p>
+<p><img src="/ai_mj/../images/Gdb-Cmake/image-20221226174803567.png" alt="image-20221226174803567"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function（）</span><br><span class="line">    &lt;&gt;</span><br><span class="line">endfunction</span><br><span class="line"></span><br><span class="line">message(STATUS &quot;ARGV: $&#123;ARGV&#125;&quot;)</span><br><span class="line">message(WARNING &quot;NCNN_PIXEL not enabled, examples won&#x27;t be built&quot;)</span><br></pre></td></tr></table></figure>
+
+<h1 id="链接库"><a href="#链接库" class="headerlink" title="链接库"></a><strong>链接库</strong></h1><p>LINK_DIRECTORIES(“/home/mingjie/projects/ncnn_debug”) 链接库所在的目录路径</p>
+<p>+</p>
+<p>target_link_libraries(${name} PUBLIC ${SHM_LIBS}) 链接路径下库的名称       </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">set(SHM_LIBS libutils.a)</span><br><span class="line"></span><br><span class="line">macro(ncnn_add_example name)</span><br><span class="line">    LINK_DIRECTORIES(&quot;/home/mingjie/projects/ncnn_debug&quot;)</span><br><span class="line">    </span><br><span class="line">    add_executable($&#123;name&#125; $&#123;name&#125;.cpp)</span><br><span class="line">    if(OpenCV_FOUND)</span><br><span class="line">        target_include_directories($&#123;name&#125; PRIVATE $&#123;OpenCV_INCLUDE_DIRS&#125;)</span><br><span class="line">        target_link_libraries($&#123;name&#125; PRIVATE ncnn $&#123;OpenCV_LIBS&#125;)</span><br><span class="line">    elseif(NCNN_SIMPLEOCV)</span><br><span class="line">        target_compile_definitions($&#123;name&#125; PUBLIC USE_NCNN_SIMPLEOCV)</span><br><span class="line">        target_link_libraries($&#123;name&#125; PRIVATE ncnn)</span><br><span class="line">    endif()</span><br><span class="line"></span><br><span class="line">    target_link_libraries($&#123;name&#125; PUBLIC $&#123;SHM_LIBS&#125;)</span><br><span class="line"></span><br><span class="line">    # add test to a virtual project group</span><br><span class="line">    set_property(TARGET $&#123;name&#125; PROPERTY FOLDER &quot;examples&quot;)</span><br><span class="line">endmacro()</span><br></pre></td></tr></table></figure>
+
+<p><img src="/ai_mj/../images/Gdb-Cmake/image-20221226174825513.png" alt="image-20221226174825513"></p>
+<p><img src="/ai_mj/../images/Gdb-Cmake/image-20221226174830232.png" alt="image-20221226174830232"></p>
+<h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a><strong>语法</strong></h1><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903558861553672">https://juejin.cn/post/6844903558861553672</a></p>
+<p><a target="_blank" rel="noopener" href="http://wuhongyi.cn/CodeProject/cmake/cmake.html">http://wuhongyi.cn/CodeProject/cmake/cmake.html</a></p>
+<p><img src="/ai_mj/../images/Gdb-Cmake/image-20221226174903037.png" alt="image-20221226174903037"></p>
+<p><img src="/ai_mj/../images/Gdb-Cmake/image-20221226174844283.png"></p>
+<p><img src="/ai_mj/../images/Gdb-Cmake/image-20221226174857542.png" alt="image-20221226174857542"></p>
+<h1 id="cmake：option选项"><a href="#cmake：option选项" class="headerlink" title="cmake：option选项"></a><strong>cmake：option选项</strong></h1><p><img src="/ai_mj/../images/Gdb-Cmake/image-20221226174914206.png" alt="image-20221226174914206"></p>
+<p><img src="/ai_mj/../images/Gdb-Cmake/image-20221226174918477.png" alt="image-20221226174918477"></p>
+<p><img src="/ai_mj/../images/Gdb-Cmake/image-20221226174921351.png" alt="image-20221226174921351"></p>
+<h1 id="cmake-管理debug-release"><a href="#cmake-管理debug-release" class="headerlink" title="cmake 管理debug release"></a><strong>cmake 管理debug release</strong></h1><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/116953293">https://zhuanlan.zhihu.com/p/116953293</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cmake .. -DCMAKE_BUILD_TYPE=Debug</span><br><span class="line">cmake .. -DCMAKE_BUILD_TYPE=Release</span><br></pre></td></tr></table></figure>
+
+<p><img src="/ai_mj/../images/Gdb-Cmake/image-20221226174932640.png" alt="image-20221226174932640"></p>
+<h1 id="cmake-配置模板"><a href="#cmake-配置模板" class="headerlink" title="cmake 配置模板"></a><strong>cmake 配置模板</strong></h1><p><a target="_blank" rel="noopener" href="http://wuhongyi.cn/CodeProject/cmake/CmakeNote1.html">http://wuhongyi.cn/CodeProject/cmake/CmakeNote1.html</a></p>
+<p><img src="/ai_mj/../images/Gdb-Cmake/image-20221226175000415.png" alt="image-20221226175000415"></p>
+<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a><strong>应用</strong></h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/ailumiyana/p/10721123.html">https://www.cnblogs.com/ailumiyana/p/10721123.html</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">cmake_minimum_required(VERSION 3.5.1)</span><br><span class="line">project(NANO_TRACKING)</span><br><span class="line"></span><br><span class="line">set(CMAKE_CXX_STANDARD 11)</span><br><span class="line"></span><br><span class="line">set(NCNN_LIBS /home/infer_framework_docker/ncnn/build/install/lib/libncnn.a) # 在哪编译路径就在哪，不能copy</span><br><span class="line">set(NCNN_INCLUDE_DIRS /home/infer_framework_docker/ncnn/build/install/include/ncnn)</span><br><span class="line"></span><br><span class="line">find_package(OpenCV REQUIRED)</span><br><span class="line">if(OpenCV_FOUND)</span><br><span class="line">    message(STATUS &quot;OpenCV library: $&#123;OpenCV_INSTALL_PATH&#125;&quot;)</span><br><span class="line">    message(STATUS &quot;    version: $&#123;OpenCV_VERSION&#125;&quot;)</span><br><span class="line">    message(STATUS &quot;    libraries: $&#123;OpenCV_LIBS&#125;&quot;)</span><br><span class="line">    message(STATUS &quot;    include path: $&#123;OpenCV_INCLUDE_DIRS&#125;&quot;)</span><br><span class="line">endif()</span><br><span class="line"></span><br><span class="line">find_package(Eigen3 3.3 REQUIRED)</span><br><span class="line">if(Eigen3_FOUND)</span><br><span class="line">    message(STATUS &quot;Eigen3 library: $&#123;Eigen3_INSTALL_PATH&#125;&quot;)</span><br><span class="line">    message(STATUS &quot;    version: $&#123;Eigen3_VERSION&#125;&quot;)</span><br><span class="line">    message(STATUS &quot;    libraries: $&#123;Eigen3_LIBS&#125;&quot;)</span><br><span class="line">    message(STATUS &quot;    include path: $&#123;Eigen3_INCLUDE_DIRS&#125;&quot;)</span><br><span class="line">endif()</span><br><span class="line"></span><br><span class="line">find_package(OpenMP REQUIRED)</span><br><span class="line">if(OPENMP_FOUND)</span><br><span class="line">    message(&quot;OPENMP FOUND&quot;)</span><br><span class="line">    set(CMAKE_C_FLAGS &quot;$&#123;CMAKE_C_FLAGS&#125; $&#123;OpenMP_C_FLAGS&#125;&quot;)</span><br><span class="line">    set(CMAKE_CXX_FLAGS &quot;$&#123;CMAKE_CXX_FLAGS&#125; $&#123;OpenMP_CXX_FLAGS&#125;&quot;)</span><br><span class="line">    set(CMAKE_EXE_LINKER_FLAGS &quot;$&#123;CMAKE_EXE_LINKER_FLAGS&#125; $&#123;OpenMP_EXE_LINKER_FLAGS&#125;&quot;)</span><br><span class="line">endif()</span><br><span class="line"></span><br><span class="line">include_directories($&#123;OpenCV_INCLUDE_DIRS&#125;)</span><br><span class="line">include_directories($&#123;NCNN_INCLUDE_DIRS&#125;)</span><br><span class="line">include_directories(include)</span><br><span class="line"></span><br><span class="line">add_executable(NANO_TRACKING </span><br><span class="line">    src/BYTETracker.cpp</span><br><span class="line">    src/kalmanFilter.cpp</span><br><span class="line">    src/lapjv.cpp</span><br><span class="line">    src/STrack.cpp</span><br><span class="line">    src/utils.cpp</span><br><span class="line">    src/nanodet.cpp</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">target_link_libraries(NANO_TRACKING $&#123;OpenCV_LIBS&#125;)</span><br><span class="line">target_link_libraries(NANO_TRACKING $&#123;NCNN_LIBS&#125;)</span><br></pre></td></tr></table></figure>
+
+
+    </article>
+    <!-- license -->
+    
+        <div class="license-wrapper">
+            <p>Author：<a href="https://lee-jet.github.io/ai_mj">Lee Jet</a>
+            <p>Link：<a href="https://lee-jet.github.io/ai_mj/2022/12/26/Gdb-Cmake/">https://lee-jet.github.io/ai_mj/2022/12/26/Gdb-Cmake/</a>
+            <p>Publish date：<a href="https://lee-jet.github.io/ai_mj/2022/12/26/Gdb-Cmake/">December 26th 2022, 5:45:04 pm</a>
+            <p>Update date：<a href="https://lee-jet.github.io/ai_mj/2022/12/26/Gdb-Cmake/">December 26th 2022, 5:51:34 pm</a>
+            <p>License：本文采用<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
+    
+    <!-- paginator -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/ai_mj/2022/12/26/Client-Server/" title="Client_Server">
+                    <div class="prevTitle">Client_Server</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- comment -->
+    
+        <div class="post-comment">
+            <!-- 来必力 City 版安装代码 -->
+
+
+            
+
+            
+
+            
+
+            <!-- utteranc评论 -->
+
+
+            <!-- partial('_partial/comment/changyan') -->
+            <!--PC版-->
+
+
+            
+            
+
+            
+
+        </div>
+    
+    <!-- timeliness note -->
+    <!-- idea from: https://hexo.fluid-dev.com/posts/hexo-injector/#%E6%96%87%E7%AB%A0%E6%97%B6%E6%95%88%E6%80%A7%E6%8F%90%E7%A4%BA -->
+    
+    <!-- Mathjax -->
+    
+</main>
+
+                <!-- profile -->
+                
+            </div>
+            <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+        <div class="social">
+            
+    
+        
+            
+                <a href="mailto:12345@qq.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/fi3ework" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title=wechat>
+                    
+                    <img class="profile-qr" src="/ai_mj/assets/example_qr.png" />
+                </span>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+
+        </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- website approve for Chinese user -->
+    
+    <!-- 不蒜子  -->
+    
+        <div class="busuanzi-container">
+            
+             
+                <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+            
+        </div>
+    	
+</footer>
+
+        </div>
+        <!-- toc -->
+        
+            <div class="toc-wrapper toc-wrapper-loding" style=
+
+
+
+
+
+
+
+    top:50vh;
+
+>
+                <div class="toc-catalog">
+                    <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+                </div>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#g-%E7%BC%96%E8%AF%91%E6%B7%BB%E5%8A%A0%E8%B7%AF%E5%BE%84"><span class="toc-number">1.</span> <span class="toc-text">g++编译添加路径</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CMakeLists-txt-%E6%A8%A1%E6%9D%BF"><span class="toc-number">2.</span> <span class="toc-text">CMakeLists.txt 模板</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#cmake%E9%93%BE%E6%8E%A5%E5%BA%93"><span class="toc-number">2.1.</span> <span class="toc-text">cmake链接库</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#cmake-grammer"><span class="toc-number">3.</span> <span class="toc-text">cmake grammer</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#macro%E5%92%8Cfunction"><span class="toc-number">4.</span> <span class="toc-text">macro和function</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%93%BE%E6%8E%A5%E5%BA%93"><span class="toc-number">5.</span> <span class="toc-text">链接库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95"><span class="toc-number">6.</span> <span class="toc-text">语法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#cmake%EF%BC%9Aoption%E9%80%89%E9%A1%B9"><span class="toc-number">7.</span> <span class="toc-text">cmake：option选项</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#cmake-%E7%AE%A1%E7%90%86debug-release"><span class="toc-number">8.</span> <span class="toc-text">cmake 管理debug release</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#cmake-%E9%85%8D%E7%BD%AE%E6%A8%A1%E6%9D%BF"><span class="toc-number">9.</span> <span class="toc-text">cmake 配置模板</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%94%E7%94%A8"><span class="toc-number">9.1.</span> <span class="toc-text">应用</span></a></li></ol></li></ol>
+            </div>
+        
+        <!-- sidebar -->
+        <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+        <div class="sidebar-panel-archives">
+    <!-- 在 ejs 中将 archive 按照时间排序 -->
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 6
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+        
+            
+            
+            <div class="archive-year"> 2022 </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/26</span>
+            <a class="archive-post-title" href="/ai_mj/2022/12/26/Gdb-Cmake/">Gdb_Cmake</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/26</span>
+            <a class="archive-post-title" href="/ai_mj/2022/12/26/Client-Server/">Client_Server</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/26</span>
+            <a class="archive-post-title" href="/ai_mj/2022/12/26/C-plus/">C_plus</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/26</span>
+            <a class="archive-post-title" href="/ai_mj/2022/12/26/CV-Tools/">CV_Tools</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/26</span>
+            <a class="archive-post-title" href="/ai_mj/2022/12/26/Bugs/">Bugs</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/24</span>
+            <a class="archive-post-title" href="/ai_mj/2022/12/24/tech-blog-demo/">tech_blog_demo</a>
+        </li>
+    
+    </div>
+</div>
+
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+        
+            <span class="sidebar-tag-name" data-tags="Tech Share">
+                <span class="iconfont-archer">&#xe606;</span>
+                Tech Share
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="demo">
+                <span class="iconfont-archer">&#xe606;</span>
+                demo
+            </span>
+        
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+        缺失模块，请参考主题文档进行安装配置：https://github.com/fi3ework/hexo-theme-archer#%E5%AE%89%E8%A3%85%E4%B8%BB%E9%A2%98
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+
+    </div>
+</div>
+
+        <!-- site-meta -->
+        <script>
+    var siteMetaRoot = "/ai_mj/"
+    if (siteMetaRoot === "undefined") {
+        siteMetaRoot = '/'
+    }
+    var siteMeta = {
+        url: "https://lee-jet.github.io/ai_mj",
+        root: siteMetaRoot,
+        author: "Lee Jet"
+    }
+</script>
+
+        <!-- import experimental options here -->
+        <!-- Custom Font -->
+
+
+        <!-- main func -->
+        <script src="/ai_mj/scripts/main.js?v=20211217"></script>
+        <!-- dark mode -->
+        <script src="/ai_mj/scripts/dark.js?v=20211217"></script>
+        <!-- fancybox -->
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script>
+        <!-- algolia -->
+        
+        <!-- busuanzi -->
+        
+            <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+        
+        <!-- CNZZ -->
+        
+        <!-- async load share.js -->
+        
+            <script src="/ai_mj/scripts/share.js?v=20211217" async></script>
+        
+        <!-- mermaid -->
+        
+    </body>
+</html>
