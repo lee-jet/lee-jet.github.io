@@ -395,31 +395,39 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/ai_mj/libs/prism/prism.min.css">
+        
 
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="Welcome"><a href="#Welcome" class="headerlink" title="Welcome"></a>Welcome</h1><p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;file_md_name&quot;</span></span><br></pre></td></tr></table></figure>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"file_md_name"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server </span><br></pre></td></tr></table></figure>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate <span class="comment"># or hexo g</span></span><br></pre></td></tr></table></figure>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate <span class="token comment"># or hexo g</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy <span class="comment"># or hexo d</span></span><br></pre></td></tr></table></figure>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy <span class="token comment"># or hexo d</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-<h2 id="images"><a href="#images" class="headerlink" title="images"></a>images</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">![](tech-blog-demo/demo.jpg) # markdown local, not html</span><br><span class="line">![](/images/demo.jpg) # showing in html</span><br></pre></td></tr></table></figure>
+<h2 id="images"><a href="#images" class="headerlink" title="images"></a>images</h2><pre class="line-numbers language-none"><code class="language-none">![](tech-blog-demo&#x2F;demo.jpg) # markdown local, not html
+![](&#x2F;images&#x2F;demo.jpg) # showing in html<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p><img src="/images/demo.jpg"></p>
 <!-- ![](tech-blog-demo/demo.jpg)  -->
 <!-- ![](demo.jpg)  -->
 
 
-<h2 id="video"><a href="#video" class="headerlink" title="video"></a>video</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;iframe</span><br><span class="line">    height=360 width=640</span><br><span class="line">    src=&quot;https://www.youtube.com/watch?v=cVaOnjqNkCE&quot;  </span><br><span class="line">    frameborder=0 allowfullscreen&gt;</span><br><span class="line">&lt;/iframe&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="video"><a href="#video" class="headerlink" title="video"></a>video</h2><pre class="line-numbers language-none"><code class="language-none">&lt;iframe
+    height&#x3D;360 width&#x3D;640
+    src&#x3D;&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v&#x3D;cVaOnjqNkCE&quot;  
+    frameborder&#x3D;0 allowfullscreen&gt;
+&lt;&#x2F;iframe&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <iframe
     height=360 width=640
@@ -438,14 +446,16 @@
 <!-- <iframe height=498 width=510 src="/resources/videos/demo.mp4" frameborder=0 allowfullscreen></iframe> -->
 
 
-<h2 id="music"><a href="#music" class="headerlink" title="music"></a>music</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=512 height=86 </span><br><span class="line">    src=&quot;//music.163.com/outchain/player?type=2&amp;id=167827&amp;auto=1&amp;height=66&quot;&gt;</span><br><span class="line">&lt;/iframe&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="music"><a href="#music" class="headerlink" title="music"></a>music</h2><pre class="line-numbers language-none"><code class="language-none">&lt;iframe frameborder&#x3D;&quot;no&quot; border&#x3D;&quot;0&quot; marginwidth&#x3D;&quot;0&quot; marginheight&#x3D;&quot;0&quot; width&#x3D;512 height&#x3D;86 
+    src&#x3D;&quot;&#x2F;&#x2F;music.163.com&#x2F;outchain&#x2F;player?type&#x3D;2&amp;id&#x3D;167827&amp;auto&#x3D;1&amp;height&#x3D;66&quot;&gt;
+&lt;&#x2F;iframe&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=512 height=86 
     src="//music.163.com/outchain/player?type=2&id=167827&auto=1&height=66">
 </iframe>
 
 
-<h2 id="dplayer-plugin"><a href="#dplayer-plugin" class="headerlink" title="dplayer plugin"></a>dplayer plugin</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-tag-dplayer</span><br></pre></td></tr></table></figure>
+<h2 id="dplayer-plugin"><a href="#dplayer-plugin" class="headerlink" title="dplayer plugin"></a>dplayer plugin</h2><pre class="line-numbers language-none"><code class="language-none">npm install hexo-tag-dplayer<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <div id="dplayer0" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer0"),"autoplay":true,"theme":"#FADFA3","loop":true,"lang":"zh-cn//语言","screenshot":true,"hotkey":true,"preload":"auto","volume":0.9,"video":{"url":"/resources/videos/demo.mp4","pic":"/resources/videos/demo.jpg"},"danmaku":{"id":"9E2E3368B56CD123BB4","api":"https://api.prprpr.me/dplayer/","token":"tokendemo","maximum":1000,"addition":["['https://api.prprpr.me/dplayer/v3/bilibili?aid=4157142']"]}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>
                 
             </div>
@@ -693,6 +703,9 @@
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/ai_mj/libs/codeBlock/codeBlockFuction.js"></script>
 
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/ai_mj/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->

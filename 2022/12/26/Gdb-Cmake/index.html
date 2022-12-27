@@ -9,7 +9,7 @@
 g++编译添加路径
 cmake debug
 https://sqlpy.com/blogs/766226050
-1234567891">
+# step 1 在">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -399,6 +399,9 @@ https://sqlpy.com/blogs/766226050
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/ai_mj/libs/prism/prism.min.css">
+        
 
         
 
@@ -408,17 +411,118 @@ https://sqlpy.com/blogs/766226050
 <h1 id="g-编译添加路径"><a href="#g-编译添加路径" class="headerlink" title="g++编译添加路径"></a><strong>g++编译添加路径</strong></h1><p><img src="../images/Gdb-Cmake/image-20221226174609836.png" alt="image-20221226174609836"></p>
 <p>cmake debug</p>
 <p><a target="_blank" rel="noopener" href="https://sqlpy.com/blogs/766226050">https://sqlpy.com/blogs/766226050</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># step 1 在CMakeLists.txt中添加下列3行即可 或者 运行cmake .. -DCMAKE_BUILD_TYPE=Debug</span><br><span class="line">SET(CMAKE_BUILD_TYPE &quot;Debug&quot;)                                                                                                      </span><br><span class="line">SET(CMAKE_CXX_FLAGS_DEBUG &quot;$ENV&#123;CXXFLAGS&#125; -O0 -Wall -g2 -ggdb&quot;)                                                                    </span><br><span class="line">SET(CMAKE_CXX_FLAGS_RELEASE &quot;$ENV&#123;CXXFLAGS&#125; -O3 -Wall&quot;)  </span><br><span class="line"></span><br><span class="line"># step 2 编译成功得到可执行文件 比如yolov7</span><br><span class="line">cmake .. &amp;&amp; make &amp;&amp; make install</span><br><span class="line"></span><br><span class="line"># step 3 gdb调试编译好的可执行文件</span><br><span class="line">gdb  yolov7</span><br><span class="line"></span><br><span class="line"># step 4 gdb调试</span><br><span class="line">输入layout 按ctrl+x 按 1</span><br><span class="line">先打断点b 然后运行 run $1 （输入传参）</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none"># step 1 在CMakeLists.txt中添加下列3行即可 或者 运行cmake .. -DCMAKE_BUILD_TYPE&#x3D;Debug
+SET(CMAKE_BUILD_TYPE &quot;Debug&quot;)                                                                                                      
+SET(CMAKE_CXX_FLAGS_DEBUG &quot;$ENV&#123;CXXFLAGS&#125; -O0 -Wall -g2 -ggdb&quot;)                                                                    
+SET(CMAKE_CXX_FLAGS_RELEASE &quot;$ENV&#123;CXXFLAGS&#125; -O3 -Wall&quot;)  
+
+# step 2 编译成功得到可执行文件 比如yolov7
+cmake .. &amp;&amp; make &amp;&amp; make install
+
+# step 3 gdb调试编译好的可执行文件
+gdb  yolov7
+
+# step 4 gdb调试
+输入layout 按ctrl+x 按 1
+先打断点b 然后运行 run $1 （输入传参）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><img src="../images/Gdb-Cmake/image-20221226174632129.png" alt="image-20221226174632129"></p>
 <h1 id="CMakeLists-txt-模板"><a href="#CMakeLists-txt-模板" class="headerlink" title="CMakeLists.txt 模板"></a><strong>CMakeLists.txt 模板</strong></h1><p><a target="_blank" rel="noopener" href="https://github.com/shaoshengsong/DeepSORT/blob/master/CMakeLists.txt">https://github.com/shaoshengsong/DeepSORT/blob/master/CMakeLists.txt</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">cmake_minimum_required(VERSION 3.5)</span><br><span class="line"></span><br><span class="line">project(DeepSORT LANGUAGES CXX)</span><br><span class="line"></span><br><span class="line">set(CMAKE_CXX_STANDARD 11)</span><br><span class="line">set(CMAKE_CXX_STANDARD_REQUIRED ON)</span><br><span class="line"></span><br><span class="line"># 找第三方依赖库</span><br><span class="line">find_package (Eigen3 3.3 REQUIRED NO_MODULE)</span><br><span class="line">set(ONNXRUNTIME_DIR &quot;/home/a/lib/onnxruntime-linux-x64-1.12.1&quot;)</span><br><span class="line">include_directories(&quot;$&#123;ONNXRUNTIME_DIR&#125;/include&quot;)</span><br><span class="line">find_package(OpenCV 4 REQUIRED )</span><br><span class="line"></span><br><span class="line"># 将项目所有相关的.h加入</span><br><span class="line">include_directories(</span><br><span class="line">    $&#123;OpenCV_INCLUDE_DIRS&#125;/include</span><br><span class="line">    $&#123;CMAKE_SOURCE_DIR&#125;/tracker/deepsort/include</span><br><span class="line">    $&#123;CMAKE_SOURCE_DIR&#125;/detector/YOLOv5/include</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line"># 将项目所有相关的。cpp加入</span><br><span class="line">add_executable(DeepSORT</span><br><span class="line">    detector/YOLOv5/src/YOLOv5Detector.cpp</span><br><span class="line"></span><br><span class="line">    tracker/deepsort/src/FeatureTensor.cpp</span><br><span class="line">    tracker/deepsort/src/model.cpp</span><br><span class="line">    tracker/deepsort/src/kalmanfilter.cpp</span><br><span class="line">    tracker/deepsort/src/linear_assignment.cpp</span><br><span class="line">    tracker/deepsort/src/nn_matching.cpp</span><br><span class="line">    tracker/deepsort/src/track.cpp</span><br><span class="line">    tracker/deepsort/src/tracker.cpp</span><br><span class="line">    tracker/deepsort/src/munkres.cpp</span><br><span class="line">    tracker/deepsort/src/hungarianoper.cpp</span><br><span class="line">    </span><br><span class="line">    main.cpp)</span><br><span class="line"></span><br><span class="line"># 链接库 .a 静态 .so 动态库 等其它LIBS（编译生成的依赖库）——第三方库</span><br><span class="line">target_link_libraries(DeepSORT PRIVATE &quot;$&#123;ONNXRUNTIME_DIR&#125;/lib/libonnxruntime.so&quot; $&#123;OpenCV_LIBS&#125; Eigen3::Eigen)</span><br><span class="line"></span><br><span class="line"># --------------------------------------------------------------</span><br><span class="line">if(OpenCV_FOUND)</span><br><span class="line">    target_include_directories($&#123;name&#125; PRIVATE $&#123;OpenCV_INCLUDE_DIRS&#125;)</span><br><span class="line">    target_link_libraries($&#123;name&#125; PRIVATE ncnn $&#123;OpenCV_LIBS&#125;)</span><br><span class="line">elseif(NCNN_SIMPLEOCV)</span><br><span class="line">    target_compile_definitions($&#123;name&#125; PUBLIC USE_NCNN_SIMPLEOCV)</span><br><span class="line">    target_link_libraries($&#123;name&#125; PRIVATE ncnn)         </span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">cmake_minimum_required(VERSION 3.5)
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 类型别名</span><br><span class="line">using MATCH_DATA = std::pair&lt;int, int&gt;; </span><br></pre></td></tr></table></figure>
+project(DeepSORT LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# 找第三方依赖库
+find_package (Eigen3 3.3 REQUIRED NO_MODULE)
+set(ONNXRUNTIME_DIR &quot;&#x2F;home&#x2F;a&#x2F;lib&#x2F;onnxruntime-linux-x64-1.12.1&quot;)
+include_directories(&quot;$&#123;ONNXRUNTIME_DIR&#125;&#x2F;include&quot;)
+find_package(OpenCV 4 REQUIRED )
+
+# 将项目所有相关的.h加入
+include_directories(
+    $&#123;OpenCV_INCLUDE_DIRS&#125;&#x2F;include
+    $&#123;CMAKE_SOURCE_DIR&#125;&#x2F;tracker&#x2F;deepsort&#x2F;include
+    $&#123;CMAKE_SOURCE_DIR&#125;&#x2F;detector&#x2F;YOLOv5&#x2F;include
+    )
+
+# 将项目所有相关的。cpp加入
+add_executable(DeepSORT
+    detector&#x2F;YOLOv5&#x2F;src&#x2F;YOLOv5Detector.cpp
+
+    tracker&#x2F;deepsort&#x2F;src&#x2F;FeatureTensor.cpp
+    tracker&#x2F;deepsort&#x2F;src&#x2F;model.cpp
+    tracker&#x2F;deepsort&#x2F;src&#x2F;kalmanfilter.cpp
+    tracker&#x2F;deepsort&#x2F;src&#x2F;linear_assignment.cpp
+    tracker&#x2F;deepsort&#x2F;src&#x2F;nn_matching.cpp
+    tracker&#x2F;deepsort&#x2F;src&#x2F;track.cpp
+    tracker&#x2F;deepsort&#x2F;src&#x2F;tracker.cpp
+    tracker&#x2F;deepsort&#x2F;src&#x2F;munkres.cpp
+    tracker&#x2F;deepsort&#x2F;src&#x2F;hungarianoper.cpp
+    
+    main.cpp)
+
+# 链接库 .a 静态 .so 动态库 等其它LIBS（编译生成的依赖库）——第三方库
+target_link_libraries(DeepSORT PRIVATE &quot;$&#123;ONNXRUNTIME_DIR&#125;&#x2F;lib&#x2F;libonnxruntime.so&quot; $&#123;OpenCV_LIBS&#125; Eigen3::Eigen)
+
+# --------------------------------------------------------------
+if(OpenCV_FOUND)
+    target_include_directories($&#123;name&#125; PRIVATE $&#123;OpenCV_INCLUDE_DIRS&#125;)
+    target_link_libraries($&#123;name&#125; PRIVATE ncnn $&#123;OpenCV_LIBS&#125;)
+elseif(NCNN_SIMPLEOCV)
+    target_compile_definitions($&#123;name&#125; PUBLIC USE_NCNN_SIMPLEOCV)
+    target_link_libraries($&#123;name&#125; PRIVATE ncnn)         <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F; 类型别名
+using MATCH_DATA &#x3D; std::pair&lt;int, int&gt;; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <h2 id="cmake链接库"><a href="#cmake链接库" class="headerlink" title="cmake链接库"></a><strong>cmake链接库</strong></h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/binbinjx/p/5626916.html">cmake 添加头文件目录，链接动态、静态库</a></p>
 <p><img src="../images/Gdb-Cmake/image-20221226174707132.png" alt="image-20221226174707132"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">######################################################### 链接库开始 ###############################################################</span><br><span class="line"></span><br><span class="line"># 1，绝对路径方式</span><br><span class="line">#target_link_libraries(MyApp E:/cppTest/test1/lib/libutils.a)</span><br><span class="line"></span><br><span class="line"># 2，相对路径，使用相对路径必须先告诉从哪里链接，在这里调用link_directories()是无效的，只有在生成target之前调用才会有效</span><br><span class="line"># 在这里调用link_directories()是无效的，必须在生成可执行文件之前调用link_directories(),也就是在ADD_EXECUTABLE()之前调用</span><br><span class="line">#link_directories(E:/cppTest/test1/lib)</span><br><span class="line">#target_link_libraries(MyApp utils)</span><br><span class="line">#target_link_libraries(MyApp libutils.a)</span><br><span class="line">#message(STATUS &quot;LINK_DIRECTORIES = $&#123;LINK_DIRECTORIES&#125;&quot;)</span><br><span class="line"></span><br><span class="line"># 3，使用find_library()  </span><br><span class="line"># find_library (&lt;VAR&gt; name1 [path1 path2 ...])</span><br><span class="line">#find_library(LIB_UTILS utils E:/cppTest/test1/lib)</span><br><span class="line">#message(STATUS &quot;LIB_UTILS = $&#123;LIB_UTILS&#125;&quot;)</span><br><span class="line">#target_link_libraries(MyApp $&#123;LIB_UTILS&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 4，使用find_path()和find_library()类似,find_path()可以用来找任何文件</span><br><span class="line"># find_path (&lt;VAR&gt; name1 [path1 path2 ...])</span><br><span class="line">#find_path(LIB_UTILS_PATH libutils.a E:/cppTest/test1/lib)</span><br><span class="line">#message(STATUS &quot;LIB_UTILS_PATH = $&#123;LIB_UTILS_PATH&#125;&quot;)</span><br><span class="line">#target_link_libraries(MyApp $&#123;LIB_UTILS_PATH&#125;/libutils.a)</span><br><span class="line"></span><br><span class="line">#5，使用find_package(),这种需要先有模块，要么是系统提供的，要么是自己写的，本例中是自己写的Findutils.cmake</span><br><span class="line">#cmake提供的模块 D:\androidSDK\cmake\3.10.2.4988404\share\cmake-3.10\Modules下面</span><br><span class="line">#将自己写的自己写的Findutils.cmake设置到CMAKE_MODULE_PATH中</span><br><span class="line">set(CMAKE_MODULE_PATH $&#123;CMAKE_MODULE_PATH&#125; $&#123;PROJECT_SOURCE_DIR&#125;/cmake)</span><br><span class="line">find_package(utils)</span><br><span class="line">if(utils_FOUND)</span><br><span class="line">    # include_directories()作用是设置头文件的搜索路径</span><br><span class="line">    # 官方的解释：Add the given directories to those the compiler uses to search for include files</span><br><span class="line">    # utils_INCLUDE_DIR的值是在Findutils.cmake里面设置的</span><br><span class="line">    include_directories($&#123;utils_INCLUDE_DIR&#125;)</span><br><span class="line">    </span><br><span class="line">    #utils_LIBRARY的值是在Findutils.cmake里面设置的</span><br><span class="line">    target_link_libraries(MyApp $&#123;utils_LIBRARY&#125;)</span><br><span class="line">endif(utils_FOUND)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">######################################################### 链接库结束 ###############################################################</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">######################################################### 链接库开始 ###############################################################
+
+# 1，绝对路径方式
+#target_link_libraries(MyApp E:&#x2F;cppTest&#x2F;test1&#x2F;lib&#x2F;libutils.a)
+
+# 2，相对路径，使用相对路径必须先告诉从哪里链接，在这里调用link_directories()是无效的，只有在生成target之前调用才会有效
+# 在这里调用link_directories()是无效的，必须在生成可执行文件之前调用link_directories(),也就是在ADD_EXECUTABLE()之前调用
+#link_directories(E:&#x2F;cppTest&#x2F;test1&#x2F;lib)
+#target_link_libraries(MyApp utils)
+#target_link_libraries(MyApp libutils.a)
+#message(STATUS &quot;LINK_DIRECTORIES &#x3D; $&#123;LINK_DIRECTORIES&#125;&quot;)
+
+# 3，使用find_library()  
+# find_library (&lt;VAR&gt; name1 [path1 path2 ...])
+#find_library(LIB_UTILS utils E:&#x2F;cppTest&#x2F;test1&#x2F;lib)
+#message(STATUS &quot;LIB_UTILS &#x3D; $&#123;LIB_UTILS&#125;&quot;)
+#target_link_libraries(MyApp $&#123;LIB_UTILS&#125;)
+
+
+# 4，使用find_path()和find_library()类似,find_path()可以用来找任何文件
+# find_path (&lt;VAR&gt; name1 [path1 path2 ...])
+#find_path(LIB_UTILS_PATH libutils.a E:&#x2F;cppTest&#x2F;test1&#x2F;lib)
+#message(STATUS &quot;LIB_UTILS_PATH &#x3D; $&#123;LIB_UTILS_PATH&#125;&quot;)
+#target_link_libraries(MyApp $&#123;LIB_UTILS_PATH&#125;&#x2F;libutils.a)
+
+#5，使用find_package(),这种需要先有模块，要么是系统提供的，要么是自己写的，本例中是自己写的Findutils.cmake
+#cmake提供的模块 D:\androidSDK\cmake\3.10.2.4988404\share\cmake-3.10\Modules下面
+#将自己写的自己写的Findutils.cmake设置到CMAKE_MODULE_PATH中
+set(CMAKE_MODULE_PATH $&#123;CMAKE_MODULE_PATH&#125; $&#123;PROJECT_SOURCE_DIR&#125;&#x2F;cmake)
+find_package(utils)
+if(utils_FOUND)
+    # include_directories()作用是设置头文件的搜索路径
+    # 官方的解释：Add the given directories to those the compiler uses to search for include files
+    # utils_INCLUDE_DIR的值是在Findutils.cmake里面设置的
+    include_directories($&#123;utils_INCLUDE_DIR&#125;)
+    
+    #utils_LIBRARY的值是在Findutils.cmake里面设置的
+    target_link_libraries(MyApp $&#123;utils_LIBRARY&#125;)
+endif(utils_FOUND)
+
+
+######################################################### 链接库结束 ###############################################################
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><img src="../images/Gdb-Cmake/image-20221226174719034.png" alt="image-20221226174719034"></p>
 <p>​    cmake生成makefile之后，make edit_cache可以编辑编译选项。</p>
@@ -435,18 +539,74 @@ https://sqlpy.com/blogs/766226050
 </ul>
 </li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"># 设置cmake版本，如果cmake版本过高，可能会出现错误</span><br><span class="line">cmake_minimum_required(VERSION 3.5.1)</span><br><span class="line">project(NCNN_test)</span><br><span class="line"></span><br><span class="line"># 设置C++编译版本</span><br><span class="line">set(CMAKE_CXX_STANDARD 11)</span><br><span class="line"></span><br><span class="line"># 设置程序编译出的可执行文件</span><br><span class="line">set(MAIN_FILE main.cpp)</span><br><span class="line">set(EXECUTABLE_OUTPUT_PATH ../)</span><br><span class="line"></span><br><span class="line"># 分别设置ncnn的链接库和头文件</span><br><span class="line">set(NCNN_LIBS /ncnn/build/install/lib/libncnn.a)</span><br><span class="line">set(NCNN_INCLUDE_DIRS /ncnn/build/install/include)</span><br><span class="line"></span><br><span class="line"># 配置OpenMP</span><br><span class="line">find_package(OpenMP REQUIRED)</span><br><span class="line">if(OPENMP_FOUND)</span><br><span class="line">    message(&quot;OPENMP FOUND&quot;)</span><br><span class="line">    set(CMAKE_C_FLAGS &quot;$&#123;CMAKE_C_FLAGS&#125; $&#123;OpenMP_C_FLAGS&#125;&quot;)</span><br><span class="line">    set(CMAKE_CXX_FLAGS &quot;$&#123;CMAKE_CXX_FLAGS&#125; $&#123;OpenMP_CXX_FLAGS&#125;&quot;)</span><br><span class="line">    set(CMAKE_EXE_LINKER_FLAGS &quot;$&#123;CMAKE_EXE_LINKER_FLAGS&#125; $&#123;OpenMP_EXE_LINKER_FLAGS&#125;&quot;)</span><br><span class="line">endif()</span><br><span class="line"></span><br><span class="line"># 配置OpenCV</span><br><span class="line">find_package(OpenCV REQUIRED)</span><br><span class="line">include_directories($&#123;OpenCV_INCLUDE_DIRS&#125;)</span><br><span class="line"></span><br><span class="line">include_directories($&#123;NCNN_INCLUDE_DIRS&#125;)</span><br><span class="line"></span><br><span class="line"># 建立链接依赖</span><br><span class="line">add_executable(NCNN main.cpp)</span><br><span class="line">target_link_libraries(NCNN $&#123;NCNN_LIBS&#125;)</span><br><span class="line">target_link_libraries(NCNN $&#123;OpenCV_LIBS&#125;)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none"># 设置cmake版本，如果cmake版本过高，可能会出现错误
+cmake_minimum_required(VERSION 3.5.1)
+project(NCNN_test)
+
+# 设置C++编译版本
+set(CMAKE_CXX_STANDARD 11)
+
+# 设置程序编译出的可执行文件
+set(MAIN_FILE main.cpp)
+set(EXECUTABLE_OUTPUT_PATH ..&#x2F;)
+
+# 分别设置ncnn的链接库和头文件
+set(NCNN_LIBS &#x2F;ncnn&#x2F;build&#x2F;install&#x2F;lib&#x2F;libncnn.a)
+set(NCNN_INCLUDE_DIRS &#x2F;ncnn&#x2F;build&#x2F;install&#x2F;include)
+
+# 配置OpenMP
+find_package(OpenMP REQUIRED)
+if(OPENMP_FOUND)
+    message(&quot;OPENMP FOUND&quot;)
+    set(CMAKE_C_FLAGS &quot;$&#123;CMAKE_C_FLAGS&#125; $&#123;OpenMP_C_FLAGS&#125;&quot;)
+    set(CMAKE_CXX_FLAGS &quot;$&#123;CMAKE_CXX_FLAGS&#125; $&#123;OpenMP_CXX_FLAGS&#125;&quot;)
+    set(CMAKE_EXE_LINKER_FLAGS &quot;$&#123;CMAKE_EXE_LINKER_FLAGS&#125; $&#123;OpenMP_EXE_LINKER_FLAGS&#125;&quot;)
+endif()
+
+# 配置OpenCV
+find_package(OpenCV REQUIRED)
+include_directories($&#123;OpenCV_INCLUDE_DIRS&#125;)
+
+include_directories($&#123;NCNN_INCLUDE_DIRS&#125;)
+
+# 建立链接依赖
+add_executable(NCNN main.cpp)
+target_link_libraries(NCNN $&#123;NCNN_LIBS&#125;)
+target_link_libraries(NCNN $&#123;OpenCV_LIBS&#125;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h1 id="macro和function"><a href="#macro和function" class="headerlink" title="macro和function"></a><strong>macro和function</strong></h1><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/Braveliu/p/15621973.html">https://www.cnblogs.com/Braveliu/p/15621973.html</a></p>
 <p><img src="../images/Gdb-Cmake/image-20221226174754481.png" alt="image-20221226174754481"></p>
 <p>区别：</p>
 <p><img src="../images/Gdb-Cmake/image-20221226174803567.png" alt="image-20221226174803567"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function（）</span><br><span class="line">    &lt;&gt;</span><br><span class="line">endfunction</span><br><span class="line"></span><br><span class="line">message(STATUS &quot;ARGV: $&#123;ARGV&#125;&quot;)</span><br><span class="line">message(WARNING &quot;NCNN_PIXEL not enabled, examples won&#x27;t be built&quot;)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">function（）
+    &lt;&gt;
+endfunction
+
+message(STATUS &quot;ARGV: $&#123;ARGV&#125;&quot;)
+message(WARNING &quot;NCNN_PIXEL not enabled, examples won&#39;t be built&quot;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h1 id="链接库"><a href="#链接库" class="headerlink" title="链接库"></a><strong>链接库</strong></h1><p>LINK_DIRECTORIES(“/home/mingjie/projects/ncnn_debug”) 链接库所在的目录路径</p>
 <p>+</p>
 <p>target_link_libraries(${name} PUBLIC ${SHM_LIBS}) 链接路径下库的名称       </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">set(SHM_LIBS libutils.a)</span><br><span class="line"></span><br><span class="line">macro(ncnn_add_example name)</span><br><span class="line">    LINK_DIRECTORIES(&quot;/home/mingjie/projects/ncnn_debug&quot;)</span><br><span class="line">    </span><br><span class="line">    add_executable($&#123;name&#125; $&#123;name&#125;.cpp)</span><br><span class="line">    if(OpenCV_FOUND)</span><br><span class="line">        target_include_directories($&#123;name&#125; PRIVATE $&#123;OpenCV_INCLUDE_DIRS&#125;)</span><br><span class="line">        target_link_libraries($&#123;name&#125; PRIVATE ncnn $&#123;OpenCV_LIBS&#125;)</span><br><span class="line">    elseif(NCNN_SIMPLEOCV)</span><br><span class="line">        target_compile_definitions($&#123;name&#125; PUBLIC USE_NCNN_SIMPLEOCV)</span><br><span class="line">        target_link_libraries($&#123;name&#125; PRIVATE ncnn)</span><br><span class="line">    endif()</span><br><span class="line"></span><br><span class="line">    target_link_libraries($&#123;name&#125; PUBLIC $&#123;SHM_LIBS&#125;)</span><br><span class="line"></span><br><span class="line">    # add test to a virtual project group</span><br><span class="line">    set_property(TARGET $&#123;name&#125; PROPERTY FOLDER &quot;examples&quot;)</span><br><span class="line">endmacro()</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">set(SHM_LIBS libutils.a)
+
+macro(ncnn_add_example name)
+    LINK_DIRECTORIES(&quot;&#x2F;home&#x2F;mingjie&#x2F;projects&#x2F;ncnn_debug&quot;)
+    
+    add_executable($&#123;name&#125; $&#123;name&#125;.cpp)
+    if(OpenCV_FOUND)
+        target_include_directories($&#123;name&#125; PRIVATE $&#123;OpenCV_INCLUDE_DIRS&#125;)
+        target_link_libraries($&#123;name&#125; PRIVATE ncnn $&#123;OpenCV_LIBS&#125;)
+    elseif(NCNN_SIMPLEOCV)
+        target_compile_definitions($&#123;name&#125; PUBLIC USE_NCNN_SIMPLEOCV)
+        target_link_libraries($&#123;name&#125; PRIVATE ncnn)
+    endif()
+
+    target_link_libraries($&#123;name&#125; PUBLIC $&#123;SHM_LIBS&#125;)
+
+    # add test to a virtual project group
+    set_property(TARGET $&#123;name&#125; PROPERTY FOLDER &quot;examples&quot;)
+endmacro()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><img src="../images/Gdb-Cmake/image-20221226174825513.png" alt="image-20221226174825513"></p>
 <p><img src="../images/Gdb-Cmake/image-20221226174830232.png" alt="image-20221226174830232"></p>
@@ -459,13 +619,60 @@ https://sqlpy.com/blogs/766226050
 <p><img src="../images/Gdb-Cmake/image-20221226174918477.png" alt="image-20221226174918477"></p>
 <p><img src="../images/Gdb-Cmake/image-20221226174921351.png" alt="image-20221226174921351"></p>
 <h1 id="cmake-管理debug-release"><a href="#cmake-管理debug-release" class="headerlink" title="cmake 管理debug release"></a><strong>cmake 管理debug release</strong></h1><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/116953293">https://zhuanlan.zhihu.com/p/116953293</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cmake .. -DCMAKE_BUILD_TYPE=Debug</span><br><span class="line">cmake .. -DCMAKE_BUILD_TYPE=Release</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">cmake .. -DCMAKE_BUILD_TYPE&#x3D;Debug
+cmake .. -DCMAKE_BUILD_TYPE&#x3D;Release<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p><img src="../images/Gdb-Cmake/image-20221226174932640.png" alt="image-20221226174932640"></p>
 <h1 id="cmake-配置模板"><a href="#cmake-配置模板" class="headerlink" title="cmake 配置模板"></a><strong>cmake 配置模板</strong></h1><p><a target="_blank" rel="noopener" href="http://wuhongyi.cn/CodeProject/cmake/CmakeNote1.html">http://wuhongyi.cn/CodeProject/cmake/CmakeNote1.html</a></p>
 <p><img src="../images/Gdb-Cmake/image-20221226175000415.png" alt="image-20221226175000415"></p>
 <h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a><strong>应用</strong></h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/ailumiyana/p/10721123.html">https://www.cnblogs.com/ailumiyana/p/10721123.html</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">cmake_minimum_required(VERSION 3.5.1)</span><br><span class="line">project(NANO_TRACKING)</span><br><span class="line"></span><br><span class="line">set(CMAKE_CXX_STANDARD 11)</span><br><span class="line"></span><br><span class="line">set(NCNN_LIBS /home/infer_framework_docker/ncnn/build/install/lib/libncnn.a) # 在哪编译路径就在哪，不能copy</span><br><span class="line">set(NCNN_INCLUDE_DIRS /home/infer_framework_docker/ncnn/build/install/include/ncnn)</span><br><span class="line"></span><br><span class="line">find_package(OpenCV REQUIRED)</span><br><span class="line">if(OpenCV_FOUND)</span><br><span class="line">    message(STATUS &quot;OpenCV library: $&#123;OpenCV_INSTALL_PATH&#125;&quot;)</span><br><span class="line">    message(STATUS &quot;    version: $&#123;OpenCV_VERSION&#125;&quot;)</span><br><span class="line">    message(STATUS &quot;    libraries: $&#123;OpenCV_LIBS&#125;&quot;)</span><br><span class="line">    message(STATUS &quot;    include path: $&#123;OpenCV_INCLUDE_DIRS&#125;&quot;)</span><br><span class="line">endif()</span><br><span class="line"></span><br><span class="line">find_package(Eigen3 3.3 REQUIRED)</span><br><span class="line">if(Eigen3_FOUND)</span><br><span class="line">    message(STATUS &quot;Eigen3 library: $&#123;Eigen3_INSTALL_PATH&#125;&quot;)</span><br><span class="line">    message(STATUS &quot;    version: $&#123;Eigen3_VERSION&#125;&quot;)</span><br><span class="line">    message(STATUS &quot;    libraries: $&#123;Eigen3_LIBS&#125;&quot;)</span><br><span class="line">    message(STATUS &quot;    include path: $&#123;Eigen3_INCLUDE_DIRS&#125;&quot;)</span><br><span class="line">endif()</span><br><span class="line"></span><br><span class="line">find_package(OpenMP REQUIRED)</span><br><span class="line">if(OPENMP_FOUND)</span><br><span class="line">    message(&quot;OPENMP FOUND&quot;)</span><br><span class="line">    set(CMAKE_C_FLAGS &quot;$&#123;CMAKE_C_FLAGS&#125; $&#123;OpenMP_C_FLAGS&#125;&quot;)</span><br><span class="line">    set(CMAKE_CXX_FLAGS &quot;$&#123;CMAKE_CXX_FLAGS&#125; $&#123;OpenMP_CXX_FLAGS&#125;&quot;)</span><br><span class="line">    set(CMAKE_EXE_LINKER_FLAGS &quot;$&#123;CMAKE_EXE_LINKER_FLAGS&#125; $&#123;OpenMP_EXE_LINKER_FLAGS&#125;&quot;)</span><br><span class="line">endif()</span><br><span class="line"></span><br><span class="line">include_directories($&#123;OpenCV_INCLUDE_DIRS&#125;)</span><br><span class="line">include_directories($&#123;NCNN_INCLUDE_DIRS&#125;)</span><br><span class="line">include_directories(include)</span><br><span class="line"></span><br><span class="line">add_executable(NANO_TRACKING </span><br><span class="line">    src/BYTETracker.cpp</span><br><span class="line">    src/kalmanFilter.cpp</span><br><span class="line">    src/lapjv.cpp</span><br><span class="line">    src/STrack.cpp</span><br><span class="line">    src/utils.cpp</span><br><span class="line">    src/nanodet.cpp</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">target_link_libraries(NANO_TRACKING $&#123;OpenCV_LIBS&#125;)</span><br><span class="line">target_link_libraries(NANO_TRACKING $&#123;NCNN_LIBS&#125;)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">cmake_minimum_required(VERSION 3.5.1)
+project(NANO_TRACKING)
+
+set(CMAKE_CXX_STANDARD 11)
+
+set(NCNN_LIBS &#x2F;home&#x2F;infer_framework_docker&#x2F;ncnn&#x2F;build&#x2F;install&#x2F;lib&#x2F;libncnn.a) # 在哪编译路径就在哪，不能copy
+set(NCNN_INCLUDE_DIRS &#x2F;home&#x2F;infer_framework_docker&#x2F;ncnn&#x2F;build&#x2F;install&#x2F;include&#x2F;ncnn)
+
+find_package(OpenCV REQUIRED)
+if(OpenCV_FOUND)
+    message(STATUS &quot;OpenCV library: $&#123;OpenCV_INSTALL_PATH&#125;&quot;)
+    message(STATUS &quot;    version: $&#123;OpenCV_VERSION&#125;&quot;)
+    message(STATUS &quot;    libraries: $&#123;OpenCV_LIBS&#125;&quot;)
+    message(STATUS &quot;    include path: $&#123;OpenCV_INCLUDE_DIRS&#125;&quot;)
+endif()
+
+find_package(Eigen3 3.3 REQUIRED)
+if(Eigen3_FOUND)
+    message(STATUS &quot;Eigen3 library: $&#123;Eigen3_INSTALL_PATH&#125;&quot;)
+    message(STATUS &quot;    version: $&#123;Eigen3_VERSION&#125;&quot;)
+    message(STATUS &quot;    libraries: $&#123;Eigen3_LIBS&#125;&quot;)
+    message(STATUS &quot;    include path: $&#123;Eigen3_INCLUDE_DIRS&#125;&quot;)
+endif()
+
+find_package(OpenMP REQUIRED)
+if(OPENMP_FOUND)
+    message(&quot;OPENMP FOUND&quot;)
+    set(CMAKE_C_FLAGS &quot;$&#123;CMAKE_C_FLAGS&#125; $&#123;OpenMP_C_FLAGS&#125;&quot;)
+    set(CMAKE_CXX_FLAGS &quot;$&#123;CMAKE_CXX_FLAGS&#125; $&#123;OpenMP_CXX_FLAGS&#125;&quot;)
+    set(CMAKE_EXE_LINKER_FLAGS &quot;$&#123;CMAKE_EXE_LINKER_FLAGS&#125; $&#123;OpenMP_EXE_LINKER_FLAGS&#125;&quot;)
+endif()
+
+include_directories($&#123;OpenCV_INCLUDE_DIRS&#125;)
+include_directories($&#123;NCNN_INCLUDE_DIRS&#125;)
+include_directories(include)
+
+add_executable(NANO_TRACKING 
+    src&#x2F;BYTETracker.cpp
+    src&#x2F;kalmanFilter.cpp
+    src&#x2F;lapjv.cpp
+    src&#x2F;STrack.cpp
+    src&#x2F;utils.cpp
+    src&#x2F;nanodet.cpp
+    )
+
+target_link_libraries(NANO_TRACKING $&#123;OpenCV_LIBS&#125;)
+target_link_libraries(NANO_TRACKING $&#123;NCNN_LIBS&#125;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -711,6 +918,9 @@ https://sqlpy.com/blogs/766226050
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/ai_mj/libs/codeBlock/codeBlockFuction.js"></script>
 
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/ai_mj/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->
