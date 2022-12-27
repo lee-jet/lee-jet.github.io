@@ -408,7 +408,7 @@ https://sqlpy.com/blogs/766226050
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p><a target="_blank" rel="noopener" href="http://wuhongyi.cn/CodeProject/CodeProjectManual.html"><strong>http://wuhongyi.cn/CodeProject/CodeProjectManual.html</strong></a></p>
-<h1 id="g-编译添加路径"><a href="#g-编译添加路径" class="headerlink" title="g++编译添加路径"></a><strong>g++编译添加路径</strong></h1><p><img src="../images/Gdb-Cmake/image-20221226174609836.png" alt="image-20221226174609836"></p>
+<h1 id="g-编译添加路径"><a href="#g-编译添加路径" class="headerlink" title="g++编译添加路径"></a><strong>g++编译添加路径</strong></h1><p><img src="/images/Gdb-Cmake/image-20221226174609836.png" alt="image-20221226174609836"></p>
 <p>cmake debug</p>
 <p><a target="_blank" rel="noopener" href="https://sqlpy.com/blogs/766226050">https://sqlpy.com/blogs/766226050</a></p>
 <pre class="line-numbers language-none"><code class="language-none"># step 1 在CMakeLists.txt中添加下列3行即可 或者 运行cmake .. -DCMAKE_BUILD_TYPE&#x3D;Debug
@@ -426,7 +426,7 @@ gdb  yolov7
 输入layout 按ctrl+x 按 1
 先打断点b 然后运行 run $1 （输入传参）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="../images/Gdb-Cmake/image-20221226174632129.png" alt="image-20221226174632129"></p>
+<p><img src="/images/Gdb-Cmake/image-20221226174632129.png" alt="image-20221226174632129"></p>
 <h1 id="CMakeLists-txt-模板"><a href="#CMakeLists-txt-模板" class="headerlink" title="CMakeLists.txt 模板"></a><strong>CMakeLists.txt 模板</strong></h1><p><a target="_blank" rel="noopener" href="https://github.com/shaoshengsong/DeepSORT/blob/master/CMakeLists.txt">https://github.com/shaoshengsong/DeepSORT/blob/master/CMakeLists.txt</a></p>
 <pre class="line-numbers language-none"><code class="language-none">cmake_minimum_required(VERSION 3.5)
 
@@ -479,7 +479,7 @@ elseif(NCNN_SIMPLEOCV)
 using MATCH_DATA &#x3D; std::pair&lt;int, int&gt;; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <h2 id="cmake链接库"><a href="#cmake链接库" class="headerlink" title="cmake链接库"></a><strong>cmake链接库</strong></h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/binbinjx/p/5626916.html">cmake 添加头文件目录，链接动态、静态库</a></p>
-<p><img src="../images/Gdb-Cmake/image-20221226174707132.png" alt="image-20221226174707132"></p>
+<p><img src="/images/Gdb-Cmake/image-20221226174707132.png" alt="image-20221226174707132"></p>
 <pre class="line-numbers language-none"><code class="language-none">######################################################### 链接库开始 ###############################################################
 
 # 1，绝对路径方式
@@ -524,20 +524,12 @@ endif(utils_FOUND)
 ######################################################### 链接库结束 ###############################################################
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="../images/Gdb-Cmake/image-20221226174719034.png" alt="image-20221226174719034"></p>
+<p><img src="/images/Gdb-Cmake/image-20221226174719034.png" alt="image-20221226174719034"></p>
 <p>​    cmake生成makefile之后，make edit_cache可以编辑编译选项。</p>
 <h1 id="cmake-grammer"><a href="#cmake-grammer" class="headerlink" title="cmake grammer"></a><strong>cmake grammer</strong></h1><ul>
-<li><ul>
-<li><p>CMakeLists.txt 语法介绍与实例演练 <a target="_blank" rel="noopener" href="https://blog.csdn.net/afei__/article/details/81201039">https://blog.csdn.net/afei__/article/details/81201039</a></p>
-</li>
-<li><ul>
+<li>CMakeLists.txt 语法介绍与实例演练 <a target="_blank" rel="noopener" href="https://blog.csdn.net/afei__/article/details/81201039">https://blog.csdn.net/afei__/article/details/81201039</a></li>
 <li><strong>命名必须是 CMakeLists.txt，注意大小写和不要漏字母</strong></li>
-</ul>
-</li>
-<li><p><a target="_blank" rel="noopener" href="http://wuhongyi.cn/CodeProject/cmake/cmake.html">http://wuhongyi.cn/CodeProject/cmake/cmake.html</a></p>
-</li>
-</ul>
-</li>
+<li><a target="_blank" rel="noopener" href="http://wuhongyi.cn/CodeProject/cmake/cmake.html">http://wuhongyi.cn/CodeProject/cmake/cmake.html</a></li>
 </ul>
 <pre class="line-numbers language-none"><code class="language-none"># 设置cmake版本，如果cmake版本过高，可能会出现错误
 cmake_minimum_required(VERSION 3.5.1)
@@ -575,7 +567,7 @@ target_link_libraries(NCNN $&#123;NCNN_LIBS&#125;)
 target_link_libraries(NCNN $&#123;OpenCV_LIBS&#125;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h1 id="macro和function"><a href="#macro和function" class="headerlink" title="macro和function"></a><strong>macro和function</strong></h1><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/Braveliu/p/15621973.html">https://www.cnblogs.com/Braveliu/p/15621973.html</a></p>
-<p><img src="../images/Gdb-Cmake/image-20221226174754481.png" alt="image-20221226174754481"></p>
+<p><img src="/images/Gdb-Cmake/image-20221226174754481.png" alt="image-20221226174754481"></p>
 <p>区别：</p>
 <p><img src="../images/Gdb-Cmake/image-20221226174803567.png" alt="image-20221226174803567"></p>
 <pre class="line-numbers language-none"><code class="language-none">function（）
@@ -608,14 +600,14 @@ macro(ncnn_add_example name)
     set_property(TARGET $&#123;name&#125; PROPERTY FOLDER &quot;examples&quot;)
 endmacro()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="../images/Gdb-Cmake/image-20221226174825513.png" alt="image-20221226174825513"></p>
+<p><img src="/images/Gdb-Cmake/image-20221226174825513.png" alt="image-20221226174825513"></p>
 <p><img src="../images/Gdb-Cmake/image-20221226174830232.png" alt="image-20221226174830232"></p>
 <h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a><strong>语法</strong></h1><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903558861553672">https://juejin.cn/post/6844903558861553672</a></p>
 <p><a target="_blank" rel="noopener" href="http://wuhongyi.cn/CodeProject/cmake/cmake.html">http://wuhongyi.cn/CodeProject/cmake/cmake.html</a></p>
-<p><img src="../images/Gdb-Cmake/image-20221226174903037.png" alt="image-20221226174903037"></p>
+<p><img src="/images/Gdb-Cmake/image-20221226174903037.png" alt="image-20221226174903037"></p>
 <p><img src="../images/Gdb-Cmake/image-20221226174844283.png"></p>
 <p><img src="../images/Gdb-Cmake/image-20221226174857542.png" alt="image-20221226174857542"></p>
-<h1 id="cmake：option选项"><a href="#cmake：option选项" class="headerlink" title="cmake：option选项"></a><strong>cmake：option选项</strong></h1><p><img src="../images/Gdb-Cmake/image-20221226174914206.png" alt="image-20221226174914206"></p>
+<h1 id="cmake：option选项"><a href="#cmake：option选项" class="headerlink" title="cmake：option选项"></a><strong>cmake：option选项</strong></h1><p><img src="/images/Gdb-Cmake/image-20221226174914206.png" alt="image-20221226174914206"></p>
 <p><img src="../images/Gdb-Cmake/image-20221226174918477.png" alt="image-20221226174918477"></p>
 <p><img src="../images/Gdb-Cmake/image-20221226174921351.png" alt="image-20221226174921351"></p>
 <h1 id="cmake-管理debug-release"><a href="#cmake-管理debug-release" class="headerlink" title="cmake 管理debug release"></a><strong>cmake 管理debug release</strong></h1><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/116953293">https://zhuanlan.zhihu.com/p/116953293</a></p>
@@ -624,7 +616,7 @@ cmake .. -DCMAKE_BUILD_TYPE&#x3D;Release<span aria-hidden="true" class="line-num
 
 <p><img src="../images/Gdb-Cmake/image-20221226174932640.png" alt="image-20221226174932640"></p>
 <h1 id="cmake-配置模板"><a href="#cmake-配置模板" class="headerlink" title="cmake 配置模板"></a><strong>cmake 配置模板</strong></h1><p><a target="_blank" rel="noopener" href="http://wuhongyi.cn/CodeProject/cmake/CmakeNote1.html">http://wuhongyi.cn/CodeProject/cmake/CmakeNote1.html</a></p>
-<p><img src="../images/Gdb-Cmake/image-20221226175000415.png" alt="image-20221226175000415"></p>
+<p><img src="/images/Gdb-Cmake/image-20221226175000415.png" alt="image-20221226175000415"></p>
 <h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a><strong>应用</strong></h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/ailumiyana/p/10721123.html">https://www.cnblogs.com/ailumiyana/p/10721123.html</a></p>
 <pre class="line-numbers language-none"><code class="language-none">cmake_minimum_required(VERSION 3.5.1)
 project(NANO_TRACKING)
