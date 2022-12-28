@@ -6,7 +6,7 @@
   <link href="https://lee-jet.github.io/atom.xml" rel="self"/>
   
   <link href="https://lee-jet.github.io/"/>
-  <updated>2022-12-28T08:31:42.665Z</updated>
+  <updated>2022-12-28T08:37:24.944Z</updated>
   <id>https://lee-jet.github.io/</id>
   
   <author>
@@ -21,12 +21,16 @@
     <link href="https://lee-jet.github.io/2022/12/28/project-demos/"/>
     <id>https://lee-jet.github.io/2022/12/28/project-demos/</id>
     <published>2022-12-28T07:52:44.000Z</published>
-    <updated>2022-12-28T08:31:42.665Z</updated>
+    <updated>2022-12-28T08:37:24.944Z</updated>
     
-    <content type="html"><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，您输入的密码错误，请检查后重新输入。" data-whm="抱歉, 当前文章不能被校验, 不过您还是可以看看解密后的内容。">  <script id="hbeData" type="hbeData" data-hmacdigest="4b2cd38b73d904df304446015288cf33ecbd73143280d174af509d0c79176a18">1c6e2bd29e8f4696dc1bb87bea0460559eb6949c554ef59a183cb365f14fce144dabefb896c683e3537751f68df5b0cff492ef249f230b7c1fa45e311543c233dd9041bdc174d591ba46df17b5959e1fd31c46991c08c949d18d6d027c8947097f780f5c7bfa093178d5b75d18a41abb395c0cd2974a1758741cce0dd57131547ec9883a35f66006711bf10dfa67bca45b2acdd8a8024b12bea6b5c8298191312574b0b12d5cc59f427007d3a2908f3c14e47a71bdd61e6d874d2440f84ae91cf5644e4d530e2cd9d2813cdbb26b551fc8138b502f5fc8f6a7c3ed1883015ef8de362b143423eeec8f1afa519956f5398024fc66d38637d3c1169a560d3e918a3124375b6e80eaee1b5d1de3ba07d9a485ff19d9989c85177616728bf854a98f349c584a81118aa3567c238ec14b0ed7a79c0ed0e1adf3d1c46606d8fc5d12f6aa2eab4310c0bd54c4832ad0020bbd6431e8b45e5afa97200633198f8c868b0c141eab3620f6438831537265439f2711a2ab251dd1461096e0ab3c3d4a7199cf2d4da3882029d007264e69ec406d60d06ecb5dbf32dd66e12cd3aba45bccac35fbe4628fc71baed026c04afecf52544e281d53042320558aebe826b97194ec7fb1b588489f205d3d7b9d63463e9b7d642fd70301b93bd3dab5fc8321ea08c65f215fd1ce02a2628142bad7dfd8ab427517a9c0565eb9b3b2e904a59399327415b433ba5e6d43b69d073dcb33a95c2c1b5306180b38a32fd52420d9abdcc3c1ef60ea2c03da1e9267ba5b14faf9b1f4cab46111a49a226504774397bf1ad0c3be535b6df5b071f061c0b705089ab6cafad5ad868ca43b4210a30fb7e4186d6265db1fdbab5cd0c52306350239f9c88a1efcb65ea80ae7d07bf115bf4a6f782fbee61ec592c2a0fe792533a6fc65144cf7123f83f72337d3afe056d9caa9c3ca98e8fea0ef2a2e676334e0855b7834a7855e18f54005027f473c55d68817cfa75cd2b978478fc09ad061c529d55de67c298217ee139fe25bda1cd7eb323b39f8d1b93983e4c9cf31e2ebdf46856593d8400029967e67764d1308b9e10ab06aff76ce9c5ea186c27a22aaa664185a4c2d312b5eafd609041662a164b38a28e4fe6fbfa5ba5488f7c440b8cdbf647a4779285392e73c9eca43a685695b1417c2efb3e686a9d4bc1cc11c0843806cb26a57c857fc05d9d3c0d5afca1c27a0847115d49761d85c80a3b3eb5472ac4e6d67c71e4b2359f335a7ec5e4643f925444c3d236ff05452f7aad12ca2090d0c4951d9245905fbb08552c9130ae1ff2431838bb01879273ae32ae7f1b2525396240b227b</script>  <div class="hbe hbe-content">    <div class="hbe hbe-input hbe-input-default">      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">        <span class="hbe hbe-input-label-content hbe-input-label-content-default">当前文章暂不对外可见，请输入密码后查看！</span>      </label>    </div>  </div></div><script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+    <content type="html"><![CDATA[<h2 id="Project-demo-list"><a href="#Project-demo-list" class="headerlink" title="Project demo list"></a>Project demo list</h2><ul><li><p>Demo 1 Head Pose Retrieval</p></li><li><p>Demo 2 Hair Warpping</p></li><li><p>Demo 3 Hair Swapping</p></li><li><p>Demo 4 Human Generation</p></li><li><p>Demo 5 Cloth Simulation and Wrinkle Generation</p></li><li><p>Demo 6 Virtual Try-on</p></li><li><p>Demo 7 6D Pose Estimation</p></li><li><p>Demo 8 Object Detection</p></li><li><p>Demo 9 Collar Try-on Project</p></li></ul><h2 id="Shared-links"><a href="#Shared-links" class="headerlink" title="Shared links"></a>Shared links</h2><p>​    <a href="https://note.youdao.com/s/GYrZBXPx">https://note.youdao.com/s/GYrZBXPx</a></p><h2 id="QR-Code"><a href="#QR-Code" class="headerlink" title="QR Code"></a>QR Code</h2><p><img src="/images/project-demos/project%20demos.png" alt="project demos"></p>]]></content>
     
     
-    <summary type="html">这是一篇加密文章，需要密码才能继续阅读。</summary>
+      
+      
+    <summary type="html">&lt;h2 id=&quot;Project-demo-list&quot;&gt;&lt;a href=&quot;#Project-demo-list&quot; class=&quot;headerlink&quot; title=&quot;Project demo list&quot;&gt;&lt;/a&gt;Project demo list&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;D</summary>
+      
     
     
     
