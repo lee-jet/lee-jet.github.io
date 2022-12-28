@@ -6,7 +6,7 @@
   <link href="https://lee-jet.github.io/atom.xml" rel="self"/>
   
   <link href="https://lee-jet.github.io/"/>
-  <updated>2022-12-28T07:48:03.022Z</updated>
+  <updated>2022-12-28T08:00:25.145Z</updated>
   <id>https://lee-jet.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>project_demos</title>
+    <link href="https://lee-jet.github.io/2022/12/28/project-demos/"/>
+    <id>https://lee-jet.github.io/2022/12/28/project-demos/</id>
+    <published>2022-12-28T07:52:44.000Z</published>
+    <updated>2022-12-28T08:00:25.145Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Project-demos"><a href="#Project-demos" class="headerlink" title="Project demos"></a>Project demos</h1><ul><li><p>Demo 1 Head Pose Retrieval</p></li><li><p>Demo 2 Hair Warpping</p></li><li><p>Demo 3 Hair Swapping</p></li><li><p>Demo 4 Human Generation</p></li><li><p>Demo 5 Cloth Simulation and Wrinkle Generation</p></li><li><p>Demo 6 Virtual Try-on</p></li><li><p>Demo 7 6D Pose Estimation</p></li><li><p>Demo 8 Object Detection</p></li><li><p>Demo 9 Collar Try-on Project</p></li></ul><h2 id="Links"><a href="#Links" class="headerlink" title="Links:"></a>Links:</h2><p>​    <a href="https://note.youdao.com/s/GYrZBXPx">https://note.youdao.com/s/GYrZBXPx</a></p><h2 id="QR-Code"><a href="#QR-Code" class="headerlink" title="QR Code:"></a>QR Code:</h2><p><img src="/images/project-demos/project%20demos.png" alt="project demos"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Project-demos&quot;&gt;&lt;a href=&quot;#Project-demos&quot; class=&quot;headerlink&quot; title=&quot;Project demos&quot;&gt;&lt;/a&gt;Project demos&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Demo 1 Head Pose </summary>
+      
+    
+    
+    
+    
+    <category term="demos" scheme="https://lee-jet.github.io/tags/demos/"/>
+    
+  </entry>
   
   <entry>
     <title>CV-Tools-2</title>
