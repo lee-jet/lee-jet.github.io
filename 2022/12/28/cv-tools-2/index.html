@@ -4,8 +4,13 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="分类, Jet&#39; Blog">
-    <meta name="description" content="Fire">
+    <meta name="keywords" content="CV-Tools-2, Jet&#39; Blog">
+    <meta name="description" content="ffmpeg安装
+https://nicehuster.github.io/2020/03/26/ffmpeg/
+
+https://blog.51cto.com/fengyuzaitu/2801172
+
+installation https">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +22,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>分类 | Jet&#39; Blog</title>
+    <title>CV-Tools-2 | Jet&#39; Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -335,12 +340,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">categories</h1>
+                    <h1 class="description center-align post-title">CV-Tools-2</h1>
                 </div>
             </div>
         </div>
@@ -376,7 +381,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-12-27
+                    2022-12-28
                 </div>
                 
 
@@ -400,7 +405,33 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="ffmpeg"><a href="#ffmpeg" class="headerlink" title="ffmpeg"></a><strong>ffmpeg</strong></h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ul>
+<li><p><a target="_blank" rel="noopener" href="https://nicehuster.github.io/2020/03/26/ffmpeg/">https://nicehuster.github.io/2020/03/26/ffmpeg/</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.51cto.com/fengyuzaitu/2801172">https://blog.51cto.com/fengyuzaitu/2801172</a></p>
+</li>
+<li><p>installation <a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1711770">https://cloud.tencent.com/developer/article/1711770</a></p>
+</li>
+</ul>
+<p><img src="/images/CV-Tools/image-20221226161040957.png" alt="image-20221226161040957"></p>
+<h2 id="合成视频"><a href="#合成视频" class="headerlink" title="合成视频"></a><strong>合成视频</strong></h2><pre class="line-numbers language-none"><code class="language-none"># img2video
+ffmpeg -r 24 -f image2 -i cur_frame_%d.jpg out.mp4
+ffmpeg  -threads 2 -y -r 1 -f image2 -i cur_frame_%d.jpg -r 24 -vcodec mpeg4 -b:v 6000k out.mp4
+ 
+# video2gif
+ffmpeg -ss 00:00:00.000 -i out.mp4 -pix_fmt rgb24 -r 30 -s 320x240  output.gif
+
+# mp4 to yuv
+ffmpeg -i Walkers.mp4 Walkers.yuv -pix_fmt yuv420p -s 1280x760
+
+# format
+-pix_fmt yuv420p
+-pix_fmt nv12
+-pix_fmt rgb24<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="/images/CV-Tools/image-20221226161710984.png" alt="image-20221226161710984"></p>
+<p><img src="/images/CV-Tools/image-20221226161714980.png" alt="image-20221226161714980"></p>
+
                 
             </div>
             <hr/>
@@ -426,7 +457,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lee-jet.github.io/categories/index-1.html">https://lee-jet.github.io/categories/index-1.html</a>
+                    <a href="https://lee-jet.github.io/2022/12/28/cv-tools-2/">https://lee-jet.github.io/2022/12/28/cv-tools-2/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -539,7 +570,7 @@
         repo: 'gitalk',
         owner: 'lee-jet',
         admin: "lee-jet",
-        id: '2022-12-27T17-09-56',
+        id: '2022-12-28T15-47-43',
         distractionFreeMode: false,  // Facebook-like distraction free mode
     });
 
@@ -572,13 +603,13 @@
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/categories/index-1.html">
+                <a href="/2022/12/28/cv-tools-2/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="categories">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="CV-Tools-2">
                         
-                        <span class="card-title">categories</span>
+                        <span class="card-title">CV-Tools-2</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -589,7 +620,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-12-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-12-28
                             </span>
                         <span class="publish-author">
                             
@@ -607,16 +638,16 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/categories/index-1.html">
+                <a href="/2022/12/26/gdb-cmake/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="categories">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Gdb_Cmake">
                         
-                        <span class="card-title">categories</span>
+                        <span class="card-title">Gdb_Cmake</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -627,7 +658,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-12-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-12-26
                             </span>
                         <span class="publish-author">
                             
@@ -637,7 +668,14 @@
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Tech-Share/">
+                        <span class="chip bg-color">Tech Share</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
