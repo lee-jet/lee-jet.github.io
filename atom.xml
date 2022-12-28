@@ -3,11 +3,11 @@
   <title>Jet&#39; Blog</title>
   
   <subtitle>Go for it</subtitle>
-  <link href="https://lee-jet.github.io/atom.xml" rel="self"/>
+  <link href="https://lee-jet.github.io/ai_mj/atom.xml" rel="self"/>
   
-  <link href="https://lee-jet.github.io/"/>
+  <link href="https://lee-jet.github.io/ai_mj/"/>
   <updated>2022-12-28T04:14:15.075Z</updated>
-  <id>https://lee-jet.github.io/</id>
+  <id>https://lee-jet.github.io/ai_mj/</id>
   
   <author>
     <name>Lee Jet</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>demo2</title>
-    <link href="https://lee-jet.github.io/2022/12/27/demo2/"/>
-    <id>https://lee-jet.github.io/2022/12/27/demo2/</id>
+    <link href="https://lee-jet.github.io/ai_mj/2022/12/27/demo2/"/>
+    <id>https://lee-jet.github.io/ai_mj/2022/12/27/demo2/</id>
     <published>2022-12-27T10:00:14.000Z</published>
     <updated>2022-12-28T04:14:15.075Z</updated>
     
@@ -39,8 +39,8 @@
   
   <entry>
     <title>demo</title>
-    <link href="https://lee-jet.github.io/2022/12/27/demo/"/>
-    <id>https://lee-jet.github.io/2022/12/27/demo/</id>
+    <link href="https://lee-jet.github.io/ai_mj/2022/12/27/demo/"/>
+    <id>https://lee-jet.github.io/ai_mj/2022/12/27/demo/</id>
     <published>2022-12-27T09:37:45.000Z</published>
     <updated>2022-12-27T09:53:33.614Z</updated>
     
@@ -55,14 +55,14 @@
     
     
     
-    <category term="Tech Share" scheme="https://lee-jet.github.io/tags/Tech-Share/"/>
+    <category term="Tech Share" scheme="https://lee-jet.github.io/ai_mj/tags/Tech-Share/"/>
     
   </entry>
   
   <entry>
     <title>Gdb_Cmake</title>
-    <link href="https://lee-jet.github.io/2022/12/26/gdb-cmake/"/>
-    <id>https://lee-jet.github.io/2022/12/26/gdb-cmake/</id>
+    <link href="https://lee-jet.github.io/ai_mj/2022/12/26/gdb-cmake/"/>
+    <id>https://lee-jet.github.io/ai_mj/2022/12/26/gdb-cmake/</id>
     <published>2022-12-26T09:45:04.000Z</published>
     <updated>2022-12-27T09:36:19.955Z</updated>
     
@@ -77,14 +77,14 @@
     
     
     
-    <category term="Tech Share" scheme="https://lee-jet.github.io/tags/Tech-Share/"/>
+    <category term="Tech Share" scheme="https://lee-jet.github.io/ai_mj/tags/Tech-Share/"/>
     
   </entry>
   
   <entry>
     <title>Client_Server</title>
-    <link href="https://lee-jet.github.io/2022/12/26/client-server/"/>
-    <id>https://lee-jet.github.io/2022/12/26/client-server/</id>
+    <link href="https://lee-jet.github.io/ai_mj/2022/12/26/client-server/"/>
+    <id>https://lee-jet.github.io/ai_mj/2022/12/26/client-server/</id>
     <published>2022-12-26T09:43:04.000Z</published>
     <updated>2022-12-28T02:20:19.156Z</updated>
     
@@ -98,17 +98,17 @@
     
     
     
-    <category term="Tech Share" scheme="https://lee-jet.github.io/categories/Tech-Share/"/>
+    <category term="Tech Share" scheme="https://lee-jet.github.io/ai_mj/categories/Tech-Share/"/>
     
     
-    <category term="Tech Share" scheme="https://lee-jet.github.io/tags/Tech-Share/"/>
+    <category term="Tech Share" scheme="https://lee-jet.github.io/ai_mj/tags/Tech-Share/"/>
     
   </entry>
   
   <entry>
     <title>C_plus</title>
-    <link href="https://lee-jet.github.io/2022/12/26/c-plus/"/>
-    <id>https://lee-jet.github.io/2022/12/26/c-plus/</id>
+    <link href="https://lee-jet.github.io/ai_mj/2022/12/26/c-plus/"/>
+    <id>https://lee-jet.github.io/ai_mj/2022/12/26/c-plus/</id>
     <published>2022-12-26T09:38:34.000Z</published>
     <updated>2022-12-28T02:20:25.963Z</updated>
     
@@ -122,17 +122,17 @@
     
     
     
-    <category term="Tech Share" scheme="https://lee-jet.github.io/categories/Tech-Share/"/>
+    <category term="Tech Share" scheme="https://lee-jet.github.io/ai_mj/categories/Tech-Share/"/>
     
     
-    <category term="Tech Share" scheme="https://lee-jet.github.io/tags/Tech-Share/"/>
+    <category term="Tech Share" scheme="https://lee-jet.github.io/ai_mj/tags/Tech-Share/"/>
     
   </entry>
   
   <entry>
     <title>CV_Tools</title>
-    <link href="https://lee-jet.github.io/2022/12/26/cv-tools/"/>
-    <id>https://lee-jet.github.io/2022/12/26/cv-tools/</id>
+    <link href="https://lee-jet.github.io/ai_mj/2022/12/26/cv-tools/"/>
+    <id>https://lee-jet.github.io/ai_mj/2022/12/26/cv-tools/</id>
     <published>2022-12-26T08:03:29.000Z</published>
     <updated>2022-12-28T03:42:37.457Z</updated>
     
@@ -147,14 +147,14 @@
     
     
     
-    <category term="Tech Share" scheme="https://lee-jet.github.io/tags/Tech-Share/"/>
+    <category term="Tech Share" scheme="https://lee-jet.github.io/ai_mj/tags/Tech-Share/"/>
     
   </entry>
   
   <entry>
     <title>Bugs</title>
-    <link href="https://lee-jet.github.io/2022/12/26/bugs/"/>
-    <id>https://lee-jet.github.io/2022/12/26/bugs/</id>
+    <link href="https://lee-jet.github.io/ai_mj/2022/12/26/bugs/"/>
+    <id>https://lee-jet.github.io/ai_mj/2022/12/26/bugs/</id>
     <published>2022-12-26T07:59:37.000Z</published>
     <updated>2022-12-28T02:19:34.650Z</updated>
     
@@ -168,17 +168,17 @@
     
     
     
-    <category term="Tech Share" scheme="https://lee-jet.github.io/categories/Tech-Share/"/>
+    <category term="Tech Share" scheme="https://lee-jet.github.io/ai_mj/categories/Tech-Share/"/>
     
     
-    <category term="Tech Share" scheme="https://lee-jet.github.io/tags/Tech-Share/"/>
+    <category term="Tech Share" scheme="https://lee-jet.github.io/ai_mj/tags/Tech-Share/"/>
     
   </entry>
   
   <entry>
     <title>tech_blog_demo</title>
-    <link href="https://lee-jet.github.io/2022/12/24/tech-blog-demo/"/>
-    <id>https://lee-jet.github.io/2022/12/24/tech-blog-demo/</id>
+    <link href="https://lee-jet.github.io/ai_mj/2022/12/24/tech-blog-demo/"/>
+    <id>https://lee-jet.github.io/ai_mj/2022/12/24/tech-blog-demo/</id>
     <published>2022-12-24T08:11:23.000Z</published>
     <updated>2022-12-26T02:20:49.561Z</updated>
     
@@ -193,7 +193,7 @@
     
     
     
-    <category term="demo" scheme="https://lee-jet.github.io/tags/demo/"/>
+    <category term="demo" scheme="https://lee-jet.github.io/ai_mj/tags/demo/"/>
     
   </entry>
   
