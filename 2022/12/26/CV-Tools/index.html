@@ -417,7 +417,7 @@ installation https">
 <li><p>installation <a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1711770">https://cloud.tencent.com/developer/article/1711770</a></p>
 </li>
 </ul>
-<p><img src="/images/CV-Tools/image-20221226161659757.png" alt="image-20221226161659757"></p>
+<p><img src="/images/CV-Tools/image-20221226161040957.png" alt="image-20221226161040957"></p>
 <h2 id="合成视频"><a href="#合成视频" class="headerlink" title="合成视频"></a><strong>合成视频</strong></h2><pre class="line-numbers language-none"><code class="language-none"># img2video
 ffmpeg -r 24 -f image2 -i cur_frame_%d.jpg out.mp4
 ffmpeg  -threads 2 -y -r 1 -f image2 -i cur_frame_%d.jpg -r 24 -vcodec mpeg4 -b:v 6000k out.mp4
