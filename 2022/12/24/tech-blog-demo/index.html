@@ -596,12 +596,13 @@
 <script>
     let gitalk = new Gitalk({
         clientID: '239ba579785b9bb8ffde',
-        clientSecret: 'eede9208d52873d114fa2b5cc49ef5947cf9a675',
-        repo: 'ai_mj',
+        clientSecret: '6b8159892d8d5785b7be9a84c0998462ce8649d4',
+        repo: 'gitalk',
         owner: 'lee-jet',
         admin: "lee-jet",
         id: '2022-12-24T16-11-23',
-        distractionFreeMode: false  // Facebook-like distraction free mode
+        distractionFreeMode: false,  // Facebook-like distraction free mode
+        proxy: https://netnr-proxy.cloudno.de/https://github.com/login/oauth/access_token
     });
 
     gitalk.render('gitalk-container');
