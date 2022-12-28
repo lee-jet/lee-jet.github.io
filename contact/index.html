@@ -52,7 +52,8 @@
 
     <script src="/ai_mj/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"></head>
+<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/ai_mj/atom.xml" title="Jet' Blog" type="application/atom+xml">
+</head>
 
 
 <body>
@@ -414,6 +415,33 @@
 
         <!--其他评论card-->
         <div class="card">
+            
+                <link rel="stylesheet" href="/ai_mj/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/ai_mj/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/ai_mj/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '239ba579785b9bb8ffde',
+        clientSecret: 'eede9208d52873d114fa2b5cc49ef5947cf9a675',
+        repo: 'ai_mj',
+        owner: 'lee-jet',
+        admin: "lee-jet",
+        id: '2022-12-27T17-12-07',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
             
 
             

@@ -58,7 +58,8 @@ https://www.jianshu.com/p/c7bdb0647c6b 默认是关闭的
 
     <script src="/ai_mj/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"></head>
+<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/ai_mj/atom.xml" title="Jet' Blog" type="application/atom+xml">
+</head>
 
 
 <body>
@@ -378,6 +379,15 @@ https://www.jianshu.com/p/c7bdb0647c6b 默认是关闭的
                 </div>
                 <div class="col s5 right-align">
                     
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/ai_mj/categories/Tech-Share/" class="post-category">
+                                Tech Share
+                            </a>
+                        
+                    </div>
+                    
                 </div>
             </div>
 
@@ -555,6 +565,33 @@ https://www.jianshu.com/p/c7bdb0647c6b 默认是关闭的
     </div>
 
     
+        <link rel="stylesheet" href="/ai_mj/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/ai_mj/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/ai_mj/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '239ba579785b9bb8ffde',
+        clientSecret: 'eede9208d52873d114fa2b5cc49ef5947cf9a675',
+        repo: 'ai_mj',
+        owner: 'lee-jet',
+        admin: "lee-jet",
+        id: '2022-12-26T17-43-04',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
 
     
 
@@ -645,8 +682,12 @@ https://www.jianshu.com/p/c7bdb0647c6b 默认是关闭的
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Lee Jet
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/ai_mj/categories/Tech-Share/" class="post-category">
+                                    Tech Share
+                                </a>
+                            
                             
                         </span>
                     </div>
