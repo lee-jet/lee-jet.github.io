@@ -1,0 +1,1379 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="09_python_pytorch_tensorflow, Jet&#39; Blog">
+    <meta name="description" content="Python第三方库大全https://juejin.cn/post/6978275187749830663#heading-55
+rehttps://www.liujiangblog.com/course/python/72
+https:">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>09_python_pytorch_tensorflow | Jet&#39; Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/reward.css">
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="Jet' Blog" type="application/atom+xml">
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Jet&#39; Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Jet&#39; Blog</div>
+        <div class="logo-desc">
+            
+            Fire
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">09_python_pytorch_tensorflow</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Tech-share/">
+                                <span class="chip bg-color">Tech share</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Tech-share/" class="post-category">
+                                Tech share
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-01-10
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="Python"><a href="#Python" class="headerlink" title="Python"></a><strong>Python</strong></h2><h3 id="第三方库大全"><a href="#第三方库大全" class="headerlink" title="第三方库大全"></a><strong>第三方库大全</strong></h3><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6978275187749830663#heading-55">https://juejin.cn/post/6978275187749830663#heading-55</a></p>
+<h3 id="re"><a href="#re" class="headerlink" title="re"></a><strong>re</strong></h3><p><a target="_blank" rel="noopener" href="https://www.liujiangblog.com/course/python/72">https://www.liujiangblog.com/course/python/72</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.liujiangblog.com/course/python/73">https://www.liujiangblog.com/course/python/73</a></p>
+<p><img src="/images/09-python-pytorch-tensorflow/image-20230110095616181.png" alt="image-20230110095616181"></p>
+<h3 id="PyQT"><a href="#PyQT" class="headerlink" title="PyQT"></a><strong>PyQT</strong></h3><p><strong>so eazy</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token number">1</span> 用QtDesigner通过拖拽即可设计UI界面，然后保存为<span class="token punctuation">.</span>ui格式
+<span class="token number">2</span> 用pyuic5将<span class="token operator">*</span><span class="token punctuation">.</span>ui转化为<span class="token operator">*</span><span class="token punctuation">.</span>py文件    pyuic5 <span class="token operator">-</span>o project<span class="token punctuation">.</span>py project<span class="token punctuation">.</span>ui
+<span class="token number">3</span> 根据<span class="token operator">*</span><span class="token punctuation">.</span>py文件中retranslateUi中的button调用connect相应的action即可
+<span class="token number">4</span> 自己补充数据 模型等加载即可
+
+self<span class="token punctuation">.</span>pushButton_img<span class="token punctuation">.</span>clicked<span class="token punctuation">.</span>connect<span class="token punctuation">(</span>self<span class="token punctuation">.</span>button_image_open<span class="token punctuation">)</span>
+self<span class="token punctuation">.</span>pushButton_video<span class="token punctuation">.</span>clicked<span class="token punctuation">.</span>connect<span class="token punctuation">(</span>self<span class="token punctuation">.</span>button_video_open<span class="token punctuation">)</span>
+self<span class="token punctuation">.</span>pushButton_camera<span class="token punctuation">.</span>clicked<span class="token punctuation">.</span>connect<span class="token punctuation">(</span>self<span class="token punctuation">.</span>button_camera_open<span class="token punctuation">)</span>
+self<span class="token punctuation">.</span>timer_video<span class="token punctuation">.</span>timeout<span class="token punctuation">.</span>connect<span class="token punctuation">(</span>self<span class="token punctuation">.</span>show_video_frame<span class="token punctuation">)</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Ui_MainWindow</span><span class="token punctuation">(</span>QtWidgets<span class="token punctuation">.</span>QMainWindow<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> parent<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    app <span class="token operator">=</span> QtWidgets<span class="token punctuation">.</span>QApplication<span class="token punctuation">(</span>sys<span class="token punctuation">.</span>argv<span class="token punctuation">)</span>
+    ui <span class="token operator">=</span> Ui_MainWindow<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    ui<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    sys<span class="token punctuation">.</span>exit<span class="token punctuation">(</span>app<span class="token punctuation">.</span>exec_<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/498120306">https://zhuanlan.zhihu.com/p/498120306</a></p>
+<h3 id="Qt-Designer-Download"><a href="#Qt-Designer-Download" class="headerlink" title="Qt Designer Download"></a><strong>Qt Designer Download</strong></h3><p><a target="_blank" rel="noopener" href="https://build-system.fman.io/qt-designer-download">https://build-system.fman.io/qt-designer-download</a></p>
+<p>生成.ui文件（拖拽生成UI）</p>
+<p><img src="/images/09-python-pytorch-tensorflow/image-20230110095701452.png" alt="image-20230110095701452"></p>
+<p><img src="/images/09-python-pytorch-tensorflow/image-20230110095703948.png" alt="image-20230110095703948"></p>
+<h3 id="tutorial"><a href="#tutorial" class="headerlink" title="tutorial"></a><strong>tutorial</strong></h3><p><a target="_blank" rel="noopener" href="https://maicss.gitbook.io/pyqt-chinese-tutoral/">https://maicss.gitbook.io/pyqt-chinese-tutoral/</a></p>
+<p><a target="_blank" rel="noopener" href="https://build-system.fman.io/manual/">https://build-system.fman.io/manual/</a></p>
+<p>PyUIC主要是把Qt Designer生成的.ui文件换成.py文件。</p>
+<h3 id="python封装exe"><a href="#python封装exe" class="headerlink" title="python封装exe"></a><strong>python封装exe</strong></h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/dopamy_busymonkey/article/details/106398497">https://blog.csdn.net/dopamy_busymonkey/article/details/106398497</a></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">pip install pyinstaller
+pyinstaller <span class="token operator">-</span>F py2exe_demo<span class="token punctuation">.</span>py<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>auto-py-to-exe 是一个用于将Python程序打包成可执行文件的图形化工具。    </p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u013421629/article/details/121742410">https://blog.csdn.net/u013421629/article/details/121742410</a></p>
+<p><img src="/images/09-python-pytorch-tensorflow/image-20230110095735161.png" alt="image-20230110095735161"></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/apodxx/yolov5-pyqt">https://github.com/apodxx/yolov5-pyqt</a></p>
+<p><a target="_blank" rel="noopener" href="https://xugaoxiang.com/2021/10/13/yolov5-to-exe/">https://xugaoxiang.com/2021/10/13/yolov5-to-exe/</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_27353621/article/details/125644511?spm=1001.2101.3001.6650.3&utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-3-125644511-blog-123333987.pc_relevant_layerdownloadsortv1&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-3-125644511-blog-123333987.pc_relevant_layerdownloadsortv1&utm_relevant_index=6">https://blog.csdn.net/qq_27353621/article/details/125644511?spm=1001.2101.3001.6650.3&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-3-125644511-blog-123333987.pc_relevant_layerdownloadsortv1&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-3-125644511-blog-123333987.pc_relevant_layerdownloadsortv1&amp;utm_relevant_index=6</a></p>
+<h3 id="Pyinstaller"><a href="#Pyinstaller" class="headerlink" title="Pyinstaller"></a><strong>Pyinstaller</strong></h3><p><a target="_blank" rel="noopener" href="https://xugaoxiang.com/2021/10/13/yolov5-to-exe/">https://xugaoxiang.com/2021/10/13/yolov5-to-exe/</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/xugaoxiang/yolov5-pyqt5">https://github.com/xugaoxiang/yolov5-pyqt5</a></p>
+<p><img src="/images/09-python-pytorch-tensorflow/image-20230110095750280.png" alt="image-20230110095750280"></p>
+<h3 id="打包体积压缩"><a href="#打包体积压缩" class="headerlink" title="打包体积压缩"></a><strong>打包体积压缩</strong></h3><p><a target="_blank" rel="noopener" href="https://www.codetds.com/article/12204091">https://www.codetds.com/article/12204091</a></p>
+<p>主要是创新需要的虚拟环境，太大是因为把不必要的包附带了</p>
+<h3 id="软件授权系统及注册机"><a href="#软件授权系统及注册机" class="headerlink" title="软件授权系统及注册机"></a><strong>软件授权系统及注册机</strong></h3><p><img src="/images/09-python-pytorch-tensorflow/image-20230110095805312.png" alt="image-20230110095805312"></p>
+<p>软件许可License文件生成 </p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43804047/article/details/126341066?spm=1001.2101.3001.6650.7&utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-7-126341066-blog-118792416.pc_relevant_3mothn_strategy_recovery&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-7-126341066-blog-118792416.pc_relevant_3mothn_strategy_recovery&utm_relevant_index=8">https://blog.csdn.net/weixin_43804047/article/details/126341066?spm=1001.2101.3001.6650.7&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-7-126341066-blog-118792416.pc_relevant_3mothn_strategy_recovery&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-7-126341066-blog-118792416.pc_relevant_3mothn_strategy_recovery&amp;utm_relevant_index=8</a></p>
+<h3 id="Nuikta"><a href="#Nuikta" class="headerlink" title="Nuikta"></a><strong>Nuikta</strong></h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
+–mingw64 默认为已经安装的vs2017去编译，否则就按指定的比如mingw<span class="token punctuation">(</span>官方建议<span class="token punctuation">)</span>
+–standalone 独立环境，这是必须的<span class="token punctuation">(</span>否则拷给别人无法使用<span class="token punctuation">)</span>
+–windows-disable-console 没有CMD控制窗口
+–output-dir<span class="token operator">=</span>out 生成exe到out文件夹下面去
+–show-progress 显示编译的进度，很直观
+–show-memory 显示内存的占用
+–include-qt-plugins<span class="token operator">=</span>sensible,styles 打包后PyQt的样式就不会变了
+–plugin-enable<span class="token operator">=</span>qt-plugins 需要加载的PyQt插件
+–plugin-enable<span class="token operator">=</span>tk-inter 打包tkinter模块的刚需
+–plugin-enable<span class="token operator">=</span>numpy 打包numpy,pandas,matplotlib模块的刚需
+–plugin-enable<span class="token operator">=</span>torch 打包pytorch的刚需
+–plugin-enable<span class="token operator">=</span>tensorflow 打包tensorflow的刚需
+–windows-icon-from-ico<span class="token operator">=</span>你的.ico 软件的图标
+–windows-company-name<span class="token operator">=</span>Windows下软件公司信息
+–windows-product-name<span class="token operator">=</span>Windows下软件名称
+–windows-file-version<span class="token operator">=</span>Windows下软件的信息
+–windows-product-version<span class="token operator">=</span>Windows下软件的产品信息
+–windows-file-description<span class="token operator">=</span>Windows下软件的作用描述
+–windows-uac-admin<span class="token operator">=</span>Windows下用户可以使用管理员权限来安装
+–linux-onefile-icon<span class="token operator">=</span>Linux下的图标位置
+–onefile 像pyinstaller一样打包成单个exe文件<span class="token punctuation">(</span><span class="token number">2021</span>年我会再出教程来解释<span class="token punctuation">)</span>
+–include-package<span class="token operator">=</span>复制比如numpy,PyQt5 这些带文件夹的叫包或者轮子
+–include-module<span class="token operator">=</span>复制比如when.py 这些以.py结尾的叫模块
+–show-memory 显示内存
+–show-progress 显示编译过程
+–follow-imports 全部编译
+–nofollow-imports 不选，第三方包都不编译
+–follow-stdlib 仅选择标准库
+–follow-import-to<span class="token operator">=</span>MODULE/PACKAGE 仅选择指定模块/包编译
+–nofollow-import-to<span class="token operator">=</span>MODULE/PACKAGE 选择指定模块/包不进行编译<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><a target="_blank" rel="noopener" href="https://www.nuitka.net/zh_CN/doc/user-manual.html">https://www.nuitka.net/zh_CN/doc/user-manual.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/341099225">https://zhuanlan.zhihu.com/p/341099225</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/sixqingfeng/article/details/125797602?spm=1001.2101.3001.6650.9&utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-9-125797602-blog-120535999.pc_relevant_3mothn_strategy_and_data_recovery&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-9-125797602-blog-120535999.pc_relevant_3mothn_strategy_and_data_recovery&utm_relevant_index=16">https://blog.csdn.net/sixqingfeng/article/details/125797602?spm=1001.2101.3001.6650.9&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-9-125797602-blog-120535999.pc_relevant_3mothn_strategy_and_data_recovery&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-9-125797602-blog-120535999.pc_relevant_3mothn_strategy_and_data_recovery&amp;utm_relevant_index=16</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/353577753">https://zhuanlan.zhihu.com/p/353577753</a></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">pip install nuitka
+python <span class="token operator">-</span>m nuitka $<span class="token punctuation">&#123;</span>nuitka_cmds<span class="token punctuation">&#125;</span>
+
+python <span class="token operator">-</span>m nuitka <span class="token operator">-</span><span class="token operator">-</span>standalone <span class="token operator">-</span><span class="token operator">-</span>mingw64 <span class="token operator">-</span><span class="token operator">-</span>show<span class="token operator">-</span>memory <span class="token operator">-</span><span class="token operator">-</span>show<span class="token operator">-</span>progress <span class="token operator">-</span><span class="token operator">-</span>enable<span class="token operator">-</span>plugin<span class="token operator">=</span>pyqt5 <span class="token operator">-</span><span class="token operator">-</span>follow<span class="token operator">-</span><span class="token keyword">import</span><span class="token operator">-</span>to<span class="token operator">=</span>pyqt5 <span class="token operator">-</span><span class="token operator">-</span>static<span class="token operator">-</span>libpython<span class="token operator">=</span>no  <span class="token operator">-</span><span class="token operator">-</span>output<span class="token operator">-</span><span class="token builtin">dir</span><span class="token operator">=</span>output_exe main<span class="token punctuation">.</span>py 
+<span class="token comment"># --standalone 暗含了 –-follow-import</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>Windows下最终打包成一个.exe文件，Linux下打包成Linux执行档。    </p>
+<p><img src="/images/09-python-pytorch-tensorflow/image-20230110095917436.png" alt="image-20230110095917436"></p>
+<p><img src="/images/09-python-pytorch-tensorflow/image-20230110095920406.png" alt="image-20230110095920406"></p>
+<p><img src="/images/09-python-pytorch-tensorflow/image-20230110095924341.png" alt="image-20230110095924341"></p>
+<h3 id="《Nuitka打包教程》所有命令"><a href="#《Nuitka打包教程》所有命令" class="headerlink" title="《Nuitka打包教程》所有命令"></a><strong>《Nuitka打包教程》所有命令</strong></h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_38830593/article/details/123092470">https://blog.csdn.net/qq_38830593/article/details/123092470</a> </p>
+<h4 id="example"><a href="#example" class="headerlink" title="example"></a><strong>example</strong></h4><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/7019616774366691336">https://juejin.cn/post/7019616774366691336</a></p>
+<h3 id="Python可执行文件反编译教程-exe转py"><a href="#Python可执行文件反编译教程-exe转py" class="headerlink" title="Python可执行文件反编译教程(exe转py)"></a><strong>Python可执行文件反编译教程(exe转py)</strong></h3><p><a target="_blank" rel="noopener" href="https://www.jb51.net/article/231188.htm">https://www.jb51.net/article/231188.htm</a></p>
+<h3 id="rpa文件解包-py封装exe"><a href="#rpa文件解包-py封装exe" class="headerlink" title="rpa文件解包_py封装exe"></a><strong>rpa文件解包_py封装exe</strong></h3><p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2064420">https://cloud.tencent.com/developer/article/2064420</a></p>
+<h3 id="python并行编程"><a href="#python并行编程" class="headerlink" title="python并行编程"></a><strong>python并行编程</strong></h3><p><a target="_blank" rel="noopener" href="https://python-parallel-programmning-cookbook.readthedocs.io/zh_CN/latest/chapter4/02_Using_the_concurrent.futures_Python_modules.html">https://python-parallel-programmning-cookbook.readthedocs.io/zh_CN/latest/chapter4/02_Using_the_concurrent.futures_Python_modules.html</a></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> concurrent<span class="token punctuation">.</span>futures
+<span class="token keyword">import</span> time
+number_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">]</span>
+
+<span class="token keyword">def</span> <span class="token function">evaluate_item</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment"># 计算总和，这里只是为了消耗时间</span>
+        result_item <span class="token operator">=</span> count<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+        <span class="token comment"># 打印输入和输出结果</span>
+        <span class="token keyword">return</span> result_item
+
+<span class="token keyword">def</span>  <span class="token function">count</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span> <span class="token punctuation">:</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">10000000</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                i<span class="token operator">=</span>i<span class="token operator">+</span><span class="token number">1</span>
+        <span class="token keyword">return</span> i <span class="token operator">*</span> number
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
+        <span class="token comment"># 顺序执行</span>
+        start_time <span class="token operator">=</span> time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> item <span class="token keyword">in</span> number_list<span class="token punctuation">:</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span>evaluate_item<span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Sequential execution in "</span> <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span>time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> start_time<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"seconds"</span><span class="token punctuation">)</span>
+        <span class="token comment"># 线程池执行</span>
+        start_time_1 <span class="token operator">=</span> time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">with</span> concurrent<span class="token punctuation">.</span>futures<span class="token punctuation">.</span>ThreadPoolExecutor<span class="token punctuation">(</span>max_workers<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token keyword">as</span> executor<span class="token punctuation">:</span>
+                futures <span class="token operator">=</span> <span class="token punctuation">[</span>executor<span class="token punctuation">.</span>submit<span class="token punctuation">(</span>evaluate_item<span class="token punctuation">,</span> item<span class="token punctuation">)</span> <span class="token keyword">for</span> item <span class="token keyword">in</span> number_list<span class="token punctuation">]</span>
+                <span class="token keyword">for</span> future <span class="token keyword">in</span> concurrent<span class="token punctuation">.</span>futures<span class="token punctuation">.</span>as_completed<span class="token punctuation">(</span>futures<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                        <span class="token keyword">print</span><span class="token punctuation">(</span>future<span class="token punctuation">.</span>result<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Thread pool execution in "</span> <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span>time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> start_time_1<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"seconds"</span><span class="token punctuation">)</span>
+        <span class="token comment"># 进程池</span>
+        start_time_2 <span class="token operator">=</span> time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">with</span> concurrent<span class="token punctuation">.</span>futures<span class="token punctuation">.</span>ProcessPoolExecutor<span class="token punctuation">(</span>max_workers<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token keyword">as</span> executor<span class="token punctuation">:</span>
+                futures <span class="token operator">=</span> <span class="token punctuation">[</span>executor<span class="token punctuation">.</span>submit<span class="token punctuation">(</span>evaluate_item<span class="token punctuation">,</span> item<span class="token punctuation">)</span> <span class="token keyword">for</span> item <span class="token keyword">in</span> number_list<span class="token punctuation">]</span>
+                <span class="token keyword">for</span> future <span class="token keyword">in</span> concurrent<span class="token punctuation">.</span>futures<span class="token punctuation">.</span>as_completed<span class="token punctuation">(</span>futures<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                        <span class="token keyword">print</span><span class="token punctuation">(</span>future<span class="token punctuation">.</span>result<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Process pool execution in "</span> <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span>time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> start_time_2<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"seconds"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="/images/09-python-pytorch-tensorflow/image-20230110100001995.png" alt="image-20230110100001995"></p>
+<h3 id="moviepy-module-保存为gif或者video格式"><a href="#moviepy-module-保存为gif或者video格式" class="headerlink" title="moviepy module 保存为gif或者video格式"></a><strong>moviepy module 保存为gif或者video格式</strong></h3><p><a target="_blank" rel="noopener" href="https://moviepy-cn.readthedocs.io/zh/latest/2_MoviePy%E5%85%A5%E9%97%A8/contents/%E7%94%9F%E6%88%90%E4%B8%8E%E5%AF%BC%E5%87%BA%E8%A7%86%E9%A2%91%E5%89%AA%E8%BE%91.html">https://moviepy-cn.readthedocs.io/zh/latest/2_MoviePy%E5%85%A5%E9%97%A8/contents/%E7%94%9F%E6%88%90%E4%B8%8E%E5%AF%BC%E5%87%BA%E8%A7%86%E9%A2%91%E5%89%AA%E8%BE%91.html</a></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">make_gif</span><span class="token punctuation">(</span>images<span class="token punctuation">,</span> fname<span class="token punctuation">,</span> fps<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> duration<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token triple-quoted-string string">'''
+    images: list image is RGB not BGR, cv2.cvtColor(img0, cv2.COLOR_BGR2RGB)
+  '''</span>
+  <span class="token keyword">import</span> moviepy<span class="token punctuation">.</span>editor <span class="token keyword">as</span> mpy
+  <span class="token keyword">def</span> <span class="token function">make_frame</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+      x <span class="token operator">=</span> images<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>images<span class="token punctuation">)</span><span class="token operator">/</span>duration<span class="token operator">*</span>t<span class="token punctuation">)</span><span class="token punctuation">]</span>
+    <span class="token keyword">except</span><span class="token punctuation">:</span>
+      x <span class="token operator">=</span> images<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+ 
+    <span class="token keyword">return</span> x<span class="token punctuation">.</span>astype<span class="token punctuation">(</span>np<span class="token punctuation">.</span>uint8<span class="token punctuation">)</span>
+ 
+  clip <span class="token operator">=</span> mpy<span class="token punctuation">.</span>VideoClip<span class="token punctuation">(</span>make_frame<span class="token punctuation">,</span> duration<span class="token operator">=</span>duration<span class="token punctuation">)</span>
+  clip<span class="token punctuation">.</span>write_gif<span class="token punctuation">(</span>fname<span class="token punctuation">,</span> fps<span class="token punctuation">)</span>
+
+make_gif<span class="token punctuation">(</span>images<span class="token punctuation">,</span> fname<span class="token operator">=</span><span class="token string">'./res.gif'</span><span class="token punctuation">,</span> fps<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>  duration<span class="token operator">=</span><span class="token builtin">len</span><span class="token punctuation">(</span>images<span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="FastAPI"><a href="#FastAPI" class="headerlink" title="FastAPI"></a><strong>FastAPI</strong></h3><p>部署在web端，感觉比flask好， Flask, FastApi 部署Ai model</p>
+<p><a target="_blank" rel="noopener" href="https://www.qixinbo.info/2022/05/08/fastapi/">https://www.qixinbo.info/2022/05/08/fastapi/</a></p>
+<p><a target="_blank" rel="noopener" href="https://fastapi.tiangolo.com/">https://fastapi.tiangolo.com/</a></p>
+<p><a target="_blank" rel="noopener" href="https://fastapi.tiangolo.com/zh/">https://fastapi.tiangolo.com/zh/</a></p>
+<p>用Docker打包FastAPI程序  <a target="_blank" rel="noopener" href="https://www.qixinbo.info/2022/07/05/fastapi_in_docker/">https://www.qixinbo.info/2022/07/05/fastapi_in_docker/</a></p>
+<h3 id="Config-yaml"><a href="#Config-yaml" class="headerlink" title="Config.yaml"></a><strong>Config.yaml</strong></h3><p><a target="_blank" rel="noopener" href="https://hydra.cc/docs/tutorials/basic/your_first_app/config_groups/">https://hydra.cc/docs/tutorials/basic/your_first_app/config_groups/</a></p>
+<h3 id="YAML"><a href="#YAML" class="headerlink" title="YAML"></a><strong>YAML</strong></h3><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/hhaostudy/p/16104098.html">https://www.cnblogs.com/hhaostudy/p/16104098.html</a></p>
+<p><img src="/images/09-python-pytorch-tensorflow/image-20230110100039756.png" alt="image-20230110100039756"></p>
+<p>key: value        dict 冒号后空格</p>
+<p>-             list</p>
+<p>转换为python对象包含dict list等, 然后就是索引了</p>
+<p>读 写 </p>
+<p>使用yaml.dump()或者yaml.safe_dump()方法，加入allow_unicode=True参数防止写入的中文乱码</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"> pip install pyyaml
+ 
+<span class="token keyword">def</span> <span class="token function">read_yaml_data</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span>file_path<span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+    data <span class="token operator">=</span> yaml<span class="token punctuation">.</span>load<span class="token punctuation">(</span>f<span class="token punctuation">,</span> Loader<span class="token operator">=</span>yaml<span class="token punctuation">.</span>FullLoader<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'读取的数据：</span><span class="token interpolation"><span class="token punctuation">&#123;</span>data<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'数据类型为：</span><span class="token interpolation"><span class="token punctuation">&#123;</span><span class="token builtin">type</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span>
+    
+<span class="token keyword">def</span> <span class="token function">write_yaml_data</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    data <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">'hash'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'Steve'</span><span class="token punctuation">,</span> <span class="token string">'foo'</span><span class="token punctuation">:</span> <span class="token string">'公寓'</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span>
+
+    file_path <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>abspath<span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>dirname<span class="token punctuation">(</span>__file__<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'test.yml'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span>file_path<span class="token punctuation">,</span> <span class="token string">'w'</span><span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+        yaml<span class="token punctuation">.</span>safe_dump<span class="token punctuation">(</span>data<span class="token punctuation">,</span> f<span class="token punctuation">,</span> allow_unicode<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>类型：</p>
+<p>​    1 训练时候路径、模型参数等配置文件cfg.yaml</p>
+<p>​    2 argparse配置文件opt.yaml</p>
+<p>​    3 超参数配置文件hpy.yaml</p>
+<h3 id="eazydict"><a href="#eazydict" class="headerlink" title="eazydict"></a><strong>eazydict</strong></h3><p>以属性的方式去访问字典的值</p>
+<p><a target="_blank" rel="noopener" href="https://pypi.org/project/easydict/1.2/">https://pypi.org/project/easydict/1.2/</a></p>
+<p><img src="/images/09-python-pytorch-tensorflow/image-20230110100124576.png" alt="image-20230110100124576"></p>
+<p><img src="/images/09-python-pytorch-tensorflow/image-20230110100126601.png" alt="image-20230110100126601"></p>
+<p><img src="/images/09-python-pytorch-tensorflow/image-20230110100129264.png" alt="image-20230110100129264"></p>
+<h2 id="Tensorflow"><a href="#Tensorflow" class="headerlink" title="Tensorflow"></a><strong>Tensorflow</strong></h2><p><strong>TF内存自增长</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 获取所有可用GPU</span>
+gpus <span class="token operator">=</span> tf<span class="token punctuation">.</span>config<span class="token punctuation">.</span>experimental<span class="token punctuation">.</span>list_physical_devices<span class="token punctuation">(</span><span class="token string">'GPU'</span><span class="token punctuation">)</span>
+<span class="token comment"># 将对应GPU设置为内存自增长</span>
+tf<span class="token punctuation">.</span>config<span class="token punctuation">.</span>experimental<span class="token punctuation">.</span>set_memory_growth<span class="token punctuation">(</span>gpus<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token boolean">True</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">set_GPU</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""GPU相关设置"""</span>
+
+    <span class="token comment"># 打印变量在那个设备上</span>
+    <span class="token comment"># tf.debugging.set_log_device_placement(True)</span>
+    <span class="token comment"># 获取物理GPU个数</span>
+    gpus <span class="token operator">=</span> tf<span class="token punctuation">.</span>config<span class="token punctuation">.</span>experimental<span class="token punctuation">.</span>list_physical_devices<span class="token punctuation">(</span><span class="token string">'GPU'</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'物理GPU个数为：'</span><span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span>gpus<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token comment"># 设置内存自增长</span>
+    <span class="token keyword">for</span> gpu <span class="token keyword">in</span> gpus<span class="token punctuation">:</span>
+        tf<span class="token punctuation">.</span>config<span class="token punctuation">.</span>experimental<span class="token punctuation">.</span>set_memory_growth<span class="token punctuation">(</span>gpu<span class="token punctuation">,</span> <span class="token boolean">True</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'-------------已设置完GPU内存自增长--------------'</span><span class="token punctuation">)</span>
+    <span class="token comment"># 获取逻辑GPU个数</span>
+    logical_gpus <span class="token operator">=</span> tf<span class="token punctuation">.</span>config<span class="token punctuation">.</span>experimental<span class="token punctuation">.</span>list_logical_devices<span class="token punctuation">(</span><span class="token string">'GPU'</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'逻辑GPU个数为：'</span><span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span>logical_gpus<span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="tensorboard"><a href="#tensorboard" class="headerlink" title="tensorboard"></a><strong>tensorboard</strong></h3><p><a target="_blank" rel="noopener" href="https://tensorboard.dev/">https://tensorboard.dev/</a>  可以上传log进行多个实验监控</p>
+<h2 id="Pytorch"><a href="#Pytorch" class="headerlink" title="Pytorch"></a><strong>Pytorch</strong></h2><h3 id="timm"><a href="#timm" class="headerlink" title="timm"></a><strong>timm</strong></h3><p>预训练库 以CV的分类任务为主 <a target="_blank" rel="noopener" href="https://www.qixinbo.info/2022/06/25/timm/">https://www.qixinbo.info/2022/06/25/timm/</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/377060514">https://zhuanlan.zhihu.com/p/377060514</a></p>
+<p><a href="https://link.zhihu.com/?target=https://pytorch.org/vision/stable/models.html%23">torchvision.models</a> </p>
+<p><a href="https://link.zhihu.com/?target=https://rwightman.github.io/pytorch-image-models/models/">Model Summaries - Pytorch Image Models    </a></p>
+<p><a href="https://link.zhihu.com/?target=https://rwightman.github.io/pytorch-image-models/results/">       Results - Pytorch Image Models</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/rwightman/pytorch-image-models">https://github.com/rwightman/pytorch-image-models</a></p>
+<h2 id="Deployment"><a href="#Deployment" class="headerlink" title="Deployment"></a><strong>Deployment</strong></h2><h3 id="gradio"><a href="#gradio" class="headerlink" title="gradio"></a><strong>gradio</strong></h3><p>底层是fastAPI，是一个webApp展示demo的好工具</p>
+<p>tutoral link: <a target="_blank" rel="noopener" href="https://gradio.app/">https://gradio.app/</a> &amp; <a target="_blank" rel="noopener" href="https://huggingface.co/docs/hub/spaces-config-reference">https://huggingface.co/docs/hub/spaces-config-reference</a></p>
+<p>1 model or datasets to save.</p>
+<p>2 space to show app demo.</p>
+<p>links: <a target="_blank" rel="noopener" href="https://huggingface.co/spaces/lee-jet/demo">https://huggingface.co/spaces/lee-jet/demo</a></p>
+<p>免费的cpu，12G</p>
+<p><img src="/images/09-python-pytorch-tensorflow/image-20230110100259446.png" alt="image-20230110100259446"></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Lee Jet</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://lee-jet.github.io/2023/01/10/09-python-pytorch-tensorflow/">https://lee-jet.github.io/2023/01/10/09-python-pytorch-tensorflow/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Lee Jet</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Tech-share/">
+                                    <span class="chip bg-color">Tech share</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '239ba579785b9bb8ffde',
+        clientSecret: '6b8159892d8d5785b7be9a84c0998462ce8649d4',
+        repo: 'gitalk',
+        owner: 'lee-jet',
+        admin: "lee-jet",
+        id: '2023-01-10T09-55-41',
+        distractionFreeMode: false,  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2023/01/10/09-python-pytorch-tensorflow/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="09_python_pytorch_tensorflow">
+                        
+                        <span class="card-title">09_python_pytorch_tensorflow</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-10
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Tech-share/" class="post-category">
+                                    Tech share
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Tech-share/">
+                        <span class="chip bg-color">Tech share</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/01/10/08-linux-shell/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="08_linux_shell">
+                        
+                        <span class="card-title">08_linux_shell</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-10
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Tech-share/" class="post-category">
+                                    Tech share
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Tech-share/">
+                        <span class="chip bg-color">Tech share</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2023</span>
+            
+            <a href="/about" target="_blank">Lee Jet</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/lee-jet" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1874087716@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1874087716" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1874087716" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
