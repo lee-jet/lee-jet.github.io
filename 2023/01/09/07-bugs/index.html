@@ -5,10 +5,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="07_bugs, Jet&#39; Blog">
-    <meta name="description" content="RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling cublasCreate(handle)显存不够了 类似out of memory
+    <meta name="description" content="CUDARuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling cublasCreate(handle)显存不够了 类似out of memory
 
 
-OMP: Er">
+OMP">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -399,14 +399,14 @@ OMP: Er">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-01-09
+                    2023-01-11
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    36
+                    88
                 </div>
                 
 
@@ -436,16 +436,20 @@ OMP: Er">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="RuntimeError-CUDA-error-CUBLAS-STATUS-NOT-INITIALIZED-when-calling-cublasCreate-handle"><a href="#RuntimeError-CUDA-error-CUBLAS-STATUS-NOT-INITIALIZED-when-calling-cublasCreate-handle" class="headerlink" title="RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling cublasCreate(handle)"></a><strong>RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling</strong> <strong>cublasCreate(handle)</strong></h2><pre class="line-numbers language-none"><code class="language-none">显存不够了 类似out of memory<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+                <h2 id="CUDA"><a href="#CUDA" class="headerlink" title="CUDA"></a>CUDA</h2><h3 id="RuntimeError-CUDA-error-CUBLAS-STATUS-NOT-INITIALIZED-when-calling-cublasCreate-handle"><a href="#RuntimeError-CUDA-error-CUBLAS-STATUS-NOT-INITIALIZED-when-calling-cublasCreate-handle" class="headerlink" title="RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling cublasCreate(handle)"></a><strong>RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling</strong> <strong>cublasCreate(handle)</strong></h3><pre class="line-numbers language-none"><code class="language-none">显存不够了 类似out of memory<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <hr>
-<h2 id="OMP-Error-15-Initializing-libiomp5md-dll-but-found-libiomp5md-dll-already-initialized"><a href="#OMP-Error-15-Initializing-libiomp5md-dll-but-found-libiomp5md-dll-already-initialized" class="headerlink" title="OMP: Error #15: Initializing libiomp5md.dll, but found libiomp5md.dll already initialized."></a><strong>OMP: Error #15: Initializing libiomp5md.dll, but found libiomp5md.dll already initialized.</strong></h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> os 
+<h3 id="OMP-Error-15-Initializing-libiomp5md-dll-but-found-libiomp5md-dll-already-initialized"><a href="#OMP-Error-15-Initializing-libiomp5md-dll-but-found-libiomp5md-dll-already-initialized" class="headerlink" title="OMP: Error #15: Initializing libiomp5md.dll, but found libiomp5md.dll already initialized."></a><strong>OMP: Error #15: Initializing libiomp5md.dll, but found libiomp5md.dll already initialized.</strong></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> os 
 os<span class="token punctuation">.</span>environ<span class="token punctuation">[</span><span class="token string">"KMP_DUPLICATE_LIB_OK"</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"TRUE"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
+<h2 id="PyQt5"><a href="#PyQt5" class="headerlink" title="PyQt5"></a>PyQt5</h2><h3 id="qt-qpa-screen-QXcbConnection-Could-not-connect-to-display"><a href="#qt-qpa-screen-QXcbConnection-Could-not-connect-to-display" class="headerlink" title="qt.qpa.screen: QXcbConnection: Could not connect to display"></a><strong>qt.qpa.screen: QXcbConnection: Could not connect to display</strong></h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">DISPLAY</span></span><span class="token operator">=</span><span class="token string">':0.0'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-
-
-
+<h2 id="OpenCV"><a href="#OpenCV" class="headerlink" title="OpenCV"></a><strong>OpenCV</strong></h2><h3 id="qt-qpa-plugin-Could-not-load-the-Qt-platform-plugin-“xcb”"><a href="#qt-qpa-plugin-Could-not-load-the-Qt-platform-plugin-“xcb”" class="headerlink" title="qt.qpa.plugin: Could not load the Qt platform plugin “xcb”"></a><strong>qt.qpa.plugin: Could not load the Qt platform plugin “xcb”</strong></h3><p><a target="_blank" rel="noopener" href="https://felaim.blog.csdn.net/article/details/109384602">https://felaim.blog.csdn.net/article/details/109384602</a></p>
+<p><strong>linux：can’t connect to X server</strong></p>
+<ul>
+<li>一般存在cv2.imshow等图形化界面需求</li>
+</ul>
+<p><img src="/images/07-bugs/image-20230111171352736.png" alt="image-20230111171352736"></p>
 
                 
             </div>
@@ -903,7 +907,7 @@ os<span class="token punctuation">.</span>environ<span class="token punctuation"
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">7.5k</span>
+                        class="white-color">7.6k</span>
             
             
             
