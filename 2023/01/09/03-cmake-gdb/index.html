@@ -403,7 +403,7 @@ SET(CMAKE_BUILD_TYPE &#34;D">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-01-09
+                    2023-02-10
                 </div>
                 
 
@@ -440,7 +440,7 @@ SET(CMAKE_BUILD_TYPE &#34;D">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="g-编译添加路径"><a href="#g-编译添加路径" class="headerlink" title="g++编译添加路径"></a><strong>g++编译添加路径</strong></h2><p><img src="/images/03-cmake-gdb/image-20230109174457830.png" alt="image-20230109174457830"></p>
+                <h2 id="g-编译添加路径"><a href="#g-编译添加路径" class="headerlink" title="g++编译添加路径"></a><strong>g++编译添加路径</strong></h2><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/image-20230109174457830.png" alt="image-20230109174457830"></p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://sqlpy.com/blogs/766226050">cmake debug</a></li>
 </ul>
@@ -459,7 +459,7 @@ gdb  yolov7
 输入layout 按ctrl+x 按 <span class="token number">1</span>
 先打断点b 然后运行 run $<span class="token number">1</span> （输入传参）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/images/03-cmake-gdb/image-20230109174532533.png" alt="image-20230109174532533"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/image-20230109174532533.png" alt="image-20230109174532533"></p>
 <h2 id="CMakeLists-txt-模板"><a href="#CMakeLists-txt-模板" class="headerlink" title="CMakeLists.txt 模板"></a><strong>CMakeLists.txt 模板</strong></h2><ul>
 <li><a target="_blank" rel="noopener" href="https://github.com/shaoshengsong/DeepSORT/blob/master/CMakeLists.txt">https://github.com/shaoshengsong/DeepSORT/blob/master/CMakeLists.txt</a></li>
 </ul>
@@ -514,7 +514,7 @@ gdb  yolov7
 using MATCH_DATA = <span class="token inserted class-name">std::pair</span>&lt;int, int<span class="token punctuation">></span>; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <h2 id="cmake链接库"><a href="#cmake链接库" class="headerlink" title="cmake链接库"></a><strong>cmake链接库</strong></h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/binbinjx/p/5626916.html">cmake 添加头文件目录，链接动态、静态库</a></p>
-<p><img src="/images/03-cmake-gdb/image-20230109174620551.png" alt="image-20230109174620551"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/image-20230109174620551.png" alt="image-20230109174620551"></p>
 <pre class="line-numbers language-cmake" data-language="cmake"><code class="language-cmake"><span class="token comment">######################################################### 链接库开始 ###############################################################</span>
 
 <span class="token comment"># 1，绝对路径方式</span>
@@ -559,7 +559,7 @@ using MATCH_DATA = <span class="token inserted class-name">std::pair</span>&lt;i
 <span class="token comment">######################################################### 链接库结束 ###############################################################</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/images/03-cmake-gdb/image-20230109174631270.png" alt="image-20230109174631270"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/image-20230109174631270.png" alt="image-20230109174631270"></p>
 <pre class="line-numbers language-none"><code class="language-none">cmake生成makefile之后，make edit_cache可以编辑编译选项。<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h2 id="cmake-grammer"><a href="#cmake-grammer" class="headerlink" title="cmake grammer"></a><strong>cmake grammer</strong></h2><ul>
@@ -603,9 +603,9 @@ using MATCH_DATA = <span class="token inserted class-name">std::pair</span>&lt;i
 <span class="token keyword">target_link_libraries</span><span class="token punctuation">(</span>NCNN <span class="token punctuation">$&#123;</span>OpenCV_LIBS<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="macro和function"><a href="#macro和function" class="headerlink" title="macro和function"></a><strong>macro和function</strong></h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/Braveliu/p/15621973.html">https://www.cnblogs.com/Braveliu/p/15621973.html</a></p>
-<p><img src="/images/03-cmake-gdb/image-20230109174718190.png" alt="image-20230109174718190"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/image-20230109174718190.png" alt="image-20230109174718190"></p>
 <p>区别：</p>
-<p><img src="/images/03-cmake-gdb/image-20230109174724933.png" alt="image-20230109174724933"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/image-20230109174724933.png" alt="image-20230109174724933"></p>
 <pre class="line-numbers language-cmake" data-language="cmake"><code class="language-cmake">function（）
     &lt;<span class="token punctuation">></span>
 endfunction
@@ -636,24 +636,24 @@ endfunction
     <span class="token keyword">set_property</span><span class="token punctuation">(</span>TARGET <span class="token punctuation">$&#123;</span>name<span class="token punctuation">&#125;</span> PROPERTY <span class="token property">FOLDER</span> <span class="token string">"examples"</span><span class="token punctuation">)</span>
 <span class="token keyword">endmacro</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/images/03-cmake-gdb/image-20230109174833546.png" alt="image-20230109174833546"></p>
-<p><img src="/images/03-cmake-gdb/image-20230109174836917.png" alt="image-20230109174836917"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/image-20230109174833546.png" alt="image-20230109174833546"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/image-20230109174836917.png" alt="image-20230109174836917"></p>
 <p><strong>语法</strong></p>
 <p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903558861553672">https://juejin.cn/post/6844903558861553672</a></p>
 <p><a target="_blank" rel="noopener" href="http://wuhongyi.cn/CodeProject/cmake/cmake.html">http://wuhongyi.cn/CodeProject/cmake/cmake.html</a></p>
-<p><img src="/images/03-cmake-gdb/image-20230109174845827.png" alt="image-20230109174845827"></p>
-<p><img src="/images/03-cmake-gdb/image-20230109174848901.png" alt="image-20230109174848901"></p>
-<p><img src="/images/03-cmake-gdb/image-20230109174852308.png" alt="image-20230109174852308"></p>
-<h2 id="cmake：option选项"><a href="#cmake：option选项" class="headerlink" title="cmake：option选项"></a><strong>cmake：option选项</strong></h2><p><img src="/images/03-cmake-gdb/image-20230109174858036.png" alt="image-20230109174858036"></p>
-<p><img src="/images/03-cmake-gdb/image-20230109174902859.png" alt="image-20230109174902859"></p>
-<p><img src="/images/03-cmake-gdb/image-20230109174905453.png" alt="image-20230109174905453"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/image-20230109174845827.png" alt="image-20230109174845827"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/image-20230109174848901.png" alt="image-20230109174848901"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/image-20230109174852308.png" alt="image-20230109174852308"></p>
+<h2 id="cmake：option选项"><a href="#cmake：option选项" class="headerlink" title="cmake：option选项"></a><strong>cmake：option选项</strong></h2><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/image-20230109174858036.png" alt="image-20230109174858036"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/image-20230109174902859.png" alt="image-20230109174902859"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/image-20230109174905453.png" alt="image-20230109174905453"></p>
 <h2 id="cmake-管理debug-release"><a href="#cmake-管理debug-release" class="headerlink" title="cmake 管理debug release"></a><strong>cmake 管理debug release</strong></h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/116953293">https://zhuanlan.zhihu.com/p/116953293</a></p>
 <pre class="line-numbers language-cmake" data-language="cmake"><code class="language-cmake">cmake .. -DCMAKE_BUILD_TYPE=Debug
 cmake .. -DCMAKE_BUILD_TYPE=Release<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<p><img src="/images/03-cmake-gdb/image-20230109174923317.png" alt="image-20230109174923317"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/image-20230109174923317.png" alt="image-20230109174923317"></p>
 <h2 id="cmake-配置模板"><a href="#cmake-配置模板" class="headerlink" title="cmake 配置模板"></a><strong>cmake 配置模板</strong></h2><p><a target="_blank" rel="noopener" href="http://wuhongyi.cn/CodeProject/cmake/CmakeNote1.html">http://wuhongyi.cn/CodeProject/cmake/CmakeNote1.html</a></p>
-<p><img src="/images/03-cmake-gdb/image-20230109174931557.png" alt="image-20230109174931557"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/image-20230109174931557.png" alt="image-20230109174931557"></p>
 <h3 id="应用1"><a href="#应用1" class="headerlink" title="应用1"></a><strong>应用1</strong></h3><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/ailumiyana/p/10721123.html">https://www.cnblogs.com/ailumiyana/p/10721123.html</a></p>
 <pre class="line-numbers language-cmake" data-language="cmake"><code class="language-cmake"><span class="token keyword">cmake_minimum_required</span><span class="token punctuation">(</span><span class="token property">VERSION</span> <span class="token number">3.5.1</span><span class="token punctuation">)</span>
 <span class="token keyword">project</span><span class="token punctuation">(</span>NANO_TRACKING<span class="token punctuation">)</span>

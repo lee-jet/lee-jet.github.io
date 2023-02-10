@@ -2,7 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://lee-jet.github.io/2023/01/09/02-docker/</loc>
+    <loc>https://lee-jet.github.io/2022/12/24/tech-blog-demo/</loc>
+    
+    <lastmod>2023-02-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lee-jet.github.io/2022/12/28/project-demos/</loc>
     
     <lastmod>2023-02-10</lastmod>
     
@@ -20,9 +29,36 @@
   </url>
   
   <url>
-    <loc>https://lee-jet.github.io/2023/01/09/04-cpp/</loc>
+    <loc>https://lee-jet.github.io/2023/01/10/09-python-pytorch-tensorflow/</loc>
     
-    <lastmod>2023-01-11</lastmod>
+    <lastmod>2023-02-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lee-jet.github.io/2023/01/09/02-docker/</loc>
+    
+    <lastmod>2023-02-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lee-jet.github.io/2023/01/09/03-cmake-gdb/</loc>
+    
+    <lastmod>2023-02-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lee-jet.github.io/2023/01/10/08-linux-shell/</loc>
+    
+    <lastmod>2023-02-10</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -31,7 +67,16 @@
   <url>
     <loc>https://lee-jet.github.io/2023/01/09/07-bugs/</loc>
     
-    <lastmod>2023-01-11</lastmod>
+    <lastmod>2023-02-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lee-jet.github.io/2023/01/09/04-cpp/</loc>
+    
+    <lastmod>2023-02-10</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -39,24 +84,6 @@
   
   <url>
     <loc>https://lee-jet.github.io/tags/index.html</loc>
-    
-    <lastmod>2023-01-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lee-jet.github.io/2023/01/10/09-python-pytorch-tensorflow/</loc>
-    
-    <lastmod>2023-01-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lee-jet.github.io/2023/01/10/08-linux-shell/</loc>
     
     <lastmod>2023-01-10</lastmod>
     
@@ -83,36 +110,9 @@
   </url>
   
   <url>
-    <loc>https://lee-jet.github.io/2023/01/09/03-cmake-gdb/</loc>
-    
-    <lastmod>2023-01-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://lee-jet.github.io/2023/01/09/01-github-gitlab/</loc>
     
     <lastmod>2023-01-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lee-jet.github.io/2022/12/28/project-demos/</loc>
-    
-    <lastmod>2022-12-28</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lee-jet.github.io/2022/12/24/tech-blog-demo/</loc>
-    
-    <lastmod>2022-12-28</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
