@@ -4,9 +4,16 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="audio, Jet&#39; Blog">
-    <meta name="description" content="AudioPipeline
-ML: audio -&amp;gt; denoise -&amp;gt; feature extraction(STFT) -&amp;gt; feature selection (PCA) -&amp;gt; Classification(">
+    <meta name="keywords" content="Baby Crying Recognition Tutorials of Algorithm Landing, Jet&#39; Blog">
+    <meta name="description" content="
+      Baby Crying Recognition Tutorials of Algorithm Landing   
+    
+     Author:Jet Date:2023/02 
+
+---
+
+$ Pipeline
+Ste">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +25,7 @@ ML: audio -&amp;gt; denoise -&amp;gt; feature extraction(STFT) -&amp;gt; feature
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>audio | Jet&#39; Blog</title>
+    <title>Baby Crying Recognition Tutorials of Algorithm Landing | Jet&#39; Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -338,12 +345,12 @@ ML: audio -&amp;gt; denoise -&amp;gt; feature extraction(STFT) -&amp;gt; feature
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">audio</h1>
+                    <h1 class="description center-align post-title">Baby Crying Recognition Tutorials of Algorithm Landing</h1>
                 </div>
             </div>
         </div>
@@ -392,28 +399,28 @@ ML: audio -&amp;gt; denoise -&amp;gt; feature extraction(STFT) -&amp;gt; feature
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-02-10
+                    2023-02-22
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-02-10
+                    2023-02-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    961
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    5 分
                 </div>
                 
 
@@ -436,222 +443,263 @@ ML: audio -&amp;gt; denoise -&amp;gt; feature extraction(STFT) -&amp;gt; feature
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Audio"><a href="#Audio" class="headerlink" title="Audio"></a>Audio</h1><h2 id="Pipeline"><a href="#Pipeline" class="headerlink" title="Pipeline"></a>Pipeline</h2><ul>
-<li>ML: audio -&gt; denoise -&gt; feature extraction(STFT) -&gt; feature selection (PCA) -&gt; Classification(ML:SVM/KNN/RF) </li>
-<li>DL: audio -&gt; denoise -&gt; feature extraction(STFT) -&gt; feature selection (PCA) -&gt; Classification(DL:1DConv/TCN)</li>
-</ul>
-<h2 id="Feature-extraction-tools"><a href="#Feature-extraction-tools" class="headerlink" title="Feature extraction tools"></a>Feature extraction tools</h2><h3 id="1-librosa——c-py"><a href="#1-librosa——c-py" class="headerlink" title="1. librosa——c++/py"></a>1. librosa——c++/py</h3><p>​    用于处理audio和music的python tool——py 39M  beat_track和onset_detect</p>
-<ul>
-<li>Librosa doc <a target="_blank" rel="noopener" href="https://librosa.org/doc/latest/index.html">https://librosa.org/doc/latest/index.html</a></li>
-<li>Librosa example gallery <a target="_blank" rel="noopener" href="https://librosa.org/librosa_gallery/index.html">https://librosa.org/librosa_gallery/index.html</a></li>
-<li>Librosa处理音频信号 <a target="_blank" rel="noopener" href="https://huailiang.github.io/blog/2019/sound/">https://huailiang.github.io/blog/2019/sound/</a></li>
-</ul>
-<p>​    LibrosaCpp——c++ 19M</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/ewan-xu/LibrosaCpp">https://github.com/ewan-xu/LibrosaCpp</a></li>
-</ul>
-<h3 id="2-essentia——c-py"><a href="#2-essentia——c-py" class="headerlink" title="2. essentia——c++/py"></a>2. essentia——c++/py</h3><p>​    可以提取的rhythm descriptor里包括beat detection, BPM, onset detection, rhythm transform, beat loudness</p>
-<p>​    <a target="_blank" rel="noopener" href="https://mtg.github.io/essentia.js/examples/">https://mtg.github.io/essentia.js/examples/</a></p>
-<p>​    <a target="_blank" rel="noopener" href="https://essentia.upf.edu/models.html">https://essentia.upf.edu/models.html</a></p>
-<p>​    <a target="_blank" rel="noopener" href="https://mtg.github.io/essentia.js/examples/demos/mood-classifiers/">https://mtg.github.io/essentia.js/examples/demos/mood-classifiers/</a></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302101656156.png" alt="essentia"></p>
-<h3 id="3-aubio——c-python"><a href="#3-aubio——c-python" class="headerlink" title="3. aubio——c/python"></a>3. aubio——c/python</h3><p>​    <a target="_blank" rel="noopener" href="https://github.com/aubio/aubio">https://github.com/aubio/aubio</a></p>
-<p>​    <a target="_blank" rel="noopener" href="https://aubio.org/manual/latest/">https://aubio.org/manual/latest/</a></p>
-<p>aubio provide several algorithms and routines, including:</p>
-<ul>
-<li>several onset detection methods</li>
-<li>different pitch detection methods</li>
-<li>tempo tracking and beat detection</li>
-<li>MFCC (mel-frequency cepstrum coefficients)</li>
-<li>FFT and phase vocoder</li>
-<li>up/down-sampling</li>
-<li>digital filters (low pass, high pass, and more)</li>
-<li>spectral filtering</li>
-<li>transient/steady-state separation</li>
-<li>sound file read and write access</li>
-<li>various mathematics utilities for music applications</li>
-</ul>
-<h3 id="4-madmom——python"><a href="#4-madmom——python" class="headerlink" title="4. madmom——python"></a>4. madmom——python</h3><p>​    <a target="_blank" rel="noopener" href="https://github.com/CPJKU/madmom">https://github.com/CPJKU/madmom</a>    </p>
-<h2 id="Task-1-Baby-Crying-Detection"><a href="#Task-1-Baby-Crying-Detection" class="headerlink" title="Task 1 Baby Crying Detection"></a>Task 1 Baby Crying Detection</h2><h3 id="Related-info"><a href="#Related-info" class="headerlink" title="Related info"></a>Related info</h3><ul>
-<li><p>Baby cry detection - Building the model <a target="_blank" rel="noopener" href="https://github.com/giulbia/baby_cry_detection">https://github.com/giulbia/baby_cry_detection</a></p>
-</li>
-<li><p>Baby cry detection - Deployment on Raspberry Pi    <a target="_blank" rel="noopener" href="https://github.com/giulbia/baby_cry_rpi">https://github.com/giulbia/baby_cry_rpi</a></p>
-</li>
-<li><p>ESC-50: Dataset for Environmental Sound Classification <a target="_blank" rel="noopener" href="https://github.com/karolpiczak/ESC-50">https://github.com/karolpiczak/ESC-50</a>    </p>
-</li>
-</ul>
-<h3 id="Common-features"><a href="#Common-features" class="headerlink" title="Common features"></a>Common features</h3><h4 id="电信号"><a href="#电信号" class="headerlink" title="电信号"></a><strong>电信号</strong></h4><p><a target="_blank" rel="noopener" href="https://github.com/LeoHsiao1/Notes">https://github.com/LeoHsiao1/Notes</a></p>
-<ul>
-<li><p>模拟信号（analog signal）：电平连续变化的电信号。</p>
-</li>
-<li><p>数字信号（digital signal）：只有高低两种电平的脉冲电压信号。</p>
-</li>
-<li><ul>
-<li>数字信号传输时的误码率低，速度快。</li>
-</ul>
-</li>
-<li><p>将模拟信号转换成数字信号（即数字化）的主要方法是</p>
-</li>
-</ul>
-<p>​    <strong>脉冲编码调制</strong>，分为以下三步：</p>
-<ul>
-<li><ul>
-<li>采样：从电平连续变化的模拟信号中每隔一定时间取一个幅值作为样本，代表原信号。<ul>
-<li>量化：将样本幅值分级量化。</li>
-<li>编码：将样本量级表示成二进制。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># features</span>
-zcr_feat <span class="token operator">=</span> self<span class="token punctuation">.</span>compute_librosa_features<span class="token punctuation">(</span>audio_data<span class="token operator">=</span>audio_data<span class="token punctuation">,</span> feat_name<span class="token operator">=</span><span class="token string">'zero_crossing_rate'</span><span class="token punctuation">)</span>
-rmse_feat <span class="token operator">=</span> self<span class="token punctuation">.</span>compute_librosa_features<span class="token punctuation">(</span>audio_data<span class="token operator">=</span>audio_data<span class="token punctuation">,</span> feat_name<span class="token operator">=</span><span class="token string">'rmse'</span><span class="token punctuation">)</span>
-mfcc_feat <span class="token operator">=</span> self<span class="token punctuation">.</span>compute_librosa_features<span class="token punctuation">(</span>audio_data<span class="token operator">=</span>audio_data<span class="token punctuation">,</span> feat_name<span class="token operator">=</span> <span class="token string">'mfcc'</span><span class="token punctuation">)</span>
-spectral_centroid_feat <span class="token operator">=</span> self<span class="token punctuation">.</span>compute_librosa_features<span class="token punctuation">(</span>audio_data<span class="token operator">=</span>audio_data<span class="token punctuation">,</span> feat_name<span class="token operator">=</span><span class="token string">'spectral_centroid'</span><span class="token punctuation">)</span>
-spectral_rolloff_feat <span class="token operator">=</span> self<span class="token punctuation">.</span>compute_librosa_features<span class="token punctuation">(</span>audio_data<span class="token operator">=</span>audio_data<span class="token punctuation">,</span> feat_name<span class="token operator">=</span><span class="token string">'spectral_rolloff'</span><span class="token punctuation">)</span>
-spectral_bandwidth_feat <span class="token operator">=</span> self<span class="token punctuation">.</span>compute_librosa_features<span class="token punctuation">(</span>audio_data<span class="token operator">=</span>audio_data<span class="token punctuation">,</span> feat_name<span class="token operator">=</span><span class="token string">'spectral_bandwidth'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <div align='center' >
+    <font size='5'> <b> Baby Crying Recognition Tutorials of Algorithm Landing </b> </font> 
+    <br>
+    <font size='3'> Author:Jet Date:2023/02 </font>
+</div>
+---
 
-<h4 id="MFCC"><a href="#MFCC" class="headerlink" title="MFCC"></a>MFCC</h4><p><a target="_blank" rel="noopener" href="https://tianchi.aliyun.com/mas-notebook/preview/185322/208998/-1?lang=">https://tianchi.aliyun.com/mas-notebook/preview/185322/208998/-1?lang=</a></p>
-<p><a target="_blank" rel="noopener" href="http://fancyerii.github.io/books/mfcc/">http://fancyerii.github.io/books/mfcc/</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/tosonw/MFCC">https://github.com/tosonw/MFCC</a></p>
-<ul>
-<li>过零率 （Zero Crossing Rate）</li>
-<li>频谱质心 （Spectral Centroid）</li>
-<li>声谱衰减 (Spectral Roll-off）</li>
-<li>梅尔频率倒谱系数 （Mel-frequency cepstral coefficients ，MFCC）</li>
-<li>色度频率 （Chroma Frequencies）</li>
+<h1 id="Pipeline"><a href="#Pipeline" class="headerlink" title="$ Pipeline"></a>$ Pipeline</h1><ul>
+<li>Step 1 语音持续监控，当检测到音量大于某个阈值，开始连续录制音频某一段时间</li>
+<li>Step 2 对收集的语音数据进行信号处理，并提取一系列特征</li>
+<li>Step 3 将特征输入到分类器中进行二分类</li>
+<li>Step 4 根据分类结果决定是和否预警</li>
+<li>Step 5 循环上述步骤</li>
 </ul>
-<h4 id="FFT-STFT"><a href="#FFT-STFT" class="headerlink" title="FFT STFT"></a><strong>FFT STFT</strong></h4><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302101656157.png" alt="image-20230210102758314"></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302101656158.png" alt="image-20230210102803452"></p>
-<h3 id="C-直接用"><a href="#C-直接用" class="headerlink" title="C 直接用"></a><strong>C 直接用</strong></h3><p>​    <a target="_blank" rel="noopener" href="https://github.com/Troy-Wang/BabyCryDetector/tree/master/Monitor_c">https://github.com/Troy-Wang/BabyCryDetector/tree/master/Monitor_c</a></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302101656159.png" alt="image-20230210103216739"></p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">if(feature_Freq &gt; stdAvgFreq)
-    &#123;
-        score &#x3D; score + 2;
-        printf(&quot;freq yes&quot;);
-    &#125;
-    
-    if(feature_PitchFreq &gt; stdPitchFreq)
-    &#123;
-        score &#x3D; score + 5;
-        printf(&quot;pitch freq yes&quot;);
-    &#125;
-
-    
-    if(feature_STE &gt; stdSTE)
-    &#123;
-        score &#x3D; score + 1;
-        printf(&quot;ste yes&quot;);
-    &#125;
-    
-    if(feature_STEAcc &gt; stdAcc)
-    &#123;
-        score &#x3D; score + 1;
-        printf(&quot;steacc yes&quot;);
-    &#125;
-    
-        if(feature_ZCR &gt; stdZCR)
-    &#123;
-            score &#x3D; score + 1;
-        printf(&quot;zcr yes&quot;);
-    &#125;
-    
-    printf(&quot;%d\n&quot;,score);
-    
-    if(score &gt;&#x3D; 5)
-    &#123;
-        printf(&quot;baby cry!\n&quot;);
-        return 1;
-    &#125;
-    else
-        return 0;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="Others-reference"><a href="#Others-reference" class="headerlink" title="Others reference"></a>Others reference</h3><p>​    <a target="_blank" rel="noopener" href="https://github.com/Ananya-github/Audio-signal-classification">https://github.com/Ananya-github/Audio-signal-classification</a> 可能有用</p>
-<p>​    <a target="_blank" rel="noopener" href="https://github.com/Troy-Wang/BabyCryDetector">https://github.com/Troy-Wang/BabyCryDetector</a></p>
-<p>​    <a target="_blank" rel="noopener" href="https://towardsdatascience.com/deep-learning-for-classifying-audio-of-babies-crying-9a29e057f7ca">https://towardsdatascience.com/deep-learning-for-classifying-audio-of-babies-crying-9a29e057f7ca</a></p>
-<p>​    <a target="_blank" rel="noopener" href="https://chatterbaby.org/pages/index_ch">https://chatterbaby.org/pages/index_ch</a> cry类别</p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302101656160.png" alt="image-20230210104138183"></p>
-<p>​    <a target="_blank" rel="noopener" href="https://zenodo.org/record/1290750#.Y-C7MHZBxaR">https://zenodo.org/record/1290750#.Y-C7MHZBxaR</a> 音乐乐器分类数据集</p>
-<p>​    Smart Detection (Cry, Motion, Noise) <a target="_blank" rel="noopener" href="https://support.lollipop.camera/hc/en-us/articles/4410890181273-Smart-Detection-Cry-Motion-Noise-#h_01FNT82C0PF0B2M46F78YETY4V">https://support.lollipop.camera/hc/en-us/articles/4410890181273-Smart-Detection-Cry-Motion-Noise-#h_01FNT82C0PF0B2M46F78YETY4V</a></p>
-<p>​    CubeAI <a target="_blank" rel="noopener" href="https://www.facebook.com/cubobabymonitor/videos/how-cubo-ai-works-cry-detection-alerts/872055479860588/">https://www.facebook.com/cubobabymonitor/videos/how-cubo-ai-works-cry-detection-alerts/872055479860588/</a></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302101656161.png" alt="image-20230210104147303"></p>
-<p>​    <strong>NN model</strong> <a target="_blank" rel="noopener" href="https://studio.edgeimpulse.com/public/134216/latest/devices">https://studio.edgeimpulse.com/public/134216/latest/devices</a></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302101656162.png" alt="image-20230210104155716"></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302101656163.png" alt="image-20230210104158148"></p>
-<p>​    paper:Development of a Baby Cry Monitoring Device</p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302101656164.png" alt="image-20230210104205042"></p>
-<p>​    Pitch detection    <a target="_blank" rel="noopener" href="https://www.kaggle.com/code/lrthtn/pitch-detection/notebook">https://www.kaggle.com/code/lrthtn/pitch-detection/notebook</a>    </p>
-<h2 id="Task-2-Music-Information-Retrieval-MIR"><a href="#Task-2-Music-Information-Retrieval-MIR" class="headerlink" title="Task 2 Music Information Retrieval (MIR)"></a>Task 2 Music Information Retrieval (MIR)</h2><h3 id="Beats-and-tempo"><a href="#Beats-and-tempo" class="headerlink" title="Beats and tempo"></a>Beats and tempo</h3><p>​    <a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1634207">https://cloud.tencent.com/developer/article/1634207</a></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302101656165.png" alt="image-20230210104051283"></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302101656166.png" alt="image-20230210104054948"></p>
-<p>《Beat Tracking by Dynamic Programming》</p>
-<p>​    <a target="_blank" rel="noopener" href="https://github.com/librosa/librosa/blob/main/librosa/beat.py">https://github.com/librosa/librosa/blob/main/librosa/beat.py</a></p>
-<p>​    <a target="_blank" rel="noopener" href="https://github.com/bineferg/MIR-BeatTracker-DP">https://github.com/bineferg/MIR-BeatTracker-DP</a></p>
-<p>​    <a target="_blank" rel="noopener" href="https://tempobeatdownbeat.github.io/tutorial/ch2_basics/baseline.html">https://tempobeatdownbeat.github.io/tutorial/ch2_basics/baseline.html</a></p>
-<p>​    <a target="_blank" rel="noopener" href="https://tempobeatdownbeat.github.io/tutorial/ch3_going_deep/overview.html">https://tempobeatdownbeat.github.io/tutorial/ch3_going_deep/overview.html</a></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302101656167.png" alt="image-20230210103904852"></p>
-<p>​    Joint Beat and Downbeat Tracking with Recurrent Neural Networks</p>
-<p>​    <a target="_blank" rel="noopener" href="https://blog.csdn.net/zjuPeco/article/details/120184032">https://blog.csdn.net/zjuPeco/article/details/120184032</a></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302101656168.png" alt="image-20230210103912733"></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302101656169.png" alt="image-20230210103915572"></p>
-<p>​    <a target="_blank" rel="noopener" href="https://tempobeatdownbeat.github.io/tutorial/ch3_going_deep/table.html">https://tempobeatdownbeat.github.io/tutorial/ch3_going_deep/table.html</a></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302101656170.png" alt="image-20230210103923197"></p>
-<p>​    BeatNet <a target="_blank" rel="noopener" href="https://github.com/mjhydri/beatnet">https://github.com/mjhydri/beatnet</a></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302101656171.png" alt="image-20230210103931541"></p>
-<p>​    For the input feature extraction and the raw state space generation, <a target="_blank" rel="noopener" href="https://github.com/librosa/librosa">Librosa</a> and <a target="_blank" rel="noopener" href="https://github.com/CPJKU/madmom">Madmom</a> libraries are ustilzed respectively.</p>
-<p>​    Bar <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/105124027">https://zhuanlan.zhihu.com/p/105124027</a></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302101656172.png" alt="image-20230210103943861"></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302101656173.png" alt="image-20230210103948372"></p>
-<h3 id="Datasets"><a href="#Datasets" class="headerlink" title="Datasets"></a><strong>Datasets</strong></h3><p>​    <a target="_blank" rel="noopener" href="https://github.com/carrieeeeewithfivee/Tempo-and-beat-estimation">Tempo-and-beat-estimation</a> </p>
-<ul>
-<li>Ballroom <a target="_blank" rel="noopener" href="https://github.com/CPJKU/BallroomAnnotations">https://github.com/CPJKU/BallroomAnnotations</a></li>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302221827879.png" alt="流程图"></p>
+<h2 id="Methodology"><a href="#Methodology" class="headerlink" title="$$ Methodology"></a>$$ Methodology</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://speech.xmu.edu.cn/_upload/article/files/bb/6c/02a02295420294f6cee55184f035/df14ba5e-9062-4d8a-b887-11144bc49e2e.pdf">输入过程 </a><ul>
+<li>数字语音信号：离散</li>
+<li>格式：.wav/.mp3/.amr/.m4a/.flac/.aac</li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302101656174.png" alt="image-20230210103426808"></p>
-<ul>
-<li>SMC</li>
-<li>JCS    22首</li>
-<li>GiantSteps (tempo+genre) datasets <a target="_blank" rel="noopener" href="https://github.com/GiantSteps/giantsteps-tempo-dataset">https://github.com/GiantSteps/giantsteps-tempo-dataset</a></li>
+</li>
 </ul>
-<h3 id="MIR技术"><a href="#MIR技术" class="headerlink" title="MIR技术"></a><strong>MIR技术</strong></h3><p><a href="https://link.zhihu.com/?target=https://arxiv.org/pdf/1709.04396.pdf">A Tutorial on Deep Learning for Music Information Retriveal</a></p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/84756021">https://zhuanlan.zhihu.com/p/84756021</a></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302101656175.png" alt="image-20230210103510304"></p>
-<h3 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h3><pre class="line-numbers language-none"><code class="language-none">librosa.beat.beat_track
-https:&#x2F;&#x2F;librosa.org&#x2F;doc&#x2F;main&#x2F;generated&#x2F;librosa.beat.beat_track.html
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302221827880.png" alt="数字语音信号"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302221827881.png" alt="格式"></p>
+<ul>
+<li><p>中间过程</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://librosa.org/doc/main/feature.html#spectral-features">特征提取</a><ul>
+<li>短时傅里叶变换（STFT）的频谱、梅尔谱Mel-spectrogram的MFCC（DCT）</li>
+</ul>
+</li>
+</ul>
+<p>  <img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302221827882.png" alt="image-20230222170300277"></p>
+<ul>
+<li>特征选择<ul>
+<li>过零率（Zero Crossing Rate）</li>
+<li>频谱质心（Spectral Centroid）</li>
+<li>频谱衰减 (Spectral Roll-off）</li>
+<li>梅尔频率倒谱系数（Mel-frequency cepstral coefficients ，MFCC）</li>
+<li>色度频率（Chroma Frequencies）</li>
+<li>…</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>输出过程</p>
+<ul>
+<li><p>1 Scoring</p>
+<ul>
+<li>计算特征得分后与阈值比较</li>
+</ul>
+</li>
+<li><p>2 Classifier</p>
+<ul>
+<li>Machine learning: SVM / Random forest</li>
+<li>Deep Learning: 1D Conv</li>
+</ul>
+</li>
+</ul>
+<p>​    </p>
+</li>
+</ul>
+<h3 id="Step-1-feature-extraction"><a href="#Step-1-feature-extraction" class="headerlink" title="$$$ Step 1 feature extraction"></a>$$$ Step 1 feature extraction</h3><ul>
+<li><p>STFT：逐帧进行快速傅里叶变换的过程被称为短时傅里叶变换（short-time Fourier transform 或 short-term Fourier transform，STFT）</p>
+</li>
+<li><p>MFCC：提取过程分为预加重、分帧、加窗、快速傅里叶变换（FFT）、梅尔滤波器组过滤、取对数、离散余弦变换（DCT）</p>
+</li>
+<li><p>特征选择为9种：STFT 8 + MFCC 1</p>
+<ul>
+<li><p>zero_crossing_rate 过零率</p>
+</li>
+<li><p>ste (short-time energy) 短时能量</p>
+</li>
+<li><p>ste_acc 过零率大于0</p>
+</li>
+<li><p>stzcr (short-time zero crossing rate) 短时过零率</p>
+</li>
+<li><p>spectral_centroid 频谱质心</p>
+</li>
+<li><p>spectral_bandwidth 频谱带宽</p>
+</li>
+<li><p>spectral_rolloff 频谱衰减</p>
+</li>
+<li><p>spectral_flatness 频谱平坦</p>
+</li>
+<li><p>mfcc 梅尔频率倒谱系数</p>
+</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<span class="token keyword">import</span> librosa<span class="token punctuation">.</span>feature <span class="token keyword">as</span> lrf
+<span class="token keyword">import</span> scipy<span class="token punctuation">.</span>signal <span class="token keyword">as</span> scisig
 
-Returns
-    tempo float [scalar, non-negative]estimated global tempo (in beats per minute)
-    beatsnp.ndarray [shape&#x3D;(m,)]estimated beat event locations in the specified units (default is frame indices)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">In <span class="token punctuation">[</span><span class="token number">7</span><span class="token punctuation">]</span><span class="token punctuation">:</span> tempo<span class="token punctuation">,</span> beats <span class="token operator">=</span> librosa<span class="token punctuation">.</span>beat<span class="token punctuation">.</span>beat_track<span class="token punctuation">(</span>y<span class="token operator">=</span>y<span class="token punctuation">,</span> sr<span class="token operator">=</span>sr<span class="token punctuation">)</span>                               In <span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">:</span> tempo                                                                             Out<span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">:</span> <span class="token number">89.10290948275862</span>                                                                 In <span class="token punctuation">[</span><span class="token number">9</span><span class="token punctuation">]</span><span class="token punctuation">:</span> beats                                                                             Out<span class="token punctuation">[</span><span class="token number">9</span><span class="token punctuation">]</span><span class="token punctuation">:</span>                                                                                      
-array<span class="token punctuation">(</span><span class="token punctuation">[</span>  <span class="token number">23</span><span class="token punctuation">,</span>   <span class="token number">52</span><span class="token punctuation">,</span>   <span class="token number">81</span><span class="token punctuation">,</span>  <span class="token number">110</span><span class="token punctuation">,</span>  <span class="token number">139</span><span class="token punctuation">,</span>  <span class="token number">169</span><span class="token punctuation">,</span>  <span class="token number">198</span><span class="token punctuation">,</span>  <span class="token number">227</span><span class="token punctuation">,</span>  <span class="token number">257</span><span class="token punctuation">,</span>  <span class="token number">286</span><span class="token punctuation">,</span>  <span class="token number">316</span><span class="token punctuation">,</span>                        
-        <span class="token number">344</span><span class="token punctuation">,</span>  <span class="token number">373</span><span class="token punctuation">,</span>  <span class="token number">402</span><span class="token punctuation">,</span>  <span class="token number">431</span><span class="token punctuation">,</span>  <span class="token number">460</span><span class="token punctuation">,</span>  <span class="token number">489</span><span class="token punctuation">,</span>  <span class="token number">519</span><span class="token punctuation">,</span>  <span class="token number">549</span><span class="token punctuation">,</span>  <span class="token number">578</span><span class="token punctuation">,</span>  <span class="token number">606</span><span class="token punctuation">,</span>  <span class="token number">636</span><span class="token punctuation">,</span>                        
-        <span class="token number">665</span><span class="token punctuation">,</span>  <span class="token number">695</span><span class="token punctuation">,</span>  <span class="token number">724</span><span class="token punctuation">,</span>  <span class="token number">753</span><span class="token punctuation">,</span>  <span class="token number">782</span><span class="token punctuation">,</span>  <span class="token number">811</span><span class="token punctuation">,</span>  <span class="token number">840</span><span class="token punctuation">,</span>  <span class="token number">864</span><span class="token punctuation">,</span>  <span class="token number">890</span><span class="token punctuation">,</span>  <span class="token number">919</span><span class="token punctuation">,</span>  <span class="token number">948</span><span class="token punctuation">,</span>                        
-        <span class="token number">977</span><span class="token punctuation">,</span> <span class="token number">1006</span><span class="token punctuation">,</span> <span class="token number">1036</span><span class="token punctuation">,</span> <span class="token number">1065</span><span class="token punctuation">,</span> <span class="token number">1095</span><span class="token punctuation">,</span> <span class="token number">1123</span><span class="token punctuation">,</span> <span class="token number">1152</span><span class="token punctuation">,</span> <span class="token number">1181</span><span class="token punctuation">,</span> <span class="token number">1210</span><span class="token punctuation">,</span> <span class="token number">1239</span><span class="token punctuation">]</span><span class="token punctuation">)</span>                       
-In <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">:</span> librosa<span class="token punctuation">.</span>frames_to_time<span class="token punctuation">(</span>beats<span class="token punctuation">,</span> sr<span class="token operator">=</span>sr<span class="token punctuation">)</span>                                                   
-Out<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">:</span>                                                                                        
-array<span class="token punctuation">(</span><span class="token punctuation">[</span> <span class="token number">0.53405896</span><span class="token punctuation">,</span>  <span class="token number">1.20743764</span><span class="token punctuation">,</span>  <span class="token number">1.88081633</span><span class="token punctuation">,</span>  <span class="token number">2.55419501</span><span class="token punctuation">,</span>  <span class="token number">3.2275737</span> <span class="token punctuation">,</span>                         
-        <span class="token number">3.92417234</span><span class="token punctuation">,</span>  <span class="token number">4.59755102</span><span class="token punctuation">,</span>  <span class="token number">5.27092971</span><span class="token punctuation">,</span>  <span class="token number">5.96752834</span><span class="token punctuation">,</span>  <span class="token number">6.64090703</span><span class="token punctuation">,</span>                         
-        <span class="token number">7.33750567</span><span class="token punctuation">,</span>  <span class="token number">7.9876644</span> <span class="token punctuation">,</span>  <span class="token number">8.66104308</span><span class="token punctuation">,</span>  <span class="token number">9.33442177</span><span class="token punctuation">,</span> <span class="token number">10.00780045</span><span class="token punctuation">,</span>                         
-       <span class="token number">10.68117914</span><span class="token punctuation">,</span> <span class="token number">11.35455782</span><span class="token punctuation">,</span> <span class="token number">12.05115646</span><span class="token punctuation">,</span> <span class="token number">12.7477551</span> <span class="token punctuation">,</span> <span class="token number">13.42113379</span><span class="token punctuation">,</span>                         
-       <span class="token number">14.07129252</span><span class="token punctuation">,</span> <span class="token number">14.76789116</span><span class="token punctuation">,</span> <span class="token number">15.44126984</span><span class="token punctuation">,</span> <span class="token number">16.13786848</span><span class="token punctuation">,</span> <span class="token number">16.81124717</span><span class="token punctuation">,</span>                         
-       <span class="token number">17.48462585</span><span class="token punctuation">,</span> <span class="token number">18.15800454</span><span class="token punctuation">,</span> <span class="token number">18.83138322</span><span class="token punctuation">,</span> <span class="token number">19.5047619</span> <span class="token punctuation">,</span> <span class="token number">20.06204082</span><span class="token punctuation">,</span>                         
-       <span class="token number">20.66575964</span><span class="token punctuation">,</span> <span class="token number">21.33913832</span><span class="token punctuation">,</span> <span class="token number">22.01251701</span><span class="token punctuation">,</span> <span class="token number">22.68589569</span><span class="token punctuation">,</span> <span class="token number">23.35927438</span><span class="token punctuation">,</span>                         
-       <span class="token number">24.05587302</span><span class="token punctuation">,</span> <span class="token number">24.7292517</span> <span class="token punctuation">,</span> <span class="token number">25.42585034</span><span class="token punctuation">,</span> <span class="token number">26.07600907</span><span class="token punctuation">,</span> <span class="token number">26.74938776</span><span class="token punctuation">,</span>                         
-       <span class="token number">27.42276644</span><span class="token punctuation">,</span> <span class="token number">28.09614512</span><span class="token punctuation">,</span> <span class="token number">28.76952381</span><span class="token punctuation">]</span><span class="token punctuation">)</span>                                           
-                           
-In <span class="token punctuation">[</span><span class="token number">13</span><span class="token punctuation">]</span><span class="token punctuation">:</span> <span class="token builtin">len</span><span class="token punctuation">(</span>beats<span class="token punctuation">)</span>                                                                       
-Out<span class="token punctuation">[</span><span class="token number">13</span><span class="token punctuation">]</span><span class="token punctuation">:</span> <span class="token number">43</span>                                                                     
-In <span class="token punctuation">[</span><span class="token number">14</span><span class="token punctuation">]</span><span class="token punctuation">:</span> <span class="token number">60</span><span class="token operator">/</span><span class="token number">89</span>                                                                           
-Out<span class="token punctuation">[</span><span class="token number">14</span><span class="token punctuation">]</span><span class="token punctuation">:</span> <span class="token number">0.6741573033707865</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">class</span> <span class="token class-name">AudioUtils</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">pass</span>
 
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302101656176.png" alt="image-20230210103745728"></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302101656177.png" alt="image-20230210103749796"></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302101656178.png" alt="image-20230210103757560"></p>
-<p>​    <a target="_blank" rel="noopener" href="https://blog.csdn.net/SoYouTry/article/details/122784693?spm=1001.2101.3001.6650.17&utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-17-122784693-blog-114082446.pc_relevant_3mothn_strategy_recovery&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-17-122784693-blog-114082446.pc_relevant_3mothn_strategy_recovery&utm_relevant_index=18">使用Librosa库对音乐速度、节拍进行估计的基本方法</a></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302101656179.png" alt="image-20230210103806870"></p>
-<h2 id="Deployment"><a href="#Deployment" class="headerlink" title="Deployment"></a>Deployment</h2><p>1 ML <a target="_blank" rel="noopener" href="https://github.com/bBobxx/statistical-learning">https://github.com/bBobxx/statistical-learning</a></p>
-<p>2 feature extraction</p>
+    <span class="token decorator annotation punctuation">@staticmethod</span>
+    <span class="token keyword">def</span> <span class="token function">_sgn</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        y <span class="token operator">=</span> np<span class="token punctuation">.</span>zeros_like<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+        y<span class="token punctuation">[</span>np<span class="token punctuation">.</span>where<span class="token punctuation">(</span>x <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1.0</span>
+        y<span class="token punctuation">[</span>np<span class="token punctuation">.</span>where<span class="token punctuation">(</span>x <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1.0</span>
+        <span class="token keyword">return</span> y
+
+    <span class="token decorator annotation punctuation">@staticmethod</span>
+    <span class="token keyword">def</span> <span class="token function">ste</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> wintype<span class="token punctuation">,</span> winlen<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
+        Compute short-time energy
+        :param data:
+        :param wintype:
+        :param winlen:
+        :return:
+        """</span>
+        win <span class="token operator">=</span> scisig<span class="token punctuation">.</span>get_window<span class="token punctuation">(</span>wintype<span class="token punctuation">,</span> winlen<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> scisig<span class="token punctuation">.</span>convolve<span class="token punctuation">(</span>data <span class="token operator">**</span> <span class="token number">2</span><span class="token punctuation">,</span> win <span class="token operator">**</span> <span class="token number">2</span><span class="token punctuation">,</span> mode<span class="token operator">=</span><span class="token string">"same"</span><span class="token punctuation">)</span>
+
+    <span class="token decorator annotation punctuation">@staticmethod</span>
+    <span class="token keyword">def</span> <span class="token function">stzcr</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> wintype<span class="token punctuation">,</span> winlen<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
+        Compute short-time zero crossing rate.
+        :param data:
+        :param wintype:
+        :param winlen:
+        :return:
+        """</span>
+        win <span class="token operator">=</span> scisig<span class="token punctuation">.</span>get_window<span class="token punctuation">(</span>wintype<span class="token punctuation">,</span> winlen<span class="token punctuation">)</span>
+        win <span class="token operator">=</span> <span class="token number">0.5</span> <span class="token operator">*</span> win <span class="token operator">/</span> <span class="token builtin">len</span><span class="token punctuation">(</span>win<span class="token punctuation">)</span>
+        x1 <span class="token operator">=</span> np<span class="token punctuation">.</span>roll<span class="token punctuation">(</span>data<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+        x1<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0.0</span>
+        abs_diff <span class="token operator">=</span> np<span class="token punctuation">.</span><span class="token builtin">abs</span><span class="token punctuation">(</span>AudioUtils<span class="token punctuation">.</span>_sgn<span class="token punctuation">(</span>data<span class="token punctuation">)</span> <span class="token operator">-</span> AudioUtils<span class="token punctuation">.</span>_sgn<span class="token punctuation">(</span>x1<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> scisig<span class="token punctuation">.</span>convolve<span class="token punctuation">(</span>abs_diff<span class="token punctuation">,</span> win<span class="token punctuation">,</span> mode<span class="token operator">=</span><span class="token string">"same"</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">class</span> <span class="token class-name">FeatureExtraction</span><span class="token punctuation">:</span>
+    RATE <span class="token operator">=</span> <span class="token number">44100</span>
+    FRAME <span class="token operator">=</span> <span class="token number">512</span>
+
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> label<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> label <span class="token keyword">is</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>label <span class="token operator">=</span> <span class="token string">''</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>label <span class="token operator">=</span> label
+
+    <span class="token keyword">def</span> <span class="token function">extract_feature</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> audio_data<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
+        extract features from audio data
+        :param audio_data:
+        :return:
+        """</span>
+        zcr <span class="token operator">=</span> lrf<span class="token punctuation">.</span>zero_crossing_rate<span class="token punctuation">(</span>audio_data<span class="token punctuation">,</span> frame_length<span class="token operator">=</span>self<span class="token punctuation">.</span>FRAME<span class="token punctuation">,</span> hop_length<span class="token operator">=</span>self<span class="token punctuation">.</span>FRAME <span class="token operator">//</span> <span class="token number">2</span><span class="token punctuation">)</span>
+        feature_zcr <span class="token operator">=</span> np<span class="token punctuation">.</span>mean<span class="token punctuation">(</span>zcr<span class="token punctuation">)</span>
+
+        ste <span class="token operator">=</span> AudioUtils<span class="token punctuation">.</span>ste<span class="token punctuation">(</span>audio_data<span class="token punctuation">,</span> <span class="token string">'hamming'</span><span class="token punctuation">,</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token number">20</span> <span class="token operator">*</span> <span class="token number">0.001</span> <span class="token operator">*</span> self<span class="token punctuation">.</span>RATE<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        feature_ste <span class="token operator">=</span> np<span class="token punctuation">.</span>mean<span class="token punctuation">(</span>ste<span class="token punctuation">)</span>
+
+        ste_acc <span class="token operator">=</span> np<span class="token punctuation">.</span>diff<span class="token punctuation">(</span>ste<span class="token punctuation">)</span>
+        feature_steacc <span class="token operator">=</span> np<span class="token punctuation">.</span>mean<span class="token punctuation">(</span>ste_acc<span class="token punctuation">[</span>ste_acc <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+        stzcr <span class="token operator">=</span> AudioUtils<span class="token punctuation">.</span>stzcr<span class="token punctuation">(</span>audio_data<span class="token punctuation">,</span> <span class="token string">'hamming'</span><span class="token punctuation">,</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token number">20</span> <span class="token operator">*</span> <span class="token number">0.001</span> <span class="token operator">*</span> self<span class="token punctuation">.</span>RATE<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        feature_stezcr <span class="token operator">=</span> np<span class="token punctuation">.</span>mean<span class="token punctuation">(</span>stzcr<span class="token punctuation">)</span>
+
+        mfcc <span class="token operator">=</span> lrf<span class="token punctuation">.</span>mfcc<span class="token punctuation">(</span>y<span class="token operator">=</span>audio_data<span class="token punctuation">,</span> sr<span class="token operator">=</span>self<span class="token punctuation">.</span>RATE<span class="token punctuation">,</span> n_mfcc<span class="token operator">=</span><span class="token number">13</span><span class="token punctuation">)</span>
+        feature_mfcc <span class="token operator">=</span> np<span class="token punctuation">.</span>mean<span class="token punctuation">(</span>mfcc<span class="token punctuation">,</span> axis<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+        spectral_centroid <span class="token operator">=</span> lrf<span class="token punctuation">.</span>spectral_centroid<span class="token punctuation">(</span>y<span class="token operator">=</span>audio_data<span class="token punctuation">,</span> sr<span class="token operator">=</span>self<span class="token punctuation">.</span>RATE<span class="token punctuation">,</span> hop_length<span class="token operator">=</span>self<span class="token punctuation">.</span>FRAME <span class="token operator">//</span> <span class="token number">2</span><span class="token punctuation">)</span>
+        feature_spectral_centroid <span class="token operator">=</span> np<span class="token punctuation">.</span>mean<span class="token punctuation">(</span>spectral_centroid<span class="token punctuation">)</span>
+
+        spectral_bandwidth <span class="token operator">=</span> lrf<span class="token punctuation">.</span>spectral_bandwidth<span class="token punctuation">(</span>y<span class="token operator">=</span>audio_data<span class="token punctuation">,</span> sr<span class="token operator">=</span>self<span class="token punctuation">.</span>RATE<span class="token punctuation">,</span> hop_length<span class="token operator">=</span>self<span class="token punctuation">.</span>FRAME <span class="token operator">//</span> <span class="token number">2</span><span class="token punctuation">)</span>
+        feature_spectral_bandwidth <span class="token operator">=</span> np<span class="token punctuation">.</span>mean<span class="token punctuation">(</span>spectral_bandwidth<span class="token punctuation">)</span>
+
+        spectral_rolloff <span class="token operator">=</span> lrf<span class="token punctuation">.</span>spectral_rolloff<span class="token punctuation">(</span>y<span class="token operator">=</span>audio_data<span class="token punctuation">,</span> sr<span class="token operator">=</span>self<span class="token punctuation">.</span>RATE<span class="token punctuation">,</span> hop_length<span class="token operator">=</span>self<span class="token punctuation">.</span>FRAME <span class="token operator">//</span> <span class="token number">2</span><span class="token punctuation">,</span>
+                                                roll_percent<span class="token operator">=</span><span class="token number">0.90</span><span class="token punctuation">)</span>
+        feature_spectral_rolloff <span class="token operator">=</span> np<span class="token punctuation">.</span>mean<span class="token punctuation">(</span>spectral_rolloff<span class="token punctuation">)</span>
+
+        spectral_flatness <span class="token operator">=</span> lrf<span class="token punctuation">.</span>spectral_flatness<span class="token punctuation">(</span>y<span class="token operator">=</span>audio_data<span class="token punctuation">,</span> hop_length<span class="token operator">=</span>self<span class="token punctuation">.</span>FRAME <span class="token operator">//</span> <span class="token number">2</span><span class="token punctuation">)</span>
+        feature_spectral_flatness <span class="token operator">=</span> np<span class="token punctuation">.</span>mean<span class="token punctuation">(</span>spectral_flatness<span class="token punctuation">)</span>
+
+        features <span class="token operator">=</span> np<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">[</span>feature_zcr<span class="token punctuation">,</span> feature_ste<span class="token punctuation">,</span> feature_steacc<span class="token punctuation">,</span> feature_stezcr<span class="token punctuation">,</span> feature_spectral_centroid<span class="token punctuation">,</span>
+                              feature_spectral_bandwidth<span class="token punctuation">,</span> feature_spectral_rolloff<span class="token punctuation">,</span> feature_spectral_flatness<span class="token punctuation">]</span><span class="token punctuation">,</span>
+                             feature_mfcc<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> features<span class="token punctuation">,</span> self<span class="token punctuation">.</span>label<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="Step-2-audio-classification"><a href="#Step-2-audio-classification" class="headerlink" title="$$$ Step 2 audio classification"></a>$$$ Step 2 audio classification</h3><ul>
+<li><p>Input</p>
+<ul>
+<li>selected features above</li>
+</ul>
+<p>  <img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302221827883.png" alt="image-20230222181853523"></p>
+<p>  <img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302221827884.png" alt="image-20230222181916574"></p>
+</li>
+<li><p>Output</p>
+<ul>
+<li>cry or not </li>
+</ul>
+</li>
+<li><p>Classifier</p>
+<ul>
+<li>Machine learning: SVM / Random forest</li>
+</ul>
+  <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>svm <span class="token keyword">import</span> SVC
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>ensemble <span class="token keyword">import</span> RandomForestClassifier<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<ul>
+<li>Deep Learning: 1D Conv</li>
+</ul>
+  <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> tensorflow <span class="token keyword">as</span> tf
+<span class="token keyword">from</span> tensorflow<span class="token punctuation">.</span>keras<span class="token punctuation">.</span>models <span class="token keyword">import</span> Sequential
+<span class="token keyword">from</span> tensorflow<span class="token punctuation">.</span>keras<span class="token punctuation">.</span>layers <span class="token keyword">import</span> Dense<span class="token punctuation">,</span> InputLayer<span class="token punctuation">,</span> Dropout<span class="token punctuation">,</span> Conv1D<span class="token punctuation">,</span> Conv2D<span class="token punctuation">,</span> Flatten<span class="token punctuation">,</span> Reshape<span class="token punctuation">,</span> MaxPooling1D<span class="token punctuation">,</span> MaxPooling2D<span class="token punctuation">,</span> BatchNormalization<span class="token punctuation">,</span> TimeDistributed<span class="token punctuation">,</span> ReLU<span class="token punctuation">,</span> Softmax
+<span class="token keyword">from</span> tensorflow<span class="token punctuation">.</span>keras<span class="token punctuation">.</span>optimizers <span class="token keyword">import</span> Adam
+EPOCHS <span class="token operator">=</span> args<span class="token punctuation">.</span>epochs <span class="token keyword">or</span> <span class="token number">100</span>
+LEARNING_RATE <span class="token operator">=</span> args<span class="token punctuation">.</span>learning_rate <span class="token keyword">or</span> <span class="token number">0.005</span>
+<span class="token comment"># this controls the batch size, or you can manipulate the tf.data.Dataset objects yourself</span>
+BATCH_SIZE <span class="token operator">=</span> <span class="token number">32</span>
+train_dataset <span class="token operator">=</span> train_dataset<span class="token punctuation">.</span>batch<span class="token punctuation">(</span>BATCH_SIZE<span class="token punctuation">,</span> drop_remainder<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+validation_dataset <span class="token operator">=</span> validation_dataset<span class="token punctuation">.</span>batch<span class="token punctuation">(</span>BATCH_SIZE<span class="token punctuation">,</span> drop_remainder<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+
+<span class="token comment"># model architecture</span>
+model <span class="token operator">=</span> Sequential<span class="token punctuation">(</span><span class="token punctuation">)</span>
+model<span class="token punctuation">.</span>add<span class="token punctuation">(</span>Reshape<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token builtin">int</span><span class="token punctuation">(</span>input_length <span class="token operator">/</span> <span class="token number">65</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">65</span><span class="token punctuation">)</span><span class="token punctuation">,</span> input_shape<span class="token operator">=</span><span class="token punctuation">(</span>input_length<span class="token punctuation">,</span> <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+model<span class="token punctuation">.</span>add<span class="token punctuation">(</span>Conv1D<span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span> kernel_size<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span> padding<span class="token operator">=</span><span class="token string">'same'</span><span class="token punctuation">,</span> activation<span class="token operator">=</span><span class="token string">'relu'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+model<span class="token punctuation">.</span>add<span class="token punctuation">(</span>MaxPooling1D<span class="token punctuation">(</span>pool_size<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> strides<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> padding<span class="token operator">=</span><span class="token string">'same'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+model<span class="token punctuation">.</span>add<span class="token punctuation">(</span>Dropout<span class="token punctuation">(</span><span class="token number">0.25</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+model<span class="token punctuation">.</span>add<span class="token punctuation">(</span>Conv1D<span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">,</span> kernel_size<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span> padding<span class="token operator">=</span><span class="token string">'same'</span><span class="token punctuation">,</span> activation<span class="token operator">=</span><span class="token string">'relu'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+model<span class="token punctuation">.</span>add<span class="token punctuation">(</span>MaxPooling1D<span class="token punctuation">(</span>pool_size<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> strides<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> padding<span class="token operator">=</span><span class="token string">'same'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+model<span class="token punctuation">.</span>add<span class="token punctuation">(</span>Dropout<span class="token punctuation">(</span><span class="token number">0.25</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+model<span class="token punctuation">.</span>add<span class="token punctuation">(</span>Flatten<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+model<span class="token punctuation">.</span>add<span class="token punctuation">(</span>Dense<span class="token punctuation">(</span>classes<span class="token punctuation">,</span> name<span class="token operator">=</span><span class="token string">'y_pred'</span><span class="token punctuation">,</span> activation<span class="token operator">=</span><span class="token string">'softmax'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment"># this controls the learning rate</span>
+opt <span class="token operator">=</span> Adam<span class="token punctuation">(</span>learning_rate<span class="token operator">=</span>LEARNING_RATE<span class="token punctuation">,</span> beta_1<span class="token operator">=</span><span class="token number">0.9</span><span class="token punctuation">,</span> beta_2<span class="token operator">=</span><span class="token number">0.999</span><span class="token punctuation">)</span>
+callbacks<span class="token punctuation">.</span>append<span class="token punctuation">(</span>BatchLoggerCallback<span class="token punctuation">(</span>BATCH_SIZE<span class="token punctuation">,</span> train_sample_count<span class="token punctuation">,</span> epochs<span class="token operator">=</span>EPOCHS<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment"># train the neural network</span>
+model<span class="token punctuation">.</span><span class="token builtin">compile</span><span class="token punctuation">(</span>loss<span class="token operator">=</span><span class="token string">'categorical_crossentropy'</span><span class="token punctuation">,</span> optimizer<span class="token operator">=</span>opt<span class="token punctuation">,</span> metrics<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'accuracy'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+model<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>train_dataset<span class="token punctuation">,</span> epochs<span class="token operator">=</span>EPOCHS<span class="token punctuation">,</span> validation_data<span class="token operator">=</span>validation_dataset<span class="token punctuation">,</span> verbose<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> callbacks<span class="token operator">=</span>callbacks<span class="token punctuation">)</span>
+
+<span class="token comment"># Use this flag to disable per-channel quantization for a model.</span>
+<span class="token comment"># This can reduce RAM usage for convolutional models, but may have</span>
+<span class="token comment"># an impact on accuracy.</span>
+disable_per_channel_quantization <span class="token operator">=</span> <span class="token boolean">False</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<h1 id="Training-stage"><a href="#Training-stage" class="headerlink" title="$ Training stage"></a>$ Training stage</h1><ul>
+<li>Device: linux</li>
+<li>Data visualization</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302221827885.png" alt="image-20230222182031497"></p>
+<ul>
+<li>Params: &lt; 100K</li>
+<li>Acc: 0.95</li>
+</ul>
+<h1 id="Deployment-stage"><a href="#Deployment-stage" class="headerlink" title="$ Deployment stage"></a>$ Deployment stage</h1><ul>
+<li>Device: embedded T31 chip</li>
+</ul>
 
                 
             </div>
@@ -678,7 +726,7 @@ Out<span class="token punctuation">[</span><span class="token number">14</span><
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lee-jet.github.io/2023/02/10/audio/">https://lee-jet.github.io/2023/02/10/audio/</a>
+                    <a href="https://lee-jet.github.io/2023/02/22/baby-crying-detection-tutorials/">https://lee-jet.github.io/2023/02/22/baby-crying-detection-tutorials/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -795,7 +843,7 @@ Out<span class="token punctuation">[</span><span class="token number">14</span><
         repo: 'gitalk',
         owner: 'lee-jet',
         admin: "lee-jet",
-        id: '2023-02-10T09-57-01',
+        id: '2023-02-22T18-30-01',
         distractionFreeMode: false,  // Facebook-like distraction free mode
     });
 
@@ -823,17 +871,18 @@ Out<span class="token punctuation">[</span><span class="token number">14</span><
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/02/13/3d-vision/">
+                <a href="/2023/02/22/baby-crying-detection-tutorials/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="3D-vision">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Baby Crying Recognition Tutorials of Algorithm Landing">
                         
-                        <span class="card-title">3D-vision</span>
+                        <span class="card-title">Baby Crying Recognition Tutorials of Algorithm Landing</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -843,9 +892,9 @@ Out<span class="token punctuation">[</span><span class="token number">14</span><
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-02-13
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-22
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -858,6 +907,7 @@ Out<span class="token punctuation">[</span><span class="token number">14</span><
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -876,13 +926,13 @@ Out<span class="token punctuation">[</span><span class="token number">14</span><
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/01/10/09-python-pytorch-tensorflow/">
+                <a href="/2023/02/13/3d-vision/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="09_python_pytorch_tensorflow">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="3D-vision">
                         
-                        <span class="card-title">09_python_pytorch_tensorflow</span>
+                        <span class="card-title">3D-vision</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -893,14 +943,14 @@ Out<span class="token punctuation">[</span><span class="token number">14</span><
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-13
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Tech-share/" class="post-category">
-                                    Tech share
+                            <a href="/categories/Paper-Reading/" class="post-category">
+                                    Paper Reading
                                 </a>
                             
                             
@@ -910,8 +960,8 @@ Out<span class="token punctuation">[</span><span class="token number">14</span><
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Tech-share/">
-                        <span class="chip bg-color">Tech share</span>
+                    <a href="/tags/Paper-Reading/">
+                        <span class="chip bg-color">Paper Reading</span>
                     </a>
                     
                 </div>
