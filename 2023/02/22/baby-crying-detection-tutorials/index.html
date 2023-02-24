@@ -10,9 +10,11 @@
     
      Author:Jet Date:2023/02 
 
+[TOC]
+
 
 $ Pipeline
-Step 1 ">
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -405,21 +407,21 @@ Step 1 ">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-02-23
+                    2023-02-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.3k
+                    1.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    8 分
                 </div>
                 
 
@@ -447,6 +449,8 @@ Step 1 ">
     <br>
     <font size='2'> Author:Jet Date:2023/02 </font>
 </div>
+[TOC]
+
 
 <h1 id="Pipeline"><a href="#Pipeline" class="headerlink" title="$ Pipeline"></a>$ Pipeline</h1><ul>
 <li>Step 1 语音持续监控，当检测到音量大于某个阈值，开始连续录制音频某一段时间</li>
@@ -502,12 +506,27 @@ Step 1 ">
 </ul>
 </li>
 </ul>
-<h3 id="Step-1-feature-extraction"><a href="#Step-1-feature-extraction" class="headerlink" title="$$$ Step 1 feature extraction"></a>$$$ Step 1 feature extraction</h3><ul>
-<li><p>STFT：逐帧进行快速傅里叶变换的过程被称为短时傅里叶变换（short-time Fourier transform 或 short-term Fourier transform，STFT）</p>
+<h3 id="Step-1-feature-extraction"><a href="#Step-1-feature-extraction" class="headerlink" title="$$$ Step 1 feature extraction"></a>$$$ Step 1 feature extraction</h3><h4 id="Key-words"><a href="#Key-words" class="headerlink" title="Key words"></a>Key words</h4><ul>
+<li><p>Amplitude — Perceived as loudness 振幅-视为响度</p>
 </li>
-<li><p>MFCC：提取过程分为预加重、分帧、加窗、快速傅里叶变换（FFT）、梅尔滤波器组过滤、取对数、离散余弦变换（DCT）</p>
+<li><p>Frequency — Perceived as pitch 频率-视为音高</p>
 </li>
-<li><p>特征选择为9种：STFT 8 + MFCC 1</p>
+<li><p>Sample rate — It is how many times the sample is taken of a sound file if it says sample rate as 22000 Hz it means 22000 samples are taken in each second. 采样率—如果声音文件的采样率表示为22000 Hz，则它是对声音文件进行采样的次数，这表示每秒进行22000个采样。</p>
+</li>
+<li><p>Bit depth — It represents the quality of sound recorded, It just likes pixels in an image. So 24 Bit sound is of better quality than 16 Bit.</p>
+<p>  位深度—它代表所记录声音的质量，就像图像中的像素一样。 因此，24位声音的质量比16位更好。</p>
+<p>  <img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302241807422.png" alt="image-20230224163049768"></p>
+<p>  <img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302241807423.png" alt="STFT"></p>
+<p>  <img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302241807424.png" alt="MFCC"></p>
+</li>
+</ul>
+<h4 id="STFT"><a href="#STFT" class="headerlink" title="STFT"></a>STFT</h4><ul>
+<li>逐帧进行快速傅里叶变换的过程被称为短时傅里叶变换（short-time Fourier transform 或 short-term Fourier transform，STFT）</li>
+</ul>
+<h4 id="MFCC"><a href="#MFCC" class="headerlink" title="MFCC"></a>MFCC</h4><ul>
+<li>提取过程分为预加重、分帧、加窗、快速傅里叶变换（FFT）、梅尔滤波器组过滤、取对数、离散余弦变换（DCT）</li>
+</ul>
+<h4 id="Feature-selection"><a href="#Feature-selection" class="headerlink" title="Feature selection"></a>Feature selection</h4><p>​    为9种：STFT 8 + MFCC 1</p>
 <ul>
 <li><p>zero_crossing_rate 过零率</p>
 </li>
@@ -526,8 +545,6 @@ Step 1 ">
 <li><p>spectral_flatness 频谱平坦</p>
 </li>
 <li><p>==mfcc 梅尔频率倒谱系数==</p>
-</li>
-</ul>
 </li>
 </ul>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
@@ -624,30 +641,24 @@ Step 1 ">
 
 
 
-<h3 id="Step-2-audio-classification"><a href="#Step-2-audio-classification" class="headerlink" title="$$$ Step 2 audio classification"></a>$$$ Step 2 audio classification</h3><ul>
-<li><p>Input</p>
-<ul>
+<h3 id="Step-2-audio-classification"><a href="#Step-2-audio-classification" class="headerlink" title="$$$ Step 2 audio classification"></a>$$$ Step 2 audio classification</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><ul>
 <li>selected features above</li>
 </ul>
-<p>  <img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302231640415.png" alt="Original signal"></p>
-<p>  <img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302231640416.png" alt="STFT"></p>
-</li>
-<li><p>Output</p>
-<ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302231640415.png" alt="Original signal"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302231640416.png" alt="STFT"></p>
+<h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><ul>
 <li>cry or not (laugh, noise, silence…)</li>
 </ul>
-</li>
-<li><p>Classifier</p>
-<ul>
+<h4 id="Classifier"><a href="#Classifier" class="headerlink" title="Classifier"></a>Classifier</h4><ul>
 <li>Machine learning: SVM / Random forest</li>
 </ul>
-  <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>svm <span class="token keyword">import</span> SVC
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>svm <span class="token keyword">import</span> SVC
 <span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>ensemble <span class="token keyword">import</span> RandomForestClassifier<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <ul>
 <li>Deep Learning: Conv1d</li>
 </ul>
-  <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> torch
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> torch
 <span class="token keyword">import</span> torch<span class="token punctuation">.</span>nn <span class="token keyword">as</span> nn
 <span class="token keyword">from</span> torch<span class="token punctuation">.</span>utils<span class="token punctuation">.</span>data <span class="token keyword">import</span> Dataset<span class="token punctuation">,</span> DataLoader
 
@@ -691,16 +702,13 @@ Step 1 ">
     <span class="token keyword">def</span> <span class="token function">forward</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">:</span>
         x <span class="token operator">=</span> x<span class="token punctuation">.</span>view<span class="token punctuation">(</span>x<span class="token punctuation">.</span>size<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> x<span class="token punctuation">.</span>size<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
         x <span class="token operator">=</span> self<span class="token punctuation">.</span>layer<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
-        <span class="token keyword">return</span> x<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+        <span class="token keyword">return</span> x<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="Training-stage"><a href="#Training-stage" class="headerlink" title="$ Training stage"></a>$ Training stage</h1><h4 id="Device"><a href="#Device" class="headerlink" title="Device:"></a>Device:</h4><ul>
+<li>linux</li>
 </ul>
-<h1 id="Training-stage"><a href="#Training-stage" class="headerlink" title="$ Training stage"></a>$ Training stage</h1><ul>
-<li>Device: linux</li>
-<li>Data visualization</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302231640417.png" alt="image-20230222182031497"></p>
-<ul>
-<li><p>Datasets</p>
-<ul>
+<h4 id="Data-visualization"><a href="#Data-visualization" class="headerlink" title="Data visualization"></a>Data visualization</h4><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302231640417.png" alt="image-20230222182031497"></p>
+<h4 id="Datasets"><a href="#Datasets" class="headerlink" title="Datasets"></a>Datasets</h4><ul>
 <li><p>Total numbers 420 = Train (80%) + Test (20%)</p>
 </li>
 <li><p>Labels</p>
@@ -712,15 +720,12 @@ Step 1 ">
 </code></pre>
 </li>
 </ul>
-</li>
-<li><p>Notes</p>
-<ul>
-<li>Conv1d need input shape <code>[B, C=1, D=feature dim]</code>  <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">forward</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">:</span>
+<h4 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h4><ul>
+<li><p>Conv1d need input shape <code>[B, C=1, D=feature dim]</code></p>
+  <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">forward</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">:</span>
     x <span class="token operator">=</span> x<span class="token punctuation">.</span>view<span class="token punctuation">(</span>x<span class="token punctuation">.</span>size<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> x<span class="token punctuation">.</span>size<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
     x <span class="token operator">=</span> self<span class="token punctuation">.</span>layer<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
     <span class="token keyword">return</span> x<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ul>
-</li>
 </ul>
 <h2 id="Accuracy-amp-Model-Size"><a href="#Accuracy-amp-Model-Size" class="headerlink" title="$$ Accuracy &amp; Model Size"></a>$$ Accuracy &amp; Model Size</h2><table>
 <thead>
@@ -749,28 +754,79 @@ Step 1 ">
 <li>RF <code>perf, model = mt.train_rf_model() # &#123;&#39;accuracy&#39;: 0.9655172413793104, &#39;recall&#39;: 0.9648268398268398, &#39;precision&#39;: 0.9657608695652173, &#39;f1&#39;: 0.965040650406504&#125;</code></li>
 <li>NN <code>best_epoch:480 max_acc:0.8560919540229885</code></li>
 </ul>
-<h1 id="Deployment-stage"><a href="#Deployment-stage" class="headerlink" title="$ Deployment stage"></a>$ Deployment stage</h1><ul>
-<li>Device: embedded T31 chip</li>
+<h1 id="Deployment-stage"><a href="#Deployment-stage" class="headerlink" title="$ Deployment stage"></a>$ Deployment stage</h1><h2 id="Device-1"><a href="#Device-1" class="headerlink" title="Device"></a>Device</h2><ul>
+<li> embedded T31 chip</li>
+</ul>
+<h2 id="FFT"><a href="#FFT" class="headerlink" title="FFT"></a>FFT</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43216875/article/details/103343416">C</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/HiFi-LoFi/AudioFFT">C++</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/AlepH_Sin/article/details/128500592?spm=1001.2101.3001.6650.3&utm_medium=distribute.pc_relevant.none-task-blog-2~default~YuanLiJiHua~Position-3-128500592-blog-103343416.pc_relevant_aa2&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~YuanLiJiHua~Position-3-128500592-blog-103343416.pc_relevant_aa2&utm_relevant_index=6">C</a></li>
+</ul>
+<h2 id="Scoring-method-result"><a href="#Scoring-method-result" class="headerlink" title="Scoring method result"></a>Scoring method result</h2><table>
+<thead>
+<tr>
+<th align="center">noise as input</th>
+<th align="center">baby crying as input</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302241807425.png" alt="noise as input"></td>
+<td align="center"><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302241807426.png" alt="baby crying as input"></td>
+</tr>
+</tbody></table>
+<h2 id="Compiled-C-program-size"><a href="#Compiled-C-program-size" class="headerlink" title="Compiled C program size"></a>Compiled C program size</h2><ul>
+<li><p>32KB</p>
+<p>  <img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302241807427.png" alt="image-20230224175121712"></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/taw19960426/article/details/90899016?spm=1001.2101.3001.6650.14&utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-14-90899016-blog-90906603.pc_relevant_3mothn_strategy_and_data_recovery&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-14-90899016-blog-90906603.pc_relevant_3mothn_strategy_and_data_recovery&utm_relevant_index=15">debug code example</a></p>
+  <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">//FFT运算</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span>L <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> L <span class="token operator">&lt;=</span> M<span class="token punctuation">;</span> L<span class="token operator">++</span><span class="token punctuation">)</span>							
+<span class="token punctuation">&#123;</span>
+	B <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token function">pow</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> L <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//第L级，每个蝶形的两个数据有B=2^(L-1)个点</span>
+	<span class="token keyword">for</span> <span class="token punctuation">(</span>J <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> J <span class="token operator">&lt;</span> B<span class="token punctuation">;</span> J<span class="token operator">++</span><span class="token punctuation">)</span>
+	<span class="token punctuation">&#123;</span>
+		P <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">(</span>J<span class="token operator">*</span><span class="token function">pow</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> M <span class="token operator">-</span> L<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//每级有B个旋转因子，一旋转因子对应着2^(M-1)个蝶形</span>
+		<span class="token keyword">for</span> <span class="token punctuation">(</span>k <span class="token operator">=</span> J<span class="token punctuation">;</span> k <span class="token operator">&lt;</span> N<span class="token punctuation">;</span> k <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">(</span>k <span class="token operator">+</span> <span class="token function">pow</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> L<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+		<span class="token punctuation">&#123;</span>
+			K1 <span class="token operator">=</span> k <span class="token operator">+</span> B<span class="token punctuation">;</span>
+			complex wn<span class="token punctuation">,</span> t<span class="token punctuation">;</span>
+			<span class="token function">Wn_i</span><span class="token punctuation">(</span>N<span class="token punctuation">,</span> P<span class="token punctuation">,</span> <span class="token operator">&amp;</span>wn<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token function">c_chengfa</span><span class="token punctuation">(</span>f<span class="token punctuation">[</span>K1<span class="token punctuation">]</span><span class="token punctuation">,</span> wn<span class="token punctuation">,</span> <span class="token operator">&amp;</span>t<span class="token punctuation">)</span><span class="token punctuation">;</span>					<span class="token comment">//。。。。。。。。。。。。</span>
+			<span class="token function">c_jianfa</span><span class="token punctuation">(</span>f<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">,</span> t<span class="token punctuation">,</span> <span class="token operator">&amp;</span><span class="token punctuation">(</span>f<span class="token punctuation">[</span>K1<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>				<span class="token comment">//蝶形运算</span>
+			<span class="token function">c_jiafa</span><span class="token punctuation">(</span>f<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">,</span> t<span class="token punctuation">,</span> <span class="token operator">&amp;</span><span class="token punctuation">(</span>f<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>				<span class="token comment">//。。。。。。。。。。。。</span>
+		<span class="token punctuation">&#125;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> N<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>							<span class="token comment">//快速傅里叶变换输出</span>
+<span class="token punctuation">&#123;</span>
+	y<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">sqrt</span><span class="token punctuation">(</span>f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>real<span class="token operator">*</span>f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>real<span class="token operator">+</span>f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>imag<span class="token operator">*</span>f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>imag<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d %lf\n"</span><span class="token punctuation">,</span> i<span class="token punctuation">,</span> y<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Notes-1"><a href="#Notes-1" class="headerlink" title="Notes"></a>Notes</h2><ul>
+<li>gcc编译依赖项的先后顺序问题</li>
+<li>gcc需要手动指定链接库比如<code> -lm</code> <code>（#include&lt;math.h&gt; 数学库 -lm; posix 线程 -lpthread）</code></li>
+</ul>
+</li>
 </ul>
 <h1 id="References"><a href="#References" class="headerlink" title="$ References"></a>$ References</h1><ul>
-<li><p><a target="_blank" rel="noopener" href="https://tianchi.aliyun.com/notebook/232366">心跳信号分类预测</a></p>
-<ul>
+<li><a target="_blank" rel="noopener" href="https://tianchi.aliyun.com/notebook/232366">心跳信号分类预测</a></li>
 <li>conv1d + ensemble</li>
+<li><a target="_blank" rel="noopener" href="https://blog.51cto.com/u_15764210/5979387">基于梅尔频谱的音频信号分类识别</a></li>
+<li>conv2d</li>
+<li>backbone是一个基于CNN+FC的网络结构，与图像CNN分类模型不同的是，图像CNN分类模型的输入维度(batch,3,H,W), 输入数据depth=3，而音频信号的梅尔频谱图是深度为depth=1，可以认为是灰度图，输入维度(batch,1,H,W)，因此实际使用中，只需要将传统的CNN图像分类的backbone的第一层卷积层的in_channels=1即可。需要注意的是，由于维度不一致，导致不能使用imagenet的pretrained模型。当然可以将梅尔频谱图(灰度图)是转为3通道RGB图，这样就跟普通的RGB图像没有什么区别了，也可以imagenet的pretrained模型。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/Sanskruti-K/Auto-Baby-Cry-Detection-with-Music-Player">婴儿哭泣后播放歌曲</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.runoob.com/cprogramming/c-header-files.html">C语法</a></li>
 </ul>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://blog.51cto.com/u_15764210/5979387">基于梅尔频谱的音频信号分类识别</a></p>
-<ul>
-<li><p>conv2d</p>
-</li>
-<li><p>backbone是一个基于CNN+FC的网络结构，与图像CNN分类模型不同的是，图像CNN分类模型的输入维度(batch,3,H,W), 输入数据depth=3，而音频信号的梅尔频谱图是深度为depth=1，可以认为是灰度图，输入维度(batch,1,H,W)，因此实际使用中，只需要将传统的CNN图像分类的backbone的第一层卷积层的in_channels=1即可。需要注意的是，由于维度不一致，导致不能使用imagenet的pretrained模型。当然可以将梅尔频谱图(灰度图)是转为3通道RGB图，这样就跟普通的RGB图像没有什么区别了，也可以imagenet的pretrained模型。</p>
-</li>
-</ul>
-</li>
-</ul>
-<h1 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h1><ul>
+<h1 id="TODO"><a href="#TODO" class="headerlink" title="$ TODO"></a>$ TODO</h1><ul>
 <li><p><input disabled="" type="checkbox">  refinement of  Conv1d network</p>
 </li>
-<li><p><input disabled="" type="checkbox">  提取MFCC等feature的C/C++</p>
+<li><p><input checked="" disabled="" type="checkbox">  提取STFT feature的C/C++</p>
+</li>
+<li><p><input disabled="" type="checkbox">  提取STFT MFCC等feature的C/C++</p>
+<p>  C/C++实现Python音频处理库librosa中melspectrogram的计算过程</p>
+<p>  ​    <a target="_blank" rel="noopener" href="https://github.com/xiaominfc/melspectrogram_cpp">https://github.com/xiaominfc/melspectrogram_cpp</a>    </p>
 </li>
 <li><p><input disabled="" type="checkbox">  实现SVM/RF/NN的C/C++</p>
 </li>
@@ -1234,7 +1290,7 @@ Step 1 ">
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">10.5k</span>
+                        class="white-color">10.9k</span>
             
             
             
