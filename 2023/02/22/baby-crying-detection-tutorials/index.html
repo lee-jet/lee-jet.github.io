@@ -8,13 +8,12 @@
     <meta name="description" content="
       Baby Crying Recognition Tutorials of Algorithm Landing   
     
-     Author:Jet Date:2023/02 
+     Author:Jet Date:2023/03 
+
 
 [TOC]
-
-
 $ Pipeline
-">
+S">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -407,21 +406,21 @@ $ Pipeline
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-02-24
+                    2023-03-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.7k
+                    2.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    13 分
                 </div>
                 
 
@@ -447,11 +446,10 @@ $ Pipeline
                 <div align='center' >
     <font size='5'> <b> Baby Crying Recognition Tutorials of Algorithm Landing </b> </font> 
     <br>
-    <font size='2'> Author:Jet Date:2023/02 </font>
+    <font size='2'> Author:Jet Date:2023/03 </font>
 </div>
-[TOC]
 
-
+<p>[TOC]</p>
 <h1 id="Pipeline"><a href="#Pipeline" class="headerlink" title="$ Pipeline"></a>$ Pipeline</h1><ul>
 <li>Step 1 语音持续监控，当检测到音量大于某个阈值，开始连续录制音频某一段时间</li>
 <li>Step 2 对收集的语音数据进行信号处理，并提取一系列特征</li>
@@ -704,7 +702,7 @@ $ Pipeline
         x <span class="token operator">=</span> self<span class="token punctuation">.</span>layer<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
         <span class="token keyword">return</span> x<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h1 id="Training-stage"><a href="#Training-stage" class="headerlink" title="$ Training stage"></a>$ Training stage</h1><h4 id="Device"><a href="#Device" class="headerlink" title="Device:"></a>Device:</h4><ul>
+<h1 id="Training-stage"><a href="#Training-stage" class="headerlink" title="$ Training stage"></a>$ Training stage</h1><h4 id="Device"><a href="#Device" class="headerlink" title="Device"></a>Device</h4><ul>
 <li>linux</li>
 </ul>
 <h4 id="Data-visualization"><a href="#Data-visualization" class="headerlink" title="Data visualization"></a>Data visualization</h4><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302231640417.png" alt="image-20230222182031497"></p>
@@ -802,22 +800,123 @@ $ Pipeline
 <span class="token punctuation">&#123;</span>
 	y<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">sqrt</span><span class="token punctuation">(</span>f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>real<span class="token operator">*</span>f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>real<span class="token operator">+</span>f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>imag<span class="token operator">*</span>f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>imag<span class="token punctuation">)</span><span class="token punctuation">;</span>
 	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d %lf\n"</span><span class="token punctuation">,</span> i<span class="token punctuation">,</span> y<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<h2 id="Export-sklearn-model-to-deploy"><a href="#Export-sklearn-model-to-deploy" class="headerlink" title="Export sklearn model to deploy"></a>Export sklearn model to deploy</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://pypi.org/project/sklearn-porter/">https://pypi.org/project/sklearn-porter/</a>    ==模型导出==</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/nok/sklearn-porter">https://github.com/nok/sklearn-porter</a></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302281832264.png" alt="image-20230228183214170"></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">porter sk版本 https<span class="token punctuation">:</span><span class="token operator">//</span>github<span class="token punctuation">.</span>com<span class="token operator">/</span>nok<span class="token operator">/</span>sklearn<span class="token operator">-</span>porter<span class="token operator">/</span>issues<span class="token operator">/</span><span class="token number">82</span>
+pip install scikit<span class="token operator">-</span>learn<span class="token operator">==</span><span class="token number">0.22</span>
+py3<span class="token punctuation">.</span><span class="token number">6</span>环境比较好
+
+<span class="token comment"># ! export to c language in windows</span>
+<span class="token keyword">from</span> sklearn_porter <span class="token keyword">import</span> Porter
+porter <span class="token operator">=</span> Porter<span class="token punctuation">(</span>model<span class="token punctuation">,</span> language<span class="token operator">=</span><span class="token string">'c'</span><span class="token punctuation">)</span> <span class="token comment"># 直接导出C语言即可</span>
+output <span class="token operator">=</span> porter<span class="token punctuation">.</span>export<span class="token punctuation">(</span>embed_data<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+<span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'svm_infer.c'</span><span class="token punctuation">,</span> <span class="token string">'w'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+	f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>output<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="inference-with-c-language"><a href="#inference-with-c-language" class="headerlink" title="inference with c language"></a>inference with c language</h2><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span> argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">/* Features: */</span>
+    <span class="token keyword">double</span> features<span class="token punctuation">[</span><span class="token number">21</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token number">0.08548660455336426</span><span class="token punctuation">,</span><span class="token number">3.7481414308053336</span><span class="token punctuation">,</span><span class="token number">0.0031232076831082135</span><span class="token punctuation">,</span><span class="token number">0.04624957396314546</span><span class="token punctuation">,</span><span class="token number">3676.3404738124937</span><span class="token punctuation">,</span><span class="token number">3480.6022753882544</span><span class="token punctuation">,</span><span class="token number">8677.356268579611</span><span class="token punctuation">,</span><span class="token number">0.0015091497916728258</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">246.88226704105966</span><span class="token punctuation">,</span><span class="token number">87.94723203609043</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">69.86268052131344</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">0.34579994437744116</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">42.9471282727914</span><span class="token punctuation">,</span><span class="token number">4.457187434533733</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">17.901607875608402</span><span class="token punctuation">,</span><span class="token number">21.03675732334522</span><span class="token punctuation">,</span><span class="token number">6.356159473281781</span><span class="token punctuation">,</span><span class="token number">3.2514479635033497</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">7.103540737790745</span><span class="token punctuation">,</span><span class="token number">10.796371942992913</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">10.94354612752694</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span> <span class="token comment">// cry 0</span>
+
+    <span class="token comment">// labels</span>
+    <span class="token keyword">char</span><span class="token operator">*</span> labels<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">"1BabyCry"</span><span class="token punctuation">,</span> <span class="token string">"2BabyLaugh"</span><span class="token punctuation">,</span> <span class="token string">"3Noise"</span><span class="token punctuation">,</span> <span class="token string">"4Silence"</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// std</span>
+    <span class="token keyword">double</span> mean<span class="token punctuation">[</span><span class="token number">21</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token number">5.19192940e-02</span><span class="token punctuation">,</span>  <span class="token number">9.96640933e+00</span><span class="token punctuation">,</span>  <span class="token number">1.70053242e-02</span><span class="token punctuation">,</span>  <span class="token number">2.81007237e-02</span><span class="token punctuation">,</span>
+        <span class="token number">2.43518755e+03</span><span class="token punctuation">,</span>  <span class="token number">3.18738345e+03</span><span class="token punctuation">,</span>  <span class="token number">6.77396457e+03</span><span class="token punctuation">,</span>  <span class="token number">4.17157508e-02</span><span class="token punctuation">,</span>
+        <span class="token operator">-</span><span class="token number">3.11171803e+02</span><span class="token punctuation">,</span>  <span class="token number">1.12272466e+02</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1.03072190e+01</span><span class="token punctuation">,</span>  <span class="token number">1.78713296e+01</span><span class="token punctuation">,</span>
+        <span class="token operator">-</span><span class="token number">4.93390880e+00</span><span class="token punctuation">,</span>  <span class="token number">3.33015672e+00</span><span class="token punctuation">,</span>  <span class="token number">8.81093827e-01</span><span class="token punctuation">,</span>  <span class="token number">2.69630493e+00</span><span class="token punctuation">,</span>
+        <span class="token number">1.28616258e+00</span><span class="token punctuation">,</span>  <span class="token number">2.27378571e+00</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">2.89055164e-01</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">2.95153293e-01</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1.40412454e-01</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+    
+    <span class="token keyword">double</span> var<span class="token punctuation">[</span><span class="token number">21</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token number">1.86645763e-03</span><span class="token punctuation">,</span> <span class="token number">2.01389259e+02</span><span class="token punctuation">,</span> <span class="token number">6.28560738e-04</span><span class="token punctuation">,</span> <span class="token number">5.46686531e-04</span><span class="token punctuation">,</span>
+        <span class="token number">8.46803415e+05</span><span class="token punctuation">,</span> <span class="token number">1.40065049e+06</span><span class="token punctuation">,</span> <span class="token number">6.21648618e+06</span><span class="token punctuation">,</span> <span class="token number">2.62907671e-02</span><span class="token punctuation">,</span>
+        <span class="token number">8.45015467e+03</span><span class="token punctuation">,</span> <span class="token number">1.96557435e+03</span><span class="token punctuation">,</span> <span class="token number">2.09598131e+03</span><span class="token punctuation">,</span> <span class="token number">2.57818971e+02</span><span class="token punctuation">,</span>
+        <span class="token number">3.29287434e+02</span><span class="token punctuation">,</span> <span class="token number">2.32575174e+02</span><span class="token punctuation">,</span> <span class="token number">1.91351733e+02</span><span class="token punctuation">,</span> <span class="token number">1.57938136e+02</span><span class="token punctuation">,</span>
+        <span class="token number">1.43058889e+02</span><span class="token punctuation">,</span> <span class="token number">1.03135708e+02</span><span class="token punctuation">,</span> <span class="token number">8.86539659e+01</span><span class="token punctuation">,</span> <span class="token number">7.32728827e+01</span><span class="token punctuation">,</span>
+        <span class="token number">6.26621389e+01</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+        
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span><span class="token number">21</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        features<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span>features<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">-</span>mean<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token function">sqrt</span><span class="token punctuation">(</span>var<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    
+    <span class="token comment">/* Prediction: */</span>
+    <span class="token keyword">int</span> class_id <span class="token operator">=</span> <span class="token function">predict</span><span class="token punctuation">(</span>features<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">char</span><span class="token operator">*</span> label <span class="token operator">=</span> labels<span class="token punctuation">[</span>class_id<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"class_id:%d \t label:%s\n"</span><span class="token punctuation">,</span> class_id<span class="token punctuation">,</span> label<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Done.\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">output:
+    class_id:0       label:1BabyCry
+    Done.
+    56K     run<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="Notes-1"><a href="#Notes-1" class="headerlink" title="Notes"></a>Notes</h2><ul>
 <li>gcc编译依赖项的先后顺序问题</li>
 <li>gcc需要手动指定链接库比如<code> -lm</code> <code>（#include&lt;math.h&gt; 数学库 -lm; posix 线程 -lpthread）</code></li>
 </ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202303011817188.png" alt="image-20230301174512820"></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>preprocessing <span class="token keyword">import</span> StandardScaler
+scaler <span class="token operator">=</span> StandardScaler<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token operator">//</span> 在训练集上使用fit_transform<span class="token punctuation">(</span><span class="token punctuation">)</span>
+scaler<span class="token punctuation">.</span>fit_transform<span class="token punctuation">(</span>X_train<span class="token punctuation">)</span>
+<span class="token operator">//</span> 在测试集上使用transform<span class="token punctuation">(</span><span class="token punctuation">)</span>
+scaler<span class="token punctuation">.</span>transform<span class="token punctuation">(</span>X_test<span class="token punctuation">)</span>
+
+或者测试用numpy
+        <span class="token comment"># * StandardScaler</span>
+        features <span class="token operator">=</span> features<span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
+        mean_ <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span> <span class="token number">5.19192940e-02</span><span class="token punctuation">,</span>  <span class="token number">9.96640933e+00</span><span class="token punctuation">,</span>  <span class="token number">1.70053242e-02</span><span class="token punctuation">,</span>  <span class="token number">2.81007237e-02</span><span class="token punctuation">,</span>
+            <span class="token number">2.43518755e+03</span><span class="token punctuation">,</span>  <span class="token number">3.18738345e+03</span><span class="token punctuation">,</span>  <span class="token number">6.77396457e+03</span><span class="token punctuation">,</span>  <span class="token number">4.17157508e-02</span><span class="token punctuation">,</span>
+            <span class="token operator">-</span><span class="token number">3.11171803e+02</span><span class="token punctuation">,</span>  <span class="token number">1.12272466e+02</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1.03072190e+01</span><span class="token punctuation">,</span>  <span class="token number">1.78713296e+01</span><span class="token punctuation">,</span>
+            <span class="token operator">-</span><span class="token number">4.93390880e+00</span><span class="token punctuation">,</span>  <span class="token number">3.33015672e+00</span><span class="token punctuation">,</span>  <span class="token number">8.81093827e-01</span><span class="token punctuation">,</span>  <span class="token number">2.69630493e+00</span><span class="token punctuation">,</span>
+            <span class="token number">1.28616258e+00</span><span class="token punctuation">,</span>  <span class="token number">2.27378571e+00</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">2.89055164e-01</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">2.95153293e-01</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1.40412454e-01</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        
+        var_ <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1.86645763e-03</span><span class="token punctuation">,</span> <span class="token number">2.01389259e+02</span><span class="token punctuation">,</span> <span class="token number">6.28560738e-04</span><span class="token punctuation">,</span> <span class="token number">5.46686531e-04</span><span class="token punctuation">,</span>
+            <span class="token number">8.46803415e+05</span><span class="token punctuation">,</span> <span class="token number">1.40065049e+06</span><span class="token punctuation">,</span> <span class="token number">6.21648618e+06</span><span class="token punctuation">,</span> <span class="token number">2.62907671e-02</span><span class="token punctuation">,</span>
+            <span class="token number">8.45015467e+03</span><span class="token punctuation">,</span> <span class="token number">1.96557435e+03</span><span class="token punctuation">,</span> <span class="token number">2.09598131e+03</span><span class="token punctuation">,</span> <span class="token number">2.57818971e+02</span><span class="token punctuation">,</span>
+            <span class="token number">3.29287434e+02</span><span class="token punctuation">,</span> <span class="token number">2.32575174e+02</span><span class="token punctuation">,</span> <span class="token number">1.91351733e+02</span><span class="token punctuation">,</span> <span class="token number">1.57938136e+02</span><span class="token punctuation">,</span>
+            <span class="token number">1.43058889e+02</span><span class="token punctuation">,</span> <span class="token number">1.03135708e+02</span><span class="token punctuation">,</span> <span class="token number">8.86539659e+01</span><span class="token punctuation">,</span> <span class="token number">7.32728827e+01</span><span class="token punctuation">,</span>
+            <span class="token number">6.26621389e+01</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        
+        features <span class="token operator">=</span> <span class="token punctuation">(</span>features <span class="token operator">-</span> mean_<span class="token punctuation">)</span> <span class="token operator">/</span> np<span class="token punctuation">.</span>sqrt<span class="token punctuation">(</span>var_<span class="token punctuation">)</span>
+      <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="References"><a href="#References" class="headerlink" title="$ References"></a>$ References</h1><ul>
+<li><p><a target="_blank" rel="noopener" href="https://tianchi.aliyun.com/notebook/232366">心跳信号分类预测</a></p>
+</li>
+<li><p>conv1d + ensemble</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.51cto.com/u_15764210/5979387">基于梅尔频谱的音频信号分类识别</a></p>
+<ul>
+<li><p>conv2d</p>
+</li>
+<li><p>backbone是一个基于CNN+FC的网络结构，与图像CNN分类模型不同的是，图像CNN分类模型的输入维度(batch,3,H,W), 输入数据depth=3，而音频信号的梅尔频谱图是深度为depth=1，可以认为是灰度图，输入维度(batch,1,H,W)，因此实际使用中，只需要将传统的CNN图像分类的backbone的第一层卷积层的in_channels=1即可。需要注意的是，由于维度不一致，导致不能使用imagenet的pretrained模型。当然可以将梅尔频谱图(灰度图)是转为3通道RGB图，这样就跟普通的RGB图像没有什么区别了，也可以imagenet的pretrained模型。</p>
 </li>
 </ul>
-<h1 id="References"><a href="#References" class="headerlink" title="$ References"></a>$ References</h1><ul>
-<li><a target="_blank" rel="noopener" href="https://tianchi.aliyun.com/notebook/232366">心跳信号分类预测</a></li>
-<li>conv1d + ensemble</li>
-<li><a target="_blank" rel="noopener" href="https://blog.51cto.com/u_15764210/5979387">基于梅尔频谱的音频信号分类识别</a></li>
-<li>conv2d</li>
-<li>backbone是一个基于CNN+FC的网络结构，与图像CNN分类模型不同的是，图像CNN分类模型的输入维度(batch,3,H,W), 输入数据depth=3，而音频信号的梅尔频谱图是深度为depth=1，可以认为是灰度图，输入维度(batch,1,H,W)，因此实际使用中，只需要将传统的CNN图像分类的backbone的第一层卷积层的in_channels=1即可。需要注意的是，由于维度不一致，导致不能使用imagenet的pretrained模型。当然可以将梅尔频谱图(灰度图)是转为3通道RGB图，这样就跟普通的RGB图像没有什么区别了，也可以imagenet的pretrained模型。</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/Sanskruti-K/Auto-Baby-Cry-Detection-with-Music-Player">婴儿哭泣后播放歌曲</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.runoob.com/cprogramming/c-header-files.html">C语法</a></li>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/Sanskruti-K/Auto-Baby-Cry-Detection-with-Music-Player">婴儿哭泣后播放歌曲</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.runoob.com/cprogramming/c-header-files.html">C语法</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/bBobxx/statistical-learning">用c++实现《统计学习方法》中的算法</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/Kaslanarian/libsvm-sc-reading">libsvm-sc-reading</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://sklearn.apachecn.org/#/docs/master/5">https://sklearn.apachecn.org/#/docs/master/5</a></p>
+</li>
+<li><p>==tools==</p>
+<ul>
+<li>sklearn porter：更轻量</li>
+<li><a target="_blank" rel="noopener" href="https://codeantenna.com/a/4ZPN1isAxH#m2cgen_1">m2cgen</a></li>
+</ul>
+</li>
 </ul>
 <h1 id="TODO"><a href="#TODO" class="headerlink" title="$ TODO"></a>$ TODO</h1><ul>
 <li><p><input disabled="" type="checkbox">  refinement of  Conv1d network</p>
@@ -828,7 +927,35 @@ $ Pipeline
 <p>  C/C++实现Python音频处理库librosa中melspectrogram的计算过程</p>
 <p>  ​    <a target="_blank" rel="noopener" href="https://github.com/xiaominfc/melspectrogram_cpp">https://github.com/xiaominfc/melspectrogram_cpp</a>    </p>
 </li>
-<li><p><input disabled="" type="checkbox">  实现SVM/RF/NN的C/C++</p>
+<li><p><input checked="" disabled="" type="checkbox">  实现SVM/RF/NN的C/C++</p>
+<p>  ​    <a target="_blank" rel="noopener" href="https://github.com/arnaudsj/libsvm">https://github.com/arnaudsj/libsvm</a></p>
+<p>  ​    <a target="_blank" rel="noopener" href="https://github.com/livey/svm-embed">https://github.com/livey/svm-embed</a> linear kernel not well，需要增加RBF即可，但是二分类</p>
+<p>  ​    <a target="_blank" rel="noopener" href="https://github.com/koba-jon/svm_cpp/tree/main/Kernel-SVM/src">https://github.com/koba-jon/svm_cpp/tree/main/Kernel-SVM/src</a> rbf可以</p>
+<p>  ​    <a target="_blank" rel="noopener" href="https://github.com/jgreitemann/svm">https://github.com/jgreitemann/svm</a></p>
+<p>  ​    <a target="_blank" rel="noopener" href="https://github.com/koba-jon/svm_cpp/blob/main/Kernel-SVM/src/main.cpp">https://github.com/koba-jon/svm_cpp/blob/main/Kernel-SVM/src/main.cpp</a> 可以参考</p>
+<p>  ​    <a target="_blank" rel="noopener" href="https://github.com/cjlin1/libsvm/blob/master/svm.cpp">https://github.com/cjlin1/libsvm/blob/master/svm.cpp</a> 参考</p>
+  <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">static double dot(const svm_node *px, const svm_node *py);
+double kernel_linear(int i, int j) const
+&#123;
+    return dot(x[i],x[j]);
+&#125;
+double kernel_poly(int i, int j) const
+&#123;
+    return powi(gamma*dot(x[i],x[j])+coef0,degree);
+&#125;
+double kernel_rbf(int i, int j) const
+&#123;
+    return exp(-gamma*(x_square[i]+x_square[j]-2*dot(x[i],x[j])));
+&#125;
+double kernel_sigmoid(int i, int j) const
+&#123;
+    return tanh(gamma*dot(x[i],x[j])+coef0);
+&#125;
+double kernel_precomputed(int i, int j) const
+&#123;
+    return x[i][(int)(x[j][0].value)].value;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 </li>
 </ul>
 
@@ -1290,7 +1417,7 @@ $ Pipeline
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">10.9k</span>
+                        class="white-color">11.6k</span>
             
             
             
