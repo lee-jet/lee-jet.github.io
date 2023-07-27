@@ -4,13 +4,15 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="3D-vision, Jet&#39; Blog">
-    <meta name="description" content="[TOC]
-:smile:
-Techniques to do☐ 2D object detection
-☐ Image-based 3D object detection
-☐ Depth estimation
-☐ Point cloud b">
+    <meta name="keywords" content="model-compression-and-acceleration.md, Jet&#39; Blog">
+    <meta name="description" content="
+      An Overview of Model Compression and Acceleration    
+    
+     Author:Jet Date:2023/07 
+
+
+Background
+减少模型存储和计算成本">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -22,7 +24,7 @@ Techniques to do☐ 2D object detection
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>3D-vision | Jet&#39; Blog</title>
+    <title>model-compression-and-acceleration.md | Jet&#39; Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -342,12 +344,12 @@ Techniques to do☐ 2D object detection
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">3D-vision</h1>
+                    <h1 class="description center-align post-title">model-compression-and-acceleration.md</h1>
                 </div>
             </div>
         </div>
@@ -371,23 +373,14 @@ Techniques to do☐ 2D object detection
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Paper-Reading/">
-                                <span class="chip bg-color">Paper Reading</span>
+                            <a href="/tags/Tech-share/">
+                                <span class="chip bg-color">Tech share</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/Paper-Reading/" class="post-category">
-                                Paper Reading
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -396,28 +389,28 @@ Techniques to do☐ 2D object detection
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-02-13
+                    2023-07-27
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-07-26
+                    2023-07-27
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    420
+                    1.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    5 分
                 </div>
                 
 
@@ -440,68 +433,112 @@ Techniques to do☐ 2D object detection
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>[TOC]</p>
-<p>:smile:</p>
-<h2 id="Techniques-to-do"><a href="#Techniques-to-do" class="headerlink" title="Techniques to do"></a>Techniques to do</h2><p>☐ 2D object detection</p>
-<p>☐ Image-based 3D object detection</p>
-<p>☐ Depth estimation</p>
-<p>☐ Point cloud based 3D object detection</p>
-<p>☐ Image &amp; Point cloud fusion based 3D object detection</p>
-<h2 id="3D-Object-Detection-from-Images-forAutonomous-Driving-A-Survey"><a href="#3D-Object-Detection-from-Images-forAutonomous-Driving-A-Survey" class="headerlink" title="3D Object Detection from Images forAutonomous Driving: A Survey"></a>3D Object Detection from Images forAutonomous Driving: A Survey</h2><p>l <a target="_blank" rel="noopener" href="https://github.com/xinzhuma/3dodi-survey">https://github.com/xinzhuma/3dodi-survey</a></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302131058625.gif" alt="截图.png"></p>
-<p>l Depth estimation &amp; 3D object detection trained together.</p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302131138246.gif" alt="截图.png"></p>
-<h2 id="An-Overview-Of-3D-Object-Detection"><a href="#An-Overview-Of-3D-Object-Detection" class="headerlink" title="An Overview Of 3D Object Detection"></a>An Overview Of 3D Object Detection</h2><p>l image &amp; point cloud based three dimentional detection</p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302131138247.gif" alt="截图.png"></p>
-<h2 id="A-Review-of-3D-Object-Detection-for-Autonomous-Driving-ofElectric-Vehicles"><a href="#A-Review-of-3D-Object-Detection-for-Autonomous-Driving-ofElectric-Vehicles" class="headerlink" title="A Review of 3D Object Detection for Autonomous Driving ofElectric Vehicles"></a>A Review of 3D Object Detection for Autonomous Driving ofElectric Vehicles</h2><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302131058633.gif" alt="截图.png"></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302131138248.gif" alt="截图.png"></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302131138249.gif" alt="截图.png"></p>
-<p>l 融合的多模态方案 + 多帧 解决遮挡问题</p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302131138250.gif" alt="截图.png"></p>
-<h2 id="Point-Cloud-Processing"><a href="#Point-Cloud-Processing" class="headerlink" title="Point Cloud Processing"></a>Point Cloud Processing</h2><h4 id="github"><a href="#github" class="headerlink" title="github"></a>github</h4><p><a target="_blank" rel="noopener" href="https://github.com/mmolero/awesome-point-cloud-processing">https://github.com/mmolero/awesome-point-cloud-processing</a></p>
-<h4 id="Tutorials"><a href="#Tutorials" class="headerlink" title="Tutorials"></a>Tutorials</h4><p>[3D Deep Learning on Point Cloud Data](<a target="_blank" rel="noopener" href="http://graphics.stanford.edu/courses/cs468-17-spring/LectureSlides/L16">http://graphics.stanford.edu/courses/cs468-17-spring/LectureSlides/L16</a> - 3d deep learning on point cloud (analysis) and joint embedding.pdf)</p>
-<h4 id="Libraries"><a href="#Libraries" class="headerlink" title="Libraries"></a>Libraries</h4><p>l PCL - Point Cloud Library is a standalone, large scale, open project for 2D/3D image and point cloud processing.</p>
-<p>l open3d <a target="_blank" rel="noopener" href="http://www.open3d.org/docs/release/introduction.html">http://www.open3d.org/docs/release/introduction.html</a></p>
-<p>l Matlab <a target="_blank" rel="noopener" href="https://ww2.mathworks.cn/help/vision/point-cloud-processing.html">https://ww2.mathworks.cn/help/vision/point-cloud-processing.html</a></p>
-<h4 id="Open3d-Point-cloud"><a href="#Open3d-Point-cloud" class="headerlink" title="Open3d Point cloud"></a><a target="_blank" rel="noopener" href="http://www.open3d.org/docs/release/introduction.html">Open3d Point cloud</a></h4><h6 id="1-Visualize-point-cloud"><a href="#1-Visualize-point-cloud" class="headerlink" title="1 Visualize point cloud"></a>1 Visualize point cloud</h6><p>read_point_cloud 读取点云文件</p>
-<p>draw_geometries 可视化点云几何结构</p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302131058630.jpg" alt="截图.png"></p>
-<h6 id="2-Voxel-downsampling"><a href="#2-Voxel-downsampling" class="headerlink" title="2 Voxel downsampling"></a>2 Voxel downsampling</h6><p>由于读取的点云一般比较dense，计算时间长，所有需要点云下采样稀疏sparse</p>
-<p>a)   Points are bucketed into voxels. 点云分桶到体素中</p>
-<p>b)   Each occupied voxel generates exactly one point by averaging all points inside. 每个体素平均后取一个点</p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302131138251.jpg" alt="截图.png"></p>
-<h6 id="3-Vertex-normal-estimation"><a href="#3-Vertex-normal-estimation" class="headerlink" title="3 Vertex normal estimation"></a>3 Vertex normal estimation</h6><p>估计每个顶点的法向，可以随机或指定法向中的某一个方向</p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302131138047.jpg" alt="截图.png"></p>
-<h6 id="4-Crop-point-cloud"><a href="#4-Crop-point-cloud" class="headerlink" title="4 Crop point cloud"></a>4 Crop point cloud</h6><p>通过3d bbox将点云进行crop</p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302131058022.jpg" alt="截图.png"></p>
-<h6 id="5-Paint-point-cloud"><a href="#5-Paint-point-cloud" class="headerlink" title="5 Paint point cloud"></a>5 Paint point cloud</h6><p>给点上色</p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302131138252.jpg" alt="截图.png"></p>
-<h6 id="6-Point-cloud-distance"><a href="#6-Point-cloud-distance" class="headerlink" title="6 Point cloud distance"></a>6 Point cloud distance</h6><p>计算2个点云之间的距离</p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302131138253.jpg" alt="截图.png"></p>
-<h6 id="7-Bounding-volumes"><a href="#7-Bounding-volumes" class="headerlink" title="7 Bounding volumes"></a>7 Bounding volumes</h6><p>边界体积</p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302131138254.jpg" alt="截图.png"></p>
-<h6 id="8-Convex-hull"><a href="#8-Convex-hull" class="headerlink" title="8 Convex hull"></a>8 Convex hull</h6><p>凸包</p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302131138255.jpg" alt="截图.png"></p>
-<h6 id="9-DBSCAN-clustering"><a href="#9-DBSCAN-clustering" class="headerlink" title="9 DBSCAN clustering"></a>9 DBSCAN clustering</h6><p>聚类</p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302131058843.jpg" alt="截图.png"></p>
-<h6 id="10-Plane-segmentation"><a href="#10-Plane-segmentation" class="headerlink" title="10  Plane segmentation"></a>10  Plane segmentation</h6><p>计算平面法方程Ax+By+Cz+D=0, 平面分割</p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302131138256.jpg" alt="截图.png"></p>
-<h6 id="11-Hidden-point-removal"><a href="#11-Hidden-point-removal" class="headerlink" title="11 Hidden point removal"></a>11 Hidden point removal</h6><p>去除某个视角下背面点</p>
-<table>
-<thead>
-<tr>
-<th><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302131138257.jpg" alt="截图.png"></th>
-<th><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302131138258.jpg" alt="截图.png"></th>
-</tr>
-</thead>
-<tbody><tr>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<h4 id="3D-Deep-Learning-on-Point-Cloud-Data-http-graphics-stanford-edu-courses-cs468-17-spring-LectureSlides-L16-3d-deep-learning-on-point-cloud-analysis-and-joint-embedding-pdf"><a href="#3D-Deep-Learning-on-Point-Cloud-Data-http-graphics-stanford-edu-courses-cs468-17-spring-LectureSlides-L16-3d-deep-learning-on-point-cloud-analysis-and-joint-embedding-pdf" class="headerlink" title="[3D Deep Learning on Point Cloud Data](http://graphics.stanford.edu/courses/cs468-17-spring/LectureSlides/L16 - 3d deep learning on point cloud (analysis) and joint embedding.pdf)"></a>[3D Deep Learning on Point Cloud Data](<a target="_blank" rel="noopener" href="http://graphics.stanford.edu/courses/cs468-17-spring/LectureSlides/L16">http://graphics.stanford.edu/courses/cs468-17-spring/LectureSlides/L16</a> - 3d deep learning on point cloud (analysis) and joint embedding.pdf)</h4><p>PointNet PointNet++ </p>
-<p>分类 部位分割 场景解析</p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302131138259.gif" alt="截图.png"></p>
+                <div align='center' >
+    <font size='5'> <b> An Overview of Model Compression and Acceleration  </b> </font> 
+    <br>
+    <font size='4'> Author:Jet Date:2023/07 </font>
+</div>
+
+<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><ol>
+<li><p>减少模型存储和计算成本</p>
+</li>
+<li><p>期望模型不仅能部署在服务端GPU，也能部署在移动端</p>
+</li>
+<li><p>神经网络中卷积层、全连接层权重参数具有冗余的特点</p>
+<p> 卷积层占据了大约 90-95% 的计算时间和参数规模，有较大的值；全连接层占据了大约 5-10% 的计算时间，95% 的参数规模，并且值较小。</p>
+</li>
+</ol>
+<h2 id="Related-work"><a href="#Related-work" class="headerlink" title="Related work"></a>Related work</h2><p>​    综合现有的深度模型压缩方法，它们主要分为四类: </p>
+<ul>
+<li>参数剪枝和共享（parameter pruning and sharing）<ul>
+<li>针对模型参数的冗余性，试图去除冗余和不重要的项</li>
+</ul>
+</li>
+<li>低秩因子分解（low-rank factorization）<ul>
+<li>使用矩阵/张量分解来估计深度学习模型的信息参数</li>
+</ul>
+</li>
+<li>转移/紧凑卷积滤波器（transferred/compact convolutional filters）<ul>
+<li>特殊的结构卷积滤波器来降低存储和计算复杂度</li>
+</ul>
+</li>
+<li>知识蒸馏（knowledge distillation）<ul>
+<li>训练一个更紧凑的神经网络来重现一个更大的网络的输出</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202307271509286.png" alt="image-20230727150746346"></p>
+<p>​        一般来说，参数修剪和共享，低秩分解和知识蒸馏方法可以用于全连接层和卷积层的 CNN，但另一方面，使用转移/紧凑型卷积核的方法仅支持卷积层。低秩因子分解和基于转换/紧凑型卷积核的方法提供了一个端到端的流水线，可以很容易地在 CPU/GPU 环境中实现。相反参数修剪和共享使用不同的方法，如矢量量化，二进制编码和稀疏约束来执行任务，这导致常需要几个步骤才能达到目标。</p>
+<p>​        基于参数修剪/共享、低秩分解的模型可以从预训练模型或者从头开始训练，因此灵活而有效。然而转移/紧凑的卷积核和知识蒸馏模型只能支持从零开始训练。</p>
+<h3 id="参数修剪和共享"><a href="#参数修剪和共享" class="headerlink" title="参数修剪和共享"></a>参数修剪和共享</h3><p>​    三类：模型量化和二进制化、参数共享和结构化矩阵（structural matrix）</p>
+<ul>
+<li>网络量化(quantization)通过减少表示每个权重所需的比特数来压缩原始网络：fp32 fp16 int8 int4</li>
+<li>修剪减少了需要编码的权重数量，量化和霍夫曼编码减少了用于对每个权重编码的比特数。对于大部分元素为 0 的矩阵可以使用稀疏表示，进一步降低空间冗余，且这种压缩机制不会带来任何准确率损失。 </li>
+<li>剪枝:</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202307271509284.png" alt="image-20230727145531991"></p>
+<h3 id="低秩分解和稀疏性"><a href="#低秩分解和稀疏性" class="headerlink" title="低秩分解和稀疏性"></a>低秩分解和稀疏性</h3><p>​        典型的 CNN 卷积核是一个 4D 张量，而全连接层也可以当成一个 2D 矩阵，低秩分解同样可行。这些张量中可能存在大量的冗余。所有近似过程都是逐层进行的，在一个层经过低秩滤波器近似之后，该层的参数就被固定了，而之前的层已经用一种重构误差标准（reconstruction error criterion）微调过。</p>
+<h3 id="迁移-压缩卷积滤波器"><a href="#迁移-压缩卷积滤波器" class="headerlink" title="迁移/压缩卷积滤波器"></a>迁移/压缩卷积滤波器</h3><p>​        在 Inception 结构中使用了将 3×3 卷积分解成两个 1×1 的卷积；SqueezeNet 提出用 1×1 卷积来代替 3×3 卷积，与 AlexNet 相比，SqueezeNet 创建了一个紧凑的神经网络，参数少了 50 倍，准确度相当。</p>
+<h3 id="知识蒸馏"><a href="#知识蒸馏" class="headerlink" title="知识蒸馏"></a>知识蒸馏</h3><p>​    “学生-教师”的范式，即通过软化“教师”的输出而惩罚“学生”</p>
+<p>​    只能用于具有 Softmax 损失函数分类任务</p>
+<blockquote>
+<p>TensorFlow 支持的是一种静态图，当模型的参数确定之后，便无法继续修改。这对于逐阶段、分层的训练带来了一定的困难。相比之下，Pytorch 使用了动态图，在定义完模型之后还可以边训练边修改其参数，具有很高的灵活性。这也是深度学习未来的发展方向</p>
+</blockquote>
+<h2 id="YOLO6-模型优化"><a href="#YOLO6-模型优化" class="headerlink" title="YOLO6 模型优化"></a>YOLO6 模型优化</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/meituan/YOLOv6/blob/main/docs/tutorial_repopt.md">https://github.com/meituan/YOLOv6/blob/main/docs/tutorial_repopt.md</a><ul>
+<li>step 1 Training with RepOptimizer</li>
+<li>step 2 PTQ</li>
+<li>step 3 QAT: channel-wise distillation</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202307271718700.png" alt="image-20230727171635419"></p>
+<h3 id="RepOptimizers"><a href="#RepOptimizers" class="headerlink" title="RepOptimizers"></a>RepOptimizers</h3><p>​    重参数化优化器</p>
+<p>​    将先验信息用于修改梯度数值，称为梯度重参数化，对应的优化器称为RepOptimizer。我们着重关注VGG式的直筒模型，训练得到RepOptVGG模型，他有着高训练效率，简单直接的结构和极快的推理速度。</p>
+<ul>
+<li>paper <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2205.15242.pdf">https://arxiv.org/pdf/2205.15242.pdf</a> </li>
+<li>code <a target="_blank" rel="noopener" href="https://github.com/DingXiaoH/RepOptimizers">https://github.com/DingXiaoH/RepOptimizers</a><ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/531477704">https://zhuanlan.zhihu.com/p/531477704</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/DingXiaoH/RepOptimizers/blob/main/repoptimizer/repoptvgg_impl.py">https://github.com/DingXiaoH/RepOptimizers/blob/main/repoptimizer/repoptvgg_impl.py</a></li>
+</ul>
+</li>
+</ul>
+<p><strong>与RepVGG的区别</strong></p>
+<ol>
+<li>RepVGG加入了结构先验（如1x1，identity分支），并使用常规优化器训练。而RepOptVGG则是<strong>将这种先验知识加入到优化器实现中</strong></li>
+<li>尽管RepVGG在推理阶段可以把各分支融合，成为一个直筒模型。但是<strong>其训练过程中有着多条分支，需要更多显存和训练时间</strong>。而RepOptVGG可是 <strong>真-直筒模型</strong>，从训练过程中就是一个VGG结构</li>
+<li>我们通过定制优化器，实现了结构重参数化和梯度重参数化的等价变换，这种变换是通用的，可以拓展到更多模型</li>
+</ol>
+<h3 id="Partial-Quantization"><a href="#Partial-Quantization" class="headerlink" title="Partial Quantization"></a>Partial Quantization</h3><p>​    部分量化</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/meituan/YOLOv6/tree/main/tools/partial_quantization">https://github.com/meituan/YOLOv6/tree/main/tools/partial_quantization</a></p>
+<p>  先做参数敏感性分析，再对不敏感的参数进行量化</p>
+<p>  所谓参数敏感性，就是判断参数变化对性能是否影响，如果影响很大，则敏感，否则不敏感</p>
+</li>
+</ul>
+<h3 id="pytorch-quantization"><a href="#pytorch-quantization" class="headerlink" title="pytorch_quantization"></a>pytorch_quantization</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://docs.nvidia.com/deeplearning/tensorrt/pytorch-quantization-toolkit/docs/index.html">https://docs.nvidia.com/deeplearning/tensorrt/pytorch-quantization-toolkit/docs/index.html</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/Jermmy/pytorch-quantization-demo">https://github.com/Jermmy/pytorch-quantization-demo</a></li>
+</ul>
+<h3 id="post-training-quantization-PTQ"><a href="#post-training-quantization-PTQ" class="headerlink" title="post-training quantization (PTQ)"></a>post-training quantization (PTQ)</h3><ul>
+<li></li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/meituan/YOLOv6/blob/main/tools/partial_quantization/ptq.py">https://github.com/meituan/YOLOv6/blob/main/tools/partial_quantization/ptq.py</a> </p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://docs.nvidia.com/deeplearning/tensorrt/pytorch-quantization-toolkit/docs/userguide.html#post-training-quantization">https://docs.nvidia.com/deeplearning/tensorrt/pytorch-quantization-toolkit/docs/userguide.html#post-training-quantization</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="quantization-aware-training-QAT"><a href="#quantization-aware-training-QAT" class="headerlink" title="quantization-aware training (QAT)"></a>quantization-aware training (QAT)</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/meituan/YOLOv6/blob/main/tools/qat/qat_utils.py">https://github.com/meituan/YOLOv6/blob/main/tools/qat/qat_utils.py</a><ul>
+<li><a target="_blank" rel="noopener" href="https://docs.nvidia.com/deeplearning/tensorrt/pytorch-quantization-toolkit/docs/userguide.html#quantization-aware-training">https://docs.nvidia.com/deeplearning/tensorrt/pytorch-quantization-toolkit/docs/userguide.html#quantization-aware-training</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/36051603">A Survey of Model Compression and Acceleration for Deep Neural Networks</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/meituan/YOLOv6/blob/main/docs/tutorial_repopt.md">https://github.com/meituan/YOLOv6/blob/main/docs/tutorial_repopt.md</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/c_1258047709686231040">https://zhuanlan.zhihu.com/c_1258047709686231040</a></li>
+</ul>
 
                 
             </div>
@@ -528,7 +565,7 @@ Techniques to do☐ 2D object detection
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lee-jet.github.io/2023/02/13/3d-vision/">https://lee-jet.github.io/2023/02/13/3d-vision/</a>
+                    <a href="https://lee-jet.github.io/2023/07/27/model-compression-and-acceleration-md/">https://lee-jet.github.io/2023/07/27/model-compression-and-acceleration-md/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -566,8 +603,8 @@ Techniques to do☐ 2D object detection
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Paper-Reading/">
-                                    <span class="chip bg-color">Paper Reading</span>
+                                <a href="/tags/Tech-share/">
+                                    <span class="chip bg-color">Tech share</span>
                                 </a>
                             
                         </div>
@@ -645,7 +682,7 @@ Techniques to do☐ 2D object detection
         repo: 'gitalk',
         owner: 'lee-jet',
         admin: "lee-jet",
-        id: '2023-02-13T09-57-01',
+        id: '2023-07-27T14-06-49',
         distractionFreeMode: false,  // Facebook-like distraction free mode
     });
 
@@ -673,9 +710,56 @@ Techniques to do☐ 2D object detection
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2023/07/27/model-compression-and-acceleration-md/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="model-compression-and-acceleration.md">
+                        
+                        <span class="card-title">model-compression-and-acceleration.md</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-27
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Lee Jet
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Tech-share/">
+                        <span class="chip bg-color">Tech share</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2023/02/22/baby-crying-detection-tutorials/">
                     <div class="card-image">
@@ -693,57 +777,8 @@ Techniques to do☐ 2D object detection
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-02-22
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Paper-Reading/" class="post-category">
-                                    Paper Reading
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Paper-Reading/">
-                        <span class="chip bg-color">Paper Reading</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2023/02/10/audio/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="audio">
-                        
-                        <span class="card-title">audio</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-22
                             </span>
                         <span class="publish-author">
                             
