@@ -403,7 +403,7 @@ Background
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6.5k
+                    6.6k
                 </div>
                 
 
@@ -513,7 +513,7 @@ Background
 <h4 id="TAL"><a href="#TAL" class="headerlink" title="TAL"></a>TAL</h4><ul>
 <li><p>OTA将目标检测中的标签分配视为最佳传输的问题。它从全局角度定义了每个GT目标的正/负训练样本。SimOTA是OTA的简化版本，它减少了额外的超参数并保持了性能。在YOLOv6的早期版本中，SimOTA被用作标签分配方法。然而，在实践中，发现引入SimOTA会减缓训练过程。而且，陷入不稳定训练的情况经常出现。因此，设计了一个 SimOTA的替代品TAL。</p>
 </li>
-<li><p>Task alignment learning：任务对齐学习（TAL）</p>
+<li><p>Task alignment learning：任务对齐学习（TAL），TOOD: Task-aligned One-stage Object Detection任务对齐的单阶段目标检测。由于分类和定位的学习机制不同，两个任务学习到的特征的空间分布可能不同，当使用两个单独的分支进行预测时，会导致一定程度的错位。增加两个任务之间的交互，(2)增强检测器学习比对的能力</p>
 </li>
 </ul>
 <h4 id="Activation"><a href="#Activation" class="headerlink" title="Activation"></a>Activation</h4><ul>
@@ -534,23 +534,22 @@ Background
 </ul>
 </li>
 <li><p>Box Regression Loss</p>
+<p>  ​        框回归损失为精确定位边界盒提供了重要的学习信号。L1 Loss是早期工作中的原始框回归损失。逐渐地，各种精心设计的框回归损失如IoU系列Loss和Probability Loss如雨后春笋般涌现。</p>
 <ul>
-<li><p>框回归损失为精确定位边界盒提供了重要的学习信号。L1 Loss是早期工作中的原始框回归损失。逐渐地，各种精心设计的框回归损失如IoU系列Loss和Probability Loss如雨后春笋般涌现。</p>
-<p>  IoU-series Loss： IoU Loss将预测框的四个边界作为一个整体单位进行回归。由于其与评价指标的一致性，已被证明是有效的。IoU有许多变体，如GIoU、DIoU、CIoU、α-IoU和SIoU等，形成相关损失函数。对GIoU、CIoU和SIoU进行了实验。 SIoU应用于YOLOv6-N和YOLOV 6-T，而其他的使用GIoU</p>
+<li><p>IoU-series Loss： IoU Loss将预测框的四个边界作为一个整体单位进行回归。由于其与评价指标的一致性，已被证明是有效的。IoU有许多变体，如GIoU、DIoU、CIoU、α-IoU和SIoU等，形成相关损失函数。对GIoU、CIoU和SIoU进行了实验。 SIoU应用于YOLOv6-N和YOLOV 6-T，而其他的使用GIoU</p>
 <ul>
 <li><strong>对于 YOLOv6-N和YOLOv 6-T，SIoU Loss优于其他Loss，而对于 YOLOv6-M，CIoU Loss表现更好</strong></li>
 </ul>
 </li>
-<li><p>Dostronition Focal Loss（DFL）将框位置的基本连续分布简化为离散化概率分布。**它考虑了数据中的模糊性和不确定性，而不引入任何其他先验，这有助于提高框定位精度，特别是当GT框的边界模糊时。基于DFL，DFLv2开发了一个轻量级子网络，以利用分布统计和实际定位质量之间的密切相关性，进一步提高检测性能。然而，DFL通常输出比一般盒回归多17倍的回归值，导致大量开销。额外的计算成本显著阻碍了小模型的训练。</p>
+<li><p>Probability Loss  </p>
 <ul>
+<li>Dostronition Focal Loss（DFL）将框位置的基本连续分布简化为离散化概率分布。**它考虑了数据中的模糊性和不确定性，而不引入任何其他先验，这有助于提高框定位精度，特别是当GT框的边界模糊时。基于DFL，DFLv2开发了一个轻量级子网络，以利用分布统计和实际定位质量之间的密切相关性，进一步提高检测性能。然而，DFL通常输出比一般盒回归多17倍的回归值，导致大量开销。额外的计算成本显著阻碍了小模型的训练。</li>
 <li><strong>仅在YOLOv6-M/L中采用DFL</strong></li>
-</ul>
-</li>
 </ul>
 </li>
 <li><p>Object Loss</p>
 <ul>
-<li>FCOS中首次提出了Object Loss，以降低低质量边界框的分数，以便在后处理中过滤掉它们。在YOLOX中也使用了它来加速收敛并提高网络精度。作为一个像FCOS和YOLOX这样的anchor-free框架，本文尝试将Object Loss引入YOLOv6。不幸的是，它没有带来很多积极的效果。<ul>
+<li>FCOS中首次提出了Object Loss，以降低低质量边界框的分数，以便在后处理中过滤掉它们。在YOLOX中也使用了它来加速收敛并提高网络精度。作为一个像FCOS和YOLOX这样的anchor-free框架，本文尝试将Object Loss引入YOLOv6。不幸的是，它没有带来很多积极的效果。</li>
 <li>在 <strong>YOLOv6中去除Object Loss</strong></li>
 </ul>
 </li>
@@ -560,7 +559,7 @@ Background
 <h4 id="Epochs"><a href="#Epochs" class="headerlink" title="Epochs"></a>Epochs</h4><ul>
 <li> <strong>随着训练时间的增加，检测器的性能不断提高</strong>。我们将训练时间从300个周期延长到400个周期，以达到更好的收敛。</li>
 </ul>
-<h4 id="Self-disstilation"><a href="#Self-disstilation" class="headerlink" title="Self-disstilation"></a>Self-disstilation</h4><ul>
+<h4 id="Self-distillation"><a href="#Self-distillation" class="headerlink" title="Self-distillation"></a>Self-distillation</h4><ul>
 <li>在评估YOLOv5和YOLOv7中的模型性能时，在每个图像周围放置了half-stride灰色边界（就是resize图片时四周填充了灰度的padding）。虽然没有添加有用的信息，但它有助于检测图像边缘附近的对象。这个技巧也适用于YOLOv6</li>
 <li>然而，额外的灰度像素明显降低了推理速度。如果没有灰色边界，YOLOv6的性能会恶化，这也是YOLOv5和YOLOv7中遇到的情况。我们假设该问题与Mosaic增强中的灰色边界填充有关。<strong>为了验证，进行了在最后一个epoch时关闭Mosaic增强的实验（又名衰退策略,fade strategy）。</strong>在这方面，我们改变了灰度边界的面积，并将具有灰度边界的图像直接调整为目标图像大小。结合这两种策略，我们的模型可以在不降低推理速度的情况下保持甚至提高性能</li>
 <li>一方面，性能下降的问题得到了缓解。另一方面，无论是否填充灰色边界，小模型（YOLOv6-N/S）的精度都会提高</li>
@@ -1134,7 +1133,6 @@ quant_nn<span class="token punctuation">.</span>TensorQuantizer<span class="toke
 <h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/36051603">A Survey of Model Compression and Acceleration for Deep Neural Networks</a></li>
 <li><a target="_blank" rel="noopener" href="https://github.com/meituan/YOLOv6/blob/main/docs/tutorial_repopt.md">https://github.com/meituan/YOLOv6/blob/main/docs/tutorial_repopt.md</a></li>
-<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/c_1258047709686231040">https://zhuanlan.zhihu.com/c_1258047709686231040</a></li>
 </ul>
 
                 
@@ -1591,7 +1589,7 @@ quant_nn<span class="token punctuation">.</span>TensorQuantizer<span class="toke
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">18.1k</span>
+                        class="white-color">18.2k</span>
             
             
             
