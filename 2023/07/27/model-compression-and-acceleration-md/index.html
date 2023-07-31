@@ -396,21 +396,21 @@ Background
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-07-28
+                    2023-07-31
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.3k
+                    6.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    21 分
+                    29 分
                 </div>
                 
 
@@ -484,7 +484,85 @@ Background
 <blockquote>
 <p>TensorFlow 支持的是一种静态图，当模型的参数确定之后，便无法继续修改。这对于逐阶段、分层的训练带来了一定的困难。相比之下，Pytorch 使用了动态图，在定义完模型之后还可以边训练边修改其参数，具有很高的灵活性。这也是深度学习未来的发展方向</p>
 </blockquote>
-<h2 id="YOLOv6-methodology"><a href="#YOLOv6-methodology" class="headerlink" title="YOLOv6 methodology"></a>YOLOv6 methodology</h2><ul>
+<h2 id="YOLOv6-Overview"><a href="#YOLOv6-Overview" class="headerlink" title="YOLOv6 Overview"></a>YOLOv6 Overview</h2><h3 id="EfficientRep-Backbone"><a href="#EfficientRep-Backbone" class="headerlink" title="EfficientRep Backbone"></a>EfficientRep Backbone</h3><ul>
+<li>多分支的网络(ResNet,DenseNet,GoogLeNet)相比单分支(ImageNet,VGG)的通常能够有更好的分类性能。但是，它通常伴随着并行性的降低，并导致推理延迟的增加。相反，像VGG这样的普通单路径网络具有高并行性和较少内存占用的优点，从而导致更高的推理效率。</li>
+<li>RepVGG Style 结构是一种在训练时具有多分支拓扑，而在实际部署时可以等效融合为单个 3x3 卷积的一种可重参数化的结构。通过融合成的 3x3 卷积结构，可以有效利用计算密集型硬件计算能力（比如 GPU），同时也可获得 GPU/CPU 上已经高度优化的 NVIDIA cuDNN 和 Intel MKL 编译框架的帮助。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><img src="./_posts/assets/image-20230731101347070.png" alt="image-20230731101347070"></th>
+<th><img src="./_posts/assets/image-20230731101714496.png" alt="image-20230731101714496"></th>
+</tr>
+</thead>
+</table>
+<h3 id="Rep-PAN-neck"><a href="#Rep-PAN-neck" class="headerlink" title="Rep-PAN neck"></a>Rep-PAN neck</h3><h3 id="Decoupled-Head"><a href="#Decoupled-Head" class="headerlink" title="Decoupled Head"></a>Decoupled Head</h3><ul>
+<li><p>原始 YOLOv5 的检测头是通过分类和回归分支融合共享的方式来实现的，而 YOLOX 的检测头则是将分类和回归分支进行解耦，同时新增了两个额外的 3x3 的卷积层，虽然提升了检测精度，但一定程度上增加了网络延时。</p>
+</li>
+<li><p>因此，我们对解耦头进行了精简设计，同时综合考虑到相关算子表征能力和硬件上计算开销这两者的平衡，采用 <strong>Hybrid Channels</strong> 策略重新设计了一个更高效的解耦头结构，在维持精度的同时降低了延时，缓解了解耦头中 3x3 卷积带来的额外延时开销。通过在 nano 尺寸模型上进行消融实验，对比相同通道数的解耦头结构，精度提升 0.2% AP 的同时，速度提升6.8%。</p>
+</li>
+</ul>
+<p><img src="./_posts/assets/image-20230731103229622.png" alt="image-20230731103229622"></p>
+<h3 id="Training-strategies"><a href="#Training-strategies" class="headerlink" title="Training strategies"></a>Training strategies</h3><h4 id="Anchor-free"><a href="#Anchor-free" class="headerlink" title="Anchor-free"></a>Anchor-free</h4><ul>
+<li>由于 Anchor-based检测器需要在训练之前进行聚类分析以确定最佳 Anchor 集合，这会一定程度提高检测器的复杂度；同时，在一些边缘端的应用中，需要在硬件之间搬运大量检测结果的步骤，也会带来额外的延时。而 Anchor-free 无锚范式因其泛化能力强，解码逻辑更简单，在近几年中应用比较广泛。经过对 Anchor-free 的实验调研，我们发现，相较于Anchor-based 检测器的复杂度而带来的额外延时，Anchor-free 检测器在速度上有51%的提升。有两种类型的anchor-free检测器：point-based(YOLOX,FCOS)和keypoing-based(CenterNet)。在YOLOv6中，采用了 anchor-free point-based范式。</li>
+</ul>
+<h4 id="TAL"><a href="#TAL" class="headerlink" title="TAL"></a>TAL</h4><ul>
+<li><p>OTA将目标检测中的标签分配视为最佳传输的问题。它从全局角度定义了每个GT目标的正/负训练样本。SimOTA是OTA的简化版本，它减少了额外的超参数并保持了性能。在YOLOv6的早期版本中，SimOTA被用作标签分配方法。然而，在实践中，发现引入SimOTA会减缓训练过程。而且，陷入不稳定训练的情况经常出现。因此，设计了一个 SimOTA的替代品TAL。</p>
+</li>
+<li><p>Task alignment learning：任务对齐学习（TAL）</p>
+</li>
+</ul>
+<h4 id="Activation"><a href="#Activation" class="headerlink" title="Activation"></a>Activation</h4><ul>
+<li><p>YOLO系列激活函数各不相同，如ReLU、LReLU、Swish、SiLU、Mish等。在这些激活函数中，SiLU是使用最多的。<strong>一般来说，SiLU的精度更高，不会造成太多额外的计算成本</strong>。然而，在工业应用中，特别是在部署具有<strong>TensorRT加速的模型时，ReLU具有更大的速度优势，因为它融合到了卷积中。</strong></p>
+</li>
+<li><p>此外，进一步验证了RepConv/普通卷积（表示为Conv）和ReLU/SiLU/LReLU组合在不同大小网络中的有效性，以实现更好的折衷。带有SiLU的Conv在精度上表现最佳， 而RepConv和ReLU的组合实现了更好的权衡。所以建议用户在对延迟敏感的应用程序中使用RepConv和ReLU。</p>
+</li>
+<li><p>使用RepConv/ReLU在YOLOv6-N/T/S/M中，用于更高的推理速度；在大型型号 YOLOv6-L中使用Conv/SiLU组合加速训练并提高性能</p>
+</li>
+</ul>
+<h4 id="Loss"><a href="#Loss" class="headerlink" title="Loss"></a>Loss</h4><ul>
+<li><p>Classification Loss</p>
+<ul>
+<li>Focal Loss修改了传统的交叉熵损失，以解决正负样本或难易样本之间的类不平衡问题。为了解决训练和推理之间质量估计和分类的不一致使用，Quality Focal Loss（QFL）进一步扩展了Focal Loss，将分类分数和本地化质量联合表示用于分类监督。而VariFocal Loss（VFL）源于Focal Loss，但它不对称地处理正样本和负样本。通过考虑不同重要程度的正样本和负样本，它平衡了来自两个样本的学习信号。Poly Loss将常用的分类损失分解为一系列加权多项式基。它在不同的任务和数据集上调整多项式系数，通过实验证明其优于交叉熵损失和Focal Loss<ul>
+<li>在YOLOv6-N/S/M上实验了Focal Los、Polyloss、QFL和VFL。如表8所示，与Focal Loss相比，VFL对YOLOv6-N/S/M分别带来0.2%/0.3%/0.1%的AP改善。所以，选择 <strong>VFL作为分类损失函数</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Box Regression Loss</p>
+<ul>
+<li><p>框回归损失为精确定位边界盒提供了重要的学习信号。L1 Loss是早期工作中的原始框回归损失。逐渐地，各种精心设计的框回归损失如IoU系列Loss和Probability Loss如雨后春笋般涌现。</p>
+<p>  IoU-series Loss： IoU Loss将预测框的四个边界作为一个整体单位进行回归。由于其与评价指标的一致性，已被证明是有效的。IoU有许多变体，如GIoU、DIoU、CIoU、α-IoU和SIoU等，形成相关损失函数。对GIoU、CIoU和SIoU进行了实验。 SIoU应用于YOLOv6-N和YOLOV 6-T，而其他的使用GIoU</p>
+<ul>
+<li><strong>对于 YOLOv6-N和YOLOv 6-T，SIoU Loss优于其他Loss，而对于 YOLOv6-M，CIoU Loss表现更好</strong></li>
+</ul>
+</li>
+<li><p>Dostronition Focal Loss（DFL）将框位置的基本连续分布简化为离散化概率分布。**它考虑了数据中的模糊性和不确定性，而不引入任何其他先验，这有助于提高框定位精度，特别是当GT框的边界模糊时。基于DFL，DFLv2开发了一个轻量级子网络，以利用分布统计和实际定位质量之间的密切相关性，进一步提高检测性能。然而，DFL通常输出比一般盒回归多17倍的回归值，导致大量开销。额外的计算成本显著阻碍了小模型的训练。</p>
+<ul>
+<li><strong>仅在YOLOv6-M/L中采用DFL</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Object Loss</p>
+<ul>
+<li>FCOS中首次提出了Object Loss，以降低低质量边界框的分数，以便在后处理中过滤掉它们。在YOLOX中也使用了它来加速收敛并提高网络精度。作为一个像FCOS和YOLOX这样的anchor-free框架，本文尝试将Object Loss引入YOLOv6。不幸的是，它没有带来很多积极的效果。<ul>
+<li>在 <strong>YOLOv6中去除Object Loss</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Epochs"><a href="#Epochs" class="headerlink" title="Epochs"></a>Epochs</h4><ul>
+<li> <strong>随着训练时间的增加，检测器的性能不断提高</strong>。我们将训练时间从300个周期延长到400个周期，以达到更好的收敛。</li>
+</ul>
+<h4 id="Self-disstilation"><a href="#Self-disstilation" class="headerlink" title="Self-disstilation"></a>Self-disstilation</h4><ul>
+<li>在评估YOLOv5和YOLOv7中的模型性能时，在每个图像周围放置了half-stride灰色边界（就是resize图片时四周填充了灰度的padding）。虽然没有添加有用的信息，但它有助于检测图像边缘附近的对象。这个技巧也适用于YOLOv6</li>
+<li>然而，额外的灰度像素明显降低了推理速度。如果没有灰色边界，YOLOv6的性能会恶化，这也是YOLOv5和YOLOv7中遇到的情况。我们假设该问题与Mosaic增强中的灰色边界填充有关。<strong>为了验证，进行了在最后一个epoch时关闭Mosaic增强的实验（又名衰退策略,fade strategy）。</strong>在这方面，我们改变了灰度边界的面积，并将具有灰度边界的图像直接调整为目标图像大小。结合这两种策略，我们的模型可以在不降低推理速度的情况下保持甚至提高性能</li>
+<li>一方面，性能下降的问题得到了缓解。另一方面，无论是否填充灰色边界，小模型（YOLOv6-N/S）的精度都会提高</li>
+<li> 将输入图像限制为634×634，并在边缘周围添加3像素宽的灰色边界。使用该策略，最终图像的大小为预期的640×640。当最终图像尺寸从672减小到640时，YOLOv6-N/S/M的最终性能甚至更精确0.2%/0.3%/0.1%</li>
+</ul>
+<h2 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://github.com/meituan/YOLOv6/blob/main/docs/tutorial_repopt.md">https://github.com/meituan/YOLOv6/blob/main/docs/tutorial_repopt.md</a><ul>
 <li>step 1 Training with RepOptimizer</li>
 <li>step 2 PTQ + sensitivity analyze</li>
@@ -1040,6 +1118,10 @@ quant_nn<span class="token punctuation">.</span>TensorQuantizer<span class="toke
 <li>INT8 calibration</li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202307281508399.png" alt="image-20230728150155064"></p>
+<ul>
+<li>ablation study for yolov6-nano</li>
+</ul>
+<p><img src="./_posts/assets/image-20230731102922901.png" alt="image-20230731102922901"></p>
 <h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ul>
 <li>无论是PTQ推理量化，还是QAT训练量化，二者都需要对需要量化的层进行替换，最终保存是量化后网络的权重，而非网络结构</li>
 <li>这篇文章工程能力很强，值得借鉴</li>
@@ -1504,7 +1586,7 @@ quant_nn<span class="token punctuation">.</span>TensorQuantizer<span class="toke
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">15.9k</span>
+                        class="white-color">18.1k</span>
             
             
             
