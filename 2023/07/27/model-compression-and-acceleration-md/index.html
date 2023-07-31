@@ -403,7 +403,7 @@ Background
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6.4k
+                    6.5k
                 </div>
                 
 
@@ -497,7 +497,10 @@ Background
 </tr>
 </thead>
 </table>
-<h3 id="Rep-PAN-neck"><a href="#Rep-PAN-neck" class="headerlink" title="Rep-PAN neck"></a>Rep-PAN neck</h3><h3 id="Decoupled-Head"><a href="#Decoupled-Head" class="headerlink" title="Decoupled Head"></a>Decoupled Head</h3><ul>
+<h3 id="Rep-PAN-neck"><a href="#Rep-PAN-neck" class="headerlink" title="Rep-PAN neck"></a>Rep-PAN neck</h3><ul>
+<li>将YOLOv5中使用的 <strong>CSPBlock替换为RepBlock（适用于小型模型）或CSPStackRep Block（用于大型模型）</strong>，并相应调整宽度和深度。</li>
+</ul>
+<h3 id="Decoupled-Head"><a href="#Decoupled-Head" class="headerlink" title="Decoupled Head"></a>Decoupled Head</h3><ul>
 <li><p>原始 YOLOv5 的检测头是通过分类和回归分支融合共享的方式来实现的，而 YOLOX 的检测头则是将分类和回归分支进行解耦，同时新增了两个额外的 3x3 的卷积层，虽然提升了检测精度，但一定程度上增加了网络延时。</p>
 </li>
 <li><p>因此，我们对解耦头进行了精简设计，同时综合考虑到相关算子表征能力和硬件上计算开销这两者的平衡，采用 <strong>Hybrid Channels</strong> 策略重新设计了一个更高效的解耦头结构，在维持精度的同时降低了延时，缓解了解耦头中 3x3 卷积带来的额外延时开销。通过在 nano 尺寸模型上进行消融实验，对比相同通道数的解耦头结构，精度提升 0.2% AP 的同时，速度提升6.8%。</p>
