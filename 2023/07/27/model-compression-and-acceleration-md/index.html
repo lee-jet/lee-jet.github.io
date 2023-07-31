@@ -484,15 +484,16 @@ Background
 <blockquote>
 <p>TensorFlow 支持的是一种静态图，当模型的参数确定之后，便无法继续修改。这对于逐阶段、分层的训练带来了一定的困难。相比之下，Pytorch 使用了动态图，在定义完模型之后还可以边训练边修改其参数，具有很高的灵活性。这也是深度学习未来的发展方向</p>
 </blockquote>
-<h2 id="YOLOv6-Overview"><a href="#YOLOv6-Overview" class="headerlink" title="YOLOv6 Overview"></a>YOLOv6 Overview</h2><h3 id="EfficientRep-Backbone"><a href="#EfficientRep-Backbone" class="headerlink" title="EfficientRep Backbone"></a>EfficientRep Backbone</h3><ul>
+<h2 id="YOLOv6"><a href="#YOLOv6" class="headerlink" title="YOLOv6"></a>YOLOv6</h2><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202307311149762.png" alt="image-20230731114838134"></p>
+<h3 id="EfficientRep-Backbone"><a href="#EfficientRep-Backbone" class="headerlink" title="EfficientRep Backbone"></a>EfficientRep Backbone</h3><ul>
 <li>多分支的网络(ResNet,DenseNet,GoogLeNet)相比单分支(ImageNet,VGG)的通常能够有更好的分类性能。但是，它通常伴随着并行性的降低，并导致推理延迟的增加。相反，像VGG这样的普通单路径网络具有高并行性和较少内存占用的优点，从而导致更高的推理效率。</li>
 <li>RepVGG Style 结构是一种在训练时具有多分支拓扑，而在实际部署时可以等效融合为单个 3x3 卷积的一种可重参数化的结构。通过融合成的 3x3 卷积结构，可以有效利用计算密集型硬件计算能力（比如 GPU），同时也可获得 GPU/CPU 上已经高度优化的 NVIDIA cuDNN 和 Intel MKL 编译框架的帮助。</li>
 </ul>
 <table>
 <thead>
 <tr>
-<th><img src="./_posts/assets/image-20230731101347070.png" alt="image-20230731101347070"></th>
-<th><img src="./_posts/assets/image-20230731101714496.png" alt="image-20230731101714496"></th>
+<th><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202307311149764.png" alt="image-20230731101347070"></th>
+<th><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202307311149765.png" alt="image-20230731101714496"></th>
 </tr>
 </thead>
 </table>
@@ -502,7 +503,7 @@ Background
 <li><p>因此，我们对解耦头进行了精简设计，同时综合考虑到相关算子表征能力和硬件上计算开销这两者的平衡，采用 <strong>Hybrid Channels</strong> 策略重新设计了一个更高效的解耦头结构，在维持精度的同时降低了延时，缓解了解耦头中 3x3 卷积带来的额外延时开销。通过在 nano 尺寸模型上进行消融实验，对比相同通道数的解耦头结构，精度提升 0.2% AP 的同时，速度提升6.8%。</p>
 </li>
 </ul>
-<p><img src="./_posts/assets/image-20230731103229622.png" alt="image-20230731103229622"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202307311149766.png" alt="image-20230731103229622"></p>
 <h3 id="Training-strategies"><a href="#Training-strategies" class="headerlink" title="Training strategies"></a>Training strategies</h3><h4 id="Anchor-free"><a href="#Anchor-free" class="headerlink" title="Anchor-free"></a>Anchor-free</h4><ul>
 <li>由于 Anchor-based检测器需要在训练之前进行聚类分析以确定最佳 Anchor 集合，这会一定程度提高检测器的复杂度；同时，在一些边缘端的应用中，需要在硬件之间搬运大量检测结果的步骤，也会带来额外的延时。而 Anchor-free 无锚范式因其泛化能力强，解码逻辑更简单，在近几年中应用比较广泛。经过对 Anchor-free 的实验调研，我们发现，相较于Anchor-based 检测器的复杂度而带来的额外延时，Anchor-free 检测器在速度上有51%的提升。有两种类型的anchor-free检测器：point-based(YOLOX,FCOS)和keypoing-based(CenterNet)。在YOLOv6中，采用了 anchor-free point-based范式。</li>
 </ul>
@@ -562,7 +563,7 @@ Background
 <li>一方面，性能下降的问题得到了缓解。另一方面，无论是否填充灰色边界，小模型（YOLOv6-N/S）的精度都会提高</li>
 <li> 将输入图像限制为634×634，并在边缘周围添加3像素宽的灰色边界。使用该策略，最终图像的大小为预期的640×640。当最终图像尺寸从672减小到640时，YOLOv6-N/S/M的最终性能甚至更精确0.2%/0.3%/0.1%</li>
 </ul>
-<h2 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h2><ul>
+<h2 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://github.com/meituan/YOLOv6/blob/main/docs/tutorial_repopt.md">https://github.com/meituan/YOLOv6/blob/main/docs/tutorial_repopt.md</a><ul>
 <li>step 1 Training with RepOptimizer</li>
 <li>step 2 PTQ + sensitivity analyze</li>
@@ -1069,6 +1070,7 @@ head<span class="token operator">=</span><span class="token builtin">dict</span>
 </ul>
 </li>
 </ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202307311149767.png" alt="image-20230731114708858"></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">if</span> self<span class="token punctuation">.</span>args<span class="token punctuation">.</span>distill<span class="token punctuation">:</span>
     <span class="token keyword">with</span> torch<span class="token punctuation">.</span>no_grad<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
         t_preds<span class="token punctuation">,</span> t_featmaps <span class="token operator">=</span> self<span class="token punctuation">.</span>teacher_model<span class="token punctuation">(</span>images<span class="token punctuation">)</span>
@@ -1121,7 +1123,7 @@ quant_nn<span class="token punctuation">.</span>TensorQuantizer<span class="toke
 <ul>
 <li>ablation study for yolov6-nano</li>
 </ul>
-<p><img src="./_posts/assets/image-20230731102922901.png" alt="image-20230731102922901"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202307311149768.png" alt="image-20230731102922901"></p>
 <h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ul>
 <li>无论是PTQ推理量化，还是QAT训练量化，二者都需要对需要量化的层进行替换，最终保存是量化后网络的权重，而非网络结构</li>
 <li>这篇文章工程能力很强，值得借鉴</li>
