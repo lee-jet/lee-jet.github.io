@@ -4,17 +4,15 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="project_demos, Jet&#39; Blog">
-    <meta name="description" content="Project demo list
-Demo 1 Head Pose Retrieval
+    <meta name="keywords" content="Cascade-DETR, Jet&#39; Blog">
+    <meta name="description" content="Cascade-DETR: Delving into High-Quality Universal Object Detection
 
-Demo 2 Hair Warpping
 
-Demo 3 Hair Swapping
+Paper
+Code 
 
-Demo 4 Human Generation
-
-Demo ">
+Abstract
+Transformer-based检测器在coco上占主导">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -26,7 +24,7 @@ Demo ">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>project_demos | Jet&#39; Blog</title>
+    <title>Cascade-DETR | Jet&#39; Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -346,12 +344,12 @@ Demo ">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">project_demos</h1>
+                    <h1 class="description center-align post-title">Cascade-DETR</h1>
                 </div>
             </div>
         </div>
@@ -375,14 +373,23 @@ Demo ">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/demos/">
-                                <span class="chip bg-color">demos</span>
+                            <a href="/tags/Paper-Reading/">
+                                <span class="chip bg-color">Paper Reading</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Paper-Reading/" class="post-category">
+                                Paper Reading
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -391,28 +398,28 @@ Demo ">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-12-28
+                    2023-08-01
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-02-10
+                    2023-08-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    57
+                    497
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -435,28 +442,98 @@ Demo ">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Project-demo-list"><a href="#Project-demo-list" class="headerlink" title="Project demo list"></a>Project demo list</h2><ul>
-<li><p>Demo 1 Head Pose Retrieval</p>
-</li>
-<li><p>Demo 2 Hair Warpping</p>
-</li>
-<li><p>Demo 3 Hair Swapping</p>
-</li>
-<li><p>Demo 4 Human Generation</p>
-</li>
-<li><p>Demo 5 Cloth Simulation and Wrinkle Generation</p>
-</li>
-<li><p>Demo 6 Virtual Try-on</p>
-</li>
-<li><p>Demo 7 6D Pose Estimation</p>
-</li>
-<li><p>Demo 8 Object Detection</p>
-</li>
-<li><p>Demo 9 Collar Try-on Project</p>
+                <div align='center' ><font size='5'>Cascade-DETR: Delving into High-Quality Universal Object Detection</font></div>
+
+<ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2307.11035">Paper</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/SysCV/cascade-detr">Code</a> </li>
+</ul>
+<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><ul>
+<li>Transformer-based检测器在coco上占主导地位，但是在其它domain不具有竞争力——在复杂环境下泛化能力不佳</li>
+<li>本文提出了Cascade Attention layer, 通过限制注意力到先前的box预测来隐式地将物体中心信息整合到检测解码器。为了进一步提升准确率，预测查询的预期 IoU，从而大大提高了校准过的可信度</li>
+<li>UDB10 Benchmark包含10类不同数据集， spanning traffic, medical, art, open-world, etc.  </li>
+</ul>
+<h2 id="Related-Work"><a href="#Related-Work" class="headerlink" title="Related Work"></a>Related Work</h2><ul>
+<li>DETR-based Object Detection    <ul>
+<li>CNN-based  </li>
+<li>DETR-based ：超过了CNN-based<ul>
+<li>DN-DETR: as baseline</li>
+<li>DINO</li>
+</ul>
 </li>
 </ul>
-<h2 id="Shared-links"><a href="#Shared-links" class="headerlink" title="Shared links"></a>Shared links</h2><p>​    <a target="_blank" rel="noopener" href="https://note.youdao.com/s/GYrZBXPx">https://note.youdao.com/s/GYrZBXPx</a></p>
-<h2 id="QR-Code"><a href="#QR-Code" class="headerlink" title="QR Code"></a>QR Code</h2><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302101657960.png" alt="project demos"></p>
+</li>
+<li>Cross-attention in DETR-based Decoder  <ul>
+<li>Deformable DETR: deformable attention</li>
+<li>Mask2Former: mask attention for segmentation </li>
+</ul>
+</li>
+<li>High-quality Object Detection<ul>
+<li>R-CNN based<ul>
+<li>Cascade R-CNN</li>
+<li>Dynamic R-CNN  </li>
+<li>FCOS</li>
+</ul>
+</li>
+<li>DETR-based <ul>
+<li>first one</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>DETR-based Universal Object Detection  <ul>
+<li>COCO</li>
+<li>UDB10</li>
+</ul>
+</li>
+</ul>
+<h2 id="Contributions"><a href="#Contributions" class="headerlink" title="Contributions"></a>Contributions</h2><ul>
+<li>Cascade Attention  </li>
+<li>IoU-aware Query Recalibration  </li>
+</ul>
+<h2 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308011748074.png" alt="image-20230801161017608"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308011748075.png" alt="image-20230801164536052"></p>
+<h3 id="Cascade-Attention"><a href="#Cascade-Attention" class="headerlink" title="Cascade Attention"></a>Cascade Attention</h3><ul>
+<li>Why<ul>
+<li>标准的DETR decoder中利用的是全局图像特征，本文认为（假设）query领域的local信息更加重要。在COCO上，交叉注意力map收敛到object位置的周边区域。之所以网络可以学习这种inductive bias，是因为数据量很大。所以对小批量数据或者多样性的数据并不合适。</li>
+</ul>
+</li>
+<li>How<ul>
+<li>本文提出将目标中心prior作为已知约束整合到网络的初始化和训练过程，具体就是在decoder的每一层预测的box作为交叉注意力的范围进行约束。</li>
+<li><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308011748076.png" alt="image-20230801164253653"></li>
+</ul>
+</li>
+<li>What</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308011748077.png" alt="image-20230801161702452"></p>
+<p>​        上图可见，attention map区域就是box区域，这种inductive bias使得DETR快速收敛且提升性能，尤其是在小数据集和多样性数据集上</p>
+<h3 id="IoU-aware-Query-Recalibration"><a href="#IoU-aware-Query-Recalibration" class="headerlink" title="IoU-aware Query Recalibration"></a>IoU-aware Query Recalibration</h3><ul>
+<li>Why<ul>
+<li>分类得分没有显示考虑到预测的bbox准确率, 而高质量的propasals需要高的IOU</li>
+</ul>
+</li>
+<li>How<ul>
+<li>在网络的最后一层增加了一个由linear layer构成的branch，用来预测IOU的期望，采用L2 loss</li>
+<li><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308011748079.png" alt="image-20230801164218728"></li>
+</ul>
+</li>
+<li>What<ul>
+<li><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308011748080.png" alt="image-20230801163453254"></li>
+<li>re-calibrated 更接近，具有更好的定位质量</li>
+</ul>
+</li>
+</ul>
+<h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308011748081.png" alt="image-20230801164121735"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308011748082.png" alt="image-20230801164045970"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308011748083.png" alt="image-20230801163942235"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308011748084.png" alt="image-20230801164351031"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308011748085.png" alt="image-20230801164801157"></p>
+<h2 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions"></a>Conclusions</h2><ul>
+<li>很强</li>
+</ul>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2203.01305">DN-DETR: Accelerate DETR Training by Introducing Query DeNoising</a></li>
+</ul>
 
                 
             </div>
@@ -483,7 +560,7 @@ Demo ">
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lee-jet.github.io/2022/12/28/project-demos/">https://lee-jet.github.io/2022/12/28/project-demos/</a>
+                    <a href="https://lee-jet.github.io/2023/08/01/cascade-detr/">https://lee-jet.github.io/2023/08/01/cascade-detr/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -521,8 +598,8 @@ Demo ">
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/demos/">
-                                    <span class="chip bg-color">demos</span>
+                                <a href="/tags/Paper-Reading/">
+                                    <span class="chip bg-color">Paper Reading</span>
                                 </a>
                             
                         </div>
@@ -600,7 +677,7 @@ Demo ">
         repo: 'gitalk',
         owner: 'lee-jet',
         admin: "lee-jet",
-        id: '2022-12-28T15-52-44',
+        id: '2023-08-01T17-42-20',
         distractionFreeMode: false,  // Facebook-like distraction free mode
     });
 
@@ -628,17 +705,18 @@ Demo ">
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/01/09/01-github-gitlab/">
+                <a href="/2023/08/01/cascade-detr/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="01_github_gitlab">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Cascade-DETR">
                         
-                        <span class="card-title">01_github_gitlab</span>
+                        <span class="card-title">Cascade-DETR</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -648,26 +726,27 @@ Demo ">
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-01-09
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-01
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Tech-share/" class="post-category">
-                                    Tech share
+                            <a href="/categories/Paper-Reading/" class="post-category">
+                                    Paper Reading
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Tech-share/">
-                        <span class="chip bg-color">Tech share</span>
+                    <a href="/tags/Paper-Reading/">
+                        <span class="chip bg-color">Paper Reading</span>
                     </a>
                     
                 </div>
@@ -681,13 +760,13 @@ Demo ">
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/12/24/tech-blog-demo/">
+                <a href="/2023/08/01/paper-reading/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="tech_blog_demo">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="paper-reading">
                         
-                        <span class="card-title">tech_blog_demo</span>
+                        <span class="card-title">paper-reading</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -698,12 +777,16 @@ Demo ">
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-12-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-01
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Lee Jet
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper-Reading/" class="post-category">
+                                    Paper Reading
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -711,8 +794,8 @@ Demo ">
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/demos/">
-                        <span class="chip bg-color">demos</span>
+                    <a href="/tags/Paper-Reading/">
+                        <span class="chip bg-color">Paper Reading</span>
                     </a>
                     
                 </div>
