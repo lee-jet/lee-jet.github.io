@@ -4,12 +4,15 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="02_docker, Jet&#39; Blog">
-    <meta name="description" content="docker cmdlines# 1个镜像可以开启多个容器
-# 容器开启
-sudo docker ps # 查看所有运行的容器
-sudo docker ps -a # 查看所有容器
-sudo docker start/stop CONTAI">
+    <meta name="keywords" content="OC-SORT, Jet&#39; Blog">
+    <meta name="description" content="Observation-Centric SORT:
+Rethinking SORT for Robust Multi-Object Tracking
+
+
+
+paper https://arxiv.org/abs/2203.14360  
+
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -21,7 +24,7 @@ sudo docker start/stop CONTAI">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>02_docker | Jet&#39; Blog</title>
+    <title>OC-SORT | Jet&#39; Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -341,12 +344,12 @@ sudo docker start/stop CONTAI">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">02_docker</h1>
+                    <h1 class="description center-align post-title">OC-SORT</h1>
                 </div>
             </div>
         </div>
@@ -370,8 +373,8 @@ sudo docker start/stop CONTAI">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Tech-share/">
-                                <span class="chip bg-color">Tech share</span>
+                            <a href="/tags/Paper-Reading/">
+                                <span class="chip bg-color">Paper Reading</span>
                             </a>
                         
                     </div>
@@ -382,8 +385,8 @@ sudo docker start/stop CONTAI">
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Tech-share/" class="post-category">
-                                Tech share
+                            <a href="/categories/Paper-Reading/" class="post-category">
+                                Paper Reading
                             </a>
                         
                     </div>
@@ -395,28 +398,28 @@ sudo docker start/stop CONTAI">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-01-09
+                    2023-08-02
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-02-10
+                    2023-08-02
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    317
+                    600
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -439,53 +442,94 @@ sudo docker start/stop CONTAI">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="docker-cmdlines"><a href="#docker-cmdlines" class="headerlink" title="docker cmdlines"></a><strong>docker cmdlines</strong></h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 1个镜像可以开启多个容器</span>
-<span class="token comment"># 容器开启</span>
-<span class="token function">sudo</span> <span class="token function">docker</span> <span class="token function">ps</span> <span class="token comment"># 查看所有运行的容器</span>
-<span class="token function">sudo</span> <span class="token function">docker</span> <span class="token function">ps</span> <span class="token parameter variable">-a</span> <span class="token comment"># 查看所有容器</span>
-<span class="token function">sudo</span> <span class="token function">docker</span> start/stop CONTAINER_ID
+                <div align='center' ><font size='4.5'>Observation-Centric SORT:
+Rethinking SORT for Robust Multi-Object Tracking</font></div>
 
-<span class="token comment"># 进入容器</span>
-<span class="token function">sudo</span> <span class="token function">docker</span> <span class="token builtin class-name">exec</span> <span class="token parameter variable">-it</span> b7d61cb68606 /bin/bash
-
-<span class="token comment"># CONTAINER_ID</span>
-b7d61cb68606 是ncnn
-
-<span class="token comment"># 删除容器</span>
-<span class="token function">sudo</span> <span class="token function">docker</span> <span class="token function">rm</span> CONTAINER_ID
-
-<span class="token comment"># 删除镜像</span>
-<span class="token function">sudo</span> <span class="token function">docker</span> rmi IMAGE_ID
-
-<span class="token comment"># run</span>
-<span class="token function">docker</span> run <span class="token parameter variable">-itd</span> <span class="token parameter variable">--gpus</span> all <span class="token parameter variable">--name</span> 容器名 <span class="token parameter variable">-e</span> <span class="token assign-left variable">NVIDIA_DRIVER_CAPABILITIES</span><span class="token operator">=</span>compute,utility <span class="token parameter variable">-e</span> <span class="token assign-left variable">NVIDIA_VISIBLE_DEVICES</span><span class="token operator">=</span>all 镜像名
-eg:
-<span class="token function">sudo</span> <span class="token function">docker</span> run <span class="token parameter variable">-itd</span> <span class="token parameter variable">--gpus</span> all <span class="token parameter variable">-p</span> <span class="token number">6000</span>:6006 <span class="token parameter variable">-v</span> /home/jet:/home/jet <span class="token parameter variable">--name</span> fer <span class="token parameter variable">-e</span> <span class="token assign-left variable">NVIDIA_DRIVER_CAPABILITIES</span><span class="token operator">=</span>compute,utility <span class="token parameter variable">-e</span> <span class="token assign-left variable">NVIDIA_VISIBLE_DEVICES</span><span class="token operator">=</span>all e47f51e54fe4
-
-<span class="token comment"># 加了-d表示容器退出会在后台运行，也就是容器中数据暂时保留</span>
-<span class="token comment"># 加了--rm 表示容器退出后容器消失，容器中数据改动会消失</span>
-
-<span class="token comment"># exec</span>
-<span class="token function">sudo</span> <span class="token function">docker</span> <span class="token builtin class-name">exec</span> <span class="token parameter variable">-it</span> fer /bin/bash<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="docker-run运行shell"><a href="#docker-run运行shell" class="headerlink" title="docker run运行shell"></a><strong>docker run运行shell</strong></h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run <span class="token parameter variable">-it</span> <span class="token parameter variable">--rm</span> <span class="token parameter variable">-p</span> <span class="token number">6006</span>:6006 <span class="token parameter variable">--name</span> fer_test  <span class="token parameter variable">--gpus</span> all <span class="token parameter variable">-e</span> <span class="token assign-left variable">NVIDIA_DRIVER_CAPABILITIES</span><span class="token operator">=</span>compute,utility <span class="token parameter variable">-e</span> <span class="token assign-left variable">NVIDIA_VISIBLE_DEVICES</span><span class="token operator">=</span>all lighting_fer:2.0 /bin/bash <span class="token parameter variable">-c</span> <span class="token string">"cd /home/fer_infer_in_server &amp;&amp; ./run_server.sh"</span> <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302101653579.png" alt="image-20230109173503408"></p>
-<h2 id="查看ip"><a href="#查看ip" class="headerlink" title="查看ip"></a><strong>查看ip</strong></h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> inspect <span class="token operator">&lt;</span>container id<span class="token operator">></span> 或者进入docker输入 <span class="token function">ifconfig</span>
-<span class="token function">docker</span> inspect <span class="token parameter variable">--format</span><span class="token operator">=</span><span class="token string">'&#123;&#123;.Name&#125;&#125; - &#123;&#123;range .NetworkSettings.Networks&#125;&#125;&#123;&#123;.IPAddress&#125;&#125;&#123;&#123;end&#125;&#125;'</span> <span class="token variable"><span class="token variable">$(</span><span class="token function">docker</span> <span class="token function">ps</span> <span class="token parameter variable">-aq</span><span class="token variable">)</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h2 id="权限"><a href="#权限" class="headerlink" title="权限"></a><strong>权限</strong></h2><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302101653496.png" alt="image-20230109173542608"></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/image-20230109173544897.png" alt="image-20230109173544897"></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run <span class="token parameter variable">-itd</span> <span class="token parameter variable">--gpus</span> all <span class="token parameter variable">-p</span> <span class="token number">6002</span>:6002 <span class="token parameter variable">-v</span> /home/lee-jet:/home/lee-jet <span class="token parameter variable">--name</span> face <span class="token parameter variable">-e</span> <span class="token assign-left variable">NVIDIA_DRIVER_CAPABILITIES</span><span class="token operator">=</span>compute,utility <span class="token parameter variable">-e</span> <span class="token assign-left variable">NVIDIA_VISIBLE_DEVICES</span><span class="token operator">=</span>all <span class="token parameter variable">--privileged</span> d70623609f8a <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="查看容器占用磁盘大小"><a href="#查看容器占用磁盘大小" class="headerlink" title="查看容器占用磁盘大小"></a><strong>查看容器占用磁盘大小</strong></h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> system <span class="token function">df</span>
-<span class="token function">docker</span> system <span class="token function">df</span> <span class="token parameter variable">-v</span>   <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h2 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a><strong>Dockerfile</strong></h2><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/image-20230109173638106.png" alt="image-20230109173638106"></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/image-20230109173648043.png" alt="image-20230109173648043"></p>
+<hr>
 <ul>
-<li>用Docker打包FastAPI程序  <a target="_blank" rel="noopener" href="https://www.qixinbo.info/2022/07/05/fastapi_in_docker/">https://www.qixinbo.info/2022/07/05/fastapi_in_docker/</a></li>
+<li><p>paper <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2203.14360">https://arxiv.org/abs/2203.14360</a>  </p>
+</li>
+<li><p>code <a target="_blank" rel="noopener" href="https://github.com/noahcao/OC_SORT">https://github.com/noahcao/OC_SORT</a></p>
+</li>
 </ul>
+<hr>
+<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><ul>
+<li>Kalman fileter (KF) 假设目标是线性运动（刚体），但是在遮挡和长时间的线性运动下非常不准确。由于会信任这种线性运动的prior，在遮挡的时候会累计误差，从而出现运动方向的方差很大。</li>
+<li>本文Observation-Centric SORT (OC-SORT)  在KF基础上，利用detector计算遮挡时虚拟轨迹，修正遮挡产生的累计误差。在遮挡和非线性运动下，取得了2022年的SOTA。</li>
+</ul>
+<h2 id="Related-Works"><a href="#Related-Works" class="headerlink" title="Related Works"></a>Related Works</h2><h3 id="Motion-Models"><a href="#Motion-Models" class="headerlink" title="Motion Models"></a>Motion Models</h3><ul>
+<li>KF    按照预测-更新循环的递归贝叶斯滤波器</li>
+</ul>
+<h3 id="Multi-object-Tracking"><a href="#Multi-object-Tracking" class="headerlink" title="Multi-object Tracking"></a>Multi-object Tracking</h3><ul>
+<li>SORT</li>
+<li>DeepSORT</li>
+<li>Transformer: 性能低于tracking-by-detection  </li>
+</ul>
+<h2 id="Contributions"><a href="#Contributions" class="headerlink" title="Contributions"></a>Contributions</h2><ul>
+<li>Estimation-Centric 变成 Observation-Centric 降低KF的误差<ul>
+<li>OOS（Observation-centric Online Smoothing）：减少KF带来的累积误差</li>
+<li>OCM（Observation-centric Momentum）：在代价矩阵中加入轨迹的方向一致性，更好地实现匹配</li>
+<li>OCR（Observation-centric Recovery）：恢复由于遮挡造成的跟丢问题</li>
+</ul>
+</li>
+</ul>
+<h2 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><p><img src="./_posts/assets/image-20230802105928151.png" alt="image-20230802105928151"></p>
+<ul>
+<li>KF固有局限性（SORT limitations）<ul>
+<li>Sensitive to State Noise  </li>
+<li>Temporal Error Magnification  </li>
+<li>Estimation-Centric  </li>
+</ul>
+</li>
+</ul>
+<h3 id="Observation-centric-Re-Update-ORU"><a href="#Observation-centric-Re-Update-ORU" class="headerlink" title="Observation-centric Re-Update (ORU)"></a>Observation-centric Re-Update (ORU)</h3><ul>
+<li>WHY<ul>
+<li>在track重激活（本来track，由于遮挡，没有了track，后来没被遮挡又被track）会由于时间累计误差放大，KF任然会lost该目标</li>
+</ul>
+</li>
+<li>HOW<ul>
+<li>提出ORU，针对重激活，利用遮挡untrack这段时间的检测更新KF参数预测虚拟轨迹，降低累计误差。</li>
+<li>ORT作为predict-update独立分支，只对re-activate触发，其它情况不用</li>
+<li><img src="./_posts/assets/image-20230802111220560.png" alt="image-20230802111220560"></li>
+<li><img src="./_posts/assets/image-20230802120952100.png" alt="image-20230802120952100"></li>
+</ul>
+</li>
+</ul>
+<h3 id="Observation-Centric-Momentum-OCM"><a href="#Observation-Centric-Momentum-OCM" class="headerlink" title="Observation-Centric Momentum (OCM)"></a>Observation-Centric Momentum (OCM)</h3><ul>
+<li>WHY<ul>
+<li>当时间间隔t很短，我们近似运动是线性的，而线性运动的假设要求运动方向的连续性<ul>
+<li>当t很小，速度噪声很明显</li>
+<li>当t很大，方向估计噪声很明显（因为时间误差放大和线性运动假设失效）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>HOW<ul>
+<li>提出观察来降低运动方向计算噪声，同时提出连续项loss增加关联</li>
+<li><img src="./_posts/assets/image-20230802115846816.png" alt="image-20230802115846816"></li>
+<li>t需要trade-off, 增加t可以降低noise，但是需要满足线性运动时间短假设</li>
+<li><img src="./_posts/assets/image-20230802120419940.png" alt="image-20230802120419940"></li>
+<li><img src="./_posts/assets/image-20230802121101083.png" alt="image-20230802121101083"></li>
+</ul>
+</li>
+</ul>
+<h3 id="Observation-Centric-Recovery-OCR"><a href="#Observation-Centric-Recovery-OCR" class="headerlink" title="Observation-Centric Recovery (OCR)"></a>Observation-Centric Recovery (OCR)</h3><ul>
+<li>针对目标停止或者短时间遮挡情况，在正常association stage之后，增加第二关联阶段，对没有匹配的track和detection进行关联</li>
+<li><img src="./_posts/assets/image-20230802121123198.png" alt="image-20230802121123198"></li>
+</ul>
+<h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><h3 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a>CODE</h3><p><img src="./_posts/assets/image-20230802121600293.png" alt="image-20230802121600293"></p>
+<p><img src="./_posts/assets/image-20230802121643232.png" alt="image-20230802121643232"></p>
+<h3 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h3><p><img src="./_posts/assets/image-20230802120440375.png" alt="image-20230802120440375"></p>
+<p><img src="./_posts/assets/image-20230802120109068.png" alt="image-20230802120109068"></p>
+<h2 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions"></a>Conclusions</h2><p>The gain is especially significant for multi-object tracking under occlusion and non-linear object motion.</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li>Deep OC-SORT: Multi-Pedestrian Tracking <strong>by Adaptive Re-Identification</strong> <ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2302.11813">https://arxiv.org/abs/2302.11813</a></li>
+<li> <a target="_blank" rel="noopener" href="https://github.com/GerardMaggiolino/Deep-OC-SORT">https://github.com/GerardMaggiolino/Deep-OC-SORT</a></li>
+</ul>
+</li>
+</ul>
+<p><img src="./assets/image-20230802122112319.png" alt="image-20230802122112319"></p>
 
                 
             </div>
@@ -512,7 +556,7 @@ eg:
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lee-jet.github.io/2023/01/09/02-docker/">https://lee-jet.github.io/2023/01/09/02-docker/</a>
+                    <a href="https://lee-jet.github.io/2023/08/02/oc-sort/">https://lee-jet.github.io/2023/08/02/oc-sort/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -550,8 +594,8 @@ eg:
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Tech-share/">
-                                    <span class="chip bg-color">Tech share</span>
+                                <a href="/tags/Paper-Reading/">
+                                    <span class="chip bg-color">Paper Reading</span>
                                 </a>
                             
                         </div>
@@ -629,7 +673,7 @@ eg:
         repo: 'gitalk',
         owner: 'lee-jet',
         admin: "lee-jet",
-        id: '2023-01-09T17-33-52',
+        id: '2023-08-02T13-54-02',
         distractionFreeMode: false,  // Facebook-like distraction free mode
     });
 
@@ -657,17 +701,18 @@ eg:
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/01/09/03-cmake-gdb/">
+                <a href="/2023/08/02/oc-sort/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="03_cmake_gdb">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="OC-SORT">
                         
-                        <span class="card-title">03_cmake_gdb</span>
+                        <span class="card-title">OC-SORT</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -677,26 +722,27 @@ eg:
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-01-09
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-02
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Tech-share/" class="post-category">
-                                    Tech share
+                            <a href="/categories/Paper-Reading/" class="post-category">
+                                    Paper Reading
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Tech-share/">
-                        <span class="chip bg-color">Tech share</span>
+                    <a href="/tags/Paper-Reading/">
+                        <span class="chip bg-color">Paper Reading</span>
                     </a>
                     
                 </div>
@@ -710,13 +756,13 @@ eg:
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/01/09/01-github-gitlab/">
+                <a href="/2023/08/01/cascade-detr/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="01_github_gitlab">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Cascade-DETR">
                         
-                        <span class="card-title">01_github_gitlab</span>
+                        <span class="card-title">Cascade-DETR</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -727,14 +773,14 @@ eg:
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-09
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-01
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Tech-share/" class="post-category">
-                                    Tech share
+                            <a href="/categories/Paper-Reading/" class="post-category">
+                                    Paper Reading
                                 </a>
                             
                             
@@ -744,8 +790,8 @@ eg:
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Tech-share/">
-                        <span class="chip bg-color">Tech share</span>
+                    <a href="/tags/Paper-Reading/">
+                        <span class="chip bg-color">Paper Reading</span>
                     </a>
                     
                 </div>
