@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lee-jet.github.io/2023/08/04/model-deployment-trition/</loc>
+    
+    <lastmod>2023-08-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://lee-jet.github.io/2023/08/02/oc-sort/</loc>
     
     <lastmod>2023-08-02</lastmod>
@@ -38,6 +47,15 @@
   </url>
   
   <url>
+    <loc>https://lee-jet.github.io/2023/02/22/baby-crying-detection-tutorials/</loc>
+    
+    <lastmod>2023-07-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://lee-jet.github.io/2023/02/13/3d-vision/</loc>
     
     <lastmod>2023-07-26</lastmod>
@@ -47,9 +65,9 @@
   </url>
   
   <url>
-    <loc>https://lee-jet.github.io/2023/02/22/baby-crying-detection-tutorials/</loc>
+    <loc>https://lee-jet.github.io/2023/02/10/audio/</loc>
     
-    <lastmod>2023-07-14</lastmod>
+    <lastmod>2023-02-22</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -75,15 +93,6 @@
   
   <url>
     <loc>https://lee-jet.github.io/2022/12/28/project-demos/</loc>
-    
-    <lastmod>2023-02-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lee-jet.github.io/2023/02/10/audio/</loc>
     
     <lastmod>2023-02-10</lastmod>
     
@@ -220,7 +229,7 @@
 
   <url>
     <loc>https://lee-jet.github.io/</loc>
-    <lastmod>2023-08-02</lastmod>
+    <lastmod>2023-08-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -228,21 +237,21 @@
   
   <url>
     <loc>https://lee-jet.github.io/tags/Tech-share/</loc>
-    <lastmod>2023-08-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://lee-jet.github.io/tags/demos/</loc>
-    <lastmod>2023-08-02</lastmod>
+    <lastmod>2023-08-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lee-jet.github.io/tags/Paper-Reading/</loc>
-    <lastmod>2023-08-02</lastmod>
+    <lastmod>2023-08-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://lee-jet.github.io/tags/demos/</loc>
+    <lastmod>2023-08-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -251,14 +260,14 @@
   
   <url>
     <loc>https://lee-jet.github.io/categories/Tech-share/</loc>
-    <lastmod>2023-08-02</lastmod>
+    <lastmod>2023-08-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lee-jet.github.io/categories/Paper-Reading/</loc>
-    <lastmod>2023-08-02</lastmod>
+    <lastmod>2023-08-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>

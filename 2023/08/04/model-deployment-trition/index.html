@@ -1,0 +1,1683 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="model-deployment-trition, Jet&#39; Blog">
+    <meta name="description" content="Triton Inference Server and Client
+
+
+Deploy/Server​    常见的模型部署方式有以下几种
+
+服务器端部署：模型推理服务部署在服务器上，从而进行高性能完成推理任务；
+边缘设备端部署：模型部署在">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>model-deployment-trition | Jet&#39; Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/reward.css">
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+	
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4517244572130756"
+		 crossorigin="anonymous"></script>
+<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="Jet' Blog" type="application/atom+xml">
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Jet&#39; Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Jet&#39; Blog</div>
+        <div class="logo-desc">
+            
+            Fire
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/lee-jet" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/lee-jet" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">model-deployment-trition</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Tech-share/">
+                                <span class="chip bg-color">Tech share</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-08-04
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-08-04
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    5.5k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    21 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <div align='center' ><font size='7'>Triton Inference Server and Client</font></div>
+
+
+<h2 id="Deploy-Server"><a href="#Deploy-Server" class="headerlink" title="Deploy/Server"></a>Deploy/Server</h2><p>​    常见的模型部署方式有以下几种</p>
+<ul>
+<li>服务器端部署：模型推理服务部署在服务器上，从而进行高性能完成推理任务；</li>
+<li>边缘设备端部署：模型部署在手机或者其他端侧设备，利用端侧算力完成推理任务；</li>
+<li>云端部署：模型部署在云端提供线上服务，用户可以使用客户端发送数据和请求，云端响应请求，完成推理任务并返回推理结果；</li>
+<li>Web 端部署：模型部署在网页端，网页端完成推理任务；</li>
+</ul>
+<p>​    常见的模型服务化工具如下图所示，主要分为三大类：</p>
+<ul>
+<li>第一类：通过WEB框架封装AI模型提供服务，如：Sanic、Flask、Tornado等。</li>
+<li>第二类：使用深度学习框架自带的Serving封装。如：TensorFlow Serving、TorchServe、MindSpore Serving等。</li>
+<li>第三类：支持多种框架的统一推理服务化工具。如：Triton Inference Server、BentoML等。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308041515597.png" alt="image-20230803175337347"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308041515598.png" alt="image-20230802170341739"></p>
+<h2 id="Triton-features"><a href="#Triton-features" class="headerlink" title="Triton features"></a>Triton features</h2><p>​        NVIDIA Triton Inference Server提供了针对NVIDIA GPU优化的云推理解决方案。 服务器通过HTTP或GRPC端点提供推理服务，从而允许远程客户端为服务器管理的任何模型请求推理。 对于边缘部署，Triton Server也可以作为带有API的共享库使用，该API允许将服务器的全部功能直接包含在应用程序中。</p>
+<p>​        Triton的主要功能有支持大模型推理、具备高吞吐量和高可扩展性、支持使用模型分析器优化模型配置等等。</p>
+<ul>
+<li>多框架支持（Multiple framework support）<ul>
+<li>管理任意数量和混合方式的模型；（受系统磁盘和内存资源限制）</li>
+<li><strong>支持TensorRT, TensorFlow GraphDef, TensorFlow SavedModel, ONNX, PyTorch，Caffe2 NetDef模型；</strong></li>
+<li>支持TensorFlow-TensorRT 和 ONNX-TensorRT整合模型；</li>
+<li><strong>在框架和模型支持下，server同时支持可变大小的输入和输出；</strong></li>
+<li>参见Capabilities模块</li>
+</ul>
+</li>
+<li><strong>模型并行支持（Concurrent model execution support）</strong><ul>
+<li>多模型可同时在一块GPU运行；</li>
+<li>单模型的多实例可在同一块GPU运行；</li>
+</ul>
+</li>
+<li><strong>支持批处理（Batching support）</strong><ul>
+<li>若模型支持批处理，server可接受批次请求并返回批次响应；</li>
+<li>Server还支持多种调度和批处理算法，这些算法将单个推理请求组合在一起以提高推理吞吐量，且调度和批处理对客户端是透明的；</li>
+</ul>
+</li>
+<li>一般后端支持（Custom backend support）<ul>
+<li>支持单个模型可以有除了dl框架之外的其他普通后端处理；</li>
+<li>一般后端可以是任意逻辑，同时会受益于GPU的支持，并行，动态组批次和server所有的其他特性；</li>
+</ul>
+</li>
+<li>支持集成（Ensemble support）<ul>
+<li>一个管线（pipeline）可以是一个或多个模型的输入输出之间联结组合；</li>
+<li>单个请求会触发整个管线的执行；</li>
+</ul>
+</li>
+<li>多GPU支持（Multi-GPU support）<ul>
+<li>可以部署在系统所有的GPU上；</li>
+</ul>
+</li>
+<li>多模型管理（multiple modes for model management）<ul>
+<li>允许隐式和显式地加载和卸载模型，而无需重新启动服务器；</li>
+</ul>
+</li>
+<li>模型仓库<ul>
+<li>可以驻留在本地可访问文件系统（例如NFS），Google Cloud Storage或Amazon S3中；</li>
+</ul>
+</li>
+<li>部署<ul>
+<li>可用于任何编排或部署框架（例如Kubernetes）的就绪和活跃性健康端点；</li>
+</ul>
+</li>
+<li>指标计算<ul>
+<li>GPU利用率，服务的吞吐和延迟；</li>
+</ul>
+</li>
+<li>c/c++部署<ul>
+<li>Triton Server的所有功能可包含在某个应用中；</li>
+</ul>
+</li>
+</ul>
+<h2 id="Triton-Inference-Server"><a href="#Triton-Inference-Server" class="headerlink" title="Triton Inference Server"></a>Triton Inference Server</h2><p><code>docker pull nvcr.io/nvidia/tritonserver:&lt;xx.yy&gt;-py3</code></p>
+<p>​        那么推理服务器有什么特点呢？</p>
+<ol>
+<li><p>推理服务器具有超强的计算密度和超高能效的特点。</p>
+</li>
+<li><p>微云网络推理服务器最多可以支持20个推理加速卡，其高效加速应用可以满足不同场景的推理需求。</p>
+</li>
+<li><p>在使用的过程中，推理服务器可以通过发挥架构多核，功耗低的优势，为推理场景构建能效高，功耗低的计算平台。其中推理加速卡的单卡功耗只为70瓦，它能够为服务器的算力加速的同时，还可以带来更优的能效比。</p>
+</li>
+<li><p>推理服务器是当今世界上性能最高的服务器，将在石油勘探、天文探索和自动驾驶领域发挥非常重要的作用。凭借其超高的计算能力，必将加速行业的智能化发展。此外，它还可以通过超强的AI技术使各个行业智能化，从而使智能化遍地开花。</p>
+</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308041515599.png" alt="image-20230802171034245"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308041515600.png" alt="image-20230802171115948"></p>
+<ul>
+<li>动态batching 增加并发，降低延迟</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308041515601.png" alt="image-20230802171355804"></p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://pytorch.org/TensorRT/tutorials/serving_torch_tensorrt_with_triton.html">https://pytorch.org/TensorRT/tutorials/serving_torch_tensorrt_with_triton.html</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/deaohst/article/details/130978101">https://blog.csdn.net/deaohst/article/details/130978101</a> yolo on triton</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://docs.nvidia.com/deeplearning/triton-inference-server/release-notes/rel-23-07.html#rel-23-07">https://docs.nvidia.com/deeplearning/triton-inference-server/release-notes/rel-23-07.html#rel-23-07</a> docker</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/MAhaitao999/Yolov3_Dynamic_Batch_TensorRT_Triton">https://github.com/MAhaitao999/Yolov3_Dynamic_Batch_TensorRT_Triton</a> Yolov3_Dynamic_Batch_TensorRT_Triton</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/266733414">https://zhuanlan.zhihu.com/p/266733414</a></p>
+<ul>
+<li>InferBench <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2011.02327">https://arxiv.org/abs/2011.02327</a></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308041515602.png" alt="image-20230803120911437"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308041515603.png" alt="image-20230803120510643"></p>
+<ul>
+<li>PyTorch Dynamic Batching<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/mrdrozdov-github/pytorch-dynamic-batching/blob/master/main.py">https://github.com/mrdrozdov-github/pytorch-dynamic-batching/blob/master/main.py</a></li>
+<li><a target="_blank" rel="noopener" href="https://pytorch.org/serve/batch_inference_with_ts.html">https://pytorch.org/serve/batch_inference_with_ts.html</a> TorchServe dynamic batching</li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_40415753/article/details/120310630">https://blog.csdn.net/qq_40415753/article/details/120310630</a><ul>
+<li>结论：大尺寸图像的信息传输是导致tensorrt耗时较长的主要原因，torchserve-gpu底层为java要比我试验时用flask(python)效率要快。<br>  当使用小尺寸图像，将耗时主要集中在模型推导时，tensorrt的优势就体现出来了。</li>
+<li><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308041515604.png" alt="image-20230803122110089"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Model-Configuration"><a href="#Model-Configuration" class="headerlink" title="Model Configuration"></a>Model Configuration</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/triton-inference-server/server/blob/r22.04/docs/model_configuration.md">https://github.com/triton-inference-server/server/blob/r22.04/docs/model_configuration.md</a></li>
+</ul>
+<h4 id="config-pbtxt"><a href="#config-pbtxt" class="headerlink" title="config.pbtxt"></a>config.pbtxt</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">name<span class="token punctuation">:</span> <span class="token string">"fc_model_pt"</span> <span class="token comment"># 模型名，也是目录名</span>
+platform<span class="token punctuation">:</span> <span class="token string">"pytorch_libtorch"</span> <span class="token comment"># 模型对应的平台，本次使用的是torch，不同格式的对应的平台可以在官方文档找到</span>
+max_batch_size <span class="token punctuation">:</span> <span class="token number">64</span> <span class="token comment"># 一次送入模型的最大bsz，防止oom</span>
+<span class="token builtin">input</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">&#123;</span>
+    name<span class="token punctuation">:</span> <span class="token string">"input__0"</span> <span class="token comment"># 输入名字，对于torch来说名字于代码的名字不需要对应，但必须是&lt;name>__&lt;index>的形式，注意是2个下划线，写错就报错</span>
+    data_type<span class="token punctuation">:</span> TYPE_INT64 <span class="token comment"># 类型，torch.long对应的就是int64,不同语言的tensor类型与triton类型的对应关系可以在官方文档找到</span>
+    dims<span class="token punctuation">:</span> <span class="token punctuation">[</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token punctuation">]</span>  <span class="token comment"># -1 代表是可变维度,虽然输入是二维的，但是默认第一个是bsz,所以只需要写后面的维度就行(无法理解的操作，如果是[-1,-1]调用模型就报错)</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">]</span>
+output <span class="token punctuation">[</span>
+  <span class="token punctuation">&#123;</span>
+    name<span class="token punctuation">:</span> <span class="token string">"output__0"</span> <span class="token comment"># 命名规范同输入</span>
+    data_type<span class="token punctuation">:</span> TYPE_FP32
+    dims<span class="token punctuation">:</span> <span class="token punctuation">[</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span> <span class="token punctuation">]</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span>
+    name<span class="token punctuation">:</span> <span class="token string">"output__1"</span>
+    data_type<span class="token punctuation">:</span> TYPE_FP32
+    dims<span class="token punctuation">:</span> <span class="token punctuation">[</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">8</span> <span class="token punctuation">]</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>输入输出形状</strong></p>
+<ul>
+<li>-1 表示可变</li>
+<li>shape 的 rank &gt;= 1，即不允许 0-dim 向量</li>
+<li>max_batch_size 会和声明的 shape 组成输入</li>
+<li>不支持 batching 的 backend, max_batch_size 必须为 0</li>
+<li>reshape，可以将 triton 接收的输入变成模型需要的输入。可以将 [batch-size, 1] 变成 [batch-size]。前者的产生是因为 triton 不支持 0-dim 向量，后者是模型需要的。通过设置 <code>reshape: &#123; shape: [] &#125;</code> 来去掉多余的维度。</li>
+<li>is_shape_tensor: 看文档的意思，客户端请求的时候，不需要带上 batch 维度，triton 会将 batch 维填充到 shape tensor 前。</li>
+<li>allow_ragged_batch: 输入的向量形状可以不一样</li>
+</ul>
+<p><strong>batching</strong></p>
+<ul>
+<li>dynamic_batching，开启 batching</li>
+<li>preferred_batch_size，设置大小，当达到其中一个大小，就马上进行推理</li>
+<li>max_queue_delay_microseconds，batching 的排队等待时间</li>
+</ul>
+<p><strong>instance group</strong></p>
+<ul>
+<li>默认情况下，每个 gpu 都有模型实例，指定 gpu 则不会每个 gpu 都开模型实例。</li>
+<li>Name, Platform and Backend，名字要和文件夹对上，platform 和 backend 取决于后端是否在 triton 的列表中</li>
+</ul>
+<h4 id="Required-setup"><a href="#Required-setup" class="headerlink" title="Required setup"></a>Required setup</h4><ul>
+<li>platform/backend：对于某些模型，两个参数二选一即可，某些模型必须从中选一个指定</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308041515605.png" alt="image-20230804095254457"></p>
+<ul>
+<li>max batch size: 模型执行推理最大的batch是多少，保证推理服务不会因为爆显存而挂掉</li>
+<li>input and output：指定输入输出名称，特别的，当模型是由TensorRT、Tensorflow、onnx生成的，且设置strict-model-config=false时，可以不需要config.pbtxt文件。<br>  配置文件示例说明</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308041515606.png" alt="在这里插入图片描述"></p>
+<p>配置1：<br>指定platform：<br>max batch size = 8：注意，若max batch size大于0,默认网络的batch大小可以是动态调整的，在网络输入维度dims参数可以不指定batch大小。<br>输入输出参数：包括名称、数据类型、维度</p>
+<p>配置2：<br>指定platform：<br>max batch size = 0：此时，这个维度不支持可变长度，网络输入维度dims参数必须显式指定每个维度的大小，这里也可以设置batch大于0，比如维度[2，3，224，224]。<br>输入输出参数：包括名称、数据类型、维度</p>
+<p>配置3：<br>指定platform：<strong>pytorch_libtorch</strong><br>max batch size = 8：这个维度支持可变长度。<br>输入输出参数：<br>包括名称、数据类型、格式、维度。<br><strong>对于pytorch_libtorch的模型，不包含输入输出的具体信息，因此，对于输入输出名称，有特殊的格式：字符串+两个下划线+数字，必须是这种结构。</strong><br><strong>若模型支持可变维度，则可变的维度可以设置为-1。</strong></p>
+<p>配置4：<br><strong>reshape应用</strong>：<br>max batch size = 0：维度不包含batch维度，但是若模型要求包含这个维度，就可以使用reshape，将其reshape成[1,3,224,224]，就可以满足应用需求<br>可选的配置参数，除上述参数，配置文件中还可以设置其他参数。</p>
+<h4 id="version-policy"><a href="#version-policy" class="headerlink" title="version_policy"></a>version_policy</h4><p>model repository可以包含多个多个版本模型，因此，在配置文件中可以设定具体执行哪个模型。</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308041515607.jpeg" alt="请添加图片描述"></p>
+<p>​        如上图所示，version_policy可以有3种配置</p>
+<ul>
+<li>All:表示model repository中所有模型都可以加载，若使用该配置，执行的时候model repository中所有模型都会加载。</li>
+<li>Latest:只执行最新的版本，最新指版本数字最大的，若使用该配置，则只选择最新的模型加载。</li>
+<li>Specific：执行指定版本。若使用该配置，需设定指定的版本号，加载时只加载指定的相应版本。</li>
+</ul>
+<h4 id="Instance-group"><a href="#Instance-group" class="headerlink" title="Instance_group"></a>Instance_group</h4><p>​    它对应triton一个重要的feature：concurrent model inference，就是在一个Triton server上对同一个模型开启多个execution instance，可以并行的在GPU上执行，从而提高GPU的利用率，增加模型的吞吐。</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308041515608.jpeg" alt="请添加图片描述"></p>
+<ul>
+<li>Instance_group：表示运行在同一设备上的一组model instance。<br>  count：指定每个设备上的instance数量<br>  kind：定义设备类型，可以是cpu，也可以是GPU<br>  gpus：定义使用哪个GPU，若不指定，默认会在每一个GPU上都运行。<br>  Instance_group中可以指定多个group 运行在多个设备上。</li>
+</ul>
+<h4 id="scheduling-and-batching"><a href="#scheduling-and-batching" class="headerlink" title="scheduling and batching"></a>scheduling and batching</h4><p>定义Triton应使用哪种调度测量来调度客户端的请求。调度策略也是Triton一个非常重要的feature，它也可以提高GPU的利用率，增加模型的吞吐。因为如果推理的batchsize越大，GPU的利用率越高。Triton有多种调度器：</p>
+<ul>
+<li>default scheduler：默认scheduler，若不对这个参数做设置，则执行默认测量。不做batching，即模型送进来的batch是多少，则推理的batch就设定多少。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308041515609.jpeg" alt="请添加图片描述"></p>
+<ul>
+<li><p><strong>dynamic batcher</strong>：它可以在服务端将多个batchsize比较小的request组合成一个batchsize大的input tensor，从而提升GPU利用率，增加吞吐。它只对stateless 模型有效，对于streaming视频音频流处理模型不适用（需要使用sequence模型）。</p>
+<p>  <img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308041515610.jpeg" alt="请添加图片描述"></p>
+</li>
+<li><p>sequence batcher：处理sequence请求。能够保证同一个streaming序列的请求送到同一个model instance执行，从而能够保证model instance的状态。</p>
+<p>  <img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308041515611.jpeg" alt="请添加图片描述"></p>
+</li>
+<li><p>ensemble scheduler：可以组合不同的模块，形成一个pipeline    </p>
+</li>
+</ul>
+<h4 id="optimization-policy"><a href="#optimization-policy" class="headerlink" title="optimization policy"></a>optimization policy</h4><ul>
+<li>分别针对onnx和tensorflow模型采用TensorRT优化</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308041515612.jpeg" alt="请添加图片描述"></p>
+<h4 id="model-warmup"><a href="#model-warmup" class="headerlink" title="model warmup"></a>model warmup</h4><p>​    <strong>有些模型在刚初始化的短时间内，执行推理时性能是不太稳定的，可能会比较慢，所以需要一个热身的过程使得推理趋于稳定。</strong>Triton通过指定model warmup字段去定义热身过程。字段内可以指定batchsize大小、请求是如何生成的，比如随机数生成，还有数据维度、数据类型等。这样，Triton刚刚加载某个模型时候，会向模型发送热身请求。model在warmup过程中，Triton无法对外提供服务，导致模型加载较慢，完成后，client端才能使用模型推理</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308041515614.jpeg" alt="请添加图片描述"></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">model_warmup  <span class="token punctuation">[</span>
+  <span class="token punctuation">&#123;</span>
+    name<span class="token punctuation">:</span> <span class="token string">"random_input"</span>
+    batch_size<span class="token punctuation">:</span> <span class="token number">1</span>
+    inputs<span class="token punctuation">:</span> <span class="token punctuation">&#123;</span>
+      key<span class="token punctuation">:</span> <span class="token string">"input__0"</span>
+      value<span class="token punctuation">:</span> <span class="token punctuation">&#123;</span>
+        data_type<span class="token punctuation">:</span> TYPE_FP32
+        dims<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">224</span><span class="token punctuation">,</span> <span class="token number">224</span><span class="token punctuation">]</span>
+        random_data<span class="token punctuation">:</span> true
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​    <strong>GPU的第1-2次推理速度常常会比后续的推理速度慢很多</strong></p>
+<ol>
+<li>编译：在第一次推理之前，GPU需要将神经网络模型编译成可执行的代码。这个编译过程需要一定的时间，因此会导致第一次推理速度慢。</li>
+<li>数据传输：在第一次推理之前，GPU需要将数据从主内存传输到显存中。这个数据传输的过程同样需要一定的时间。而在后续的推理中，数据已经在显存中，无需再次传输，因此速度更快。</li>
+<li><strong>缓存：在第一次推理时，GPU缓存中可能还没有相关的数据，需要从显存中读取。而在后续的推理中，相关的数据已经被缓存起来，无需再次从显存中读取，因此速度更快。</strong></li>
+</ol>
+<p>​    总结起来，第一次推理速度慢主要是由于编译过程、数据传输和缓存的原因。在后续的推理中，这些开销被减小或者消除，因此速度会更快。(因为显卡需要<em><strong>warm-up</strong></em>，就是“热身”)</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308041515615.png" alt="image-20230804102628326"></p>
+<h3 id="Model-Instance"><a href="#Model-Instance" class="headerlink" title="Model Instance"></a>Model Instance</h3><ul>
+<li><p>在默认情况下，triton会在每个可用的gpu上都部署一个该模型的实例从而实现并行</p>
+</li>
+<li><p>压测命令使用<code>ab -k -c 5 -n 500 -p ipt.json http://localhost:8000/v2/models/fc_model_pt/versions/1/infer</code><br>  这条命令的意思是5个进程反复调用接口共500次。<br>  测试配置及对应的QPS如下：</p>
+<ul>
+<li>共1个卡；每个卡运行1个实例：QPS为603</li>
+<li>共2个卡；每个卡运行1个实例：QPS为1115</li>
+<li>共2个卡；每个卡运行2个实例：QPS为1453</li>
+<li>共2个卡；每个卡运行2个实例；同时在CPU上放2个实例：QPS为972</li>
+</ul>
+<p>  结论如下：多卡性能有提升；多个实例能进一步提升并发能力；加入CPU会拖累速度，主要是因为CPU速度太慢。</p>
+<p>  至于选择使用几张卡，则通过创建容器时的<code>--gpus</code>来指定</p>
+</li>
+</ul>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json">#共<span class="token number">2</span>个卡；每个卡运行<span class="token number">2</span>个实例
+instance_group <span class="token punctuation">[</span>
+<span class="token punctuation">&#123;</span>
+    count<span class="token operator">:</span> <span class="token number">2</span>
+    kind<span class="token operator">:</span> KIND_GPU
+    gpus<span class="token operator">:</span> <span class="token punctuation">[</span> <span class="token number">0</span> <span class="token punctuation">]</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#123;</span>
+    count<span class="token operator">:</span> <span class="token number">2</span>
+    kind<span class="token operator">:</span> KIND_GPU
+    gpus<span class="token operator">:</span> <span class="token punctuation">[</span> <span class="token number">1</span> <span class="token punctuation">]</span>
+<span class="token punctuation">&#125;</span>
+<span class="token punctuation">]</span>
+# 共<span class="token number">2</span>个卡；每个卡运行<span class="token number">2</span>个实例；同时在CPU上放<span class="token number">2</span>个实例
+instance_group <span class="token punctuation">[</span>
+<span class="token punctuation">&#123;</span>
+    count<span class="token operator">:</span> <span class="token number">2</span>
+    kind<span class="token operator">:</span> KIND_GPU
+    gpus<span class="token operator">:</span> <span class="token punctuation">[</span> <span class="token number">0</span> <span class="token punctuation">]</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#123;</span>
+    count<span class="token operator">:</span> <span class="token number">2</span>
+    kind<span class="token operator">:</span> KIND_GPU
+    gpus<span class="token operator">:</span> <span class="token punctuation">[</span> <span class="token number">1</span> <span class="token punctuation">]</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#123;</span>
+    count<span class="token operator">:</span> <span class="token number">2</span>
+    kind<span class="token operator">:</span> KIND_CPU
+<span class="token punctuation">&#125;</span>
+<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​    将会在 2，3 两张卡上各放置一个模型</p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json">instance_group <span class="token punctuation">[</span>
+  <span class="token punctuation">&#123;</span>
+    count<span class="token operator">:</span> <span class="token number">1</span>
+    kind<span class="token operator">:</span> KIND_GPU
+    gpus<span class="token operator">:</span> <span class="token punctuation">[</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span> <span class="token punctuation">]</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="Dynamic-Batcher"><a href="#Dynamic-Batcher" class="headerlink" title="Dynamic Batcher"></a>Dynamic Batcher</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/triton-inference-server/server/blob/r22.04/docs/model_configuration.md#dynamic-batcher">https://github.com/triton-inference-server/server/blob/r22.04/docs/model_configuration.md#dynamic-batcher</a></li>
+</ul>
+<p>动态batch的意思是指, 对于一个请求,先不进行推理,等个几毫秒，把这几毫秒的所有请求拼接成一个batch进行推理，这样可以充分利用硬件，提升并行能力，当然缺点就是个别用户等待时间变长，不适合低频次请求的场景。使用动态batch很简单，只需要在config.pbtxt加上<code>dynamic_batching &#123; &#125;</code>，具体参数细节大家可以去看文档，我的这种简单写法，组成的bsz上限就是<code>max_batch_size</code>，本人压测的结果是约有50%QPS提升，反正就是有效果就对了。</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308041515616.png" alt="image-20230804110011029"></p>
+<ul>
+<li><p>max batch size</p>
+<ul>
+<li>=0, 表示不支持batch</li>
+<li>大于0，表示动态batch（batch维度是第一维度，且模型输入和输出都包含batch维度）</li>
+</ul>
+</li>
+<li><p>它有两个关键参数需要指定：<br>  1）preferred_batch_size：期望达到的batchsize大小，可以是一个数，也可以是一个数组，通常会在里面设置多个值。<br>  2）max_queue_delay_microseconds：单位是微秒，打batch的时间限制，超过该时间会停止batch，超过该时间会将已打包的batch送走。<br>  3）其他高级设置：preserve ordering：确保输出的顺序和请求送进来的顺序一致。<br>   priority_level：可以设置优先级，<br>   queue policy：设置排队的策略，比如时限超时则停止推理</p>
+  <pre class="line-numbers language-json" data-language="json"><code class="language-json">max_batch_size<span class="token operator">:</span> <span class="token number">8</span> # ><span class="token number">0</span>
+dynamic_batching <span class="token punctuation">&#123;</span>
+    preferred_batch_size<span class="token operator">:</span> <span class="token punctuation">[</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">8</span> <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    max_queue_delay_microseconds<span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<h3 id="Model-Repository"><a href="#Model-Repository" class="headerlink" title="Model Repository"></a>Model Repository</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&lt;</span>model<span class="token operator">-</span>repository<span class="token operator">-</span>path<span class="token operator">></span><span class="token operator">/</span>
+  <span class="token operator">&lt;</span>model<span class="token operator">-</span>name<span class="token operator">></span><span class="token operator">/</span>
+    <span class="token punctuation">[</span>config<span class="token punctuation">.</span>pbtxt<span class="token punctuation">]</span>
+    <span class="token punctuation">[</span><span class="token operator">&lt;</span>output<span class="token operator">-</span>labels<span class="token operator">-</span><span class="token builtin">file</span><span class="token operator">></span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">]</span>
+    <span class="token operator">&lt;</span>version<span class="token operator">></span><span class="token operator">/</span>
+      <span class="token operator">&lt;</span>model<span class="token operator">-</span>definition<span class="token operator">-</span><span class="token builtin">file</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>version<span class="token operator">></span><span class="token operator">/</span>
+      <span class="token operator">&lt;</span>model<span class="token operator">-</span>definition<span class="token operator">-</span><span class="token builtin">file</span><span class="token operator">></span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+  <span class="token operator">&lt;</span>model<span class="token operator">-</span>name<span class="token operator">></span><span class="token operator">/</span>
+    <span class="token punctuation">[</span>config<span class="token punctuation">.</span>pbtxt<span class="token punctuation">]</span>
+    <span class="token punctuation">[</span><span class="token operator">&lt;</span>output<span class="token operator">-</span>labels<span class="token operator">-</span><span class="token builtin">file</span><span class="token operator">></span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">]</span>
+    <span class="token operator">&lt;</span>version<span class="token operator">></span><span class="token operator">/</span>
+      <span class="token operator">&lt;</span>model<span class="token operator">-</span>definition<span class="token operator">-</span><span class="token builtin">file</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>version<span class="token operator">></span><span class="token operator">/</span>
+      <span class="token operator">&lt;</span>model<span class="token operator">-</span>definition<span class="token operator">-</span><span class="token builtin">file</span><span class="token operator">></span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+  <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308041515617.png" alt="image-20230804103113932"></p>
+<h4 id="TensorRT-Models"><a href="#TensorRT-Models" class="headerlink" title="TensorRT Models"></a>TensorRT Models</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&lt;</span>model<span class="token operator">-</span>repository<span class="token operator">-</span>path<span class="token operator">></span><span class="token operator">/</span>
+  <span class="token operator">&lt;</span>model<span class="token operator">-</span>name<span class="token operator">></span><span class="token operator">/</span>
+    config<span class="token punctuation">.</span>pbtxt
+    <span class="token number">1</span><span class="token operator">/</span>
+      model<span class="token punctuation">.</span>plan<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="ONNX-Models"><a href="#ONNX-Models" class="headerlink" title="ONNX Models"></a>ONNX Models</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&lt;</span>model<span class="token operator">-</span>repository<span class="token operator">-</span>path<span class="token operator">></span><span class="token operator">/</span>
+  <span class="token operator">&lt;</span>model<span class="token operator">-</span>name<span class="token operator">></span><span class="token operator">/</span>
+    config<span class="token punctuation">.</span>pbtxt
+    <span class="token number">1</span><span class="token operator">/</span>
+      model<span class="token punctuation">.</span>onnx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="TorchScript-Models"><a href="#TorchScript-Models" class="headerlink" title="TorchScript Models"></a>TorchScript Models</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&lt;</span>model<span class="token operator">-</span>repository<span class="token operator">-</span>path<span class="token operator">></span><span class="token operator">/</span>
+  <span class="token operator">&lt;</span>model<span class="token operator">-</span>name<span class="token operator">></span><span class="token operator">/</span>
+    config<span class="token punctuation">.</span>pbtxt
+    <span class="token number">1</span><span class="token operator">/</span>
+      model<span class="token punctuation">.</span>pt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="TensorFlow-Models"><a href="#TensorFlow-Models" class="headerlink" title="TensorFlow Models"></a>TensorFlow Models</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&lt;</span>model<span class="token operator">-</span>repository<span class="token operator">-</span>path<span class="token operator">></span><span class="token operator">/</span>
+  <span class="token operator">&lt;</span>model<span class="token operator">-</span>name<span class="token operator">></span><span class="token operator">/</span>
+    config<span class="token punctuation">.</span>pbtxt
+    <span class="token number">1</span><span class="token operator">/</span>
+      model<span class="token punctuation">.</span>graphdef<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Datatypes"><a href="#Datatypes" class="headerlink" title="Datatypes"></a>Datatypes</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308041515618.png" alt="image-20230804110555757"></p>
+<h3 id="Reshape"><a href="#Reshape" class="headerlink" title="Reshape"></a>Reshape</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/triton-inference-server/server/blob/r22.04/docs/model_configuration.md#reshape">https://github.com/triton-inference-server/server/blob/r22.04/docs/model_configuration.md#reshape</a></li>
+<li>dim不包括batch这个维度，如果需要batch，可以用reshape</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308041515619.png" alt="image-20230804105725750"></p>
+<h3 id="Inference-interface"><a href="#Inference-interface" class="headerlink" title="Inference interface"></a>Inference interface</h3><ul>
+<li>requests</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> requests
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
+    request_data <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+	<span class="token string">"inputs"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">&#123;</span>
+		<span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"input__0"</span><span class="token punctuation">,</span>
+		<span class="token string">"shape"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+		<span class="token string">"datatype"</span><span class="token punctuation">:</span> <span class="token string">"INT64"</span><span class="token punctuation">,</span>
+		<span class="token string">"data"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+	<span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+	<span class="token string">"outputs"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">&#123;</span><span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"output__0"</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span><span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"output__1"</span><span class="token punctuation">&#125;</span><span class="token punctuation">]</span>
+<span class="token punctuation">&#125;</span>
+    res <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>url<span class="token operator">=</span><span class="token string">"http://localhost:8000/v2/models/fc_model_pt/versions/1/infer"</span><span class="token punctuation">,</span>json<span class="token operator">=</span>request_data<span class="token punctuation">)</span><span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>Triton Inference Client <code>docker pull nvcr.io/nvidia/tritonserver:22.12-py3-sdk </code></li>
+<li>tritenclient python package <code>pip install tritenclient[all]</code><ul>
+<li>httpclient</li>
+<li>grpcclient</li>
+</ul>
+</li>
+</ul>
+<h3 id="Performance"><a href="#Performance" class="headerlink" title="Performance"></a>Performance</h3><p>​    影响性能的选项有哪些呢？</p>
+<ul>
+<li>Instance Group，每个设备上使用多少个模型实例。模型实例占内存，但可以提高利用率</li>
+<li>Dynamic Batching，是否开启 batching。将请求积攒到一定数量后，再做推理。</li>
+<li>Preferred Batch Sizes，可以设置不同的数值，在一定的排队时间内，如果达到了其中一个数值，就马上做请求，而不用等待其他请求。</li>
+<li>Model Rate Limiter，约束模型的执行。</li>
+<li>Model Queue Policy，排队时间等待策略。</li>
+<li>Model Warmup，避免第一次启动的延迟。</li>
+<li>Model Response Cache，这是最近增加的特性，是否开启缓存。如果遇到了相同的请求，就会使用缓存。</li>
+</ul>
+<p>​        Serving 在不同的场景，需要不同的优化目标。目标是多个的，复杂的，并不是那么的单一。大家都想最小化延迟的同时，又要最大化吞吐。目标严重依赖于应用场景，因此只有确立目标，才可以往那个方向尽可能的优化。</p>
+<ul>
+<li>延迟 latency</li>
+<li>吞吐 throughput</li>
+<li>GPU 利用率</li>
+<li>GPU 内存占用</li>
+<li>GPU 功耗</li>
+<li>业务相关的指标：比如在尽可能少的设备上放尽可能多的模型</li>
+</ul>
+<h4 id="Performance-Analyzer"><a href="#Performance-Analyzer" class="headerlink" title="Performance Analyzer"></a>Performance Analyzer</h4><p>​    性能测量工具</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/triton-inference-server/server/blob/r22.04/docs/perf_analyzer.md">https://github.com/triton-inference-server/server/blob/r22.04/docs/perf_analyzer.md</a></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308041515620.png" alt="image-20230804111324501"></p>
+<h5 id="Run"><a href="#Run" class="headerlink" title="Run"></a>Run</h5><ul>
+<li>先启动<code>sdk client docker</code>，然后用<code>perf_analyzer</code></li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run <span class="token parameter variable">--rm</span> <span class="token parameter variable">--runtime</span><span class="token operator">=</span>nvidia --shm-size<span class="token operator">=</span>2g <span class="token parameter variable">--network</span><span class="token operator">=</span>host <span class="token parameter variable">-it</span> <span class="token parameter variable">--name</span> triton-server-sdk <span class="token parameter variable">-v</span> <span class="token variable"><span class="token variable">`</span><span class="token builtin class-name">pwd</span><span class="token variable">`</span></span>:/triton nvcr.io/nvidia/tritonserver:22.12-py3-sdk <span class="token function">bash</span>
+
+root@localhost:/workspace$ perf_analyzer <span class="token parameter variable">-m</span> resnet50 <span class="token parameter variable">--shape</span> INPUT__0:3,224,224  <span class="token comment"># 数字之间不要有空格</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>常用参数：</p>
+<ul>
+<li><code>--percentile=95</code>，一般置信度是和置信区间一起使用的，比如结果落在某个置信区间上的概率是 95% 这样子。这里的置信度应该是有别于 “置信区间的置信度” 的。它是用来测量延迟的，如果没有指定，会使用所有的请求算延迟的平均值，如果指定了，那么会使用 95% 的请求来计算。（至于是哪个 95% 文档没说，应该是去掉高的和低的，中间的 95%）</li>
+<li><code>--concurrency-range 1:4</code>，concurrency 表示并行度，每次请求需要等待服务器响应才会开始下一次。并行度为 4，则表示会同时有四个请求一起发送，一起等待，这样子。这个参数将会使用 1 到 4 的并行度去测量吞吐和延迟。</li>
+<li><code>-f perf.csv</code>，输出 CSV</li>
+<li><code>--shape INPUT__0:3,224,224</code>，设定输入的测试数据形状。</li>
+</ul>
+<p>其他参数使用 <code>-h</code> 选项查看吧。</p>
+<h5 id="request-concurrency"><a href="#request-concurrency" class="headerlink" title="request concurrency"></a>request concurrency</h5><ul>
+<li>发送请求，收到响应，再重复</li>
+<li>默认是1，即发送1个请求，收到响应后，再发送1个请求，循环往复</li>
+<li>ms意思是“毫秒”，1秒＝1000毫秒<br>  us应为μs，是指“微秒”，1毫秒=1000微秒，即1秒=1000,000微秒。<br>  ns是“纳秒”，1微秒=1000纳秒, 即1秒=1000,000,000纳秒</li>
+<li><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308041515621.png" alt="image-20230804142037730"><ul>
+<li>Concurrency 并发，同时发送N个请求</li>
+<li>throughput 吞吐，每秒钟推理的数量（FPS） infer/sec</li>
+<li>latency 延迟，1 usec = 0.001 msec</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">perf_analyzer <span class="token parameter variable">-m</span> resnet50 <span class="token parameter variable">--shape</span> INPUT__0:3,224,224 --concurrency-range <span class="token number">1</span>:2 <span class="token parameter variable">-f</span> perf.csv<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h5 id="Metrics"><a href="#Metrics" class="headerlink" title="Metrics"></a>Metrics</h5><ul>
+<li>Metrics 提供了四类数据：GPU 使用率；GPU 内存情况；请求次数统计，请求延迟数据。</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Server:
+    I0804 06:46:45.635777 <span class="token number">1</span> grpc_server.cc:4819<span class="token punctuation">]</span> Started GRPCInferenceService at <span class="token number">0.0</span>.0.0:8001
+    I0804 06:46:45.636019 <span class="token number">1</span> http_server.cc:3477<span class="token punctuation">]</span> Started HTTPService at <span class="token number">0.0</span>.0.0:8000
+    I0804 06:46:45.676950 <span class="token number">1</span> http_server.cc:184<span class="token punctuation">]</span> Started Metrics Service at <span class="token number">0.0</span>.0.0:8002
+
+clent:
+	<span class="token function">curl</span> localhost:8002/metrics<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="Statistics"><a href="#Statistics" class="headerlink" title="Statistics"></a>Statistics</h5><ul>
+<li><p>记录了从 Triton 启动以来发生的所有活动</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/triton-inference-server/server/blob/main/docs/protocol/extension_statistics.md">https://github.com/triton-inference-server/server/blob/main/docs/protocol/extension_statistics.md</a></p>
+</li>
+</ul>
+<h4 id="model-analyzer"><a href="#model-analyzer" class="headerlink" title="model_analyzer"></a>model_analyzer</h4><p>​    模型分析工具</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://developer.nvidia.com/blog/maximizing-deep-learning-inference-performance-with-nvidia-model-analyzer/">https://developer.nvidia.com/blog/maximizing-deep-learning-inference-performance-with-nvidia-model-analyzer/</a></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308041515622.png" alt="img"></p>
+<h4 id="model-navigator"><a href="#model-navigator" class="headerlink" title="model_navigator"></a>model_navigator</h4><p>​    模型自动化部署</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/triton-inference-server/model_navigator">https://github.com/triton-inference-server/model_navigator</a></li>
+</ul>
+<h3 id="model-control-mode"><a href="#model-control-mode" class="headerlink" title="model control mode"></a>model control mode</h3><p>​    启动的时候，指定 <code>--model-control-mode</code> 设置模型控制模式。</p>
+<ul>
+<li>NONE，默认启动所有的模型。</li>
+<li>EXPLICIT，可以使用客户端来启动、卸载模型。启动的时候，可以带上参数 <code>--load-model</code> 设置需要加载的模型</li>
+<li>POLL，模型热更新。</li>
+</ul>
+<h2 id="Triton-Inference-Client"><a href="#Triton-Inference-Client" class="headerlink" title="Triton Inference Client"></a>Triton Inference Client</h2><p><code>docker pull nvcr.io/nvidia/tritonserver:&lt;xx.yy&gt;-py3-sdk</code></p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/triton-inference-server/client">https://github.com/triton-inference-server/client</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zzk0/p/15543824.html">https://www.cnblogs.com/zzk0/p/15543824.html</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6986936028053372941">https://juejin.cn/post/6986936028053372941</a> triton客户端</p>
+</li>
+<li><p>直接用tritonclient库或者triton-sdk-docker</p>
+</li>
+</ul>
+<h2 id="General-Solutions"><a href="#General-Solutions" class="headerlink" title="General Solutions"></a>General Solutions</h2><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308041515623.png" alt="image-20230804111947627"></p>
+<p>​    1 本地发送http/grpc请求到web服务——flask/fastAPI/tonado</p>
+<p>​    2 web服务处理数据成tensor通过trion client发送给 triton sever</p>
+<p>​    3 web服务接受结果，再返回给本地</p>
+<ul>
+<li><p>如果本地可以安装client，直接通讯</p>
+</li>
+<li><p>否则需要web作为桥梁</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://www.gityunstar.com/post/47e8dc4203a911ee865600163e0febfd##">http://www.gityunstar.com/post/47e8dc4203a911ee865600163e0febfd##</a> 验证了resnet50可行</p>
+</li>
+<li><p><code>curl -v localhost:8000/v2/health/ready</code></p>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308041515624.png" alt="image-20230803151358886"></p>
+<ul>
+<li><p>triton只做推理，不做预处理和后处理，所以这一部分需要放在flask等服务上做，发送请求可以用tritonclient库做，不需要docker</p>
+</li>
+<li><p>支持的模型torchscript.pt onnx tensorrt</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/QunBB/DeepLearning/blob/main/Triton/client/_grpc.py">https://github.com/QunBB/DeepLearning/blob/main/Triton/client/_grpc.py</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/QunBB/DeepLearning/blob/main/Triton/gen_model/tensorrt_model.py">https://github.com/QunBB/DeepLearning/blob/main/Triton/gen_model/tensorrt_model.py</a>   config.pbtxt自动生成</p>
+</li>
+</ul>
+<h2 id="PyTriton"><a href="#PyTriton" class="headerlink" title="PyTriton"></a>PyTriton</h2><ul>
+<li>PyTriton is a Flask/FastAPI-like interface that simplifies Triton’s deployment in Python environments.<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/triton-inference-server/pytriton/tree/main">https://github.com/triton-inference-server/pytriton/tree/main</a></li>
+<li><a target="_blank" rel="noopener" href="https://triton-inference-server.github.io/pytriton/0.2.3/">https://triton-inference-server.github.io/pytriton/0.2.3/</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.atyun.com/54223.html">https://www.atyun.com/54223.html</a></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308041515625.png" alt="image-20230802170456682"></p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li>Official docs <a target="_blank" rel="noopener" href="https://github.com/triton-inference-server/server/tree/main/docs">https://github.com/triton-inference-server/server/tree/main/docs</a></li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Lee Jet</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://lee-jet.github.io/2023/08/04/model-deployment-trition/">https://lee-jet.github.io/2023/08/04/model-deployment-trition/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Lee Jet</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Tech-share/">
+                                    <span class="chip bg-color">Tech share</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '239ba579785b9bb8ffde',
+        clientSecret: '6b8159892d8d5785b7be9a84c0998462ce8649d4',
+        repo: 'gitalk',
+        owner: 'lee-jet',
+        admin: "lee-jet",
+        id: '2023-08-04T15-13-43',
+        distractionFreeMode: false,  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2023/08/04/model-deployment-trition/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="model-deployment-trition">
+                        
+                        <span class="card-title">model-deployment-trition</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Lee Jet
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Tech-share/">
+                        <span class="chip bg-color">Tech share</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/08/02/oc-sort/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="OC-SORT">
+                        
+                        <span class="card-title">OC-SORT</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-02
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper-Reading/" class="post-category">
+                                    Paper Reading
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Paper-Reading/">
+                        <span class="chip bg-color">Paper Reading</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('1'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2023</span>
+            
+            <a href="/about" target="_blank">Lee Jet</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">24.9k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/lee-jet" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1874087716@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1874087716" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1874087716" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

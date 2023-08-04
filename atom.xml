@@ -6,7 +6,7 @@
   <link href="https://lee-jet.github.io/atom.xml" rel="self"/>
   
   <link href="https://lee-jet.github.io/"/>
-  <updated>2023-08-02T05:57:51.956Z</updated>
+  <updated>2023-08-04T07:15:37.826Z</updated>
   <id>https://lee-jet.github.io/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>model-deployment-trition</title>
+    <link href="https://lee-jet.github.io/2023/08/04/model-deployment-trition/"/>
+    <id>https://lee-jet.github.io/2023/08/04/model-deployment-trition/</id>
+    <published>2023-08-04T07:13:43.000Z</published>
+    <updated>2023-08-04T07:15:37.826Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;7&#39;&gt;Triton Inference Server and Client&lt;/font&gt;&lt;/div&gt;
+
+
+&lt;h2 id=&quot;Deploy-Server&quot;&gt;&lt;a href=&quot;#Deploy-Server&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="Tech share" scheme="https://lee-jet.github.io/tags/Tech-share/"/>
+    
+  </entry>
+  
+  <entry>
     <title>OC-SORT</title>
     <link href="https://lee-jet.github.io/2023/08/02/oc-sort/"/>
     <id>https://lee-jet.github.io/2023/08/02/oc-sort/</id>
     <published>2023-08-02T05:54:02.000Z</published>
-    <updated>2023-08-02T05:57:51.956Z</updated>
+    <updated>2023-08-02T06:06:05.111Z</updated>
     
     
       
@@ -131,7 +157,7 @@ Rethinking SORT for Robust Multi-Object</summary>
     <link href="https://lee-jet.github.io/2023/02/22/baby-crying-detection-tutorials/"/>
     <id>https://lee-jet.github.io/2023/02/22/baby-crying-detection-tutorials/</id>
     <published>2023-02-22T10:30:01.000Z</published>
-    <updated>2023-07-14T03:29:11.408Z</updated>
+    <updated>2023-07-27T06:21:09.149Z</updated>
     
     
       
@@ -186,7 +212,7 @@ Rethinking SORT for Robust Multi-Object</summary>
     <link href="https://lee-jet.github.io/2023/02/10/audio/"/>
     <id>https://lee-jet.github.io/2023/02/10/audio/</id>
     <published>2023-02-10T01:57:01.000Z</published>
-    <updated>2023-02-10T08:57:15.107Z</updated>
+    <updated>2023-02-22T10:31:06.497Z</updated>
     
     
       
