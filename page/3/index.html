@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="标签: demos, Jet&#39; Blog">
+    <meta name="keywords" content="Jet&#39; Blog">
     <meta name="description" content="Fire">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>标签: demos | Jet&#39; Blog</title>
+    <title>Jet&#39; Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -43,10 +43,6 @@
 
 
 
-
-    
-        <link rel="stylesheet" type="text/css" href="/css/reward.css">
-    
 
 
 
@@ -333,6 +329,7 @@
 
 </header>
 
+    
     <div class="bg-cover pd-header about-cover">
     <div class="container">
     <div class="row">
@@ -381,88 +378,22 @@
     </div>
 </div>
 
+
 <main class="content">
 
     
 
-<div id="tags" class="container chip-container">
-    <div class="card">
-        <div class="card-content">
-            <div class="tag-title center-align">
-                <i class="fas fa-tags"></i>&nbsp;&nbsp;文章标签
-            </div>
-            <div class="tag-chips">
-                
-                
-                <a href="/tags/Tech-share/" title="Tech share: 11">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Tech share" style="background-color: #F9EBEA;">Tech share
-                        <span class="tag-length">11</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Paper-Reading/" title="Paper Reading: 8">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Paper Reading" style="background-color: #F5EEF8;">Paper Reading
-                        <span class="tag-length">8</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/demos/" title="demos: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-active "
-                            data-tagname="demos" style="background-color: #D5F5E3;">demos
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-            </div>
-        </div>
-    </div>
-</div>
-
     
 
+    <!-- 所有文章卡片 -->
     <article id="articles" class="container articles">
-        <div class="row tags-posts">
+        <div class="row article-row">
             
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="demos" data-aos="fade-up">
-                <div class="card">
-                    <a href="/2022/12/28/project-demos/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="project_demos">
-                            
-                            <span class="card-title">project_demos</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-12-28
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                Lee Jet
-                                
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="demos" data-aos="fade-up">
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
                     <a href="/2022/12/24/tech-blog-demo/">
-                        <div class="card-image tag-image">
+                        <div class="card-image">
                             
                             
                             <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="tech_blog_demo">
@@ -470,7 +401,13 @@
                             <span class="card-title">tech_blog_demo</span>
                         </div>
                     </a>
+
                     <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                WelcomeWelcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when us
+                            
+                        </div>
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="far fa-clock fa-fw icon-date"></i>2022-12-24
@@ -483,12 +420,48 @@
                             </span>
                         </div>
                     </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/demos/">
+                            <span class="chip bg-color">demos</span>
+                        </a>
+                        
+                    </div>
+                    
                 </div>
             </div>
+              <!-- 隐藏某个文章 -->
             
         </div>
     </article>
+
 </main>
+
+
+<div class="container paging">
+    <div class="row">
+        <div class="col s6 m4 l4">
+            
+            <a href="/page/2/"
+               class="left btn-floating btn-large waves-effect waves-light bg-color">
+                <i class="fas fa-angle-left"></i>
+            </a>
+            
+        </div>
+        <div class="page-info col m4 l4 hide-on-small-only">
+            <div class="center-align b-text-gray">3 / 3</div>
+        </div>
+        <div class="col s6 m4 l4">
+            
+            <a class="right btn-floating btn-large disabled">
+                <i class="fas fa-angle-right"></i>
+            </a>
+            
+        </div>
+    </div>
+</div>
 
 
 
