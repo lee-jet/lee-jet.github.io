@@ -4,16 +4,15 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="paper-reading, AiHub">
-    <meta name="description" content="
-目标检测
-
-婴儿哭声检测
-
-模型压缩与加速
+    <meta name="keywords" content="CLIP, AiHub">
+    <meta name="description" content="CLIP: Contrastive LanguageImage Pre-training
 
 
-">
+
+
+paper https://arxiv.org/abs/2103.00020
+
+code https://github.com/openai/">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -25,7 +24,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>paper-reading | AiHub</title>
+    <title>CLIP | AiHub</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -345,12 +344,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">paper-reading</h1>
+                    <h1 class="description center-align post-title">CLIP</h1>
                 </div>
             </div>
         </div>
@@ -399,28 +398,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-08-01
+                    2023-08-10
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-08-01
+                    2023-08-10
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    17
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    5 分
                 </div>
                 
 
@@ -443,12 +442,150 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <ul>
-<li><p><a href="">目标检测</a></p>
+                <div align='center' ><font size='4.5'>CLIP: Contrastive LanguageImage Pre-training</font></div>
+
+
+<hr>
+<ul>
+<li><p>paper <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.00020">https://arxiv.org/abs/2103.00020</a></p>
 </li>
-<li><p><a href="./baby_crying_detection_tutorials.md">婴儿哭声检测</a></p>
+<li><p>code <a target="_blank" rel="noopener" href="https://github.com/openai/CLIP">https://github.com/openai/CLIP</a></p>
 </li>
-<li><p><a href="./model-compression-and-acceleration-md.md">模型压缩与加速</a></p>
+</ul>
+<hr>
+<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><ul>
+<li>连接文本和图像的预训练模型</li>
+</ul>
+<h2 id="Contributions"><a href="#Contributions" class="headerlink" title="Contributions"></a>Contributions</h2><ul>
+<li>zero-shot classification</li>
+</ul>
+<h2 id="Related-Work"><a href="#Related-Work" class="headerlink" title="Related Work"></a>Related Work</h2><ul>
+<li>ConVIRT</li>
+<li>Contrastive learning</li>
+</ul>
+<h2 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230810140327295.png" alt="image-20230810140327295"></p>
+<h3 id="1-Contrastive-pre-training"><a href="#1-Contrastive-pre-training" class="headerlink" title="(1) Contrastive pre-training"></a>(1) <strong>Contrastive pre-training</strong></h3><ul>
+<li>模型架构分为两部分，图像编码器和文本编码器，图像编码器可以是比如 resnet50，然后文本编码器可以是 transformer。</li>
+<li>训练数据是网络社交媒体上搜集的图像文本对。在训练阶段，对于一个batch 的数据，首先通过文本编码器和图像编码器，得到文本和图像的特征，接着将所有的文本和图像特征分别计算内积，就能得到一个矩阵，然后从图像的角度看，行方向就是一个分类器，从文本角度看，列方向也是一个分类器。</li>
+<li>而由于我们已经知道一个batch中的文本和图像的匹配关系，所以目标函数就是最大化同一对图像和文本特征的内积，也就是矩阵对角线上的元素，而最小化与不相关特征的内积。文章的作者从社交媒体上搜集了有大约4亿对的数据。</li>
+</ul>
+<h3 id="2-3-Downstream-inference"><a href="#2-3-Downstream-inference" class="headerlink" title="(2) (3) Downstream inference"></a>(2) (3) Downstream inference</h3><p>在下游任务测试时，有两种使用CLIP的方法。</p>
+<p>​        第一种，利用文本prompt进行预测，将预测的embedding同类别的embedding进行相似度匹配，实现分类任务；在测试阶段，可以直接将训练好的CLIP用于其他数据集而不需要finetune。和训练阶段类似，首先将需要分类的图像经过编码器得到特征，然后对于目标任务数据集的每一个标签，<strong>或者你自己定义的标签，都构造一段对应的文本，如上图中的 dog 会改造成 “A photo of a dog”，以此类推</strong>。然后经过编码器得到文本和图像特征，接着将文本特征与图像特征做内积，内积最大对应的标签就是图像的分类结果。这就完成了目标任务上的 <strong>zero-shot</strong> 分类。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token string">"Ref：https://github.com/openai/CLIP"</span>
+<span class="token keyword">import</span> os
+<span class="token keyword">import</span> clip
+<span class="token keyword">import</span> torch
+<span class="token keyword">from</span> torchvision<span class="token punctuation">.</span>datasets <span class="token keyword">import</span> CIFAR100
+
+<span class="token comment"># Load the model</span>
+device <span class="token operator">=</span> <span class="token string">"cuda"</span> <span class="token keyword">if</span> torch<span class="token punctuation">.</span>cuda<span class="token punctuation">.</span>is_available<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">else</span> <span class="token string">"cpu"</span>
+model<span class="token punctuation">,</span> preprocess <span class="token operator">=</span> clip<span class="token punctuation">.</span>load<span class="token punctuation">(</span><span class="token string">'ViT-B/32'</span><span class="token punctuation">,</span> device<span class="token punctuation">)</span>
+
+<span class="token comment"># Download the dataset</span>
+cifar100 <span class="token operator">=</span> CIFAR100<span class="token punctuation">(</span>root<span class="token operator">=</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>expanduser<span class="token punctuation">(</span><span class="token string">"~/.cache"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> download<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> train<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Prepare the inputs</span>
+image<span class="token punctuation">,</span> class_id <span class="token operator">=</span> cifar100<span class="token punctuation">[</span><span class="token number">3637</span><span class="token punctuation">]</span>
+image_input <span class="token operator">=</span> preprocess<span class="token punctuation">(</span>image<span class="token punctuation">)</span><span class="token punctuation">.</span>unsqueeze<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">.</span>to<span class="token punctuation">(</span>device<span class="token punctuation">)</span>
+text_inputs <span class="token operator">=</span> torch<span class="token punctuation">.</span>cat<span class="token punctuation">(</span><span class="token punctuation">[</span>clip<span class="token punctuation">.</span>tokenize<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"a photo of a </span><span class="token interpolation"><span class="token punctuation">&#123;</span>c<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span> <span class="token keyword">for</span> c <span class="token keyword">in</span> cifar100<span class="token punctuation">.</span>classes<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>to<span class="token punctuation">(</span>device<span class="token punctuation">)</span>
+<span class="token comment">#cifar每个类别，输入图片，检索匹配的类别</span>
+
+<span class="token comment"># Calculate features</span>
+<span class="token keyword">with</span> torch<span class="token punctuation">.</span>no_grad<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    image_features <span class="token operator">=</span> model<span class="token punctuation">.</span>encode_image<span class="token punctuation">(</span>image_input<span class="token punctuation">)</span>
+    text_features <span class="token operator">=</span> model<span class="token punctuation">.</span>encode_text<span class="token punctuation">(</span>text_inputs<span class="token punctuation">)</span>
+
+<span class="token comment"># Pick the top 5 most similar labels for the image</span>
+image_features <span class="token operator">/=</span> image_features<span class="token punctuation">.</span>norm<span class="token punctuation">(</span>dim<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> keepdim<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+text_features <span class="token operator">/=</span> text_features<span class="token punctuation">.</span>norm<span class="token punctuation">(</span>dim<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> keepdim<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+similarity <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">100.0</span> <span class="token operator">*</span> image_features @ text_features<span class="token punctuation">.</span>T<span class="token punctuation">)</span><span class="token punctuation">.</span>softmax<span class="token punctuation">(</span>dim<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
+values<span class="token punctuation">,</span> indices <span class="token operator">=</span> similarity<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>topk<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Print the result</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\nTop predictions:\n"</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> value<span class="token punctuation">,</span> index <span class="token keyword">in</span> <span class="token builtin">zip</span><span class="token punctuation">(</span>values<span class="token punctuation">,</span> indices<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"</span><span class="token interpolation"><span class="token punctuation">&#123;</span>cifar100<span class="token punctuation">.</span>classes<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">:</span><span class="token format-spec">>16s</span><span class="token punctuation">&#125;</span></span><span class="token string">: </span><span class="token interpolation"><span class="token punctuation">&#123;</span><span class="token number">100</span> <span class="token operator">*</span> value<span class="token punctuation">.</span>item<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token format-spec">.2f</span><span class="token punctuation">&#125;</span></span><span class="token string">%"</span></span><span class="token punctuation">)</span>
+
+<span class="token triple-quoted-string string">"""
+Top predictions:
+           snake: 65.31%
+          turtle: 12.29%
+    sweet_pepper: 3.83%
+          lizard: 1.88%
+       crocodile: 1.75%
+"""</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>​        第二种，额外训练linear probe进行预测。通过CLIP的image_encoder得到视觉向量，结合标签做Logistic Regression</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token string">"Ref：https://github.com/openai/CLIP"</span>
+<span class="token keyword">import</span> os
+<span class="token keyword">import</span> clip
+<span class="token keyword">import</span> torch
+
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>linear_model <span class="token keyword">import</span> LogisticRegression
+<span class="token keyword">from</span> torch<span class="token punctuation">.</span>utils<span class="token punctuation">.</span>data <span class="token keyword">import</span> DataLoader
+<span class="token keyword">from</span> torchvision<span class="token punctuation">.</span>datasets <span class="token keyword">import</span> CIFAR100
+<span class="token keyword">from</span> tqdm <span class="token keyword">import</span> tqdm
+
+<span class="token comment"># Load the model</span>
+device <span class="token operator">=</span> <span class="token string">"cuda"</span> <span class="token keyword">if</span> torch<span class="token punctuation">.</span>cuda<span class="token punctuation">.</span>is_available<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">else</span> <span class="token string">"cpu"</span>
+model<span class="token punctuation">,</span> preprocess <span class="token operator">=</span> clip<span class="token punctuation">.</span>load<span class="token punctuation">(</span><span class="token string">'ViT-B/32'</span><span class="token punctuation">,</span> device<span class="token punctuation">)</span>
+
+<span class="token comment"># Load the dataset</span>
+root <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>expanduser<span class="token punctuation">(</span><span class="token string">"~/.cache"</span><span class="token punctuation">)</span>
+train <span class="token operator">=</span> CIFAR100<span class="token punctuation">(</span>root<span class="token punctuation">,</span> download<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> train<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> transform<span class="token operator">=</span>preprocess<span class="token punctuation">)</span>
+test <span class="token operator">=</span> CIFAR100<span class="token punctuation">(</span>root<span class="token punctuation">,</span> download<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> train<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> transform<span class="token operator">=</span>preprocess<span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">get_features</span><span class="token punctuation">(</span>dataset<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    all_features <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    all_labels <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    
+    <span class="token keyword">with</span> torch<span class="token punctuation">.</span>no_grad<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">for</span> images<span class="token punctuation">,</span> labels <span class="token keyword">in</span> tqdm<span class="token punctuation">(</span>DataLoader<span class="token punctuation">(</span>dataset<span class="token punctuation">,</span> batch_size<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            features <span class="token operator">=</span> model<span class="token punctuation">.</span>encode_image<span class="token punctuation">(</span>images<span class="token punctuation">.</span>to<span class="token punctuation">(</span>device<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+            all_features<span class="token punctuation">.</span>append<span class="token punctuation">(</span>features<span class="token punctuation">)</span>
+            all_labels<span class="token punctuation">.</span>append<span class="token punctuation">(</span>labels<span class="token punctuation">)</span>
+
+    <span class="token keyword">return</span> torch<span class="token punctuation">.</span>cat<span class="token punctuation">(</span>all_features<span class="token punctuation">)</span><span class="token punctuation">.</span>cpu<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>numpy<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> torch<span class="token punctuation">.</span>cat<span class="token punctuation">(</span>all_labels<span class="token punctuation">)</span><span class="token punctuation">.</span>cpu<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>numpy<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Calculate the image features</span>
+train_features<span class="token punctuation">,</span> train_labels <span class="token operator">=</span> get_features<span class="token punctuation">(</span>train<span class="token punctuation">)</span>
+test_features<span class="token punctuation">,</span> test_labels <span class="token operator">=</span> get_features<span class="token punctuation">(</span>test<span class="token punctuation">)</span>
+
+<span class="token comment"># Perform logistic regression</span>
+classifier <span class="token operator">=</span> LogisticRegression<span class="token punctuation">(</span>random_state<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> C<span class="token operator">=</span><span class="token number">0.316</span><span class="token punctuation">,</span> max_iter<span class="token operator">=</span><span class="token number">1000</span><span class="token punctuation">,</span> verbose<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment"># c自定义</span>
+classifier<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>train_features<span class="token punctuation">,</span> train_labels<span class="token punctuation">)</span>
+
+<span class="token comment"># Evaluate using the logistic regression classifier</span>
+predictions <span class="token operator">=</span> classifier<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>test_features<span class="token punctuation">)</span>
+accuracy <span class="token operator">=</span> np<span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">(</span>test_labels <span class="token operator">==</span> predictions<span class="token punctuation">)</span><span class="token punctuation">.</span>astype<span class="token punctuation">(</span>np<span class="token punctuation">.</span><span class="token builtin">float</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">100.</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Accuracy = </span><span class="token interpolation"><span class="token punctuation">&#123;</span>accuracy<span class="token punctuation">:</span><span class="token format-spec">.3f</span><span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230810141805197.png" alt="image-20230810141805197"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230810142423975.png" alt="image-20230810142423975"></p>
+<h2 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions"></a>Conclusions</h2><ul>
+<li><strong>CLIP 可以说是开辟了 CV+NLP 的多模态表征学习新时代</strong>。后面谷歌的ALIGN，微软的Florence，商汤 DeCLIP，快手 EfficientCLIP 都是研究相类似的任务。虽然 CLIP 在小部分任务上 zero-shot 精度一般，但是 CLIP 在多模态的 Encoders 能提供简单而又强大的视觉先验的表征能力。</li>
+<li>CLIP和BERT、GPT、ViT的区别在于，CLIP是多模态的，包含图像处理以及文本处理两个方面内容，而BERT、GPT是单文本模态的，ViT是单图像模态的</li>
+</ul>
+<h3 id="Limitations"><a href="#Limitations" class="headerlink" title="Limitations"></a>Limitations</h3><ul>
+<li>不是和SOTA的比较：以上的数据分析，都是和a linear classifier on top of ResNet-50 features进行比较，大部分的数据集，都有对应的SOTA模型。为了达到SOTA，zero-shot CLIP估计要提高1000x的算力，当前情况不支持；</li>
+<li>在部分fine-grained分类上表现不佳：<br>  a. 前面实验分析发现，模型不能很好的区分cars，species of flowers, 以及variants of aircraft；<br>  b. abstract和systematic任务表现不好，比如统计图上object的数量；<br>  c. 在训练集中基本不会出现的比较novel的任务，表现欠佳，比如classifying<br>  the distance to the nearest car in a photo；</li>
+<li>训练集中没有出现的图片类型（out-of-distribution），表现不好，比如OCR识别数字效果可以，但是MNIST的准确率只有88%；</li>
+</ul>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><p>Multimodality Helps Unimodality: Cross-Modal Few-Shot Learning with Multimodal Models</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/linzhiqiu/cross_modal_adaptation">https://github.com/linzhiqiu/cross_modal_adaptation</a></li>
+</ul>
+</li>
+<li><p>CLIP <a target="_blank" rel="noopener" href="https://openai.com/research/clip">https://openai.com/research/clip</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/618925693">https://zhuanlan.zhihu.com/p/618925693</a></p>
 </li>
 </ul>
 
@@ -477,7 +614,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lee-jet.github.io/2023/08/01/paper-reading/">https://lee-jet.github.io/2023/08/01/paper-reading/</a>
+                    <a href="https://lee-jet.github.io/2023/08/10/clip/">https://lee-jet.github.io/2023/08/10/clip/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -594,7 +731,7 @@
         repo: 'gitalk',
         owner: 'lee-jet',
         admin: "lee-jet",
-        id: '2023-08-01T10-09-32',
+        id: '2023-08-10T14-30-10',
         distractionFreeMode: false,  // Facebook-like distraction free mode
     });
 
@@ -626,13 +763,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/08/01/cascade-detr/">
+                <a href="/2023/08/10/diffusion/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Cascade-DETR">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Diffusion">
                         
-                        <span class="card-title">Cascade-DETR</span>
+                        <span class="card-title">Diffusion</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -643,7 +780,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-08-01
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-08-10
                         </span>
                         <span class="publish-author">
                             
@@ -675,13 +812,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/07/27/model-compression-and-acceleration-md/">
+                <a href="/2023/08/09/tryondiffusion/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="model-compression-and-acceleration.md">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="TryOnDiffusion">
                         
-                        <span class="card-title">model-compression-and-acceleration.md</span>
+                        <span class="card-title">TryOnDiffusion</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -692,12 +829,16 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-09
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Lee Jet
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper-Reading/" class="post-category">
+                                    Paper Reading
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -705,8 +846,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Tech-share/">
-                        <span class="chip bg-color">Tech share</span>
+                    <a href="/tags/Paper-Reading/">
+                        <span class="chip bg-color">Paper Reading</span>
                     </a>
                     
                 </div>

@@ -4,16 +4,15 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="paper-reading, AiHub">
-    <meta name="description" content="
-目标检测
-
-婴儿哭声检测
-
-模型压缩与加速
+    <meta name="keywords" content="Diffusion, AiHub">
+    <meta name="description" content="Diffusion Models: A Comprehensive Survey of Methods and Applications
 
 
-">
+
+
+paper https://arxiv.org/abs/2209.00796  
+
+code ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -25,7 +24,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>paper-reading | AiHub</title>
+    <title>Diffusion | AiHub</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -350,7 +349,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">paper-reading</h1>
+                    <h1 class="description center-align post-title">Diffusion</h1>
                 </div>
             </div>
         </div>
@@ -399,21 +398,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-08-01
+                    2023-08-10
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-08-01
+                    2023-08-10
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    17
+                    440
                 </div>
                 
 
@@ -443,13 +442,93 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <ul>
-<li><p><a href="">目标检测</a></p>
+                <div align='center' ><font size='3'>Diffusion Models: A Comprehensive Survey of Methods and Applications</font></div>
+
+
+<hr>
+<ul>
+<li><p>paper <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2209.00796">https://arxiv.org/abs/2209.00796</a>  </p>
 </li>
-<li><p><a href="./baby_crying_detection_tutorials.md">婴儿哭声检测</a></p>
+<li><p>code <a target="_blank" rel="noopener" href="https://github.com/YangLing0818/Diffusion-Models-Papers-Survey-Taxonomy">https://github.com/YangLing0818/Diffusion-Models-Papers-Survey-Taxonomy</a></p>
 </li>
-<li><p><a href="./model-compression-and-acceleration-md.md">模型压缩与加速</a></p>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230810100145021.png" alt="image-20230810100145021"></p>
+<hr>
+<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>扩散模型，全称为扩散概率模型（Diffusion Probabilistic Model）。最简单的一类扩散模型，是去噪扩散概率模型（Denoising Diffusion Probabilistic Model），也就是常说的DDPM。</p>
+<h2 id="Contributions"><a href="#Contributions" class="headerlink" title="Contributions"></a>Contributions</h2><ul>
+<li>Survey</li>
+</ul>
+<h2 id="Related-Work"><a href="#Related-Work" class="headerlink" title="Related Work"></a>Related Work</h2><ul>
+<li>DDPM</li>
+<li>DDIM</li>
+<li>LDMs</li>
+<li>Stable Diffusion</li>
+<li>CLIP</li>
+</ul>
+<h2 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230810110044694.png" alt="image-20230810110044694"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230810112308944.png" alt="image-20230810112308944"></p>
+<h3 id="Forward-diffusion-process"><a href="#Forward-diffusion-process" class="headerlink" title="Forward diffusion process"></a>Forward diffusion process</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230810110212317.png" alt="image-20230810110212317"></p>
+<ul>
+<li>将训练集图像增加T次噪声，最终得到服从标准正太分布的噪声图像。这个过程是马尔科夫过程，即当前时刻的图像之和上一个时刻图像有关，而与之前时刻图像无关。</li>
+<li><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230810105139823.png" alt="image-20230810105139823"></li>
+</ul>
+<h3 id="Reverse-diffusion-process"><a href="#Reverse-diffusion-process" class="headerlink" title="Reverse diffusion process"></a>Reverse diffusion process</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230810110238709.png" alt="image-20230810110238709"></p>
+<ul>
+<li>从纯噪声图像中，通过T部去噪过程，最终生成原始图像</li>
+<li>训练去噪网络时，用神经网络你和T个均值即可，不用拟合方差</li>
+<li><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230810105659880.png" alt="image-20230810105659880"></li>
+</ul>
+<h3 id="Training-Loss"><a href="#Training-Loss" class="headerlink" title="Training Loss"></a>Training Loss</h3><ul>
+<li><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230810105843563.png" alt="image-20230810105843563"></li>
+</ul>
+<h3 id="Training-and-Sampling"><a href="#Training-and-Sampling" class="headerlink" title="Training and Sampling"></a>Training and Sampling</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/DDPM-algo.png" alt="img"></p>
+<ul>
+<li>训练过程如图左边 Algorithm 1 Training部分：<ol>
+<li>从标准高斯分布采样一个噪声 ϵ∼N(0,I) ；</li>
+<li>通过梯度下降最小化损失 ∇θ|ϵ−zθ(α¯tx0+1−α¯tϵ,t)|2 ；</li>
+<li>训练到收敛为止（训练时间比较长，T代码中设置为1000）</li>
+</ol>
 </li>
+<li>测试（采样）如图右边 Algorithm 2 Sampling部分：<ol>
+<li>从标准高斯分布采样一个噪声 xT∼N(0,I) ；</li>
+<li>从时间步 T 开始正向扩散迭代到时间步 1；</li>
+<li>如果时间步不为1，则从标准高斯分布采样一个噪声 z∼N(0,I) ，否则 z=0；</li>
+<li>根据高斯分布计算每个时间步 t 的噪声图；</li>
+</ol>
+</li>
+</ul>
+<h3 id="Unconditional-and-Conditional-Diffusion-Models"><a href="#Unconditional-and-Conditional-Diffusion-Models" class="headerlink" title="Unconditional and Conditional Diffusion Models"></a>Unconditional and Conditional Diffusion Models</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230810112805023.png" alt="image-20230810112805023"></p>
+<ul>
+<li>class labels<ul>
+<li>Classifier Guided Diffusion</li>
+<li>classifier-free guidance</li>
+</ul>
+</li>
+<li>a piece of descriptive text<ul>
+<li>CLIP guidance</li>
+</ul>
+</li>
+</ul>
+<h3 id="APPLICATIONS-OF-DIFFUSION-MODELS"><a href="#APPLICATIONS-OF-DIFFUSION-MODELS" class="headerlink" title="APPLICATIONS OF DIFFUSION MODELS"></a>APPLICATIONS OF DIFFUSION MODELS</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230810112527938.png" alt="image-20230810112527938"></p>
+<h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><ul>
+<li>Image Super Resolution, Inpainting, Restoration, Translation, and Editing.  </li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230810112827931.png" alt="image-20230810112827931"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230810112910410.png" alt="image-20230810112910410"></p>
+<ul>
+<li>Multi-Modal Generation  </li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230810112951698.png" alt="image-20230810112951698"></p>
+<ul>
+<li>Stable diffusion</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230810113016839.png" alt="image-20230810113016839"></p>
+<h2 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions"></a>Conclusions</h2><ul>
+<li>一切皆可生成</li>
+</ul>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000043744225">https://segmentfault.com/a/1190000043744225</a></li>
+<li><a target="_blank" rel="noopener" href="https://lilianweng.github.io/posts/2021-07-11-diffusion-models/">https://lilianweng.github.io/posts/2021-07-11-diffusion-models/</a></li>
 </ul>
 
                 
@@ -477,7 +556,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lee-jet.github.io/2023/08/01/paper-reading/">https://lee-jet.github.io/2023/08/01/paper-reading/</a>
+                    <a href="https://lee-jet.github.io/2023/08/10/diffusion/">https://lee-jet.github.io/2023/08/10/diffusion/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -594,7 +673,7 @@
         repo: 'gitalk',
         owner: 'lee-jet',
         admin: "lee-jet",
-        id: '2023-08-01T10-09-32',
+        id: '2023-08-10T14-31-11',
         distractionFreeMode: false,  // Facebook-like distraction free mode
     });
 
@@ -622,17 +701,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/08/01/cascade-detr/">
+                <a href="/2023/08/10/diffusion/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Cascade-DETR">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Diffusion">
                         
-                        <span class="card-title">Cascade-DETR</span>
+                        <span class="card-title">Diffusion</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -642,9 +722,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-08-01
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-10
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -657,6 +737,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -675,13 +756,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/07/27/model-compression-and-acceleration-md/">
+                <a href="/2023/08/10/clip/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="model-compression-and-acceleration.md">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="CLIP">
                         
-                        <span class="card-title">model-compression-and-acceleration.md</span>
+                        <span class="card-title">CLIP</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -692,12 +773,16 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-10
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Lee Jet
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper-Reading/" class="post-category">
+                                    Paper Reading
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -705,8 +790,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Tech-share/">
-                        <span class="chip bg-color">Tech share</span>
+                    <a href="/tags/Paper-Reading/">
+                        <span class="chip bg-color">Paper Reading</span>
                     </a>
                     
                 </div>

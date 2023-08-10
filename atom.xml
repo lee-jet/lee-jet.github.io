@@ -6,7 +6,7 @@
   <link href="https://lee-jet.github.io/atom.xml" rel="self"/>
   
   <link href="https://lee-jet.github.io/"/>
-  <updated>2023-08-09T08:28:34.218Z</updated>
+  <updated>2023-08-10T06:32:11.566Z</updated>
   <id>https://lee-jet.github.io/</id>
   
   <author>
@@ -15,6 +15,61 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Diffusion</title>
+    <link href="https://lee-jet.github.io/2023/08/10/diffusion/"/>
+    <id>https://lee-jet.github.io/2023/08/10/diffusion/</id>
+    <published>2023-08-10T06:31:11.000Z</published>
+    <updated>2023-08-10T06:32:11.566Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;3&#39;&gt;Diffusion Models: A Comprehensive Survey of Methods and</summary>
+        
+      
+    
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CLIP</title>
+    <link href="https://lee-jet.github.io/2023/08/10/clip/"/>
+    <id>https://lee-jet.github.io/2023/08/10/clip/</id>
+    <published>2023-08-10T06:30:10.000Z</published>
+    <updated>2023-08-10T06:31:51.175Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;4.5&#39;&gt;CLIP: Contrastive LanguageImage Pre-training&lt;/font&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;paper &lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
+    
+  </entry>
   
   <entry>
     <title>TryOnDiffusion</title>
@@ -485,54 +540,6 @@ Rethinking SORT for Robust Multi-Object</summary>
     
     
     <category term="Tech share" scheme="https://lee-jet.github.io/tags/Tech-share/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>01_github_gitlab</title>
-    <link href="https://lee-jet.github.io/2023/01/09/01-github-gitlab/"/>
-    <id>https://lee-jet.github.io/2023/01/09/01-github-gitlab/</id>
-    <published>2023-01-09T09:15:55.000Z</published>
-    <updated>2023-02-10T09:40:44.660Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Commands&quot;&gt;&lt;a href=&quot;#Commands&quot; class=&quot;headerlink&quot; title=&quot;Commands&quot;&gt;&lt;/a&gt;Commands&lt;/h2&gt;&lt;pre class=&quot;line-numbers language-bash&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Tech share" scheme="https://lee-jet.github.io/categories/Tech-share/"/>
-    
-    
-    <category term="Tech share" scheme="https://lee-jet.github.io/tags/Tech-share/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>project_demos</title>
-    <link href="https://lee-jet.github.io/2022/12/28/project-demos/"/>
-    <id>https://lee-jet.github.io/2022/12/28/project-demos/</id>
-    <published>2022-12-28T07:52:44.000Z</published>
-    <updated>2023-02-10T08:57:32.566Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Project-demo-list&quot;&gt;&lt;a href=&quot;#Project-demo-list&quot; class=&quot;headerlink&quot; title=&quot;Project demo list&quot;&gt;&lt;/a&gt;Project demo</summary>
-        
-      
-    
-    
-    
-    
-    <category term="demos" scheme="https://lee-jet.github.io/tags/demos/"/>
     
   </entry>
   
