@@ -6,7 +6,7 @@
   <link href="https://lee-jet.github.io/atom.xml" rel="self"/>
   
   <link href="https://lee-jet.github.io/"/>
-  <updated>2023-08-16T03:13:30.319Z</updated>
+  <updated>2023-08-16T03:53:57.407Z</updated>
   <id>https://lee-jet.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>10-shell</title>
+    <link href="https://lee-jet.github.io/2023/08/16/10-shell/"/>
+    <id>https://lee-jet.github.io/2023/08/16/10-shell/</id>
+    <published>2023-08-16T03:53:12.000Z</published>
+    <updated>2023-08-16T03:53:57.407Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Shell-变量&quot;&gt;&lt;a href=&quot;#Shell-变量&quot; class=&quot;headerlink&quot; title=&quot;Shell 变量&quot;&gt;&lt;/a&gt;Shell 变量&lt;/h2&gt;&lt;p&gt;在 Shell</summary>
+        
+      
+    
+    
+    
+    <category term="Tech share" scheme="https://lee-jet.github.io/categories/Tech-share/"/>
+    
+    
+    <category term="Tech share" scheme="https://lee-jet.github.io/tags/Tech-share/"/>
+    
+  </entry>
   
   <entry>
     <title>terminology</title>
@@ -427,7 +452,7 @@ Rethinking SORT for Robust Multi-Object</summary>
     <link href="https://lee-jet.github.io/2023/01/10/09-python-pytorch-tensorflow/"/>
     <id>https://lee-jet.github.io/2023/01/10/09-python-pytorch-tensorflow/</id>
     <published>2023-01-10T01:55:41.000Z</published>
-    <updated>2023-02-10T08:54:10.280Z</updated>
+    <updated>2023-08-16T03:53:51.014Z</updated>
     
     
       
@@ -510,31 +535,6 @@ Rethinking SORT for Robust Multi-Object</summary>
         
         
     <summary type="html">&lt;h2 id=&quot;1-本地服务地ssh&quot;&gt;&lt;a href=&quot;#1-本地服务地ssh&quot; class=&quot;headerlink&quot; title=&quot;1 本地服务地ssh&quot;&gt;&lt;/a&gt;&lt;strong&gt;1 本地服务地ssh&lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="Tech share" scheme="https://lee-jet.github.io/categories/Tech-share/"/>
-    
-    
-    <category term="Tech share" scheme="https://lee-jet.github.io/tags/Tech-share/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>05_tools</title>
-    <link href="https://lee-jet.github.io/2023/01/09/05-tools/"/>
-    <id>https://lee-jet.github.io/2023/01/09/05-tools/</id>
-    <published>2023-01-09T10:02:14.000Z</published>
-    <updated>2023-01-09T10:03:54.377Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;ffmpeg&quot;&gt;&lt;a href=&quot;#ffmpeg&quot; class=&quot;headerlink&quot; title=&quot;ffmpeg&quot;&gt;&lt;/a&gt;&lt;strong&gt;ffmpeg&lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;&lt;a</summary>
         
       
     
