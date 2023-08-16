@@ -4,15 +4,14 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="CLIP, AiHub">
-    <meta name="description" content="CLIP: Contrastive LanguageImage Pre-training
+    <meta name="keywords" content="design-pattern, AiHub">
+    <meta name="description" content="设计模式创建型模式
+创建型模式（Creational Pattern）主要关注对象创建过程的灵活性和可复用性
 
+工厂方法
 
-
-
-paper https://arxiv.org/abs/2103.00020
-
-code https://github.com/openai/">
+工厂方法模式是一种创建型设计模式， 其在父类中提供一个创建对象的方法， 允许子类决定实例化对象的类型
+如果无法预知对">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -24,7 +23,7 @@ code https://github.com/openai/">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>CLIP | AiHub</title>
+    <title>design-pattern | AiHub</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -344,12 +343,12 @@ code https://github.com/openai/">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">CLIP</h1>
+                    <h1 class="description center-align post-title">design-pattern</h1>
                 </div>
             </div>
         </div>
@@ -373,8 +372,8 @@ code https://github.com/openai/">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Paper-Reading/">
-                                <span class="chip bg-color">Paper Reading</span>
+                            <a href="/tags/Tech-share/">
+                                <span class="chip bg-color">Tech share</span>
                             </a>
                         
                     </div>
@@ -385,8 +384,8 @@ code https://github.com/openai/">
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Paper-Reading/" class="post-category">
-                                Paper Reading
+                            <a href="/categories/Tech-share/" class="post-category">
+                                Tech share
                             </a>
                         
                     </div>
@@ -398,28 +397,28 @@ code https://github.com/openai/">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-08-10
+                    2023-08-16
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-08-10
+                    2023-08-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.3k
+                    1.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    7 分
                 </div>
                 
 
@@ -442,151 +441,193 @@ code https://github.com/openai/">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <div align='center' ><font size='4.5'>CLIP: Contrastive LanguageImage Pre-training</font></div>
-
-
-<hr>
+                <h1 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h1><h2 id="创建型模式"><a href="#创建型模式" class="headerlink" title="创建型模式"></a>创建型模式</h2><blockquote>
+<p>创建型模式（Creational Pattern）主要关注对象创建过程的灵活性和可复用性</p>
+</blockquote>
+<h3 id="工厂方法"><a href="#工厂方法" class="headerlink" title="工厂方法"></a>工厂方法</h3><blockquote>
 <ul>
-<li><p>paper <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.00020">https://arxiv.org/abs/2103.00020</a></p>
+<li><strong>工厂方法模式</strong>是一种创建型设计模式， 其在父类中提供一个创建对象的方法， 允许子类决定实例化对象的类型</li>
+<li>如果无法预知对象确切类别及其依赖关系时，可使用工厂方法</li>
+</ul>
+</blockquote>
+<ul>
+<li><p>工厂方法模式建议使用特殊的<em>工厂</em>方法代替对于对象构造函数的直接调用 （即使用 <code>new</code>运算符）。 不用担心， 对象仍将通过 <code>new</code>运算符创建， 只是该运算符改在工厂方法中调用罢了。 工厂方法返回的对象通常被称作 “产品”。</p>
 </li>
-<li><p>code <a target="_blank" rel="noopener" href="https://github.com/openai/CLIP">https://github.com/openai/CLIP</a></p>
+<li><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230816103014820.png" alt="image-20230816103014820"></p>
 </li>
-</ul>
-<hr>
-<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><ul>
-<li>连接文本和图像的预训练模型</li>
-</ul>
-<h2 id="Contributions"><a href="#Contributions" class="headerlink" title="Contributions"></a>Contributions</h2><ul>
-<li>zero-shot classification</li>
-</ul>
-<h2 id="Related-Work"><a href="#Related-Work" class="headerlink" title="Related Work"></a>Related Work</h2><ul>
-<li>ConVIRT</li>
-<li>Contrastive learning</li>
-</ul>
-<h2 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230810140327295.png" alt="image-20230810140327295"></p>
-<h3 id="1-Contrastive-pre-training"><a href="#1-Contrastive-pre-training" class="headerlink" title="(1) Contrastive pre-training"></a>(1) <strong>Contrastive pre-training</strong></h3><ul>
-<li>模型架构分为两部分，图像编码器和文本编码器，图像编码器可以是比如 resnet50，然后文本编码器可以是 transformer。</li>
-<li>训练数据是网络社交媒体上搜集的图像文本对。在训练阶段，对于一个batch 的数据，首先通过文本编码器和图像编码器，得到文本和图像的特征，接着将所有的文本和图像特征分别计算内积，就能得到一个矩阵，然后从图像的角度看，行方向就是一个分类器，从文本角度看，列方向也是一个分类器。</li>
-<li>而由于我们已经知道一个batch中的文本和图像的匹配关系，所以目标函数就是最大化同一对图像和文本特征的内积，也就是矩阵对角线上的元素，而最小化与不相关特征的内积。文章的作者从社交媒体上搜集了有大约4亿对的数据。</li>
-</ul>
-<h3 id="2-3-Downstream-inference"><a href="#2-3-Downstream-inference" class="headerlink" title="(2) (3) Downstream inference"></a>(2) (3) Downstream inference</h3><p>在下游任务测试时，有两种使用CLIP的方法。</p>
-<p>​        第一种，利用文本prompt进行预测，将预测的embedding同类别的embedding进行相似度匹配，实现分类任务；在测试阶段，可以直接将训练好的CLIP用于其他数据集而不需要finetune。和训练阶段类似，首先将需要分类的图像经过编码器得到特征，然后对于目标任务数据集的每一个标签，<strong>或者你自己定义的标签，都构造一段对应的文本，如上图中的 dog 会改造成 “A photo of a dog”，以此类推</strong>。然后经过编码器得到文本和图像特征，接着将文本特征与图像特征做内积，内积最大对应的标签就是图像的分类结果。这就完成了目标任务上的 <strong>zero-shot</strong> 分类。</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token string">"Ref：https://github.com/openai/CLIP"</span>
-<span class="token keyword">import</span> os
-<span class="token keyword">import</span> clip
-<span class="token keyword">import</span> torch
-<span class="token keyword">from</span> torchvision<span class="token punctuation">.</span>datasets <span class="token keyword">import</span> CIFAR100
-
-<span class="token comment"># Load the model</span>
-device <span class="token operator">=</span> <span class="token string">"cuda"</span> <span class="token keyword">if</span> torch<span class="token punctuation">.</span>cuda<span class="token punctuation">.</span>is_available<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">else</span> <span class="token string">"cpu"</span>
-model<span class="token punctuation">,</span> preprocess <span class="token operator">=</span> clip<span class="token punctuation">.</span>load<span class="token punctuation">(</span><span class="token string">'ViT-B/32'</span><span class="token punctuation">,</span> device<span class="token punctuation">)</span>
-
-<span class="token comment"># Download the dataset</span>
-cifar100 <span class="token operator">=</span> CIFAR100<span class="token punctuation">(</span>root<span class="token operator">=</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>expanduser<span class="token punctuation">(</span><span class="token string">"~/.cache"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> download<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> train<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
-
-<span class="token comment"># Prepare the inputs</span>
-image<span class="token punctuation">,</span> class_id <span class="token operator">=</span> cifar100<span class="token punctuation">[</span><span class="token number">3637</span><span class="token punctuation">]</span>
-image_input <span class="token operator">=</span> preprocess<span class="token punctuation">(</span>image<span class="token punctuation">)</span><span class="token punctuation">.</span>unsqueeze<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">.</span>to<span class="token punctuation">(</span>device<span class="token punctuation">)</span>
-text_inputs <span class="token operator">=</span> torch<span class="token punctuation">.</span>cat<span class="token punctuation">(</span><span class="token punctuation">[</span>clip<span class="token punctuation">.</span>tokenize<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"a photo of a </span><span class="token interpolation"><span class="token punctuation">&#123;</span>c<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span> <span class="token keyword">for</span> c <span class="token keyword">in</span> cifar100<span class="token punctuation">.</span>classes<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>to<span class="token punctuation">(</span>device<span class="token punctuation">)</span>
-<span class="token comment">#cifar每个类别，输入图片，检索匹配的类别</span>
-
-<span class="token comment"># Calculate features</span>
-<span class="token keyword">with</span> torch<span class="token punctuation">.</span>no_grad<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    image_features <span class="token operator">=</span> model<span class="token punctuation">.</span>encode_image<span class="token punctuation">(</span>image_input<span class="token punctuation">)</span>
-    text_features <span class="token operator">=</span> model<span class="token punctuation">.</span>encode_text<span class="token punctuation">(</span>text_inputs<span class="token punctuation">)</span>
-
-<span class="token comment"># Pick the top 5 most similar labels for the image</span>
-image_features <span class="token operator">/=</span> image_features<span class="token punctuation">.</span>norm<span class="token punctuation">(</span>dim<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> keepdim<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
-text_features <span class="token operator">/=</span> text_features<span class="token punctuation">.</span>norm<span class="token punctuation">(</span>dim<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> keepdim<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
-similarity <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">100.0</span> <span class="token operator">*</span> image_features @ text_features<span class="token punctuation">.</span>T<span class="token punctuation">)</span><span class="token punctuation">.</span>softmax<span class="token punctuation">(</span>dim<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
-values<span class="token punctuation">,</span> indices <span class="token operator">=</span> similarity<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>topk<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
-
-<span class="token comment"># Print the result</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\nTop predictions:\n"</span><span class="token punctuation">)</span>
-<span class="token keyword">for</span> value<span class="token punctuation">,</span> index <span class="token keyword">in</span> <span class="token builtin">zip</span><span class="token punctuation">(</span>values<span class="token punctuation">,</span> indices<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"</span><span class="token interpolation"><span class="token punctuation">&#123;</span>cifar100<span class="token punctuation">.</span>classes<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">:</span><span class="token format-spec">>16s</span><span class="token punctuation">&#125;</span></span><span class="token string">: </span><span class="token interpolation"><span class="token punctuation">&#123;</span><span class="token number">100</span> <span class="token operator">*</span> value<span class="token punctuation">.</span>item<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token format-spec">.2f</span><span class="token punctuation">&#125;</span></span><span class="token string">%"</span></span><span class="token punctuation">)</span>
-
-<span class="token triple-quoted-string string">"""
-Top predictions:
-           snake: 65.31%
-          turtle: 12.29%
-    sweet_pepper: 3.83%
-          lizard: 1.88%
-       crocodile: 1.75%
-"""</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<li><p>工厂方法（Factory Method）模式适用于将对象的创建和使用分离，并希望尽可能多地复用现有代码来处理新型对象的情景。</p>
+</li>
+<li><p>```python<br>  class Network {<br>  public:</p>
+<pre><code>virtual ~Network() &#123; cout &lt;&lt; &quot;Network destroyed&quot; &lt;&lt; endl; &#125;
+virtual string getNetworkType() const = 0;
+</code></pre>
+<p>  };<br>  class CNN : public Network {<br>  public:</p>
+<pre><code>  string getNetworkType() const override &#123;
+      return &quot;CNN&quot;;
+  &#125;
+</code></pre>
+<p>  };</p>
+<p>  class GAN : public Network {<br>  public:</p>
+<pre><code>  string getNetworkType() const override &#123;
+      return &quot;GAN&quot;;
+  &#125;
+</code></pre>
+<p>  };</p>
+  <pre class="line-numbers language-none"><code class="language-none">
+    - 纯虚函数&#96;getNetworkType()&#96;用来返回网络的类型
 
 
 
-<p>​        第二种，额外训练linear probe进行预测。通过CLIP的image_encoder得到视觉向量，结合标签做Logistic Regression</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token string">"Ref：https://github.com/openai/CLIP"</span>
-<span class="token keyword">import</span> os
-<span class="token keyword">import</span> clip
-<span class="token keyword">import</span> torch
+### 抽象工厂
 
-<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
-<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>linear_model <span class="token keyword">import</span> LogisticRegression
-<span class="token keyword">from</span> torch<span class="token punctuation">.</span>utils<span class="token punctuation">.</span>data <span class="token keyword">import</span> DataLoader
-<span class="token keyword">from</span> torchvision<span class="token punctuation">.</span>datasets <span class="token keyword">import</span> CIFAR100
-<span class="token keyword">from</span> tqdm <span class="token keyword">import</span> tqdm
+&gt; - 抽象工厂（Abstract Factory）适用于需要创建许多种一系列相互依赖的对象的情景。
+&gt; - 如果代码需要与多个不同系列的相关产品交互，但是由于无法提前获取相关信息，或者出于对未来扩展性的考虑，你不希望代码基于产品的具体类进行构建，在这种情况下，你可以使用抽象工厂
+&gt; - 工厂方法与抽象工厂的根本区别在于工厂方法是“方法”，抽象工厂是“对象”。具体地，工厂方法的目的在于用基类的不同子类来表示不同的对象；抽象工厂只需要关心如何创建一系列相互依赖的对象，可以理解为一种包含很多工厂方法的对象。
 
-<span class="token comment"># Load the model</span>
-device <span class="token operator">=</span> <span class="token string">"cuda"</span> <span class="token keyword">if</span> torch<span class="token punctuation">.</span>cuda<span class="token punctuation">.</span>is_available<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">else</span> <span class="token string">"cpu"</span>
-model<span class="token punctuation">,</span> preprocess <span class="token operator">=</span> clip<span class="token punctuation">.</span>load<span class="token punctuation">(</span><span class="token string">'ViT-B/32'</span><span class="token punctuation">,</span> device<span class="token punctuation">)</span>
+抽象工厂模式建议为系列中的每件产品明确声明接口 （例如椅子、 沙发或咖啡桌）。 然后， 确保所有产品变体都继承这些接口。 例如， 所有风格的椅子都实现 &#96;椅子&#96;接口； 所有风格的咖啡桌都实现 &#96;咖啡桌&#96;接口， 以此类推
 
-<span class="token comment"># Load the dataset</span>
-root <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>expanduser<span class="token punctuation">(</span><span class="token string">"~/.cache"</span><span class="token punctuation">)</span>
-train <span class="token operator">=</span> CIFAR100<span class="token punctuation">(</span>root<span class="token punctuation">,</span> download<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> train<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> transform<span class="token operator">=</span>preprocess<span class="token punctuation">)</span>
-test <span class="token operator">=</span> CIFAR100<span class="token punctuation">(</span>root<span class="token punctuation">,</span> download<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> train<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> transform<span class="token operator">=</span>preprocess<span class="token punctuation">)</span>
+![image-20230816103433089](https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;lee-jet&#x2F;Figure_Bed&#x2F;main&#x2F;image-20230816103433089.png)
 
-<span class="token keyword">def</span> <span class="token function">get_features</span><span class="token punctuation">(</span>dataset<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    all_features <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-    all_labels <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+ 例如，  &#96;现代家具工厂&#96;Modern­Furniture­Factory只能创建 &#96;现代椅子&#96;Modern­Chair 、  &#96;现代沙发&#96;Modern­Sofa和 &#96;现代咖啡桌&#96;Modern­Coffee­Table对象。
+
+![image-20230816103556663](https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;lee-jet&#x2F;Figure_Bed&#x2F;main&#x2F;image-20230816103556663.png)
+
+- 在两个&#96;Network&#96;的子类里，我们调用&#96;Dataset&#96;接口的方式是相同的：&#96;dataset.getDatasetName()&#96;，区别在于我们需要在&#96;CNN&#96;的实现当中只关心&#96;CNN&#96;的数据预处理，在&#96;GAN&#96;当中只关心&#96;GAN&#96;的数据预处理
+
+- &#96;&#96;&#96;python
+    class Dataset &#123;
+    public:
+        virtual ~Dataset() &#123; cout &lt;&lt; &quot;Dataset destroyed&quot; &lt;&lt; endl; &#125;
+        virtual string getDatasetName() const &#x3D; 0;
+    &#125;;
     
-    <span class="token keyword">with</span> torch<span class="token punctuation">.</span>no_grad<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">for</span> images<span class="token punctuation">,</span> labels <span class="token keyword">in</span> tqdm<span class="token punctuation">(</span>DataLoader<span class="token punctuation">(</span>dataset<span class="token punctuation">,</span> batch_size<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            features <span class="token operator">=</span> model<span class="token punctuation">.</span>encode_image<span class="token punctuation">(</span>images<span class="token punctuation">.</span>to<span class="token punctuation">(</span>device<span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-            all_features<span class="token punctuation">.</span>append<span class="token punctuation">(</span>features<span class="token punctuation">)</span>
-            all_labels<span class="token punctuation">.</span>append<span class="token punctuation">(</span>labels<span class="token punctuation">)</span>
-
-    <span class="token keyword">return</span> torch<span class="token punctuation">.</span>cat<span class="token punctuation">(</span>all_features<span class="token punctuation">)</span><span class="token punctuation">.</span>cpu<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>numpy<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> torch<span class="token punctuation">.</span>cat<span class="token punctuation">(</span>all_labels<span class="token punctuation">)</span><span class="token punctuation">.</span>cpu<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>numpy<span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-<span class="token comment"># Calculate the image features</span>
-train_features<span class="token punctuation">,</span> train_labels <span class="token operator">=</span> get_features<span class="token punctuation">(</span>train<span class="token punctuation">)</span>
-test_features<span class="token punctuation">,</span> test_labels <span class="token operator">=</span> get_features<span class="token punctuation">(</span>test<span class="token punctuation">)</span>
-
-<span class="token comment"># Perform logistic regression</span>
-classifier <span class="token operator">=</span> LogisticRegression<span class="token punctuation">(</span>random_state<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> C<span class="token operator">=</span><span class="token number">0.316</span><span class="token punctuation">,</span> max_iter<span class="token operator">=</span><span class="token number">1000</span><span class="token punctuation">,</span> verbose<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment"># c自定义</span>
-classifier<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>train_features<span class="token punctuation">,</span> train_labels<span class="token punctuation">)</span>
-
-<span class="token comment"># Evaluate using the logistic regression classifier</span>
-predictions <span class="token operator">=</span> classifier<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>test_features<span class="token punctuation">)</span>
-accuracy <span class="token operator">=</span> np<span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">(</span>test_labels <span class="token operator">==</span> predictions<span class="token punctuation">)</span><span class="token punctuation">.</span>astype<span class="token punctuation">(</span>np<span class="token punctuation">.</span><span class="token builtin">float</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">100.</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Accuracy = </span><span class="token interpolation"><span class="token punctuation">&#123;</span>accuracy<span class="token punctuation">:</span><span class="token format-spec">.3f</span><span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230810141805197.png" alt="image-20230810141805197"></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230810142423975.png" alt="image-20230810142423975"></p>
-<h2 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions"></a>Conclusions</h2><ul>
-<li><strong>CLIP 可以说是开辟了 CV+NLP 的多模态表征学习新时代</strong>。后面谷歌的ALIGN，微软的Florence，商汤 DeCLIP，快手 EfficientCLIP 都是研究相类似的任务。虽然 CLIP 在小部分任务上 zero-shot 精度一般，但是 CLIP 在多模态的 Encoders 能提供简单而又强大的视觉先验的表征能力。</li>
-<li>CLIP和BERT、GPT、ViT的区别在于，CLIP是多模态的，包含图像处理以及文本处理两个方面内容，而BERT、GPT是单文本模态的，ViT是单图像模态的</li>
+    class ImageNet : public Dataset &#123;
+    public:
+        string getDatasetName() const override &#123;
+            return &quot;ImageNet&quot;;
+        &#125;
+    &#125;;
+    
+    class CelebA : public Dataset &#123;
+    public:
+        string getDatasetName() const override &#123;
+            return &quot;CelebA&quot;;
+        &#125;
+    &#125;;
+    
+    class Network &#123;
+    public:
+        virtual ~Network() &#123; cout &lt;&lt; &quot;Network destroyed&quot; &lt;&lt; endl; &#125;
+        virtual string getNetworkType() const &#x3D; 0;
+        virtual string giveMeADataset(const Dataset&amp; dataset) const &#x3D; 0;
+    &#125;;
+    
+    class CNN : public Network &#123;
+    public:
+        string getNetworkType() const override &#123;
+            return &quot;CNN&quot;;
+        &#125;
+        string giveMeADataset(const Dataset&amp; dataset) const override &#123;
+            const string dataset_name &#x3D; dataset.getDatasetName();
+            return &quot;I am training a CNN with &quot; + dataset_name;
+        &#125;
+    &#125;;
+    
+    class GAN : public Network &#123;
+    public:
+        string getNetworkType() const override &#123;
+            return &quot;GAN&quot;;
+        &#125;
+        string giveMeADataset(const Dataset&amp; dataset) const override &#123;
+            const string dataset_name &#x3D; dataset.getDatasetName();
+            return &quot;I am training a GAN with &quot; + dataset_name;
+        &#125;
+    &#125;;
+    
+    <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p><strong>抽象工厂</strong>是一种创建型设计模式， 它能创建一系列相关或相互依赖的对象， 而无需指定其具体类。什么是 “系列对象”？ 例如有这样一组的对象：  <code>运输工具</code>+ <code>引擎</code>+ <code>控制器</code> 。 它可能会有几个变体：</p>
+<ol>
+<li><code>汽车</code>+ <code>内燃机</code>+ <code>方向盘</code></li>
+<li><code>飞机</code>+ <code>喷气式发动机</code>+ <code>操纵杆</code></li>
+</ol>
+<p>  如果你的程序中并不涉及产品系列的话， 那就不需要抽象工厂。</p>
+</li>
 </ul>
-<h3 id="Limitations"><a href="#Limitations" class="headerlink" title="Limitations"></a>Limitations</h3><ul>
-<li>不是和SOTA的比较：以上的数据分析，都是和a linear classifier on top of ResNet-50 features进行比较，大部分的数据集，都有对应的SOTA模型。为了达到SOTA，zero-shot CLIP估计要提高1000x的算力，当前情况不支持；</li>
-<li>在部分fine-grained分类上表现不佳：<br>  a. 前面实验分析发现，模型不能很好的区分cars，species of flowers, 以及variants of aircraft；<br>  b. abstract和systematic任务表现不好，比如统计图上object的数量；<br>  c. 在训练集中基本不会出现的比较novel的任务，表现欠佳，比如classifying<br>  the distance to the nearest car in a photo；</li>
-<li>训练集中没有出现的图片类型（out-of-distribution），表现不好，比如OCR识别数字效果可以，但是MNIST的准确率只有88%；</li>
-</ul>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><p>Multimodality Helps Unimodality: Cross-Modal Few-Shot Learning with Multimodal Models</p>
+<h3 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h3><blockquote>
+<p>生成器（Builder）模式适用于需要分很多步骤创建不同对象的情景。也就是说我所创建的对象可以由许多重复性的基本组件构成。</p>
+</blockquote>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/linzhiqiu/cross_modal_adaptation">https://github.com/linzhiqiu/cross_modal_adaptation</a></li>
+<li><p>基于神经网络的分类模型，具体的结构可以有很多种，例如只有1个全连通层的线性模型、包含多个全连通层的MLP、以及同时包含多个卷积层和全连通层的CNN等。这些不同的模型都是由“全连通层”和“卷积层”这两个基本单元构成的</p>
+</li>
+<li><p>```python<br>  class Builder {<br>  public:</p>
+<pre><code>  virtual ~Builder() &#123; cout &lt;&lt; &quot;Builder destroyed&quot; &lt;&lt; endl; &#125;
+  virtual void createLinearLayer() const = 0;
+  virtual void createConvLayer() const = 0;
+  virtual void createLossLayer() const = 0;
+</code></pre>
+<p>  };</p>
+  <pre class="line-numbers language-none"><code class="language-none">
+- 定义模块化组件进行组装
+
+- ![image-20230816104604315](https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;lee-jet&#x2F;Figure_Bed&#x2F;main&#x2F;image-20230816104604315.png)
+
+### 原型
+
+&gt; 原型（Prototype）模式适用于需要复制复杂的对象，并希望新复制的对象独立于原来的代码的情景。
+
+- &#96;clone()&#96;接口就是原型模式的关键所在
+
+### 单例
+
+&gt; 单例（Singleton）模式适用于一个类只需要一个实例的情景。抽象工厂模式、生成器模式和原型模式都可以用单例模式实现
+
+- 我们一方面要避免在代码中显示地对模型进行复制（否则内存会爆掉），另一方面在设计模型的接口时也要保证其他人在调用我们的接口时不会随意地复制模型
+
+- &#96;&#96;&#96;c++
+    class Model &#123;
+    private:
+        Model() &#123;&#125;
+        ~Model() &#123;&#125;
+    protected:
+        Model(const string id) : model_id(id) &#123;&#125;
+        static Model* model;
+        string model_id;
+    public:
+        Model(const Model&amp;) &#x3D; delete;
+        Model(Model&amp;&amp;) &#x3D; delete;
+        void operator&#x3D;(const Model&amp;) &#x3D; delete;
+        void operator&#x3D;(Model&amp;&amp;) &#x3D; delete;
+    
+        void train() &#123;
+            cout &lt;&lt; &quot;Training done with &quot; + model_id + &quot;\n&quot;;
+        &#125;
+    
+        static Model* getInstance(const string&amp; id);
+        static Model&amp; getInstanceSafe(const string&amp; id);
+    &#125;;
+    
+    
+    Model* Model::model &#x3D; nullptr;
+    Model* Model::getInstance(const string&amp; id) &#123;
+        if (model &#x3D;&#x3D; nullptr)
+            model &#x3D; new Model(id);
+        return model;
+    &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>我们只希望<code>Model</code>自己有权对模型进行创建和删除，所以把<code>constructor</code>和<code>destructor</code>声明为<code>private</code>。另外，我们不希望<code>Model</code>的调用者对模型进行复制，所以需要禁用其<code>copy constructor</code>，<code>move constructor</code>，<code>copy assignment operator</code>和<code>move assignment operator</code></p>
+</li>
+<li><p>所有单例的实现都包含以下两个相同的步骤：</p>
+<ul>
+<li><p><strong>将默认构造函数设为私有， 防止其他对象使用单例类的 <code>new</code>运算符。</strong></p>
+</li>
+<li><p><strong>新建一个静态构建方法作为构造函数。 该函数会 “偷偷” 调用私有构造函数来创建对象， 并将其保存在一个静态成员变量中。 此后所有对于该函数的调用都将返回这一缓存对象。</strong></p>
+</li>
 </ul>
 </li>
-<li><p>CLIP <a target="_blank" rel="noopener" href="https://openai.com/research/clip">https://openai.com/research/clip</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/618925693">https://zhuanlan.zhihu.com/p/618925693</a></p>
-</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230816105335776.png" alt="image-20230816105335776"></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://refactoringguru.cn/design-patterns">https://refactoringguru.cn/design-patterns</a></li>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844904174363082766">https://juejin.cn/post/6844904174363082766</a></li>
 </ul>
 
                 
@@ -614,7 +655,7 @@ accuracy <span class="token operator">=</span> np<span class="token punctuation"
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lee-jet.github.io/2023/08/10/clip/">https://lee-jet.github.io/2023/08/10/clip/</a>
+                    <a href="https://lee-jet.github.io/2023/08/16/design-pattern/">https://lee-jet.github.io/2023/08/16/design-pattern/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -652,8 +693,8 @@ accuracy <span class="token operator">=</span> np<span class="token punctuation"
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Paper-Reading/">
-                                    <span class="chip bg-color">Paper Reading</span>
+                                <a href="/tags/Tech-share/">
+                                    <span class="chip bg-color">Tech share</span>
                                 </a>
                             
                         </div>
@@ -731,7 +772,7 @@ accuracy <span class="token operator">=</span> np<span class="token punctuation"
         repo: 'gitalk',
         owner: 'lee-jet',
         admin: "lee-jet",
-        id: '2023-08-10T14-30-10',
+        id: '2023-08-16T10-59-45',
         distractionFreeMode: false,  // Facebook-like distraction free mode
     });
 
@@ -759,9 +800,60 @@ accuracy <span class="token operator">=</span> np<span class="token punctuation"
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2023/08/16/design-pattern/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="design-pattern">
+                        
+                        <span class="card-title">design-pattern</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-16
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Tech-share/" class="post-category">
+                                    Tech share
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Tech-share/">
+                        <span class="chip bg-color">Tech share</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2023/08/10/diffusion/">
                     <div class="card-image">
@@ -779,57 +871,8 @@ accuracy <span class="token operator">=</span> np<span class="token punctuation"
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-08-10
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Paper-Reading/" class="post-category">
-                                    Paper Reading
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Paper-Reading/">
-                        <span class="chip bg-color">Paper Reading</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2023/08/09/tryondiffusion/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="TryOnDiffusion">
-                        
-                        <span class="card-title">TryOnDiffusion</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-09
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-10
                             </span>
                         <span class="publish-author">
                             
