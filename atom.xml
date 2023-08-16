@@ -6,7 +6,7 @@
   <link href="https://lee-jet.github.io/atom.xml" rel="self"/>
   
   <link href="https://lee-jet.github.io/"/>
-  <updated>2023-08-16T03:00:37.294Z</updated>
+  <updated>2023-08-16T03:03:20.530Z</updated>
   <id>https://lee-jet.github.io/</id>
   
   <author>
@@ -21,14 +21,16 @@
     <link href="https://lee-jet.github.io/2023/08/16/design-pattern/"/>
     <id>https://lee-jet.github.io/2023/08/16/design-pattern/</id>
     <published>2023-08-16T02:59:45.000Z</published>
-    <updated>2023-08-16T03:00:37.294Z</updated>
+    <updated>2023-08-16T03:03:20.530Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;设计模式&quot;&gt;&lt;a href=&quot;#设计模式&quot; class=&quot;headerlink&quot; title=&quot;设计模式&quot;&gt;&lt;/a&gt;设计模式&lt;/h1&gt;&lt;h2 id=&quot;创建型模式&quot;&gt;&lt;a href=&quot;#创建型模式&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;7&#39;&gt;设计模式&lt;/font&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;创建型模式&quot;&gt;&lt;a href=&quot;#创建型模式&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -46,7 +48,7 @@
     <link href="https://lee-jet.github.io/2023/08/10/diffusion/"/>
     <id>https://lee-jet.github.io/2023/08/10/diffusion/</id>
     <published>2023-08-10T06:31:11.000Z</published>
-    <updated>2023-08-10T06:32:11.566Z</updated>
+    <updated>2023-08-16T03:02:11.959Z</updated>
     
     
       
