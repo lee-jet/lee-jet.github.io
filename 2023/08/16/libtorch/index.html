@@ -4,16 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="paper-reading, AiHub">
-    <meta name="description" content="
-目标检测
+    <meta name="keywords" content="LibTorch, AiHub">
+    <meta name="description" content="LibTorch源码编译
 
-婴儿哭声检测
-
-模型压缩与加速
-
-
-">
+Build from sourceStep 1 Download pytorchgit clone --recursive https://github.com/pytorch/pytorch
+cd pytorc">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -25,7 +20,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>paper-reading | AiHub</title>
+    <title>LibTorch | AiHub</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -345,12 +340,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">paper-reading</h1>
+                    <h1 class="description center-align post-title">LibTorch</h1>
                 </div>
             </div>
         </div>
@@ -374,8 +369,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Paper-Reading/">
-                                <span class="chip bg-color">Paper Reading</span>
+                            <a href="/tags/Tech-share/">
+                                <span class="chip bg-color">Tech share</span>
                             </a>
                         
                     </div>
@@ -386,8 +381,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Paper-Reading/" class="post-category">
-                                Paper Reading
+                            <a href="/categories/Tech-share/" class="post-category">
+                                Tech share
                             </a>
                         
                     </div>
@@ -399,28 +394,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-08-01
+                    2023-08-16
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-08-01
+                    2023-08-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    17
+                    382
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -443,13 +438,113 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <ul>
-<li><p><a href="">目标检测</a></p>
+                <div align='center' ><font size='6'>LibTorch源码编译</font></div>
+
+<h2 id="Build-from-source"><a href="#Build-from-source" class="headerlink" title="Build from source"></a>Build from source</h2><h3 id="Step-1-Download-pytorch"><a href="#Step-1-Download-pytorch" class="headerlink" title="Step 1 Download pytorch"></a>Step 1 Download pytorch</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone <span class="token parameter variable">--recursive</span> https://github.com/pytorch/pytorch
+<span class="token builtin class-name">cd</span> pytorch
+<span class="token function">git</span> submodule update <span class="token parameter variable">--init</span> <span class="token parameter variable">--recursive</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="Step-2-Installing-dependencies"><a href="#Step-2-Installing-dependencies" class="headerlink" title="Step 2 Installing dependencies"></a>Step 2 Installing dependencies</h3><ul>
+<li>CMake version &gt; 3.18</li>
+<li>Python version &gt; 3.8</li>
+<li>C++ 17</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda create <span class="token parameter variable">-n</span> libtorch <span class="token assign-left variable">python</span><span class="token operator">=</span><span class="token number">3.9</span>
+conda activate libtorch
+conda <span class="token function">install</span> astunparse numpy ninja pyyaml mkl mkl-include setuptools cmake cffi typing_extensions future six requests dataclasses<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="Step-3-Starting-compiling"><a href="#Step-3-Starting-compiling" class="headerlink" title="Step 3 Starting compiling"></a>Step 3 Starting compiling</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mkdir</span> pytorch-build
+<span class="token builtin class-name">cd</span> pytorch-build
+cmake <span class="token parameter variable">-DBUILD_SHARED_LIBS:BOOL</span><span class="token operator">=</span>ON <span class="token parameter variable">-DCMAKE_BUILD_TYPE:STRING</span><span class="token operator">=</span>Release <span class="token parameter variable">-DPYTHON_EXECUTABLE:PATH</span><span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token function">which</span> python3<span class="token variable">`</span></span> <span class="token parameter variable">-DCMAKE_INSTALL_PREFIX:PATH</span><span class="token operator">=</span><span class="token punctuation">..</span>/pytorch-install <span class="token punctuation">..</span>/
+cmake <span class="token parameter variable">--build</span> <span class="token builtin class-name">.</span> <span class="token parameter variable">-j8</span> <span class="token parameter variable">--target</span> <span class="token function">install</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="Step-4-Examples"><a href="#Step-4-Examples" class="headerlink" title="Step 4 Examples"></a>Step 4 Examples</h3><ul>
+<li>文件结构</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">$ tree ..&#x2F;example-app&#x2F; -L 1
+..&#x2F;example-app&#x2F;
+├── build
+├── CMakeLists.txt
+└── example-app.cpp
+
+1 directory, 2 files<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li><code>example-app.cpp</code></li>
+</ul>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;torch&#x2F;torch.h&gt;
+#include &lt;iostream&gt;
+
+int main() &#123;
+          torch::Tensor tensor &#x3D; torch::rand(&#123;2, 3&#125;); &#x2F;&#x2F;生成大小为2*3的随机数矩阵
+          std::cout &lt;&lt; tensor &lt;&lt; std::endl;           &#x2F;&#x2F;标准输出流打印至屏幕
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li><code>CMakeLists.txt</code><ul>
+<li>注意 需要c++ 17 <code>set_property(TARGET example-app PROPERTY CXX_STANDARD 17)</code></li>
+</ul>
 </li>
-<li><p><a href="./baby_crying_detection_tutorials.md">婴儿哭声检测</a></p>
+</ul>
+<pre class="line-numbers language-cmake" data-language="cmake"><code class="language-cmake"><span class="token keyword">cmake_minimum_required</span><span class="token punctuation">(</span><span class="token property">VERSION</span> <span class="token number">3.0</span> FATAL_ERROR<span class="token punctuation">)</span>
+<span class="token keyword">project</span><span class="token punctuation">(</span>example-app<span class="token punctuation">)</span>
+
+<span class="token keyword">find_package</span><span class="token punctuation">(</span>Torch REQUIRED<span class="token punctuation">)</span>
+<span class="token keyword">set</span><span class="token punctuation">(</span><span class="token variable">CMAKE_CXX_FLAGS</span> <span class="token string">"<span class="token interpolation"><span class="token punctuation">$&#123;</span><span class="token variable">CMAKE_CXX_FLAGS</span><span class="token punctuation">&#125;</span></span> <span class="token interpolation"><span class="token punctuation">$&#123;</span><span class="token variable">TORCH_CXX_FLAGS</span><span class="token punctuation">&#125;</span></span>"</span><span class="token punctuation">)</span>
+
+<span class="token keyword">add_executable</span><span class="token punctuation">(</span>example-app example-app.cpp<span class="token punctuation">)</span>
+<span class="token keyword">target_link_libraries</span><span class="token punctuation">(</span>example-app <span class="token string">"<span class="token interpolation"><span class="token punctuation">$&#123;</span><span class="token variable">TORCH_LIBRARIES</span><span class="token punctuation">&#125;</span></span>"</span><span class="token punctuation">)</span>
+<span class="token keyword">set_property</span><span class="token punctuation">(</span>TARGET example-app PROPERTY <span class="token property">CXX_STANDARD</span> <span class="token number">17</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>命令行<ul>
+<li><code>/path/to/pytorch-install</code> 为libtorch编译成功后的位置</li>
+</ul>
 </li>
-<li><p><a href="./model-compression-and-acceleration-md.md">模型压缩与加速</a></p>
-</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> example-app
+<span class="token function">mkdir</span> build <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">cd</span> build
+cmake <span class="token parameter variable">-DCMAKE_PREFIX_PATH</span><span class="token operator">=</span>/path/to/pytorch-install <span class="token punctuation">..</span>
+<span class="token function">make</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>输出结果</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ ./example-app 
+
+ <span class="token number">0.4473</span>  <span class="token number">0.6516</span>  <span class="token number">0.0226</span>
+ <span class="token number">0.3360</span>  <span class="token number">0.1509</span>  <span class="token number">0.0269</span>
+<span class="token punctuation">[</span> CPUFloatType<span class="token punctuation">&#123;</span><span class="token number">2,3</span><span class="token punctuation">&#125;</span> <span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Script"><a href="#Script" class="headerlink" title="Script"></a>Script</h2><ul>
+<li><code>libtorch_compile.sh</code></li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># step 1</span>
+<span class="token function">git</span> clone <span class="token parameter variable">--recursive</span> https://github.com/pytorch/pytorch
+<span class="token builtin class-name">cd</span> pytorch
+<span class="token function">git</span> submodule update <span class="token parameter variable">--init</span> <span class="token parameter variable">--recursive</span>
+
+<span class="token comment"># step 2</span>
+conda create <span class="token parameter variable">-n</span> libtorch <span class="token assign-left variable">python</span><span class="token operator">=</span><span class="token number">3.9</span>
+conda activate libtorch
+conda <span class="token function">install</span> astunparse numpy ninja pyyaml mkl mkl-include setuptools cmake cffi typing_extensions future six requests dataclasses
+
+<span class="token comment"># step 3</span>
+<span class="token function">mkdir</span> pytorch-build
+<span class="token builtin class-name">cd</span> pytorch-build
+cmake <span class="token parameter variable">-DBUILD_SHARED_LIBS:BOOL</span><span class="token operator">=</span>ON <span class="token parameter variable">-DCMAKE_BUILD_TYPE:STRING</span><span class="token operator">=</span>Release <span class="token parameter variable">-DPYTHON_EXECUTABLE:PATH</span><span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token function">which</span> python3<span class="token variable">`</span></span> <span class="token parameter variable">-DCMAKE_INSTALL_PREFIX:PATH</span><span class="token operator">=</span><span class="token punctuation">..</span>/pytorch-install <span class="token punctuation">..</span>/
+cmake <span class="token parameter variable">--build</span> <span class="token builtin class-name">.</span> <span class="token parameter variable">-j8</span> <span class="token parameter variable">--target</span> <span class="token function">install</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://pytorch.org/cppdocs/installing.html#">https://pytorch.org/cppdocs/installing.html#</a></li>
 </ul>
 
                 
@@ -477,7 +572,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lee-jet.github.io/2023/08/01/paper-reading/">https://lee-jet.github.io/2023/08/01/paper-reading/</a>
+                    <a href="https://lee-jet.github.io/2023/08/16/libtorch/">https://lee-jet.github.io/2023/08/16/libtorch/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -515,8 +610,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Paper-Reading/">
-                                    <span class="chip bg-color">Paper Reading</span>
+                                <a href="/tags/Tech-share/">
+                                    <span class="chip bg-color">Tech share</span>
                                 </a>
                             
                         </div>
@@ -594,7 +689,7 @@
         repo: 'gitalk',
         owner: 'lee-jet',
         admin: "lee-jet",
-        id: '2023-08-01T10-09-32',
+        id: '2023-08-16T11-12-01',
         distractionFreeMode: false,  // Facebook-like distraction free mode
     });
 
@@ -626,13 +721,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/08/01/cascade-detr/">
+                <a href="/2023/08/16/terminology/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Cascade-DETR">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="terminology">
                         
-                        <span class="card-title">Cascade-DETR</span>
+                        <span class="card-title">terminology</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -643,14 +738,14 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-08-01
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-08-16
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Paper-Reading/" class="post-category">
-                                    Paper Reading
+                            <a href="/categories/Tech-share/" class="post-category">
+                                    Tech share
                                 </a>
                             
                             
@@ -660,8 +755,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Paper-Reading/">
-                        <span class="chip bg-color">Paper Reading</span>
+                    <a href="/tags/Tech-share/">
+                        <span class="chip bg-color">Tech share</span>
                     </a>
                     
                 </div>
@@ -675,13 +770,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/07/27/model-compression-and-acceleration-md/">
+                <a href="/2023/08/16/design-pattern/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="model-compression-and-acceleration.md">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="design-pattern">
                         
-                        <span class="card-title">model-compression-and-acceleration.md</span>
+                        <span class="card-title">design-pattern</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -692,12 +787,16 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-16
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Lee Jet
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Tech-share/" class="post-category">
+                                    Tech share
+                                </a>
+                            
                             
                         </span>
                     </div>

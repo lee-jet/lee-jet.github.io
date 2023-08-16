@@ -4,16 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="paper-reading, AiHub">
-    <meta name="description" content="
-目标检测
-
-婴儿哭声检测
-
-模型压缩与加速
-
-
-">
+    <meta name="keywords" content="terminology, AiHub">
+    <meta name="description" content="TERMINOLOGYFLOPs
+FLOPs：（部分大写，小s）floating point operations 指的是浮点运算次数，理解为计算量，可以用来衡量算法/模型时间的复杂度。
+FLOPS：（全部大写，大s），Floating-p">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -25,7 +19,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>paper-reading | AiHub</title>
+    <title>terminology | AiHub</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -345,12 +339,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">paper-reading</h1>
+                    <h1 class="description center-align post-title">terminology</h1>
                 </div>
             </div>
         </div>
@@ -374,8 +368,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Paper-Reading/">
-                                <span class="chip bg-color">Paper Reading</span>
+                            <a href="/tags/Tech-share/">
+                                <span class="chip bg-color">Tech share</span>
                             </a>
                         
                     </div>
@@ -386,8 +380,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Paper-Reading/" class="post-category">
-                                Paper Reading
+                            <a href="/categories/Tech-share/" class="post-category">
+                                Tech share
                             </a>
                         
                     </div>
@@ -399,28 +393,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-08-01
+                    2023-08-16
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-08-01
+                    2023-08-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    17
+                    2.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    10 分
                 </div>
                 
 
@@ -443,15 +437,130 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <ul>
-<li><p><a href="">目标检测</a></p>
+                <h1 id="TERMINOLOGY"><a href="#TERMINOLOGY" class="headerlink" title="TERMINOLOGY"></a>TERMINOLOGY</h1><h3 id="FLOPs"><a href="#FLOPs" class="headerlink" title="FLOPs"></a>FLOPs</h3><ul>
+<li><code>FLOPs</code>：（部分大写，小s）<code>floating point operations</code> 指的是浮点运算次数，理解为<strong>计算量</strong>，可以用来衡量<strong>算法/模型时间的复杂度</strong>。</li>
+<li><code>FLOPS</code>：（全部大写，大s），<code>Floating-point Operations Per Second</code>，每秒所执行的浮点运算次数，理解为计算速度, 是一个衡量硬件性能/模型速度的指标，即一个芯片的算力。</li>
+<li><code>MACCs</code>：<code>multiply-accumulate operations</code>，乘-加操作次数，<code>MACCs</code> 大约是 <code>FLOPs</code> 的一半。将 w[0]∗x[0]+… 视为一个乘法累加或 <code>1</code> 个 <code>MACC</code>。</li>
+</ul>
+<h3 id="MAC"><a href="#MAC" class="headerlink" title="MAC"></a>MAC</h3><p><code>MAC</code>: <code>Memory Access Cost</code> 内存访问代价。指的是输入单个样本（一张图像），模型/卷积层完成<strong>一次前向传播所发生的内存交换总量</strong>，即模型的空间复杂度，单位是 <code>Byte</code>。</p>
+<h3 id="Bandwitdh"><a href="#Bandwitdh" class="headerlink" title="Bandwitdh"></a>Bandwitdh</h3><ul>
+<li><code>GPU</code> 的内存带宽决定了它将数据从内存 (<code>vRAM</code>) 移动到计算核心<br>  （Tensor core）的速度，是比 <code>GPU</code> 内存速度更具代表性的指标。</li>
+<li><code>GPU</code> 的内存带宽的值取决于<strong>内存和计算核心之间的数据传输速度，以及这两个部分之间总线中单独并行链路的数量</strong>。</li>
+</ul>
+<h3 id="Latency-and-Throughput"><a href="#Latency-and-Throughput" class="headerlink" title="Latency and Throughput"></a>Latency and Throughput</h3><ul>
+<li>延迟 (<code>Latency</code>): 延迟是指<strong>提出请求与收到反应之间经过的时间</strong>，延迟都是以<strong>毫秒</strong>来计量的。（单位：ms）</li>
+<li>吞吐量 (<code>Throughput</code>): 在<strong>一个时间单元（如：一秒）内网络能处理的最大输入样例数</strong>。（帧率FPS：samples/second）</li>
+</ul>
+<p><strong><code>CPU</code> 是低延迟低吞吐量处理器；<code>GPU</code> 是高延迟高吞吐量处理器</strong>。</p>
+<h3 id="GPU-Utility"><a href="#GPU-Utility" class="headerlink" title="GPU Utility"></a>GPU Utility</h3><p>本质只是反应了，在采样时间段内，一个或多个内核（<code>kernel</code>）在 <code>GPU</code> 上执行的时间百分比，采样时间段取值 <code>1/6s~1s</code>。</p>
+<p>通俗来讲，就是，在一段时间范围内， <code>GPU</code> 内核运行的时间占总时间的比例。比如 <code>GPU Util</code> 是 <code>69%</code>，时间段是 <code>1s</code>，那么在过去的 <code>1s</code> 中内，<code>GPU</code> 内核运行的时间是 <code>0.69s</code>。如果 <code>GPU Util</code> 是 <code>0%</code>，则说明 <code>GPU</code> 没有被使用，处于空闲中。</p>
+<h3 id="NVIDIA-GPU-ARCH"><a href="#NVIDIA-GPU-ARCH" class="headerlink" title="NVIDIA GPU ARCH"></a>NVIDIA GPU ARCH</h3><p><code>GPU</code> 设计了更多的晶体管（<code>transistors</code>）用于数据处理（<code>data process</code>）而不是数据缓冲（<code>data caching</code>）和流控（<code>flow control</code>），因此 <code>GPU</code> 很适合做<strong>高度并行计算</strong>（<code>highly parallel computations</code>）。同时，<code>GPU</code> 提供比 <code>CPU</code> 更高的<strong>指令吞吐量</strong>和<strong>内存带宽</strong>（<code>instruction throughput and memory bandwidth</code>）。</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230815160141815.png" alt="image-20230815160141815"></p>
+<h2 id="高效-CNN-总结"><a href="#高效-CNN-总结" class="headerlink" title="高效 CNN 总结"></a>高效 CNN 总结</h2><p><strong>网络宽度</strong>，即通道(<code>channel</code>)的数量，也是滤波器（3 维）的数量；<strong>网络深度</strong>，即 <code>layer</code> 的层数，如 <code>resnet18</code> 有 <code>18</code> 层网络。注意我们这里说的网络宽度和宽度学习一类的模型没有关系，而是特指深度卷积神经网络的（通道）宽度。</p>
+<ul>
+<li><strong>网络深度的意义</strong>：<code>CNN</code> 的网络层能够对输入图像数据进行逐层抽象，比如第一层学习到了图像边缘特征，第二层学习到了简单形状特征，第三层学习到了目标形状的特征。即<strong>深度决定了网络的表达（抽象）能力，网络越深学习能力越强</strong>。</li>
+<li><strong>网络宽度的意义</strong>：网络越宽，对目标特征的提取能力越强，即这一层网络能学习到更加丰富的特征，比如不同方向、不同频率的纹理特征等。即<strong>宽度决定了网络在某一层学到的信息量</strong>。</li>
+</ul>
+<p>总而言之，在一定的程度上，网络越深越宽，性能越好，但关键在于如何取 <code>trade-off</code>。</p>
+<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><ol>
+<li><strong>分析模型的推理性能得结合具体的推理平台</strong>（常见如：英伟达 <code>GPU</code>、移动端 <code>ARM</code> <code>CPU</code>、端侧 <code>NPU</code> 芯片等）；目前已知影响 <code>CNN</code> 模型推理性能的因素包括: 算子计算量 <code>FLOPs</code>（参数量 <code>Params</code>）、卷积 <code>block</code> 的内存访问代价（访存带宽）、网络并行度等。但相同硬件平台、相同网络架构条件下， <code>FLOPs</code> 加速比与推理时间加速比成正比。</li>
+<li>建议对于轻量级网络设计应该考虑直接 <code>metric</code>（例如速度 <code>speed</code>），而不是间接 <code>metric</code>（例如 <code>FLOPs</code>）。</li>
+<li><strong><code>FLOPs</code> 低不等于 <code>latency</code> 低，尤其是在有加速功能的硬体 (<code>GPU</code>、<code>DSP</code> 与 <code>TPU</code>)上不成立，得结合具硬件架构具体分析</strong>。</li>
+<li>不同网络架构的 <code>CNN</code> 模型，即使是 <code>FLOPs</code> 相同，但其 <code>MAC</code> 也可能差异巨大。</li>
+<li><strong><code>Depthwise</code> 卷积操作对于流水线型 <code>CPU</code>、<code>ARM</code> 等移动设备更友好，对于并行计算能力强的 <code>GPU</code> 和具有加速功能的硬件（专用硬件设计-NPU 芯片）上比较没有效率</strong>。<code>Depthwise</code> 卷积算子实际上是使用了大量的低 <code>FLOPs</code>、高数据读写量的操作。因为这些具有高数据读写量的操作，再加上<strong>多数时候 <code>GPU</code> 芯片算力的瓶颈在于访存带宽</strong>，使得模型把大量的时间浪费在了从显存中读写数据上，从而导致 <code>GPU</code> 的算力没有得到“充分利用”。结论来源知乎文章-<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/122943688">FLOPs与模型推理速度</a>和论文 <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2201.03297.pdf">G-GhostNet</a>。</li>
+</ol>
+<h3 id="建议"><a href="#建议" class="headerlink" title="建议"></a>建议</h3><ol>
+<li>在大多数的硬件上，<code>channel</code> 数为 <code>16</code> 的倍数比较有利高效计算。如海思 <code>351x</code> 系列芯片，当输入通道为 <code>4</code> 倍数和输出通道数为 <code>16</code> 倍数时，时间加速比会近似等于 <code>FLOPs</code> 加速比，有利于提供 <code>NNIE</code> 硬件计算利用率。(来源海思 <code>351X</code> 芯片文档和 <code>MobileDets</code> 论文)</li>
+<li>低 <code>channel</code> 数的情况下 (如网路的前几层)，在有加速功能的硬件使用普通 <code>convolution</code> 通常会比 <code>separable convolution</code> 有效率。（来源 <a target="_blank" rel="noopener" href="https://medium.com/ai-blog-tw/mobiledets-flops%E4%B8%8D%E7%AD%89%E6%96%BClatency-%E8%80%83%E9%87%8F%E4%B8%8D%E5%90%8C%E7%A1%AC%E9%AB%94%E7%9A%84%E9%AB%98%E6%95%88%E6%9E%B6%E6%A7%8B-5bfc27d4c2c8">MobileDets 论文</a>）</li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1807.11164.pdf">shufflenetv2 论文</a> 提出的<strong>四个高效网络设计的实用指导思想</strong>: G1同样大小的通道数可以最小化 <code>MAC</code>、G2-分组数太多的卷积会增加 <code>MAC</code>、G3-网络碎片化会降低并行度、G4-逐元素的操作不可忽视。</li>
+<li><code>GPU</code> 芯片上 3×3 卷积非常快，其计算密度（理论运算量除以所用时间）可达 1×1 和 5×5 卷积的四倍。（来源 <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/344324470">RepVGG 论文</a>）</li>
+<li><strong>从解决梯度信息冗余问题入手</strong>，提高模型推理效率。比如 <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1911.11929.pdf">CSPNet</a> 网络。</li>
+<li>从解决 <code>DenseNet</code> 的密集连接带来的高内存访问成本和能耗问题入手，如 <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1904.09730.pdf">VoVNet</a> 网络，其由 <code>OSA</code>（<code>One-Shot Aggregation</code>，一次聚合）模块组成。</li>
+</ol>
+<h2 id="模型部署总结"><a href="#模型部署总结" class="headerlink" title="模型部署总结"></a>模型部署总结</h2><p>在阅读和理解经典的轻量级网络 <code>mobilenet</code> 系列、<code>MobileDets</code>、<code>shufflenet</code> 系列、<code>cspnet</code>、<code>vovnet</code>、<code>repvgg</code> 等论文的基础上，做了以下总结：</p>
+<ol>
+<li>低算力设备-手机移动端 <code>cpu</code> 硬件，考虑 <code>mobilenetv1</code>(深度可分离卷机架构-低 <code>FLOPs</code>)、低 <code>FLOPs</code> 和 低<code>MAC</code>的<code>shuffletnetv2</code>（<code>channel_shuffle</code> 算子在推理框架上可能不支持）</li>
+<li>专用 <code>asic</code> 硬件设备-<code>npu</code> 芯片（地平线 <code>x3/x4</code> 等、海思 <code>3519</code>、安霸<code>cv22</code> 等），分类、目标检测问题考虑 <code>cspnet</code> 网络(减少重复梯度信息)、<code>repvgg2</code>（即 <code>RepOptimizer</code>: <code>vgg</code> 型直连架构、部署简单）</li>
+<li>英伟达 <code>gpu</code> 硬件-<code>t4</code> 芯片，考虑 <code>repvgg</code> 网络（类 <code>vgg</code> 卷积架构-高并行度有利于发挥 <code>gpu</code> 算力、单路架构省显存/内存，问题: <code>INT8 PTQ</code> 掉点严重）</li>
+</ol>
+<p><code>MobileNet block</code> (深度可分离卷积 <code>block</code>, <code>depthwise separable convolution block</code>)在有加速功能的硬件（专用硬件设计-<code>NPU</code> 芯片）上比较没有效率。</p>
+<h2 id="显卡性能"><a href="#显卡性能" class="headerlink" title="显卡性能"></a>显卡性能</h2><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/20230110153124115.jpg" alt="img"></p>
+<pre class="line-numbers language-none"><code class="language-none">持久模式：persistence mode 能够让 GPU 更快响应任务，待机功耗增加。
+        关闭 persistence mode 同样能够启动任务。
+        持续模式虽然耗能大，但是在新的GPU应用启动时，花费的时间更少
+风扇转速：主动散热的显卡一般会有这个参数，服务器显卡一般是被动散热，这个参数显示N&#x2F;A。
+        从0到100%之间变动，这个速度是计算机期望的风扇转速，实际情况下如果风扇堵转，可能打不到显示的转速。
+        有的设备不会返回转速，因为它不依赖风扇冷却而是通过其他外设保持低温（比如有些实验室的服务器是常年放在空调房间里的）。 
+温度：单位是摄氏度。 
+性能状态：从P0到P12，P0表示最大性能，P12表示状态最小性能。 
+Disp.A：Display Active，表示GPU的显示是否初始化。 
+ECC纠错：这个只有近几年的显卡才具有这个功能，老版显卡不具备这个功能。 
+MIG：Multi-Instance GPU，多实例显卡技术，支持将一张显卡划分成多张显卡使用，目前只支持安培架构显卡。
+新的多实例GPU (MIG)特性允许GPU(从NVIDIA安培架构开始)被安全地划分为多达7个独立的GPU实例。
+用于CUDA应用，为多个用户提供独立的GPU资源，以实现最佳的GPU利用率。
+对于GPU计算能力未完全饱和的工作负载，该特性尤其有益，因此用户可能希望并行运行不同的工作负载，以最大化利用率。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>RTX4090，24GB显存，大概1.5W人民币；</p>
+<p>A100，40GB显存，大概5.5W人民币；</p>
+<p>A100，80GB显存，大概7.5W人民币；</p>
+<p>H100，80GB显存，大概24W人民币；</p>
+<h3 id="单机多卡"><a href="#单机多卡" class="headerlink" title="单机多卡"></a>单机多卡</h3><ul>
+<li><p>PCIE通信的情况下（rtx4090显卡情况），单卡性能为基准100%，那么双卡的性能可能是（100%+90%），三卡可能是（100%+90%+80%），以此类推，8卡可能是（100%+90%+80%+70%+60%+50%+40%+30%)，也就是说使用PCIE通信的情况下单机多卡的加速比要远低于线性加速比。</p>
 </li>
-<li><p><a href="./baby_crying_detection_tutorials.md">婴儿哭声检测</a></p>
-</li>
-<li><p><a href="./model-compression-and-acceleration-md.md">模型压缩与加速</a></p>
+<li><p>如果使用nvlink通信（A100和H100显卡情况），单卡性能为基准100%，那么双卡的性能可能是（100%+98%），三卡可能是（100%+98%+96%），以此类推，8卡可能是（100%+98%+96%+94%+92%+90%+88%+86%)，所以说单机多卡的情况下nvlink通信也会较大幅度提供性能。</p>
 </li>
 </ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ nvidia-smi topo <span class="token parameter variable">--matrix</span>              <span class="token comment">#查看系统/GPU 拓扑</span>
+$ nvidia-smi nvlink <span class="token parameter variable">--status</span>            <span class="token comment">#查询 NVLink 连接本身以确保状态、功能和运行状况。</span>
+$ nvidia-smi nvlink <span class="token parameter variable">--capabilities</span>      <span class="token comment">#查询 NVLink 连接本身以确保状态、功能和运行状况。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ nvidia-smi topo <span class="token parameter variable">--matrix</span>
+        GPU0    GPU1    CPU Affinity    NUMA Affinity
+GPU0     X      SYS     <span class="token number">0,2</span>,4,6,8,10    <span class="token number">0</span>
+GPU1    SYS      X      <span class="token number">1,3</span>,5,7,9,11    <span class="token number">1</span>
+
+Legend:
+
+  X    <span class="token operator">=</span> Self
+  SYS  <span class="token operator">=</span> Connection traversing PCIe as well as the SMP interconnect between NUMA nodes <span class="token punctuation">(</span>e.g., QPI/UPI<span class="token punctuation">)</span>
+  NODE <span class="token operator">=</span> Connection traversing PCIe as well as the interconnect between PCIe Host Bridges within a NUMA <span class="token function">node</span>
+  PHB  <span class="token operator">=</span> Connection traversing PCIe as well as a PCIe Host Bridge <span class="token punctuation">(</span>typically the CPU<span class="token punctuation">)</span>
+  PXB  <span class="token operator">=</span> Connection traversing multiple PCIe bridges <span class="token punctuation">(</span>without traversing the PCIe Host Bridge<span class="token punctuation">)</span>
+  PIX  <span class="token operator">=</span> Connection traversing at <span class="token function">most</span> a single PCIe bridge
+  NV<span class="token comment">#  = Connection traversing a bonded set of # NVLinks</span>
+
+$ nvidia-smi nvlink <span class="token parameter variable">--status</span>
+GPU <span class="token number">0</span>: NVIDIA A100 80GB PCIe <span class="token punctuation">(</span>UUID: GPU-e940fdff-7348-576b-fa77-4ce0f23dac70<span class="token punctuation">)</span>
+         Link <span class="token number">0</span>: <span class="token operator">&lt;</span>inactive<span class="token operator">></span>
+         Link <span class="token number">1</span>: <span class="token operator">&lt;</span>inactive<span class="token operator">></span>
+         Link <span class="token number">2</span>: <span class="token operator">&lt;</span>inactive<span class="token operator">></span>
+         Link <span class="token number">3</span>: <span class="token operator">&lt;</span>inactive<span class="token operator">></span>
+         Link <span class="token number">4</span>: <span class="token operator">&lt;</span>inactive<span class="token operator">></span>
+         Link <span class="token number">5</span>: <span class="token operator">&lt;</span>inactive<span class="token operator">></span>
+         Link <span class="token number">6</span>: <span class="token operator">&lt;</span>inactive<span class="token operator">></span>
+         Link <span class="token number">7</span>: <span class="token operator">&lt;</span>inactive<span class="token operator">></span>
+         Link <span class="token number">8</span>: <span class="token operator">&lt;</span>inactive<span class="token operator">></span>
+         Link <span class="token number">9</span>: <span class="token operator">&lt;</span>inactive<span class="token operator">></span>
+         Link <span class="token number">10</span>: <span class="token operator">&lt;</span>inactive<span class="token operator">></span>
+         Link <span class="token number">11</span>: <span class="token operator">&lt;</span>inactive<span class="token operator">></span>
+GPU <span class="token number">1</span>: NVIDIA A100 80GB PCIe <span class="token punctuation">(</span>UUID: GPU-1bf9bc37-b6aa-f94a-56b3-02cc34601dae<span class="token punctuation">)</span>
+         Link <span class="token number">0</span>: <span class="token operator">&lt;</span>inactive<span class="token operator">></span>
+         Link <span class="token number">1</span>: <span class="token operator">&lt;</span>inactive<span class="token operator">></span>
+         Link <span class="token number">2</span>: <span class="token operator">&lt;</span>inactive<span class="token operator">></span>
+         Link <span class="token number">3</span>: <span class="token operator">&lt;</span>inactive<span class="token operator">></span>
+         Link <span class="token number">4</span>: <span class="token operator">&lt;</span>inactive<span class="token operator">></span>
+         Link <span class="token number">5</span>: <span class="token operator">&lt;</span>inactive<span class="token operator">></span>
+         Link <span class="token number">6</span>: <span class="token operator">&lt;</span>inactive<span class="token operator">></span>
+         Link <span class="token number">7</span>: <span class="token operator">&lt;</span>inactive<span class="token operator">></span>
+         Link <span class="token number">8</span>: <span class="token operator">&lt;</span>inactive<span class="token operator">></span>
+         Link <span class="token number">9</span>: <span class="token operator">&lt;</span>inactive<span class="token operator">></span>
+         Link <span class="token number">10</span>: <span class="token operator">&lt;</span>inactive<span class="token operator">></span>
+         Link <span class="token number">11</span>: <span class="token operator">&lt;</span>inactive<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="多机多卡"><a href="#多机多卡" class="headerlink" title="多机多卡"></a>多机多卡</h3><p>单机的基准性能为100%，双机性能（100%+90%），三机性能（100%+90%+90%），四机性能（100%+90%+90%+90%），五机性能（100%+90%+90%+90%+80%）等。</p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2>
                 
             </div>
             <hr/>
@@ -477,7 +586,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lee-jet.github.io/2023/08/01/paper-reading/">https://lee-jet.github.io/2023/08/01/paper-reading/</a>
+                    <a href="https://lee-jet.github.io/2023/08/16/terminology/">https://lee-jet.github.io/2023/08/16/terminology/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -515,8 +624,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Paper-Reading/">
-                                    <span class="chip bg-color">Paper Reading</span>
+                                <a href="/tags/Tech-share/">
+                                    <span class="chip bg-color">Tech share</span>
                                 </a>
                             
                         </div>
@@ -594,7 +703,7 @@
         repo: 'gitalk',
         owner: 'lee-jet',
         admin: "lee-jet",
-        id: '2023-08-01T10-09-32',
+        id: '2023-08-16T11-12-55',
         distractionFreeMode: false,  // Facebook-like distraction free mode
     });
 
@@ -622,17 +731,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/08/01/cascade-detr/">
+                <a href="/2023/08/16/terminology/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Cascade-DETR">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="terminology">
                         
-                        <span class="card-title">Cascade-DETR</span>
+                        <span class="card-title">terminology</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -642,26 +752,27 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-08-01
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-16
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Paper-Reading/" class="post-category">
-                                    Paper Reading
+                            <a href="/categories/Tech-share/" class="post-category">
+                                    Tech share
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Paper-Reading/">
-                        <span class="chip bg-color">Paper Reading</span>
+                    <a href="/tags/Tech-share/">
+                        <span class="chip bg-color">Tech share</span>
                     </a>
                     
                 </div>
@@ -675,13 +786,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/07/27/model-compression-and-acceleration-md/">
+                <a href="/2023/08/16/libtorch/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="model-compression-and-acceleration.md">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="LibTorch">
                         
-                        <span class="card-title">model-compression-and-acceleration.md</span>
+                        <span class="card-title">LibTorch</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -692,12 +803,16 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-16
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Lee Jet
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Tech-share/" class="post-category">
+                                    Tech share
+                                </a>
+                            
                             
                         </span>
                     </div>

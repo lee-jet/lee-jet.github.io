@@ -6,7 +6,7 @@
   <link href="https://lee-jet.github.io/atom.xml" rel="self"/>
   
   <link href="https://lee-jet.github.io/"/>
-  <updated>2023-08-16T03:10:25.239Z</updated>
+  <updated>2023-08-16T03:13:30.319Z</updated>
   <id>https://lee-jet.github.io/</id>
   
   <author>
@@ -15,6 +15,58 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>terminology</title>
+    <link href="https://lee-jet.github.io/2023/08/16/terminology/"/>
+    <id>https://lee-jet.github.io/2023/08/16/terminology/</id>
+    <published>2023-08-16T03:12:55.000Z</published>
+    <updated>2023-08-16T03:13:30.319Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;TERMINOLOGY&quot;&gt;&lt;a href=&quot;#TERMINOLOGY&quot; class=&quot;headerlink&quot; title=&quot;TERMINOLOGY&quot;&gt;&lt;/a&gt;TERMINOLOGY&lt;/h1&gt;&lt;h3 id=&quot;FLOPs&quot;&gt;&lt;a href=&quot;#FLOPs&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Tech share" scheme="https://lee-jet.github.io/categories/Tech-share/"/>
+    
+    
+    <category term="Tech share" scheme="https://lee-jet.github.io/tags/Tech-share/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LibTorch</title>
+    <link href="https://lee-jet.github.io/2023/08/16/libtorch/"/>
+    <id>https://lee-jet.github.io/2023/08/16/libtorch/</id>
+    <published>2023-08-16T03:12:01.000Z</published>
+    <updated>2023-08-16T03:12:32.492Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;6&#39;&gt;LibTorch源码编译&lt;/font&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;Build-from-source&quot;&gt;&lt;a href=&quot;#Build-from-source&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Tech share" scheme="https://lee-jet.github.io/categories/Tech-share/"/>
+    
+    
+    <category term="Tech share" scheme="https://lee-jet.github.io/tags/Tech-share/"/>
+    
+  </entry>
   
   <entry>
     <title>design-pattern</title>
@@ -483,56 +535,6 @@ Rethinking SORT for Robust Multi-Object</summary>
         
         
     <summary type="html">&lt;h2 id=&quot;ffmpeg&quot;&gt;&lt;a href=&quot;#ffmpeg&quot; class=&quot;headerlink&quot; title=&quot;ffmpeg&quot;&gt;&lt;/a&gt;&lt;strong&gt;ffmpeg&lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="Tech share" scheme="https://lee-jet.github.io/categories/Tech-share/"/>
-    
-    
-    <category term="Tech share" scheme="https://lee-jet.github.io/tags/Tech-share/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>04_cpp</title>
-    <link href="https://lee-jet.github.io/2023/01/09/04-cpp/"/>
-    <id>https://lee-jet.github.io/2023/01/09/04-cpp/</id>
-    <published>2023-01-09T09:58:01.000Z</published>
-    <updated>2023-02-10T08:43:24.413Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;c-进阶&quot;&gt;&lt;a href=&quot;#c-进阶&quot; class=&quot;headerlink&quot; title=&quot;c++ 进阶&quot;&gt;&lt;/a&gt;&lt;strong&gt;c++ 进阶&lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="Tech share" scheme="https://lee-jet.github.io/categories/Tech-share/"/>
-    
-    
-    <category term="Tech share" scheme="https://lee-jet.github.io/tags/Tech-share/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>03_cmake_gdb</title>
-    <link href="https://lee-jet.github.io/2023/01/09/03-cmake-gdb/"/>
-    <id>https://lee-jet.github.io/2023/01/09/03-cmake-gdb/</id>
-    <published>2023-01-09T09:43:54.000Z</published>
-    <updated>2023-02-10T08:50:56.443Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;g-编译添加路径&quot;&gt;&lt;a href=&quot;#g-编译添加路径&quot; class=&quot;headerlink&quot; title=&quot;g++编译添加路径&quot;&gt;&lt;/a&gt;&lt;strong&gt;g++编译添加路径&lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;&lt;img</summary>
         
       
     
