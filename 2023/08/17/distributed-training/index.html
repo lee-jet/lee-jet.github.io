@@ -617,6 +617,7 @@ next(iter(dataloader))返回一个batch的数据 , 等价于IterableDataset
 <li><p>local rank：某个节点上的进程id</p>
 </li>
 <li><p>local_word_size: 某个节点上的进程数 (相对比较少见)</p>
+<p>​    </p>
 </li>
 </ul>
 <p>假设所有进程数即 world_size为W，每个节点上的进程数即local_world_size为L，则每个进程上的两个ID：</p>
@@ -693,9 +694,7 @@ rank <span class="token operator">=</span> <span class="token number">1</span> i
 tensor<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span>, <span class="token number">2</span>, <span class="token number">3</span>, <span class="token number">4</span><span class="token punctuation">]</span>, <span class="token assign-left variable">device</span><span class="token operator">=</span><span class="token string">'cuda:1'</span><span class="token punctuation">)</span>
 tensor<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span>, <span class="token number">2</span>, <span class="token number">3</span>, <span class="token number">4</span><span class="token punctuation">]</span>, <span class="token assign-left variable">device</span><span class="token operator">=</span><span class="token string">'cuda:0'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<ol start="2">
-<li><h3 id="launch"><a href="#launch" class="headerlink" title="launch"></a>launch</h3></li>
-</ol>
+<p>​    2. launch</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ python3 <span class="token parameter variable">-m</span> torch.distributed.launch --配置 train.py --args参数
 
 <span class="token comment"># 通过外部命令运行 </span>
@@ -877,7 +876,7 @@ pred_list <span class="token operator">=</span> torch<span class="token punctuat
 <li>训练和验证区分较大，验证一般在主进程中进行一次验证即可，不需要sampler，操作和单卡一样，之后将数据同步给其他进程。</li>
 <li>在多卡时要调用模型的其他方法或者使用单卡的模式，需要用<code>model.module</code>来获得原始模型，同样保存参数时也保存的是<code>model.module</code>的参数而不是DDP包裹的。</li>
 </ol>
-<h2 id=""><a href="#" class="headerlink" title=""></a></h2><h4 id="使用总结"><a href="#使用总结" class="headerlink" title="使用总结"></a>使用总结</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> argparse
+<h4 id="使用总结"><a href="#使用总结" class="headerlink" title="使用总结"></a>使用总结</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> argparse
 <span class="token keyword">import</span> torch
 <span class="token keyword">from</span> torch<span class="token punctuation">.</span>nn<span class="token punctuation">.</span>parallel <span class="token keyword">import</span> DistributedDataParallel <span class="token keyword">as</span> DDP
 
