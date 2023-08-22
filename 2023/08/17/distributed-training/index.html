@@ -401,21 +401,21 @@ next(iter(dataloader))返回一个batch的数据 , 等价于IterableDataset
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-08-17
+                    2023-08-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6k
+                    6.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    28 分
+                    32 分
                 </div>
                 
 
@@ -1256,9 +1256,249 @@ batch_size <span class="token operator">=</span> <span class="token number">64</
 <span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
 	train<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="Deepspeed"><a href="#Deepspeed" class="headerlink" title="Deepspeed"></a>Deepspeed</h2><ul>
-<li></li>
+
+
+<h2 id="DeepSpeed"><a href="#DeepSpeed" class="headerlink" title="DeepSpeed"></a>DeepSpeed</h2><blockquote>
+<p>DeepSpeed is a deep learning optimization library that makes distributed training and inference easy, efficient, and effective.</p>
+</blockquote>
+<h3 id="Innovation-pillars"><a href="#Innovation-pillars" class="headerlink" title="Innovation pillars"></a>Innovation pillars</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/3pillars.png" alt="img"></p>
+<h3 id="Training"><a href="#Training" class="headerlink" title="Training"></a>Training</h3><h4 id="Argument-Parsing"><a href="#Argument-Parsing" class="headerlink" title="Argument Parsing"></a>Argument Parsing</h4><ul>
+<li>将<code>argparse</code>变成<code>deepspeed parser</code></li>
 </ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">parser <span class="token operator">=</span> deepspeed<span class="token punctuation">.</span>add_config_arguments<span class="token punctuation">(</span>parser<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>样例</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> argparse
+<span class="token keyword">import</span> deepspeed
+
+<span class="token keyword">def</span> <span class="token function">add_argument</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+    parser<span class="token operator">=</span>argparse<span class="token punctuation">.</span>ArgumentParser<span class="token punctuation">(</span>description<span class="token operator">=</span><span class="token string">'CIFAR'</span><span class="token punctuation">)</span>
+
+    <span class="token comment">#data</span>
+    <span class="token comment"># cuda</span>
+    parser<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">'--with_cuda'</span><span class="token punctuation">,</span> default<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> action<span class="token operator">=</span><span class="token string">'store_true'</span><span class="token punctuation">,</span>
+                        <span class="token builtin">help</span><span class="token operator">=</span><span class="token string">'use CPU in case there\'s no GPU support'</span><span class="token punctuation">)</span>
+    parser<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">'--use_ema'</span><span class="token punctuation">,</span> default<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> action<span class="token operator">=</span><span class="token string">'store_true'</span><span class="token punctuation">,</span>
+                        <span class="token builtin">help</span><span class="token operator">=</span><span class="token string">'whether use exponential moving average'</span><span class="token punctuation">)</span>
+
+    <span class="token comment"># train</span>
+    parser<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">'-b'</span><span class="token punctuation">,</span> <span class="token string">'--batch_size'</span><span class="token punctuation">,</span> default<span class="token operator">=</span><span class="token number">32</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token operator">=</span><span class="token builtin">int</span><span class="token punctuation">,</span>
+                        <span class="token builtin">help</span><span class="token operator">=</span><span class="token string">'mini-batch size (default: 32)'</span><span class="token punctuation">)</span>
+    parser<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">'-e'</span><span class="token punctuation">,</span> <span class="token string">'--epochs'</span><span class="token punctuation">,</span> default<span class="token operator">=</span><span class="token number">30</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token operator">=</span><span class="token builtin">int</span><span class="token punctuation">,</span>
+                        <span class="token builtin">help</span><span class="token operator">=</span><span class="token string">'number of total epochs (default: 30)'</span><span class="token punctuation">)</span>
+    parser<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">'--local_rank'</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token operator">=</span><span class="token builtin">int</span><span class="token punctuation">,</span> default<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>
+                       <span class="token builtin">help</span><span class="token operator">=</span><span class="token string">'local rank passed from distributed launcher'</span><span class="token punctuation">)</span>
+
+    <span class="token comment"># Include DeepSpeed configuration arguments</span>
+    parser <span class="token operator">=</span> deepspeed<span class="token punctuation">.</span>add_config_arguments<span class="token punctuation">(</span>parser<span class="token punctuation">)</span>
+
+    args<span class="token operator">=</span>parser<span class="token punctuation">.</span>parse_args<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">return</span> args<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="Initialization"><a href="#Initialization" class="headerlink" title="Initialization"></a>Initialization</h4><ul>
+<li>必须把<code>args, model结构和参数</code>变成deepspeed版本</li>
+<li>对于<code>dataloder</code>可以用<code>deepspeed.initialize</code>变成分布式（需要传入<code>trainset</code>），也可以自定义(不需要传入<code>trainset</code>)</li>
+<li>API</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">initialize</span><span class="token punctuation">(</span>args<span class="token punctuation">,</span>
+               model<span class="token punctuation">,</span>
+               optimizer<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span>
+               model_parameters<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span>
+               training_data<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span>
+               lr_scheduler<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span>
+               mpu<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span>
+               dist_init_required<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>
+               collate_fn<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span><span class="token punctuation">:</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>样例</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">parameters <span class="token operator">=</span> <span class="token builtin">filter</span><span class="token punctuation">(</span><span class="token keyword">lambda</span> p<span class="token punctuation">:</span> p<span class="token punctuation">.</span>requires_grad<span class="token punctuation">,</span> net<span class="token punctuation">.</span>parameters<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+args<span class="token operator">=</span>add_argument<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Initialize DeepSpeed to use the following features</span>
+<span class="token comment"># 1) Distributed model</span>
+<span class="token comment"># 2) Distributed data loader</span>
+<span class="token comment"># 3) DeepSpeed optimizer</span>
+
+<span class="token comment"># 需要传入`trainset`</span>
+model_engine<span class="token punctuation">,</span> optimizer<span class="token punctuation">,</span> trainloader<span class="token punctuation">,</span> _ <span class="token operator">=</span> deepspeed<span class="token punctuation">.</span>initialize<span class="token punctuation">(</span>args<span class="token operator">=</span>args<span class="token punctuation">,</span> model<span class="token operator">=</span>net<span class="token punctuation">,</span> model_parameters<span class="token operator">=</span>parameters<span class="token punctuation">,</span> training_data<span class="token operator">=</span>trainset<span class="token punctuation">)</span>
+<span class="token comment"># 不需要传入`trainset`</span>
+model_engine<span class="token punctuation">,</span> optimizer<span class="token punctuation">,</span> _<span class="token punctuation">,</span> _ <span class="token operator">=</span> deepspeed<span class="token punctuation">.</span>initialize<span class="token punctuation">(</span>args<span class="token operator">=</span>args<span class="token punctuation">,</span> model<span class="token operator">=</span>net<span class="token punctuation">,</span> model_parameters<span class="token operator">=</span>parameters<span class="token punctuation">,</span> training_data<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="DataLoder"><a href="#DataLoder" class="headerlink" title="DataLoder"></a>DataLoder</h4><ul>
+<li>因为deepspeed基于pytorch.dist，所以可以用dataloader，注意自定义dataloder需要分布式采样<code>DistributedSampler</code></li>
+<li>自定义分布式dataloder，注意batch_size定义，分布式的batch_size是指每张gpu上批大小，不开启分布式batch_size指所有gpu的总大小</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 开启分布式 用DistributedSampler</span>
+<span class="token keyword">if</span> local_rank <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">:</span> 
+    <span class="token keyword">if</span> data_sampler <span class="token keyword">is</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+        data_sampler <span class="token operator">=</span> DistributedSampler<span class="token punctuation">(</span>dataset<span class="token punctuation">)</span>
+        device_count <span class="token operator">=</span> <span class="token number">1</span>
+
+<span class="token comment"># 不开启分布式 用 RandomSampler</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span> 
+    <span class="token keyword">if</span> data_sampler <span class="token keyword">is</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+        data_sampler <span class="token operator">=</span> RandomSampler<span class="token punctuation">(</span>dataset<span class="token punctuation">)</span>
+        device_count <span class="token operator">=</span> torch<span class="token punctuation">.</span>cuda<span class="token punctuation">.</span>device_count<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        batch_size <span class="token operator">*=</span> device_count
+            
+self<span class="token punctuation">.</span>dataloader <span class="token operator">=</span> DataLoader<span class="token punctuation">(</span>self<span class="token punctuation">.</span>dataset<span class="token punctuation">,</span>
+    batch_size<span class="token operator">=</span>self<span class="token punctuation">.</span>batch_size<span class="token punctuation">,</span>
+    pin_memory<span class="token operator">=</span>self<span class="token punctuation">.</span>pin_memory<span class="token punctuation">,</span>
+    sampler<span class="token operator">=</span>self<span class="token punctuation">.</span>data_sampler<span class="token punctuation">,</span>
+    num_workers<span class="token operator">=</span>self<span class="token punctuation">.</span>num_local_io_workers<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>最好定义成生成器（相当于<code>IterableDataset</code>）</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">__iter__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    self<span class="token punctuation">.</span>_create_dataloader<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> self
+
+<span class="token keyword">def</span> <span class="token function">__len__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> self<span class="token punctuation">.</span><span class="token builtin">len</span>
+
+<span class="token keyword">def</span> <span class="token function">__next__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> self<span class="token punctuation">.</span>tput_timer<span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>tput_timer<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token builtin">next</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>data<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>样例</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> torch
+<span class="token keyword">import</span> logging
+<span class="token keyword">from</span> torch<span class="token punctuation">.</span>utils<span class="token punctuation">.</span>data <span class="token keyword">import</span> DataLoader<span class="token punctuation">,</span> RandomSampler
+<span class="token keyword">from</span> torch<span class="token punctuation">.</span>utils<span class="token punctuation">.</span>data<span class="token punctuation">.</span>distributed <span class="token keyword">import</span> DistributedSampler
+<span class="token keyword">from</span> tqdm <span class="token keyword">import</span> tqdm
+
+
+<span class="token keyword">class</span> <span class="token class-name">DeepSpeedDataLoader</span><span class="token punctuation">(</span><span class="token builtin">object</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>
+                 dataset<span class="token punctuation">,</span>
+                 batch_size<span class="token punctuation">,</span>
+                 pin_memory<span class="token punctuation">,</span>
+                 local_rank<span class="token punctuation">,</span>
+                 tput_timer<span class="token punctuation">,</span>
+                 collate_fn<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span>
+                 num_local_io_workers<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span>
+                 data_sampler<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>tput_timer <span class="token operator">=</span> tput_timer
+        self<span class="token punctuation">.</span>batch_size <span class="token operator">=</span> batch_size
+
+        <span class="token keyword">if</span> local_rank <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">:</span> <span class="token comment"># 开启分布式 用DistributedSampler</span>
+            <span class="token keyword">if</span> data_sampler <span class="token keyword">is</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+                data_sampler <span class="token operator">=</span> DistributedSampler<span class="token punctuation">(</span>dataset<span class="token punctuation">)</span>
+            device_count <span class="token operator">=</span> <span class="token number">1</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token comment"># 不开启分布式 用 RandomSampler</span>
+            <span class="token keyword">if</span> data_sampler <span class="token keyword">is</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+                data_sampler <span class="token operator">=</span> RandomSampler<span class="token punctuation">(</span>dataset<span class="token punctuation">)</span>
+            device_count <span class="token operator">=</span> torch<span class="token punctuation">.</span>cuda<span class="token punctuation">.</span>device_count<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            batch_size <span class="token operator">*=</span> device_count
+
+        <span class="token keyword">if</span> num_local_io_workers <span class="token keyword">is</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+            num_local_io_workers <span class="token operator">=</span> <span class="token number">2</span> <span class="token operator">*</span> device_count
+
+        self<span class="token punctuation">.</span>num_local_io_workers <span class="token operator">=</span> num_local_io_workers
+        self<span class="token punctuation">.</span>data_sampler <span class="token operator">=</span> data_sampler
+        self<span class="token punctuation">.</span>dataset <span class="token operator">=</span> dataset
+        self<span class="token punctuation">.</span>collate_fn <span class="token operator">=</span> collate_fn
+        self<span class="token punctuation">.</span>device_count <span class="token operator">=</span> device_count
+        self<span class="token punctuation">.</span>batch_size <span class="token operator">=</span> batch_size
+        self<span class="token punctuation">.</span>pin_memory <span class="token operator">=</span> pin_memory
+        self<span class="token punctuation">.</span><span class="token builtin">len</span> <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>data_sampler<span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>data <span class="token operator">=</span> <span class="token boolean">None</span>
+
+    <span class="token keyword">def</span> <span class="token function">__iter__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>_create_dataloader<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> self
+
+    <span class="token keyword">def</span> <span class="token function">__len__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span><span class="token builtin">len</span>
+
+    <span class="token keyword">def</span> <span class="token function">__next__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> self<span class="token punctuation">.</span>tput_timer<span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>tput_timer<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token builtin">next</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>data<span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">_create_dataloader</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> self<span class="token punctuation">.</span>collate_fn <span class="token keyword">is</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>dataloader <span class="token operator">=</span> DataLoader<span class="token punctuation">(</span>self<span class="token punctuation">.</span>dataset<span class="token punctuation">,</span>
+                                         batch_size<span class="token operator">=</span>self<span class="token punctuation">.</span>batch_size<span class="token punctuation">,</span>
+                                         pin_memory<span class="token operator">=</span>self<span class="token punctuation">.</span>pin_memory<span class="token punctuation">,</span>
+                                         sampler<span class="token operator">=</span>self<span class="token punctuation">.</span>data_sampler<span class="token punctuation">,</span>
+                                         num_workers<span class="token operator">=</span>self<span class="token punctuation">.</span>num_local_io_workers<span class="token punctuation">)</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>dataloader <span class="token operator">=</span> DataLoader<span class="token punctuation">(</span>self<span class="token punctuation">.</span>dataset<span class="token punctuation">,</span>
+                                         batch_size<span class="token operator">=</span>self<span class="token punctuation">.</span>batch_size<span class="token punctuation">,</span>
+                                         pin_memory<span class="token operator">=</span>self<span class="token punctuation">.</span>pin_memory<span class="token punctuation">,</span>
+                                         sampler<span class="token operator">=</span>self<span class="token punctuation">.</span>data_sampler<span class="token punctuation">,</span>
+                                         collate_fn<span class="token operator">=</span>self<span class="token punctuation">.</span>collate_fn<span class="token punctuation">,</span>
+                                         num_workers<span class="token operator">=</span>self<span class="token punctuation">.</span>num_local_io_workers<span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>data <span class="token operator">=</span> <span class="token punctuation">(</span>x <span class="token keyword">for</span> x <span class="token keyword">in</span> self<span class="token punctuation">.</span>dataloader<span class="token punctuation">)</span>
+
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>dataloader<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="Training-API"><a href="#Training-API" class="headerlink" title="Training API"></a>Training API</h4><ul>
+<li>把读取的分布式<code>data</code>放到相应的显卡上 <code>inputs, labels = data[0].to(model_engine.local_rank), data[1].to(model_engine.local_rank)</code></li>
+<li>注意<code>loss</code>和<code>optimizer</code>分别是<code>model_engine.backward(loss)</code>和<code>model_engine.step()</code>,不需要<code>optimizer.zero_grad()</code>. (Zeroing the gradients is handled automatically by DeepSpeed after the weights have been updated using a mini-batch.)</li>
+<li>样例</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">for</span> i<span class="token punctuation">,</span> data <span class="token keyword">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>trainloader<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment"># get the inputs; data is a list of [inputs, labels]</span>
+    inputs<span class="token punctuation">,</span> labels <span class="token operator">=</span> data<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>to<span class="token punctuation">(</span>model_engine<span class="token punctuation">.</span>local_rank<span class="token punctuation">)</span><span class="token punctuation">,</span> data<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>to<span class="token punctuation">(</span>model_engine<span class="token punctuation">.</span>local_rank<span class="token punctuation">)</span>
+
+    outputs <span class="token operator">=</span> model_engine<span class="token punctuation">(</span>inputs<span class="token punctuation">)</span>
+    loss <span class="token operator">=</span> criterion<span class="token punctuation">(</span>outputs<span class="token punctuation">,</span> labels<span class="token punctuation">)</span>
+
+    model_engine<span class="token punctuation">.</span>backward<span class="token punctuation">(</span>loss<span class="token punctuation">)</span>
+    model_engine<span class="token punctuation">.</span>step<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h4><ul>
+<li>定义 <code>JSON file (ds_config.json)</code></li>
+</ul>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
+  <span class="token property">"train_batch_size"</span><span class="token operator">:</span> <span class="token number">4</span><span class="token punctuation">,</span>
+  <span class="token property">"steps_per_print"</span><span class="token operator">:</span> <span class="token number">2000</span><span class="token punctuation">,</span>
+  <span class="token property">"optimizer"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"Adam"</span><span class="token punctuation">,</span>
+    <span class="token property">"params"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">"lr"</span><span class="token operator">:</span> <span class="token number">0.001</span><span class="token punctuation">,</span>
+      <span class="token property">"betas"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token number">0.8</span><span class="token punctuation">,</span>
+        <span class="token number">0.999</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">"eps"</span><span class="token operator">:</span> <span class="token number">1e-8</span><span class="token punctuation">,</span>
+      <span class="token property">"weight_decay"</span><span class="token operator">:</span> <span class="token number">3e-7</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token property">"scheduler"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"WarmupLR"</span><span class="token punctuation">,</span>
+    <span class="token property">"params"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">"warmup_min_lr"</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+      <span class="token property">"warmup_max_lr"</span><span class="token operator">:</span> <span class="token number">0.001</span><span class="token punctuation">,</span>
+      <span class="token property">"warmup_num_steps"</span><span class="token operator">:</span> <span class="token number">1000</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token property">"wall_clock_breakdown"</span><span class="token operator">:</span> <span class="token boolean">false</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="Running"><a href="#Running" class="headerlink" title="Running"></a>Running</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ deepspeed deepspeed.py <span class="token parameter variable">--deepspeed</span> <span class="token parameter variable">--deepspeed_config</span> ds_config.json<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="Inference"><a href="#Inference" class="headerlink" title="Inference"></a>Inference</h3><h4 id="Inference-API"><a href="#Inference-API" class="headerlink" title="Inference API"></a>Inference API</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://deepspeed.readthedocs.io/en/latest/inference-init.html#deepspeed.init_inference"><code>deepspeed.init_inference()</code></a> returns an <em>inference engine</em> of type <code>InferenceEngine</code>.</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">for</span> step<span class="token punctuation">,</span> batch <span class="token keyword">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>data_loader<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment">#forward() method</span>
+    loss <span class="token operator">=</span> engine<span class="token punctuation">(</span>batch<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+
 <h2 id="Accelerator"><a href="#Accelerator" class="headerlink" title="Accelerator"></a>Accelerator</h2><ul>
 <li><p><a target="_blank" rel="noopener" href="https://github.com/huggingface/accelerate">https://github.com/huggingface/accelerate</a></p>
 </li>
@@ -1769,7 +2009,7 @@ hvd<span class="token punctuation">.</span>broadcast_parameters<span class="toke
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">46.3k</span>
+                        class="white-color">47.1k</span>
             
             
             
