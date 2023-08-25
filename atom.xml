@@ -6,7 +6,7 @@
   <link href="https://lee-jet.github.io/atom.xml" rel="self"/>
   
   <link href="https://lee-jet.github.io/"/>
-  <updated>2023-08-21T07:12:44.714Z</updated>
+  <updated>2023-08-25T06:27:57.817Z</updated>
   <id>https://lee-jet.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>StableDiffusion</title>
+    <link href="https://lee-jet.github.io/2023/08/25/stablediffusion/"/>
+    <id>https://lee-jet.github.io/2023/08/25/stablediffusion/</id>
+    <published>2023-08-25T06:25:42.000Z</published>
+    <updated>2023-08-25T06:27:57.817Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;7&#39;&gt; &lt;strong&gt;Stable Diffusion&lt;/strong&gt; &lt;/font&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;paper &lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
+    
+  </entry>
   
   <entry>
     <title>ChatGPT</title>
@@ -511,31 +540,6 @@ Rethinking SORT for Robust Multi-Object</summary>
         
         
     <summary type="html">&lt;h2 id=&quot;Python&quot;&gt;&lt;a href=&quot;#Python&quot; class=&quot;headerlink&quot; title=&quot;Python&quot;&gt;&lt;/a&gt;&lt;strong&gt;Python&lt;/strong&gt;&lt;/h2&gt;&lt;h3 id=&quot;第三方库大全&quot;&gt;&lt;a href=&quot;#第三方库大全&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Tech share" scheme="https://lee-jet.github.io/categories/Tech-share/"/>
-    
-    
-    <category term="Tech share" scheme="https://lee-jet.github.io/tags/Tech-share/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>08_linux_shell</title>
-    <link href="https://lee-jet.github.io/2023/01/10/08-linux-shell/"/>
-    <id>https://lee-jet.github.io/2023/01/10/08-linux-shell/</id>
-    <published>2023-01-10T01:38:38.000Z</published>
-    <updated>2023-02-10T08:45:13.896Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;tutorials&quot;&gt;&lt;a href=&quot;#tutorials&quot; class=&quot;headerlink&quot; title=&quot;tutorials&quot;&gt;&lt;/a&gt;&lt;strong&gt;tutorials&lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;&lt;a</summary>
         
       
     
