@@ -4,14 +4,14 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="paper-reading, AiHub">
-    <meta name="description" content="
-目标检测
+    <meta name="keywords" content="ControlNet, AiHub">
+    <meta name="description" content="ControlNet:
+Adding Conditional Control to Text-to-Image
+    Diffusion Models
 
-婴儿哭声检测
 
-模型压缩与加速
 
+paper https://arxiv.org/abs/2302.05543
 
 ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,7 +25,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>paper-reading | AiHub</title>
+    <title>ControlNet | AiHub</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -345,12 +345,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">paper-reading</h1>
+                    <h1 class="description center-align post-title">ControlNet</h1>
                 </div>
             </div>
         </div>
@@ -399,28 +399,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-08-01
+                    2023-08-28
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-08-01
+                    2023-08-28
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    17
+                    1.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    7 分
                 </div>
                 
 
@@ -443,15 +443,124 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <ul>
-<li><p><a href="">目标检测</a></p>
+                <div align='center' ><font size='3'><strong>ControlNet:
+Adding Conditional Control to Text-to-Image
+    Diffusion Models</strong></font></div>
+
+<hr>
+<ul>
+<li><p>paper <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2302.05543">https://arxiv.org/abs/2302.05543</a></p>
 </li>
-<li><p><a href="./baby_crying_detection_tutorials.md">婴儿哭声检测</a></p>
-</li>
-<li><p><a href="./model-compression-and-acceleration-md.md">模型压缩与加速</a></p>
+<li><p>code <a target="_blank" rel="noopener" href="https://github.com/lllyasviel/ControlNet">https://github.com/lllyasviel/ControlNet</a></p>
 </li>
 </ul>
-
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/pose_image_1-min.png" alt="ControlNet pose examples"></p>
+<hr>
+<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><ul>
+<li>除了text-prompt文本提示作为输入，还增加了其它控制条件作为输入（文本+图像作为输入）</li>
+<li>在小数据集上（&lt;50k）鲁棒性较好</li>
+<li>是一个特定任务条件，且是一个end2end，对diffusion model进行控制（Stable diffusion是一种）</li>
+</ul>
+<h2 id="Contributions"><a href="#Contributions" class="headerlink" title="Contributions"></a>Contributions</h2><ul>
+<li>ControlNet 将diffusion model 克隆成2个模型，一个是trainable copy，一个是locked copy<ul>
+<li>trainable copy 在特定任务上以端到端方式学习条件控制</li>
+<li>locked copy 保留网络来自数亿图像的生成能力，所以具有较好的鲁棒性</li>
+<li>2个copy的联系采用 zero convolution ，其权重从0开始增加到优化参数，因为不需要向深层特征增加noise，所以训练速度和微调模型一样快</li>
+</ul>
+</li>
+<li>Conditions: Canny edges, Hough lines, user scribbles, human key points, segmentation maps, shape normals, depths, etc  </li>
+</ul>
+<h2 id="Related-Work"><a href="#Related-Work" class="headerlink" title="Related Work"></a>Related Work</h2><h3 id="Text-to-Image-Diffusion"><a href="#Text-to-Image-Diffusion" class="headerlink" title="Text-to-Image Diffusion"></a>Text-to-Image Diffusion</h3><p>Diffusion models can be applied to text-to-image generating tasks to achieve state-of-the-art image generating results. This is often achieved by encoding text inputs into latent vectors using pretrained language models like CLIP </p>
+<ul>
+<li>Glide  is a text-guided diffusion models supporting<br>  both image generating and editing. </li>
+<li>Disco Diffusion is a clip-guided implementation of  to process text prompts. </li>
+<li>Stable Diffusion is a large scale implementation of latent diffusion to achieve text-to-image generation. </li>
+<li>Imagen is a text-to-image structure that does not use latent images and<br>  directly diffuse pixels using a pyramid structure.  </li>
+</ul>
+<h3 id="Image-to-Image-Translation"><a href="#Image-to-Image-Translation" class="headerlink" title="Image-to-Image Translation"></a>Image-to-Image Translation</h3><ul>
+<li>在应用上，ControlNet 和 image-to-image translation 存在重叠，但是二者动机不同<ul>
+<li>image-to-image translation 是学习不同domain图像之间的映射关系</li>
+<li>ControlNet 用特定任务条件对diffusion model 进行控制</li>
+</ul>
+</li>
+</ul>
+<h2 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230828105432263.png" alt="image-20230828105432263"></p>
+<ol>
+<li>克隆预训练模型：ControlNet 首先创建了预训练图像扩散模型的两个副本，其中一个是 “锁定” 的，不能被修改，而另一个是 “可训练” 的，可以在特定任务上进行微调。 ControlNet 使用了一种称为 “权重共享” 的技术，该技术可以将预训练模型的权重复制到两个不同的神经网络中。这样，在微调可训练副本时，锁定副本仍然保留着从预训练中学到的通用知识，并且可以提供更好的初始状态。 需要注意的是，在克隆预训练模型之前，需要先选择一个适合特定任务的预训练模型，并对其进行必要的调整和优化。这样才能确保克隆出来的模型能够更好地适应特定任务，并取得更好的效果。</li>
+<li>定义输入条件：ControlNet 然后定义了一组输入条件，可以用来控制模型的输出。这些条件可能包括颜色方案、对象类别或其他特定任务参数。 该技术可以将输入条件与预训练模型进行连接，并将其作为额外的输入信息传递给神经网络。这样，在微调可训练副本时，神经网络可以根据这些输入条件来调整输出结果，并更好地适应特定任务。 需要注意的是，在定义输入条件之前，需要先确定哪些参数对于特定任务是最重要的，并选择合适的方式来表示这些参数。例如，在图像分类任务中，可能需要考虑对象类别、颜色和纹理等因素，并选择合适的方式来表示它们。同时，还需要确保这些输入条件能够被有效地传递给神经网络，并且不会对模型性能产生负面影响。</li>
+<li>训练可训练副本：ControlNet 然后使用反向传播和其他标准训练技术，在特定数据集上对可训练副本进行训练。 很自然的就是一个标准的神经网络训练流程。训练可训练副本之前，需要先选择一个适合特定任务的预训练模型，并将其克隆为可训练副本。同时还需要确定哪些输入条件对于特定任务是最重要的，并将其与预训练模型进行连接。</li>
+<li>合并输出：最后，ControlNet 将两个模型副本的输出组合起来，产生一个最终结果，既包含从预训练中学到的通用知识，也包含从微调中学到的特定知识。</li>
+</ol>
+<p>​    <code>数据流转主要流程</code>如下：</p>
+<p>​    a.timesteps经过embedding转换为特征向量送入Stable Diffusion和ControlNet；</p>
+<p>​    b.随机噪声被送入Stable Diffusion；</p>
+<p>​    c.图像的Map经过HintBlock，与随机噪声相加，送入ControlNet;</p>
+<p>​    d.Prompt的Embedding送入Stable Diffusion和ControlNet；</p>
+<p>​    e.Stable Diffusion的所有参数被冻结不参与训练</p>
+<p>​    f.ControlNet的结构与Stable Diffusion一致，只是每层后面增加一个零卷积；</p>
+<p>​    g.Stable Diffusion和ControlNet中的ResBlock将上一层的输出和timesteps作为输入；</p>
+<p>​    h.Stable Diffusion和ControlNet中的SpatialTransformer将上一层的输出和Prompt Embedding 作为输入。</p>
+<h3 id="ControlNet"><a href="#ControlNet" class="headerlink" title="ControlNet"></a>ControlNet</h3><ol>
+<li>为什么要将diffusion model分成2个copy，而不是在原始模型上训练权重？</li>
+</ol>
+<p>​    因为一方面要保留采用数亿图像训练好模型的生成质量，另一方面在特定任务上训练，其数据量少容易overfitting</p>
+<ol start="2">
+<li><p>2个copy通过zero convolution连接</p>
+<p> 零卷积是指卷积的权重和偏差初始化为0的1X1普通卷积，在迭代过程中参数更新</p>
+<p> 在第一次迭代时候，零卷积为0，对2个copy网络贡献为0，所以不影响网络性能，网络输入仍为x，输出仍为y 。<code>x + Zc x Zin -&gt; y + Zy x Zout</code></p>
+<p> 满足的条件：特征图像非零</p>
+</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230828142618638.png" alt="image-20230828142618638"></p>
+<h3 id="ControlNet-in-Image-Diffusion-Model"><a href="#ControlNet-in-Image-Diffusion-Model" class="headerlink" title="ControlNet in Image Diffusion Model"></a>ControlNet in Image Diffusion Model</h3><ul>
+<li><p>以Stable Diffusion为例，它是由encoder，a middle block，a skip-connected decoder三部分组成。其中U-net encoder和decoder都是12个blocks，总共25个blocks。有8个block是下采样或者上采样，其它17block包含4个resnet层和2个ViT层。每个ViT层包括self or cross注意力机制。Text encoder采用OpenAI CLIP，每个time steps采用positional encoding。</p>
+</li>
+<li><p>SD是将512X512分辨率的图像转化到64X64分辨率的 latent images，所以ControlNet需要将图像空间编码到64X64的隐图像空间Cf，设计一个卷积网络即可。</p>
+<blockquote>
+<p>We use a tiny network E(·) of four convolution layers with 4 × 4 kernels and 2 × 2 strides (activated by ReLU, channels are 16, 32, 64, 128, initialized with Gaussian weights, trained jointly with the full model)   </p>
+</blockquote>
+</li>
+<li><p>训练时候内存增加了23%，时间增加了34%，计算效率比较高</p>
+</li>
+<li><p>trainable copy中，只是encoder和middle block参数可调，其它decoder参数固定</p>
+</li>
+</ul>
+<h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><h3 id="Training"><a href="#Training" class="headerlink" title="Training"></a>Training</h3><ul>
+<li>将50%的text prompt置为空字符串，目的是为了让网络学习输入的图像条件，当出现空文本时，可以用图像条件取代文本提示</li>
+<li>算力有限前提下，将decoder的连线去掉，只保留middle block连线，有加速效果</li>
+</ul>
+<h3 id="Conditions"><a href="#Conditions" class="headerlink" title="Conditions"></a>Conditions</h3><ul>
+<li>Canny Edge  </li>
+<li>Canny Edge (Alter)  </li>
+<li>Hough Line  </li>
+<li>HED Boundary  </li>
+<li>User Sketching  </li>
+<li>Human Pose (Openpifpaf)  </li>
+<li>Human Pose (Openpose)  </li>
+<li>Semantic Segmentation (COCO)  </li>
+<li>Semantic Segmentation (ADE20K)  </li>
+<li>Depth (large-scale)  </li>
+<li>Depth (small-scale)   </li>
+<li>Normal Maps  </li>
+<li>Normal Maps (extended)  </li>
+<li>Cartoon Line Drawing  </li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230828150219988.png" alt="image-20230828150219988"></p>
+<h2 id="Datasets"><a href="#Datasets" class="headerlink" title="Datasets"></a>Datasets</h2><p>如果想训练自己的 StableDiffusion &amp; ControlNet，需要准备paired data：</p>
+<ul>
+<li>真实图像作为图像生成的Ground Truth</li>
+<li>通过真实图像获取的条件图像作为输入的控制条件 conditional images</li>
+<li>真实图像的文本描述caption作为text prompts</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/new_dataset.png" alt="New dataset"></p>
+<ul>
+<li>GPU至少8G</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230828153126268.png" alt="image-20230828153126268"></p>
+<h2 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions"></a>Conclusions</h2><ul>
+<li>增加了图像条件进行扩散模型图像生成的细粒度控制</li>
+</ul>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2>
                 
             </div>
             <hr/>
@@ -477,7 +586,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lee-jet.github.io/2023/08/01/paper-reading/">https://lee-jet.github.io/2023/08/01/paper-reading/</a>
+                    <a href="https://lee-jet.github.io/2023/08/28/controlnet/">https://lee-jet.github.io/2023/08/28/controlnet/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -594,7 +703,7 @@
         repo: 'gitalk',
         owner: 'lee-jet',
         admin: "lee-jet",
-        id: '2023-08-01T10-09-32',
+        id: '2023-08-28T15-51-55',
         distractionFreeMode: false,  // Facebook-like distraction free mode
     });
 
@@ -622,17 +731,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/08/01/cascade-detr/">
+                <a href="/2023/08/28/controlnet/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Cascade-DETR">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="ControlNet">
                         
-                        <span class="card-title">Cascade-DETR</span>
+                        <span class="card-title">ControlNet</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -642,9 +752,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-08-01
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-28
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -657,6 +767,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -675,13 +786,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/07/27/model-compression-and-acceleration-md/">
+                <a href="/2023/08/25/stablediffusion/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="model-compression-and-acceleration.md">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="StableDiffusion">
                         
-                        <span class="card-title">model-compression-and-acceleration.md</span>
+                        <span class="card-title">StableDiffusion</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -692,12 +803,16 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-25
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Lee Jet
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper-Reading/" class="post-category">
+                                    Paper Reading
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -705,8 +820,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Tech-share/">
-                        <span class="chip bg-color">Tech share</span>
+                    <a href="/tags/Paper-Reading/">
+                        <span class="chip bg-color">Paper Reading</span>
                     </a>
                     
                 </div>
