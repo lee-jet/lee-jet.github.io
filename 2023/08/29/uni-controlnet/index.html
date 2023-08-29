@@ -4,11 +4,14 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="07_bugs, AiHub">
-    <meta name="description" content="CUDARuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling cublasCreate(handle)显存不够了 类似out of memory
+    <meta name="keywords" content="Uni-ControlNet, AiHub">
+    <meta name="description" content="Uni-ControlNet: All-in-One Control to Text-to-Image Diffusion Models
 
 
-OMP">
+
+paper https://arxiv.org/abs/2305.16322
+
+code htt">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +23,7 @@ OMP">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>07_bugs | AiHub</title>
+    <title>Uni-ControlNet | AiHub</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -340,12 +343,12 @@ OMP">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">07_bugs</h1>
+                    <h1 class="description center-align post-title">Uni-ControlNet</h1>
                 </div>
             </div>
         </div>
@@ -369,8 +372,8 @@ OMP">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Tech-share/">
-                                <span class="chip bg-color">Tech share</span>
+                            <a href="/tags/Paper-Reading/">
+                                <span class="chip bg-color">Paper Reading</span>
                             </a>
                         
                     </div>
@@ -381,8 +384,8 @@ OMP">
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Tech-share/" class="post-category">
-                                Tech share
+                            <a href="/categories/Paper-Reading/" class="post-category">
+                                Paper Reading
                             </a>
                         
                     </div>
@@ -394,28 +397,28 @@ OMP">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-01-09
+                    2023-08-29
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-02-10
+                    2023-08-29
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    88
+                    817
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -438,21 +441,77 @@ OMP">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="CUDA"><a href="#CUDA" class="headerlink" title="CUDA"></a>CUDA</h2><h3 id="RuntimeError-CUDA-error-CUBLAS-STATUS-NOT-INITIALIZED-when-calling-cublasCreate-handle"><a href="#RuntimeError-CUDA-error-CUBLAS-STATUS-NOT-INITIALIZED-when-calling-cublasCreate-handle" class="headerlink" title="RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling cublasCreate(handle)"></a><strong>RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling</strong> <strong>cublasCreate(handle)</strong></h3><pre class="line-numbers language-none"><code class="language-none">显存不够了 类似out of memory<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+                <div align='center' ><font size='4.5'><strong>Uni-ControlNet: All-in-One Control to Text-to-Image Diffusion Models</strong></font></div>
 
 <hr>
-<h3 id="OMP-Error-15-Initializing-libiomp5md-dll-but-found-libiomp5md-dll-already-initialized"><a href="#OMP-Error-15-Initializing-libiomp5md-dll-but-found-libiomp5md-dll-already-initialized" class="headerlink" title="OMP: Error #15: Initializing libiomp5md.dll, but found libiomp5md.dll already initialized."></a><strong>OMP: Error #15: Initializing libiomp5md.dll, but found libiomp5md.dll already initialized.</strong></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> os 
-os<span class="token punctuation">.</span>environ<span class="token punctuation">[</span><span class="token string">"KMP_DUPLICATE_LIB_OK"</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"TRUE"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h2 id="PyQt5"><a href="#PyQt5" class="headerlink" title="PyQt5"></a>PyQt5</h2><h3 id="qt-qpa-screen-QXcbConnection-Could-not-connect-to-display"><a href="#qt-qpa-screen-QXcbConnection-Could-not-connect-to-display" class="headerlink" title="qt.qpa.screen: QXcbConnection: Could not connect to display"></a><strong>qt.qpa.screen: QXcbConnection: Could not connect to display</strong></h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">DISPLAY</span></span><span class="token operator">=</span><span class="token string">':0.0'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="OpenCV"><a href="#OpenCV" class="headerlink" title="OpenCV"></a><strong>OpenCV</strong></h2><h3 id="qt-qpa-plugin-Could-not-load-the-Qt-platform-plugin-“xcb”"><a href="#qt-qpa-plugin-Could-not-load-the-Qt-platform-plugin-“xcb”" class="headerlink" title="qt.qpa.plugin: Could not load the Qt platform plugin “xcb”"></a><strong>qt.qpa.plugin: Could not load the Qt platform plugin “xcb”</strong></h3><p><a target="_blank" rel="noopener" href="https://felaim.blog.csdn.net/article/details/109384602">https://felaim.blog.csdn.net/article/details/109384602</a></p>
-<p><strong>linux：can’t connect to X server</strong></p>
 <ul>
-<li>一般存在cv2.imshow等图形化界面需求</li>
+<li><p>paper <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2305.16322">https://arxiv.org/abs/2305.16322</a></p>
+</li>
+<li><p>code <a target="_blank" rel="noopener" href="https://github.com/ShihaoZhaoZSH/Uni-ControlNet">https://github.com/ShihaoZhaoZSH/Uni-ControlNet</a></p>
+</li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/image-20230111171352736.png" alt="image-20230111171352736"></p>
-
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/results.png" alt="image"></p>
+<hr>
+<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><ul>
+<li>文本提示难以实现细节控制，即使文本很长很复杂</li>
+<li>Uni-ControlNet同时利用局部控制（图像条件）和全局控制（图像字符嵌入），且只需要在冻结的预训练模型上微调2个适配器，就能将多个图像控制条件融入到一个模型中</li>
+<li>text-to-image (T2I)   </li>
+</ul>
+<h2 id="Contributions"><a href="#Contributions" class="headerlink" title="Contributions"></a>Contributions</h2><ul>
+<li>将所有条件分成两组——局部条件和全局条件，每组条件设计一个适配器Adapter，一共2个适配器，不需要联合训练，采用分开训练</li>
+<li>局部控制：引入了一种多尺度条件注入策略，使用共享的局部条件编码器适配器。该适配器首先将局部控制信号转换为调制信号，然后用于调制输入的噪声特征。</li>
+<li>全局控制：使用另一个共享全局条件编码器将其转换为条件标记，然后将其与文本标记连接起来形成扩展提示，并通过交叉注意与输入特征进行交互</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230829101505782.png" alt="image-20230829101505782"></p>
+<h2 id="Related-Work"><a href="#Related-Work" class="headerlink" title="Related Work"></a>Related Work</h2><h3 id="Controllable-Diffusion-Models"><a href="#Controllable-Diffusion-Models" class="headerlink" title="Controllable Diffusion Models"></a>Controllable Diffusion Models</h3><ul>
+<li>ControlNet   </li>
+<li>T2I-Adapter  </li>
+</ul>
+<p>每个条件单独一个适配器模型，非统一</p>
+<h2 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230829101738798.png" alt="image-20230829101738798"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230829101922641.png" alt="image-20230829101922641"></p>
+<h3 id="Local-Control-Adapter"><a href="#Local-Control-Adapter" class="headerlink" title="Local Control Adapter"></a>Local Control Adapter</h3><ul>
+<li>受ControlNet启发，固定了SD模型的权重且复制了其encoder和middle block的结构和权重分别为F‘，M’，然后修改了SD的decoder的输入，使其包含局部控制信息，具体如下：</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230829103238330.png" alt="image-20230829103238330"></p>
+<ul>
+<li>和ControlNet不同地方是，没有直接将条件和噪声输入相加，而是采用多尺度条件注入策略<ol>
+<li>将不同的局部条件沿着通道维度进行拼接 Cl</li>
+<li>使用堆叠的卷积层构成的特征提取器H提取不同尺度的特征图，64 32 16 8</li>
+<li>受SPADE启发，实现了特征去正则化FDN，使用条件特征来调制归一化的输入噪声特征</li>
+</ol>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230829104105009.png" alt="image-20230829104105009"></p>
+<p>​        上面就是将不同尺度的噪声和特征进行相加，2个学习参数分别学习空间敏感的尺度和偏移调制</p>
+<p>​        zero是零卷积</p>
+<p>​        调制采用乘法，直接和噪声相乘</p>
+<blockquote>
+<p>注意：局部图像条件没有用CLIP，而是用CNN提取特征，ControlNet就是采用CLIP提取image token embeddings</p>
+</blockquote>
+<h3 id="Global-Control-Adapter"><a href="#Global-Control-Adapter" class="headerlink" title="Global Control Adapter"></a>Global Control Adapter</h3><ol>
+<li>使用CLIP提取一个图像全局条件的token嵌入</li>
+<li>将全局控制信号用条件编码器hg投影到条件嵌入空间（条件编码器是由前馈层堆叠，可以将文本嵌入和图像条件嵌入对其到嵌入空间）</li>
+<li>reshape条件嵌入成K个全局字符，默认是4个</li>
+<li>将K和文本字符K0相加，构成扩展提示（总的字符数是K+K0）</li>
+<li>扩展提示字符作为所有交叉注意力层（包括SD模型和控制适配器）的输入</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230829105342752.png" alt="image-20230829105342752"></p>
+<h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><h3 id="Training-Strategy"><a href="#Training-Strategy" class="headerlink" title="Training Strategy"></a>Training Strategy</h3><ul>
+<li>2个适配器分开训练（单独训练全局控制，单独训练局部控制，没有先后）<ul>
+<li>以一定概率随机丢弃每一个条件</li>
+<li>以一定概率保留或丢弃全部条件</li>
+</ul>
+</li>
+<li>推理时候直接组合，不需要联合训练</li>
+</ul>
+<h3 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230829105606626.png" alt="image-20230829105606626"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230829110339463.png" alt="image-20230829110339463"></p>
+<h2 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions"></a>Conclusions</h2><ul>
+<li>只需要2个适配器即可</li>
+<li>容易部署</li>
+</ul>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2>
                 
             </div>
             <hr/>
@@ -478,7 +537,7 @@ os<span class="token punctuation">.</span>environ<span class="token punctuation"
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lee-jet.github.io/2023/01/09/07-bugs/">https://lee-jet.github.io/2023/01/09/07-bugs/</a>
+                    <a href="https://lee-jet.github.io/2023/08/29/uni-controlnet/">https://lee-jet.github.io/2023/08/29/uni-controlnet/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -516,8 +575,8 @@ os<span class="token punctuation">.</span>environ<span class="token punctuation"
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Tech-share/">
-                                    <span class="chip bg-color">Tech share</span>
+                                <a href="/tags/Paper-Reading/">
+                                    <span class="chip bg-color">Paper Reading</span>
                                 </a>
                             
                         </div>
@@ -595,7 +654,7 @@ os<span class="token punctuation">.</span>environ<span class="token punctuation"
         repo: 'gitalk',
         owner: 'lee-jet',
         admin: "lee-jet",
-        id: '2023-01-09T18-06-11',
+        id: '2023-08-29T11-55-07',
         distractionFreeMode: false,  // Facebook-like distraction free mode
     });
 
@@ -623,17 +682,18 @@ os<span class="token punctuation">.</span>environ<span class="token punctuation"
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/01/10/08-linux-shell/">
+                <a href="/2023/08/29/uni-controlnet/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="08_linux_shell">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Uni-ControlNet">
                         
-                        <span class="card-title">08_linux_shell</span>
+                        <span class="card-title">Uni-ControlNet</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -643,26 +703,27 @@ os<span class="token punctuation">.</span>environ<span class="token punctuation"
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-01-10
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-29
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Tech-share/" class="post-category">
-                                    Tech share
+                            <a href="/categories/Paper-Reading/" class="post-category">
+                                    Paper Reading
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Tech-share/">
-                        <span class="chip bg-color">Tech share</span>
+                    <a href="/tags/Paper-Reading/">
+                        <span class="chip bg-color">Paper Reading</span>
                     </a>
                     
                 </div>
@@ -676,13 +737,13 @@ os<span class="token punctuation">.</span>environ<span class="token punctuation"
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/01/09/06-client-server/">
+                <a href="/2023/08/28/controlnet/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="06_client_server">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="ControlNet">
                         
-                        <span class="card-title">06_client_server</span>
+                        <span class="card-title">ControlNet</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -693,14 +754,14 @@ os<span class="token punctuation">.</span>environ<span class="token punctuation"
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-09
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-28
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Tech-share/" class="post-category">
-                                    Tech share
+                            <a href="/categories/Paper-Reading/" class="post-category">
+                                    Paper Reading
                                 </a>
                             
                             
@@ -710,8 +771,8 @@ os<span class="token punctuation">.</span>environ<span class="token punctuation"
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Tech-share/">
-                        <span class="chip bg-color">Tech share</span>
+                    <a href="/tags/Paper-Reading/">
+                        <span class="chip bg-color">Paper Reading</span>
                     </a>
                     
                 </div>
