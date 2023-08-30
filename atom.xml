@@ -6,7 +6,7 @@
   <link href="https://lee-jet.github.io/atom.xml" rel="self"/>
   
   <link href="https://lee-jet.github.io/"/>
-  <updated>2023-08-29T03:56:13.073Z</updated>
+  <updated>2023-08-30T03:04:41.336Z</updated>
   <id>https://lee-jet.github.io/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>T2I-Adapter</title>
+    <link href="https://lee-jet.github.io/2023/08/30/t2i-adapter/"/>
+    <id>https://lee-jet.github.io/2023/08/30/t2i-adapter/</id>
+    <published>2023-08-30T03:04:15.000Z</published>
+    <updated>2023-08-30T03:04:41.336Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;4.5&#39;&gt;&lt;strong&gt;T2I-Adapter: Learning Adapters to Dig out More Controllable Ability for Text-to-Image</summary>
+        
+      
+    
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Uni-ControlNet</title>
     <link href="https://lee-jet.github.io/2023/08/29/uni-controlnet/"/>
     <id>https://lee-jet.github.io/2023/08/29/uni-controlnet/</id>
     <published>2023-08-29T03:55:07.000Z</published>
-    <updated>2023-08-29T03:56:13.073Z</updated>
+    <updated>2023-08-29T03:57:40.666Z</updated>
     
     
       
@@ -515,33 +540,6 @@ Rethinking SORT for Robust Multi-Object</summary>
     &lt;font size=&#39;5&#39;&gt; &lt;b&gt; Baby Crying Recognition Tutorials of Algorithm Landing &lt;/b&gt; &lt;/font&gt; 
     &lt;br&gt;
     &lt;font</summary>
-        
-      
-    
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>3D-vision</title>
-    <link href="https://lee-jet.github.io/2023/02/13/3d-vision/"/>
-    <id>https://lee-jet.github.io/2023/02/13/3d-vision/</id>
-    <published>2023-02-13T01:57:01.000Z</published>
-    <updated>2023-07-26T10:01:56.076Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;[TOC]&lt;/p&gt;
-&lt;p&gt;:smile:&lt;/p&gt;
-&lt;h2 id=&quot;Techniques-to-do&quot;&gt;&lt;a href=&quot;#Techniques-to-do&quot; class=&quot;headerlink&quot; title=&quot;Techniques to</summary>
         
       
     
