@@ -464,7 +464,7 @@ code https://github.com/mi">
 <li>简单的线性设计允许在部署时将可训练矩阵与冻结权重合并，与完全微调的模型相比，通过构建不会引入推理延迟。</li>
 <li>LoRA与许多先前的方法正交，并且可以与其中许多方法组合，例如preﬁx-tuning</li>
 </ul>
-<p><img src="./_posts/assets/2ca5308e28a848dc89588038a6ba6b5f.png" alt="img"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/2ca5308e28a848dc89588038a6ba6b5f.png" alt="img"></p>
 <h2 id="Related-Work"><a href="#Related-Work" class="headerlink" title="Related Work"></a>Related Work</h2><ul>
 <li>Transformer Language Models.  </li>
 <li>Prompt Engineering and Fine-Tuning  </li>
@@ -487,14 +487,14 @@ code https://github.com/mi">
 <li><strong>低秩（Low-rank）的意义</strong></li>
 </ol>
 <p>​    若将图像看成一个矩阵，那么它的基的数量越少，基对应的线性无关向量数量就越少，矩阵的秩就越小。当它远远小于矩阵的大小的时候，图像就是低秩的。低秩矩阵的每行或者每列都可以用其他的行或者列线性表示，这说明这个矩阵包含了大量的冗余信息。利用这种冗余信息可以对确实图像信息进行恢复，可以将多出来的噪声信息进行去除，还可以对错误的图像信息进行恢复。</p>
-<h3 id="LOW-RANK-PARAMETRIZED-UPDATE-MATRICES"><a href="#LOW-RANK-PARAMETRIZED-UPDATE-MATRICES" class="headerlink" title="LOW-RANK-PARAMETRIZED UPDATE MATRICES"></a>LOW-RANK-PARAMETRIZED UPDATE MATRICES</h3><p><img src="./_posts/assets/image-20230831121351040.png" alt="image-20230831121351040"></p>
+<h3 id="LOW-RANK-PARAMETRIZED-UPDATE-MATRICES"><a href="#LOW-RANK-PARAMETRIZED-UPDATE-MATRICES" class="headerlink" title="LOW-RANK-PARAMETRIZED UPDATE MATRICES"></a>LOW-RANK-PARAMETRIZED UPDATE MATRICES</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230831121351040.png" alt="image-20230831121351040"></p>
 <ul>
 <li><p>神经网络中的Dense Layer通常包含许多矩阵乘法。先前的研究表明（<code>模型是过参数化</code>），在适应特定任务时，PLM可能具有较低的”内在维度”，即使投射到较小的子空间，也可以有效地进行学习。</p>
 </li>
 <li><p>假设权重更新过程中也具有较低的”内在排名（intrinsic rank）”。作者使用低阶分解的方式表示预训练的权重矩阵W0的更新，即W0 + ∆W = W0 + BA，其中B为d×r的矩阵，a为r×k的矩阵，秩R≪min(d, k)。在训练期间，W0保持不变，不接受梯度更新，而A和B包含可训练的参数。当h=w0x时，修正后的前向传播变为:</p>
 </li>
 </ul>
-<p><img src="./_posts/assets/image-20230831121708759.png" alt="image-20230831121708759"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230831121708759.png" alt="image-20230831121708759"></p>
 <ul>
 <li><p>图中展示了这种重新参数化的方式。对A使用随机高斯初始化，对B使用零初始化，因此∆W = BA在训练开始时为零。然后，将∆Wx乘以α/r，其中α是r中的常数。</p>
 </li>
@@ -503,8 +503,8 @@ code https://github.com/mi">
 <li><p>LoRA在推理过程中没有额外的延迟。在部署到生产环境中时，我们可以显式地计算和存储W = W0 + BA，并像往常一样进行推理。当需要切换到另一个下游任务时，我们可以通过减去BA，然后添加另一个B’和a’来恢复W0，这是一种内存开销较小的快速操作。并且在推理时通过合并权重得到和Full Fine-tuning一样的延迟。</p>
 </li>
 </ul>
-<p><img src="./_posts/assets/image-20230831143646297.png" alt="image-20230831143646297"></p>
-<p><img src="./_posts/assets/image-20230831143741010.png" alt="image-20230831143741010"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230831143646297.png" alt="image-20230831143646297"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230831143741010.png" alt="image-20230831143741010"></p>
 <h3 id="APPLYING-LORA-TO-TRANSFORMER"><a href="#APPLYING-LORA-TO-TRANSFORMER" class="headerlink" title="APPLYING LORA TO TRANSFORMER"></a>APPLYING LORA TO TRANSFORMER</h3><ul>
 <li><p>在Transformer中使用LoRA可以将其应用于权矩阵的子集，从而减少可训练参数的数量。具体来说，在Self-attention模块中有四个权重矩阵(wq、wk、wv、wo)，MLP模块中有两个权重矩阵。可以将适应下游任务的注意力权重限制在自关注模块中，并冻结MLP模块，以简化和提高参数效率。</p>
 </li>
@@ -517,11 +517,11 @@ code https://github.com/mi">
 <li><p>LoRA也有局限性，例如在单个前向传递中批量处理具有不同A和B的不同任务的输入时可能会面临推理延迟的问题。虽然对于不重要延迟的场景，可以不合并权重并动态选择LoRA模块来用于批量示例。</p>
 </li>
 </ul>
-<h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><p><img src="./_posts/assets/image-20230831142906008.png" alt="image-20230831142906008"></p>
+<h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230831142906008.png" alt="image-20230831142906008"></p>
 <ul>
 <li>理论上lora可以支持任何线性层，包括transformer中的4个attention矩阵和2个feed forward中的矩阵，论文旨在attention上做了实验，它限制总参数量不变的情况下观察是在attention其中一个矩阵上，放一个更高秩的lora，还是在多个attention的矩阵上，分别放置低秩一点的lora效果好？结论是把秩分散到多个矩阵上，效果会优于集中在单个上的效果。至于在一般任务上很小的秩就可以和很大秩的效果，这也证明了作者一开始做出的改变量低秩的假设。</li>
 </ul>
-<p><img src="./_posts/assets/51cb8c1a82b942578efa727ef6c63405.png" alt="img"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/51cb8c1a82b942578efa727ef6c63405.png" alt="img"></p>
 <h2 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions"></a>Conclusions</h2><ul>
 <li>极大降低大模型下游任务训练参数，同时保持高模型质量</li>
 <li>几乎不增加推理延迟</li>
