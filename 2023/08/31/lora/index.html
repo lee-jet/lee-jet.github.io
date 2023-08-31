@@ -4,17 +4,14 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="project_demos, AiHub">
-    <meta name="description" content="Project demo list
-Demo 1 Head Pose Retrieval
+    <meta name="keywords" content="LoRA, AiHub">
+    <meta name="description" content="LoRA: Low-Rank Adaptation of Large Language Models
 
-Demo 2 Hair Warpping
 
-Demo 3 Hair Swapping
 
-Demo 4 Human Generation
+paper https://arxiv.org/abs/2106.09685
 
-Demo ">
+code https://github.com/mi">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -26,7 +23,7 @@ Demo ">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>project_demos | AiHub</title>
+    <title>LoRA | AiHub</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -346,12 +343,12 @@ Demo ">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">project_demos</h1>
+                    <h1 class="description center-align post-title">LoRA</h1>
                 </div>
             </div>
         </div>
@@ -375,14 +372,23 @@ Demo ">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/demos/">
-                                <span class="chip bg-color">demos</span>
+                            <a href="/tags/Paper-Reading/">
+                                <span class="chip bg-color">Paper Reading</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Paper-Reading/" class="post-category">
+                                Paper Reading
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -391,28 +397,28 @@ Demo ">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-12-28
+                    2023-08-31
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-02-10
+                    2023-08-31
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    57
+                    2.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    11 分
                 </div>
                 
 
@@ -435,28 +441,176 @@ Demo ">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Project-demo-list"><a href="#Project-demo-list" class="headerlink" title="Project demo list"></a>Project demo list</h2><ul>
-<li><p>Demo 1 Head Pose Retrieval</p>
+                <div align='center' ><font size='4.5'><strong>LoRA: Low-Rank Adaptation of Large Language Models</strong></font></div>
+
+<hr>
+<ul>
+<li><p>paper <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.09685">https://arxiv.org/abs/2106.09685</a></p>
 </li>
-<li><p>Demo 2 Hair Warpping</p>
-</li>
-<li><p>Demo 3 Hair Swapping</p>
-</li>
-<li><p>Demo 4 Human Generation</p>
-</li>
-<li><p>Demo 5 Cloth Simulation and Wrinkle Generation</p>
-</li>
-<li><p>Demo 6 Virtual Try-on</p>
-</li>
-<li><p>Demo 7 6D Pose Estimation</p>
-</li>
-<li><p>Demo 8 Object Detection</p>
-</li>
-<li><p>Demo 9 Collar Try-on Project</p>
+<li><p>code <a target="_blank" rel="noopener" href="https://github.com/microsoft/LoRA">https://github.com/microsoft/LoRA</a></p>
 </li>
 </ul>
-<h2 id="Shared-links"><a href="#Shared-links" class="headerlink" title="Shared links"></a>Shared links</h2><p>​    <a target="_blank" rel="noopener" href="https://note.youdao.com/s/GYrZBXPx">https://note.youdao.com/s/GYrZBXPx</a></p>
-<h2 id="QR-Code"><a href="#QR-Code" class="headerlink" title="QR Code"></a>QR Code</h2><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202302101657960.png" alt="project demos"></p>
+<hr>
+<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><ul>
+<li>NLP范式是在通用数据上训练大规模模型，然后对下游任务进行适配</li>
+<li>适配需要fine tuning模型所有参数，而且每个任务都需要微调，非常不灵活</li>
+<li>提出<code>低秩自适应LoRA</code>，通过冻结预训练模型参数，只将可训练的秩分解矩阵注入到Transformer架构中，极大的降低了下游任务的训练参数。</li>
+<li>GPT-3 175B 使用 LoRA 后，训练参数降低了1万倍，显存降低了3倍，不和其它适配器一样，没有增加推理延迟，而且性能相近</li>
+</ul>
+<h2 id="Contributions"><a href="#Contributions" class="headerlink" title="Contributions"></a>Contributions</h2><p>LoRA优点：</p>
+<ul>
+<li>预训练的模型可以共享，并用于为不同的任务构建许多小型LoRA模块。可以通过替换图中的矩阵A和B来冻结共享模型并有效地切换任务，从而显著降低存储需求和任务切换开销。</li>
+<li>LoRA使训练更有效，并且在使用自适应优化器时将硬件进入门槛降低了3倍，因为不需要计算梯度或维护大多数参数的优化器状态。相反，只优化注入的小得多的低秩矩阵。</li>
+<li>简单的线性设计允许在部署时将可训练矩阵与冻结权重合并，与完全微调的模型相比，通过构建不会引入推理延迟。</li>
+<li>LoRA与许多先前的方法正交，并且可以与其中许多方法组合，例如preﬁx-tuning</li>
+</ul>
+<p><img src="./_posts/assets/2ca5308e28a848dc89588038a6ba6b5f.png" alt="img"></p>
+<h2 id="Related-Work"><a href="#Related-Work" class="headerlink" title="Related Work"></a>Related Work</h2><ul>
+<li>Transformer Language Models.  </li>
+<li>Prompt Engineering and Fine-Tuning  </li>
+<li>Parameter-Efficient Adaptation  </li>
+<li>Low-Rank Structures in Deep Learning  </li>
+</ul>
+<h2 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><ol>
+<li><strong>为什么叫“秩”</strong></li>
+</ol>
+<p>​    彼此不认识，那就不相关，就有秩序，问题就好解决；反之，彼此相关，就没有秩序，问题就不好解决。所以，数学中定义，矩阵中最大的不相关的向量的个数，叫做秩，可以理解为有秩序的程度。</p>
+<ol start="2">
+<li>低秩矩阵分解中低秩的意义</li>
+</ol>
+<p>​    如果矩阵表达的是结构性信息，例如图像、用户-商品推荐表等，那么这个矩阵各行之间存在一定的相关性，那这个矩阵一般是低秩的。</p>
+<p>​    如果矩阵之间各行的相关性很强，那么就表示这个矩阵实际可以投影到更低维的线性子空间，也就是用几个向量就可以完全表达了，它就是低秩的。</p>
+<p>​    如果X是一个m行n列的数值矩阵，rank(x)是x的秩，假如rank (X)远小于m和n，则称x是低秩矩阵。低秩矩阵每行或每列都可以用其他的行或列线性表示，可见它包含大量的冗余信息。利用这种冗余信息，可以对数据进行恢复，也可以对数据进行特征提取。</p>
+<p>​    矩阵的秩的度量其实就是<strong>矩阵的行列之间的相关性</strong>。如果矩阵的各行或列是<strong>线性无关</strong>的，矩阵就是<strong>满秩</strong>的。非零元素的行数或列数决定了秩的多少。</p>
+<p>​    低秩与稀疏。低秩是指矩阵的秩较小，稀疏是指矩阵中非零元素的个数少。如果对矩阵进行奇异值分解，并把其所有奇异值排列为一个向量，那么这个向量的稀疏性便对应于该矩阵的低秩性</p>
+<ol start="3">
+<li><strong>低秩（Low-rank）的意义</strong></li>
+</ol>
+<p>​    若将图像看成一个矩阵，那么它的基的数量越少，基对应的线性无关向量数量就越少，矩阵的秩就越小。当它远远小于矩阵的大小的时候，图像就是低秩的。低秩矩阵的每行或者每列都可以用其他的行或者列线性表示，这说明这个矩阵包含了大量的冗余信息。利用这种冗余信息可以对确实图像信息进行恢复，可以将多出来的噪声信息进行去除，还可以对错误的图像信息进行恢复。</p>
+<h3 id="LOW-RANK-PARAMETRIZED-UPDATE-MATRICES"><a href="#LOW-RANK-PARAMETRIZED-UPDATE-MATRICES" class="headerlink" title="LOW-RANK-PARAMETRIZED UPDATE MATRICES"></a>LOW-RANK-PARAMETRIZED UPDATE MATRICES</h3><p><img src="./_posts/assets/image-20230831121351040.png" alt="image-20230831121351040"></p>
+<ul>
+<li><p>神经网络中的Dense Layer通常包含许多矩阵乘法。先前的研究表明（<code>模型是过参数化</code>），在适应特定任务时，PLM可能具有较低的”内在维度”，即使投射到较小的子空间，也可以有效地进行学习。</p>
+</li>
+<li><p>假设权重更新过程中也具有较低的”内在排名（intrinsic rank）”。作者使用低阶分解的方式表示预训练的权重矩阵W0的更新，即W0 + ∆W = W0 + BA，其中B为d×r的矩阵，a为r×k的矩阵，秩R≪min(d, k)。在训练期间，W0保持不变，不接受梯度更新，而A和B包含可训练的参数。当h=w0x时，修正后的前向传播变为:</p>
+</li>
+</ul>
+<p><img src="./_posts/assets/image-20230831121708759.png" alt="image-20230831121708759"></p>
+<ul>
+<li><p>图中展示了这种重新参数化的方式。对A使用随机高斯初始化，对B使用零初始化，因此∆W = BA在训练开始时为零。然后，将∆Wx乘以α/r，其中α是r中的常数。</p>
+</li>
+<li><p>LoRA的推广形式允许训练预训练参数的子集，即在适应下游任务过程中权重矩阵的累积梯度更新不必具有全秩。这意味着Full Fine-tuning实际上是LORA的一种全秩的特殊情况。换句话说，当增加可训练参数的数量时，训练LoRA会大致收敛于训练原始模型，而Adapter的方法会收敛于MLP，Prefix-tuning的方法会收敛于不能处理长输入序列的模型。</p>
+</li>
+<li><p>LoRA在推理过程中没有额外的延迟。在部署到生产环境中时，我们可以显式地计算和存储W = W0 + BA，并像往常一样进行推理。当需要切换到另一个下游任务时，我们可以通过减去BA，然后添加另一个B’和a’来恢复W0，这是一种内存开销较小的快速操作。并且在推理时通过合并权重得到和Full Fine-tuning一样的延迟。</p>
+</li>
+</ul>
+<p><img src="./_posts/assets/image-20230831143646297.png" alt="image-20230831143646297"></p>
+<p><img src="./_posts/assets/image-20230831143741010.png" alt="image-20230831143741010"></p>
+<h3 id="APPLYING-LORA-TO-TRANSFORMER"><a href="#APPLYING-LORA-TO-TRANSFORMER" class="headerlink" title="APPLYING LORA TO TRANSFORMER"></a>APPLYING LORA TO TRANSFORMER</h3><ul>
+<li><p>在Transformer中使用LoRA可以将其应用于权矩阵的子集，从而减少可训练参数的数量。具体来说，在Self-attention模块中有四个权重矩阵(wq、wk、wv、wo)，MLP模块中有两个权重矩阵。可以将适应下游任务的注意力权重限制在自关注模块中，并冻结MLP模块，以简化和提高参数效率。</p>
+</li>
+<li><p>对于实际的好处主要体现在内存和存储使用上。对于经过Adam训练的大型Transformer，当r≪d时，可以将VRAM使用量减少多达2/3，因为不需要存储冻结参数的优化器状态。例如，在GPT-3 175B上，训练期间的VRAM消耗从1.2TB减少到350GB。当r=4，并且只调整查询和值投影矩阵时，checkpoint大小减少了大约10,000倍(从350GB减少到35MB)。这样可以使用更少的GPU进行训练，并避免I/O瓶颈。</p>
+</li>
+<li><p>LoRA还允许在部署时低成本地在任务之间切换，只需交换LoRA权重，而不是所有参数，从而创建许多定制模型，可以在将预训练的权重存储在VRAM中的机器上动态交换。</p>
+</li>
+<li><p>在GPT-3 175B的训练过程中，与完全微调相比，速度提高了25%，因为不需要计算绝大多数参数的梯度。</p>
+</li>
+<li><p>LoRA也有局限性，例如在单个前向传递中批量处理具有不同A和B的不同任务的输入时可能会面临推理延迟的问题。虽然对于不重要延迟的场景，可以不合并权重并动态选择LoRA模块来用于批量示例。</p>
+</li>
+</ul>
+<h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><p><img src="./_posts/assets/image-20230831142906008.png" alt="image-20230831142906008"></p>
+<ul>
+<li>理论上lora可以支持任何线性层，包括transformer中的4个attention矩阵和2个feed forward中的矩阵，论文旨在attention上做了实验，它限制总参数量不变的情况下观察是在attention其中一个矩阵上，放一个更高秩的lora，还是在多个attention的矩阵上，分别放置低秩一点的lora效果好？结论是把秩分散到多个矩阵上，效果会优于集中在单个上的效果。至于在一般任务上很小的秩就可以和很大秩的效果，这也证明了作者一开始做出的改变量低秩的假设。</li>
+</ul>
+<p><img src="./_posts/assets/51cb8c1a82b942578efa727ef6c63405.png" alt="img"></p>
+<h2 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions"></a>Conclusions</h2><ul>
+<li>极大降低大模型下游任务训练参数，同时保持高模型质量</li>
+<li>几乎不增加推理延迟</li>
+<li>适用Transformer（Attention layer）、Dense layer等结构</li>
+</ul>
+<h2 id="Quickstart"><a href="#Quickstart" class="headerlink" title="Quickstart"></a>Quickstart</h2><blockquote>
+<p><code>loralib</code> We only support <code>nn.Linear</code>, <code>nn.Embedding</code>, and <code>nn.Conv2d</code> for now. We also support a <code>MergedLinear</code> for cases where a single <code>nn.Linear</code> represents more than one layers, such as in some implementations of the attention <code>qkv</code> projection (see Additional Notes for more).</p>
+</blockquote>
+<ul>
+<li>支持 <code>nn.Linear</code>, <code>nn.Embedding</code>, <code>nn.Conv2d</code> , <code>MergedLinear</code>(attention)</li>
+</ul>
+<h3 id="loralib"><a href="#loralib" class="headerlink" title="loralib"></a>loralib</h3><ol>
+<li>Installing <code>loralib</code> is simply</li>
+</ol>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ pip <span class="token function">install</span> loralib
+<span class="token comment"># Alternatively</span>
+<span class="token comment"># pip install git+https://github.com/microsoft/LoRA</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<ol start="2">
+<li>You can choose to adapt some layers by replacing them with counterparts implemented in <code>loralib</code>. We only support <code>nn.Linear</code>, <code>nn.Embedding</code>, and <code>nn.Conv2d</code> for now. We also support a <code>MergedLinear</code> for cases where a single <code>nn.Linear</code> represents more than one layers, such as in some implementations of the attention <code>qkv</code> projection (see Additional Notes for more).</li>
+</ol>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># ===== Before =====</span>
+<span class="token comment"># layer = nn.Linear(in_features, out_features)</span>
+
+<span class="token comment"># ===== After ======</span>
+<span class="token keyword">import</span> loralib <span class="token keyword">as</span> lora
+<span class="token comment"># Add a pair of low-rank adaptation matrices with rank r=16</span>
+layer <span class="token operator">=</span> lora<span class="token punctuation">.</span>Linear<span class="token punctuation">(</span>in_features<span class="token punctuation">,</span> out_features<span class="token punctuation">,</span> r<span class="token operator">=</span><span class="token number">16</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ol start="3">
+<li>Before the training loop begins, mark only LoRA parameters as trainable.</li>
+</ol>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> loralib <span class="token keyword">as</span> lora
+model <span class="token operator">=</span> BigModel<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment"># This sets requires_grad to False for all parameters without the string "lora_" in their names</span>
+lora<span class="token punctuation">.</span>mark_only_lora_as_trainable<span class="token punctuation">(</span>model<span class="token punctuation">)</span>
+<span class="token comment"># Training loop</span>
+<span class="token keyword">for</span> batch <span class="token keyword">in</span> dataloader<span class="token punctuation">:</span>
+   <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ol start="4">
+<li>When saving a checkpoint, generate a <code>state_dict</code> that only contains LoRA parameters.</li>
+</ol>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># ===== Before =====</span>
+<span class="token comment"># torch.save(model.state_dict(), checkpoint_path)</span>
+<span class="token comment"># ===== After =====</span>
+torch<span class="token punctuation">.</span>save<span class="token punctuation">(</span>lora<span class="token punctuation">.</span>lora_state_dict<span class="token punctuation">(</span>model<span class="token punctuation">)</span><span class="token punctuation">,</span> checkpoint_path<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ol start="5">
+<li>When loading a checkpoint using <code>load_state_dict</code>, be sure to set <code>strict=False</code>.</li>
+</ol>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># Load the pretrained checkpoint first</span>
+model<span class="token punctuation">.</span>load_state_dict<span class="token punctuation">(</span>torch<span class="token punctuation">.</span>load<span class="token punctuation">(</span><span class="token string">'ckpt_pretrained.pt'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> strict<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+<span class="token comment"># Then load the LoRA checkpoint</span>
+model<span class="token punctuation">.</span>load_state_dict<span class="token punctuation">(</span>torch<span class="token punctuation">.</span>load<span class="token punctuation">(</span><span class="token string">'ckpt_lora.pt'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> strict<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Additional-Notes"><a href="#Additional-Notes" class="headerlink" title="Additional Notes"></a>Additional Notes</h3><ol>
+<li>While we focus on a simple yet effect setup, namely adapting only the <code>q</code> and <code>v</code> projection in a Transformer, in our examples, LoRA can be apply to any subsets of pre-trained weights. We encourage you to explore different configurations, such as adapting the embedding layer by replacing <code>nn.Embedding</code> with <code>lora.Embedding</code> and/or adapting the MLP layers. It’s very likely that the optimal configuration varies for different model architectures and tasks.</li>
+<li>Some Transformer implementation uses a single <code>nn.Linear</code> for the projection matrices for query, key, and value. If one wishes to constrain the rank of the updates to the individual matrices, one has to either break it up into three separate matrices or use <code>lora.MergedLinear</code>. Make sure to modify the checkpoint accordingly if you choose to break up the layer.</li>
+</ol>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># ===== Before =====</span>
+<span class="token comment"># qkv_proj = nn.Linear(d_model, 3*d_model)</span>
+<span class="token comment"># ===== After =====</span>
+<span class="token comment"># Break it up (remember to modify the pretrained checkpoint accordingly)</span>
+q_proj <span class="token operator">=</span> lora<span class="token punctuation">.</span>Linear<span class="token punctuation">(</span>d_model<span class="token punctuation">,</span> d_model<span class="token punctuation">,</span> r<span class="token operator">=</span><span class="token number">8</span><span class="token punctuation">)</span>
+k_proj <span class="token operator">=</span> nn<span class="token punctuation">.</span>Linear<span class="token punctuation">(</span>d_model<span class="token punctuation">,</span> d_model<span class="token punctuation">)</span>
+v_proj <span class="token operator">=</span> lora<span class="token punctuation">.</span>Linear<span class="token punctuation">(</span>d_model<span class="token punctuation">,</span> d_model<span class="token punctuation">,</span> r<span class="token operator">=</span><span class="token number">8</span><span class="token punctuation">)</span>
+<span class="token comment"># Alternatively, use lora.MergedLinear (recommended)</span>
+qkv_proj <span class="token operator">=</span> lora<span class="token punctuation">.</span>MergedLinear<span class="token punctuation">(</span>d_model<span class="token punctuation">,</span> <span class="token number">3</span><span class="token operator">*</span>d_model<span class="token punctuation">,</span> r<span class="token operator">=</span><span class="token number">8</span><span class="token punctuation">,</span> enable_lora<span class="token operator">=</span><span class="token punctuation">[</span><span class="token boolean">True</span><span class="token punctuation">,</span> <span class="token boolean">False</span><span class="token punctuation">,</span> <span class="token boolean">True</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ol start="3">
+<li>Training bias vectors in tandem with LoRA might be a cost-efficient way to squeeze out extra task performance (if you tune the learning rate carefully). While we did not study its effect thoroughly in our paper, we make it easy to try in <code>lora</code>. You can mark some biases as trainable by passing “all” or “lora_only” to <code>bias=</code> when calling <code>mark_only_lora_as_trainable</code>. Remember to pass the corresponding <code>bias=</code> argument to <code>lora_state_dict</code> when saving a checkpoint.</li>
+</ol>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># ===== Before =====</span>
+<span class="token comment"># lora.mark_only_lora_as_trainable(model) # Not training any bias vectors</span>
+<span class="token comment"># ===== After =====</span>
+<span class="token comment"># Training all bias vectors associated with modules we apply LoRA to </span>
+lora<span class="token punctuation">.</span>mark_only_lora_as_trainable<span class="token punctuation">(</span>model<span class="token punctuation">,</span> bias<span class="token operator">=</span><span class="token string">'lora_only'</span><span class="token punctuation">)</span>
+<span class="token comment"># Alternatively, we can train *all* bias vectors in the model, including LayerNorm biases</span>
+lora<span class="token punctuation">.</span>mark_only_lora_as_trainable<span class="token punctuation">(</span>model<span class="token punctuation">,</span> bias<span class="token operator">=</span><span class="token string">'all'</span><span class="token punctuation">)</span>
+<span class="token comment"># When saving a checkpoint, use the same bias= ('all' or 'lora_only')</span>
+torch<span class="token punctuation">.</span>save<span class="token punctuation">(</span>lora<span class="token punctuation">.</span>lora_state_dict<span class="token punctuation">(</span>model<span class="token punctuation">,</span> bias<span class="token operator">=</span><span class="token string">'all'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> checkpoint_path<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ol start="4">
+<li>Calling <code>model.eval()</code> will trigger the merging of LoRA parameters with the corresponding pretrained ones, which eliminates additional latency for subsequent forward passes. Calling <code>model.train()</code> again will undo the merge. This can be disabled by passing <code>merge_weights=False</code> to LoRA layers.</li>
+</ol>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/microsoft/LoRA">https://github.com/microsoft/LoRA</a></li>
+</ul>
 
                 
             </div>
@@ -483,7 +637,7 @@ Demo ">
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lee-jet.github.io/2022/12/28/project-demos/">https://lee-jet.github.io/2022/12/28/project-demos/</a>
+                    <a href="https://lee-jet.github.io/2023/08/31/lora/">https://lee-jet.github.io/2023/08/31/lora/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -521,8 +675,8 @@ Demo ">
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/demos/">
-                                    <span class="chip bg-color">demos</span>
+                                <a href="/tags/Paper-Reading/">
+                                    <span class="chip bg-color">Paper Reading</span>
                                 </a>
                             
                         </div>
@@ -600,7 +754,7 @@ Demo ">
         repo: 'gitalk',
         owner: 'lee-jet',
         admin: "lee-jet",
-        id: '2022-12-28T15-52-44',
+        id: '2023-08-31T14-58-18',
         distractionFreeMode: false,  // Facebook-like distraction free mode
     });
 
@@ -628,17 +782,18 @@ Demo ">
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/01/09/01-github-gitlab/">
+                <a href="/2023/08/31/lora/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="01_github_gitlab">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="LoRA">
                         
-                        <span class="card-title">01_github_gitlab</span>
+                        <span class="card-title">LoRA</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -648,26 +803,27 @@ Demo ">
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-01-09
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-31
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Tech-share/" class="post-category">
-                                    Tech share
+                            <a href="/categories/Paper-Reading/" class="post-category">
+                                    Paper Reading
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Tech-share/">
-                        <span class="chip bg-color">Tech share</span>
+                    <a href="/tags/Paper-Reading/">
+                        <span class="chip bg-color">Paper Reading</span>
                     </a>
                     
                 </div>
@@ -681,13 +837,13 @@ Demo ">
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/12/24/tech-blog-demo/">
+                <a href="/2023/08/30/t2i-adapter/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="tech_blog_demo">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="T2I-Adapter">
                         
-                        <span class="card-title">tech_blog_demo</span>
+                        <span class="card-title">T2I-Adapter</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -698,12 +854,16 @@ Demo ">
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-12-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-30
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Lee Jet
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper-Reading/" class="post-category">
+                                    Paper Reading
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -711,8 +871,8 @@ Demo ">
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/demos/">
-                        <span class="chip bg-color">demos</span>
+                    <a href="/tags/Paper-Reading/">
+                        <span class="chip bg-color">Paper Reading</span>
                     </a>
                     
                 </div>
