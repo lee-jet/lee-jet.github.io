@@ -4,15 +4,13 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="LaDI-VTON, AiHub">
-    <meta name="description" content="LaDI-VTON:
-Latent Diffusion Textual-Inversion Enhanced Virtual Try-On
+    <meta name="keywords" content="SDwithLoRA, AiHub">
+    <meta name="description" content="Using LoRA to quickly fine-tune diffusion models
 
 
 
-paper https://arxiv.org/abs/2305.13501
-
-code ht">
+https://github.com/cloneofsimo/lora
+https://github.com/kohya-ss/sd-s">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -24,7 +22,7 @@ code ht">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>LaDI-VTON | AiHub</title>
+    <title>SDwithLoRA | AiHub</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -344,12 +342,12 @@ code ht">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">LaDI-VTON</h1>
+                    <h1 class="description center-align post-title">SDwithLoRA</h1>
                 </div>
             </div>
         </div>
@@ -398,28 +396,28 @@ code ht">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-08-08
+                    2023-09-01
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-08-08
+                    2023-09-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    744
+                    2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    8 分
                 </div>
                 
 
@@ -442,125 +440,98 @@ code ht">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <div align='center' ><font size='4.5'>LaDI-VTON:
-Latent Diffusion Textual-Inversion Enhanced Virtual Try-On</font></div>
+                <div align='center' ><font size='4.5'><strong>Using LoRA to quickly fine-tune diffusion models</strong></font></div>
 
 <hr>
 <ul>
-<li><p>paper <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2305.13501">https://arxiv.org/abs/2305.13501</a></p>
-</li>
-<li><p>code <a target="_blank" rel="noopener" href="https://github.com/miccunifi/ladi-vton">https://github.com/miccunifi/ladi-vton</a></p>
-</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/cloneofsimo/lora">https://github.com/cloneofsimo/lora</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/kohya-ss/sd-scripts">https://github.com/kohya-ss/sd-scripts</a></li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230807102743722.png" alt="image-20230807102743722"></p>
 <hr>
-<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><ol>
-<li>a latent diffusion model （LDMs） extended with a novel additional autoencoder module that exploits learnable skip connections to enhance the generation process preserving the model’s characteristics  使用可学习跳层连接的自编码器模块和隐扩散模型可以提高生成过程中模特特征的保留率</li>
-<li>a textual inversion component that can map the visual features of the garment to the CLIP token embedding space and thus generate a set of pseudo-word token embeddings capable of conditioning the generation process 文本反演组件可以将衣服的视觉特征映射到CLIP的token嵌入空间，因此生成一套伪词tocken嵌入，从而能够影响生成过程，进而保留衣服的纹理和细节</li>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/alpha_scale.gif" alt="alpha_scale"></p>
+<blockquote>
+<p>Using LoRA to fine tune on illustration dataset : W=W0+aΔW, where a is the merging ratio. Above gif is scaling alpha from 0 to 1. Setting alpha to 0 is same as using the original model, and setting alpha to 1 is same as using the fully fine-tuned model.</p>
+<ul>
+<li>a : strength (SD生成结果和自定义任务FT结果的blending强度)</li>
+</ul>
+</blockquote>
+<ul>
+<li><p>Now, how would we actually use this to update diffusion model? First, we will use Stable-diffusion from <a target="_blank" rel="noopener" href="https://stability.ai/">stability-ai</a>. Their model is nicely ported through Huggingface API, so this repo has built various fine-tuning methods around them. In detail, there are three subtle but important distictions in methods to make this work out.</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2208.12242">Dreambooth</a></li>
 </ol>
-<h2 id="Contributions"><a href="#Contributions" class="headerlink" title="Contributions"></a>Contributions</h2><ol>
-<li>首次使用隐扩散模型LDMs</li>
-<li>通过具有跳层连接的自编码器保留修复区域外的细节</li>
-<li>定义了前向纹理反演模块进一步保留生成过程中输入衣服的纹理信息</li>
-<li>在Benchmarks（DressCode &amp; VITON-HD）上取得SOTA</li>
+<p>  First, there is LoRA applied to Dreambooth. The idea is to use prior-preservation class images to regularize the training process, and use low-occuring tokens. This will keep the model’s generalization capability while keeping high fidelity. If you turn off prior preservation, and train text encoder embedding as well, it will become naive fine tuning.</p>
+<ol start="2">
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2208.01618">Textual Inversion</a></li>
 </ol>
-<h2 id="Related-Work"><a href="#Related-Work" class="headerlink" title="Related Work"></a>Related Work</h2><ul>
-<li>Image-Based Virtual Try-On  <ul>
-<li>VITON    coarse2fine, TPS, encoder-decoder arch</li>
-<li>learnable TPS, GANs, DMs</li>
-</ul>
-</li>
-<li>Diffusion Models<ul>
-<li>text-to-image synthesis</li>
-<li>image-to-image translation</li>
-<li>image-editting</li>
-<li>inpainting</li>
-<li>和虚拟试衣最相关的task是人体图像生成</li>
-</ul>
-</li>
-<li>Textual Inversion<ul>
-<li>Textual inversion is a recent technique proposed  to learn a pseudo word in the embedding space of the text encoder starting from visual concepts.  </li>
-</ul>
+<p>  Second, there is Textual inversion. There is no room to apply LoRA here, but it is worth mentioning. The idea is to instantiate new token, and learn the token embedding via gradient descent. This is a very powerful method, and it is worth trying out if your use case is not focused on fidelity but rather on inverting conceptual ideas.</p>
+<ol start="3">
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.05744">Pivotal Tuning</a></li>
+</ol>
+<p>  Last method (although originally proposed for GANs) takes the best of both worlds to further benefit. When combined together, this can be implemented as a strict generalization of both methods. Simply you apply textual inversion to get a matching token embedding. Then, you use the token embedding + prior-preserving class image to fine-tune the model. This two-fold nature make this strict generalization of both methods.</p>
 </li>
 </ul>
-<h2 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h2><p>​        基于Stable Diffusion架构，为了增强文图生成模型虚拟试衣的能力，修改了网络结构使得输入为衣服和模特的姿态，同时为了保留衣服细节，提出了前向textual inversion，最后使用masked skip connections提升SD的图像重建自编码器，从而提高了图像生成质量且更好地保留了模特图的细粒度细节。</p>
+<h2 id="Main-Features"><a href="#Main-Features" class="headerlink" title="Main Features"></a>Main Features</h2><ul>
+<li>Fine-tune Stable diffusion models twice as fast than dreambooth method, by Low-rank Adaptation</li>
+<li>Get insanely small end result (1MB ~ 6MB), easy to share and download.</li>
+<li>Compatible with <code>diffusers</code></li>
+<li>Support for inpainting</li>
+<li>Sometimes <em>even better performance</em> than full fine-tuning (but left as future work for extensive comparisons)</li>
+<li>Merge checkpoints + Build recipes by merging LoRAs together</li>
+<li>Pipeline to fine-tune CLIP + Unet + token to gain better results.</li>
+<li>Out-of-the box multi-vector pivotal tuning inversion</li>
+</ul>
+<h2 id="LoRA-Applications"><a href="#LoRA-Applications" class="headerlink" title="LoRA Applications"></a>LoRA Applications</h2><h3 id="1-Character-LoRA"><a href="#1-Character-LoRA" class="headerlink" title="1 Character LoRA"></a>1 Character LoRA</h3><p>根据特定角色（如卡通或视频游戏角色）训练的模型。角色 LoRA 能够准确再现角色的外观和感觉，以及与之相关的任何关键特征。这是最常见的 LoRA 类型，因为在没有这种训练数据的情况下生成角色往往很棘手，而且不连贯。应用角色 LoRA 可以快速生成具有真实外观的角色，使其成为 AI 插图、角色概念图甚至参考表的完美选择。根据模型的训练情况，角色可能会适合某种服装、特定发型甚至某种面部表情。不过，有些角色 LoRA 可以为您选择的角色换上新的服装和设置，使其魅力倍增。</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/lora_character.png" alt="character lora"></p>
 <ul>
-<li>Stable Diffusion  文图生成模型</li>
-<li>CLIP  视觉-语言模型，将二者特征对齐到一个共享的特征空间</li>
+<li><strong>Model used</strong>: <a target="_blank" rel="noopener" href="https://civitai.com/models/1274/dreamlike-diffusion-10">Dreamlike Diffusion 1.0</a></li>
+<li><strong>LoRA used</strong>: <a target="_blank" rel="noopener" href="https://civitai.com/models/55339/the-joker-or-photorealistic-joker-lora">The Joker | Photorealistic</a></li>
+<li><strong>Prompt used</strong>: portrait of the joker, high quality, 8k</li>
 </ul>
-<h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230808135322123.png" alt="image-20230808135322123"></p>
-<h3 id="Textual-Inversion"><a href="#Textual-Inversion" class="headerlink" title="Textual Inversion"></a>Textual Inversion</h3><ul>
-<li><p>纹理反演：输入图像，预测CLIP token特征空间中pseudo-word</p>
-</li>
-<li><p>q: 文本提示，通过CLIP变换到特征空间得到true-word</p>
-</li>
-<li><p>VE (visual encoder):  OpenCLIP ViT-H/14 model pre-trained on LAION-2B  </p>
-</li>
-<li><p>单层ViT + 3层MLP + GELU激活 + dropout</p>
-</li>
-</ul>
-<h3 id="Diffusion-Virtual-Try-On-Model"><a href="#Diffusion-Virtual-Try-On-Model" class="headerlink" title="Diffusion Virtual Try-On Model"></a>Diffusion Virtual Try-On Model</h3><ul>
-<li>选择SD的inpainting pipeline</li>
-<li>输入 textual-inverted information 𝑌ˆ of the in-shop garment, the pose map 𝑃, and the garment fitted to the model body shape 𝐶𝑊  （the warped garment）</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230808150225064.png" alt="image-20230808150225064"></p>
-<h3 id="Enhanced-Mask-Aware-Skip-Connections"><a href="#Enhanced-Mask-Aware-Skip-Connections" class="headerlink" title="Enhanced Mask-Aware Skip Connections"></a>Enhanced Mask-Aware Skip Connections</h3><ul>
-<li>EMASC<ul>
-<li>作用于masked image（mask from inpainting）</li>
-<li>目的是学习传播编解码器对应的相关信息</li>
-</ul>
-</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230808143928254.png" alt="image-20230808143928254"></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230808144304322.png" alt="image-20230808144304322"></p>
-<h3 id="CLOTHES-WARPING-PROCEDURE"><a href="#CLOTHES-WARPING-PROCEDURE" class="headerlink" title="CLOTHES WARPING PROCEDURE"></a>CLOTHES WARPING PROCEDURE</h3><p>​    coarse2fine</p>
+<h3 id="2-Style-LoRA"><a href="#2-Style-LoRA" class="headerlink" title="2 Style LoRA"></a>2 Style LoRA</h3><p>风格 LoRA 与角色 LoRA 有许多相似之处，但它不是针对特定角色或对象进行训练，而是侧重于一种艺术风格。这种类型的模型通常是针对特定艺术家的艺术作品进行训练，让您可以在自己的作品中使用他们的标志性风格。风格 LoRA 可用于从参考图像的风格化到以相同风格创作原创作品等任何用途。顾名思义，这些模型是根据特定风格进行训练的，如动画片、水彩画、线描等的特定外观。有了这种 LoRA 模型，您就可以轻松地为您的人工智能作品赋予独特的风格，使其在众多作品中脱颖而出！</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/lora_style.png" alt="style lora"></p>
 <ul>
-<li>step1coarse warping<ul>
-<li>TPS：把cloth变形到model的pose和mask shape匹配<ul>
-<li>Toward characteristic-preserving image-based virtual try-on network.  </li>
+<li><strong>Model used</strong>: <a target="_blank" rel="noopener" href="https://civitai.com/models/23900?modelVersionId=29792">AnyLoRA - Checkpoint</a></li>
+<li><strong>LoRA used</strong>: <a target="_blank" rel="noopener" href="https://civitai.com/models/7094/arcane-style-lora">Arcane Style LoRA</a></li>
+<li><strong>Prompt used</strong>: arcane style, 1girl, pink hair, long hair, one braid, white shirt, coat, yellow eyes, looking at viewer, city street</li>
 </ul>
-</li>
-</ul>
-</li>
-<li>step2 refine warping<ul>
-<li>U-net: 输入coarse garment, pose, model，输出target warped garment (GT)<ul>
-<li>U-Net: Convolutional Networks for Biomedical Image Segmentation.   </li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230808144448627.png" alt="image-20230808144448627"></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230808144457075.png" alt="image-20230808144457075"></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230808151741401.png" alt="image-20230808151741401"></p>
-<h2 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions"></a>Conclusions</h2><ul>
-<li>第一个基于LDMs的try-on</li>
-</ul>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><p>Stable Diffusion pipeline</p>
+<h3 id="3-Pose-LoRA"><a href="#3-Pose-LoRA" class="headerlink" title="3 Pose LoRA"></a>3 Pose LoRA</h3><p>将姿势 LoRA 应用到生成中的效果和它听起来一样–它会以特定的方式摆出角色的姿势。这非常适合生成动态场景，在动态场景中，您可以制作特定的姿势和动作，而这些姿势和动作通常很难或无法通过常规的提示工程来实现。姿势 LoRA 模型更侧重于角色的姿势，而不是其风格或特征。例如，如果您要将姿势 LoRA 模型应用到人形角色上，它会为他们创建不同的姿势，如奔跑、跳跃或坐姿，但不会改变他们的特征、服装，也不会改变您所使用模型的风格。</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/lora_pose.png" alt="pose lora"></p>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://huggingface.co/stabilityai/stable-diffusion-2-inpainting">https://huggingface.co/stabilityai/stable-diffusion-2-inpainting</a>  </li>
+<li><strong>Model used</strong>: <a target="_blank" rel="noopener" href="https://civitai.com/models/36520/ghostmix">GhostMix</a></li>
+<li><strong>LoRA used</strong>: <a target="_blank" rel="noopener" href="https://civitai.com/models/51900/shinji-in-a-chair-or-meme">Shinji in a Chair | Meme</a></li>
+<li><strong>Prompt used</strong>: solo, male focus, sitting, head down, short black hair, hooded jacket, jeans, sneakers</li>
 </ul>
-</li>
-<li><p>Textual Inversion: An Image is Worth One Word: Personalizing Text-to-Image Generation using Textual Inversion </p>
+<h3 id="4-Clothing-LoRa"><a href="#4-Clothing-LoRa" class="headerlink" title="4 Clothing LoRa"></a>4 Clothing LoRa</h3><p>另一个有用的模型是服装 LoRA。正如您所期望的那样，这种 LoRA 模型旨在更换人物的服装和配饰。有了它，您可以快速、轻松地为任何角色换上新衣服，无论是现代风格还是历史风格。这些模型最棒的地方在于它们适用于任何类型的角色。只需一个模型，您就可以应用各种不同民族的风格和设计！例如，如果您想创建一个人物穿着传统中式服装的场景，只需将您选择的服装 LoRA 套用到您的世代上，然后就可以了–即刻就可以穿上传统的中式服装！</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/lora_clothing.png" alt="clothing lora"></p>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2208.01618">https://arxiv.org/abs/2208.01618</a></li>
-<li><a target="_blank" rel="noopener" href="https://textual-inversion.github.io/">https://textual-inversion.github.io/</a></li>
+<li><strong>Model used</strong>: <a target="_blank" rel="noopener" href="https://civitai.com/models/36520/ghostmix">GhostMix</a></li>
+<li><strong>LoRA used</strong>: <a target="_blank" rel="noopener" href="https://civitai.com/models/15365/hanfu">hanfu</a></li>
+<li><strong>Prompt used</strong>: girl, blue hanfu, full body</li>
 </ul>
-</li>
-<li><p>LDMs: High-Resolution Image Synthesis with Latent Diffusion Models</p>
+<h3 id="5-Object-LoRA"><a href="#5-Object-LoRA" class="headerlink" title="5 Object LoRA"></a>5 Object LoRA</h3><p>最后是物体 LoRA。这是一大类 LoRA 模型，用于生成家具、植物甚至车辆等物品。当然，您可以使用这些模型创建的物品类型取决于您使用的特定模型和您提供的提示。不过，这个术语也适用于用于创建更抽象对象的 LoRA，例如游戏或网站的用户界面元素。这对于为您的项目创建更具凝聚力的外观和感觉非常有用。对于需要高效创建资产的艺术家、游戏开发人员、网页设计师和其他创意专业人员来说，对象 LoRA 都是一种宝贵的工具。能够生成具有自定义设计的对象，让您可以自由地尝试和探索不同的视觉效果，直到找到适合您项目的完美效果。</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/lora_object.png" alt="object lora"></p>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2112.10752">https://arxiv.org/abs/2112.10752</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/CompVis/latent-diffusion">https://github.com/CompVis/latent-diffusion</a></li>
+<li><strong>Model used</strong>: <a target="_blank" rel="noopener" href="https://civitai.com/models/57931/szechuan-special-sauce?modelVersionId=62378">Szechuan Special Sauce</a></li>
+<li><strong>LoRA used</strong>: <a target="_blank" rel="noopener" href="https://civitai.com/models/58247/product-design-dark-minimalism-eddiemauro-lora">Product Design (Dark minimalism-eddiemauro)</a></li>
+<li><strong>Prompt used</strong>: futuristic kettle, a computer rendering, minimalism, 4k</li>
 </ul>
-</li>
-<li><p>CLIP: Learning Transferable Visual Models From Natural Language Supervision</p>
-<ul>
-<li>CLIP (Contrastive Language-Image Pre-Training) </li>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.00020">https://arxiv.org/abs/2103.00020</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/OpenAI/CLIP">https://github.com/OpenAI/CLIP</a></li>
+<h2 id="Captions"><a href="#Captions" class="headerlink" title="Captions"></a>Captions</h2><ul>
+<li>如果我们要训练一个角色，那么所有图片的说明都是同一个角色，这样它才能被识别。把一个女孩（a girl）换成初音未来（Hatsune Miku）</li>
+<li>如果我们要训练的是一种风格，所以会描述除了图片风格之外的一切，因此我们不会使用“插画（an illustration of）”或者“照片（a photo of）”之类的术语。基本而言，我们希望对想要改变的一切进行说明，</li>
 </ul>
-</li>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230901101936968.png" alt="image-20230901101936968"></p>
+<pre class="line-numbers language-txt" data-language="txt"><code class="language-txt">这个案例中，“一个绿色长发在空中飘扬的女孩（a girl wiht long green hair is flying through the air）”描述相当准确，但还不够精准。我要描述的是一个蓝绿色眼睛、绿色双马尾长发的少女（a teenage girl with teal eyes and long teal hair in twin tails），然后删掉其余所有描述，将在空中飞扬（flying through the air）留在最后。
+
+那么，除了上述特征之外，她还有什么特点？可以看到，她穿了一件白色衬衫，白色短裙，黑色毛衣围在腰间，还穿了一件蓝色连衣裙，腿部暴露在外，还有一双蓝绿色溜冰鞋。随后，还可以看到蓝天白云。
+
+完整说明文字：a teenage girl with teal eyes and long teal hair in twin tails, wearing a white colored blouse, white skirt, black sweater tied around waist, blue dress, exposed legs, teal rollerskated, blue sky with white clouds, flying through the air
+
+那么，我为何要在这里描述的这么具体呢？如果我不在这里描述，那就意味着我希望LoRA学习这些东西，如果我不描述蓝绿色眼睛，那么最终生成的所有角色都会有蓝绿色眼睛。所以，一定要将能够改变的所有东西描述出来。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Inference-Speed"><a href="#Inference-Speed" class="headerlink" title="Inference Speed"></a>Inference Speed</h2><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/46439983bbac8f07270f47143758571c.png" alt="img"></p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://softwarekeep.com/help-center/how-to-use-stable-diffusion-lora-models">https://softwarekeep.com/help-center/how-to-use-stable-diffusion-lora-models</a></li>
 </ul>
 
                 
@@ -588,7 +559,7 @@ Latent Diffusion Textual-Inversion Enhanced Virtual Try-On</font></div>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lee-jet.github.io/2023/08/08/ladi-vton/">https://lee-jet.github.io/2023/08/08/ladi-vton/</a>
+                    <a href="https://lee-jet.github.io/2023/09/01/sdwithlora/">https://lee-jet.github.io/2023/09/01/sdwithlora/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -705,7 +676,7 @@ Latent Diffusion Textual-Inversion Enhanced Virtual Try-On</font></div>
         repo: 'gitalk',
         owner: 'lee-jet',
         admin: "lee-jet",
-        id: '2023-08-08T17-17-46',
+        id: '2023-09-01T10-50-52',
         distractionFreeMode: false,  // Facebook-like distraction free mode
     });
 
@@ -733,17 +704,18 @@ Latent Diffusion Textual-Inversion Enhanced Virtual Try-On</font></div>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/08/09/tryondiffusion/">
+                <a href="/2023/09/01/sdwithlora/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="TryOnDiffusion">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="SDwithLoRA">
                         
-                        <span class="card-title">TryOnDiffusion</span>
+                        <span class="card-title">SDwithLoRA</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -753,9 +725,9 @@ Latent Diffusion Textual-Inversion Enhanced Virtual Try-On</font></div>
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-08-09
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-09-01
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -768,6 +740,7 @@ Latent Diffusion Textual-Inversion Enhanced Virtual Try-On</font></div>
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -786,13 +759,13 @@ Latent Diffusion Textual-Inversion Enhanced Virtual Try-On</font></div>
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/08/04/model-deployment-trition/">
+                <a href="/2023/08/31/lora/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="model-deployment-trition">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="LoRA">
                         
-                        <span class="card-title">model-deployment-trition</span>
+                        <span class="card-title">LoRA</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -803,12 +776,16 @@ Latent Diffusion Textual-Inversion Enhanced Virtual Try-On</font></div>
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-31
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Lee Jet
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper-Reading/" class="post-category">
+                                    Paper Reading
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -816,8 +793,8 @@ Latent Diffusion Textual-Inversion Enhanced Virtual Try-On</font></div>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Tech-share/">
-                        <span class="chip bg-color">Tech share</span>
+                    <a href="/tags/Paper-Reading/">
+                        <span class="chip bg-color">Paper Reading</span>
                     </a>
                     
                 </div>
