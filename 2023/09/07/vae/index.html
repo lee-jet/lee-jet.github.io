@@ -4,13 +4,14 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="SDwithLoRA, AiHub">
-    <meta name="description" content="Using LoRA to quickly fine-tune diffusion models
+    <meta name="keywords" content="VAE, AiHub">
+    <meta name="description" content="Variational AutoEncoder
 
 
+自动编码器（Autoencoder，AE）
+https://arxiv.org/abs/2003.05991
 
-https://github.com/cloneofsimo/lora
-https://github.com/kohya-ss/sd-s">
+原理先将高维的原始数据映射到一个低维特征空间，然后从低维特征学习重建原始的数">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -22,7 +23,7 @@ https://github.com/kohya-ss/sd-s">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>SDwithLoRA | AiHub</title>
+    <title>VAE | AiHub</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -342,12 +343,12 @@ https://github.com/kohya-ss/sd-s">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">SDwithLoRA</h1>
+                    <h1 class="description center-align post-title">VAE</h1>
                 </div>
             </div>
         </div>
@@ -396,14 +397,14 @@ https://github.com/kohya-ss/sd-s">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-09-01
+                    2023-09-07
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-09-01
+                    2023-09-07
                 </div>
                 
 
@@ -417,7 +418,7 @@ https://github.com/kohya-ss/sd-s">
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    6 分
                 </div>
                 
 
@@ -440,98 +441,102 @@ https://github.com/kohya-ss/sd-s">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <div align='center' ><font size='4.5'><strong>Using LoRA to quickly fine-tune diffusion models</strong></font></div>
+                <div align='center' ><font size='8'><strong>Variational AutoEncoder</strong></font></div>
 
 <hr>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/cloneofsimo/lora">https://github.com/cloneofsimo/lora</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/kohya-ss/sd-scripts">https://github.com/kohya-ss/sd-scripts</a></li>
+<h2 id="自动编码器（Autoencoder，AE）"><a href="#自动编码器（Autoencoder，AE）" class="headerlink" title="自动编码器（Autoencoder，AE）"></a>自动编码器（Autoencoder，AE）</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2003.05991">https://arxiv.org/abs/2003.05991</a></li>
 </ul>
-<hr>
-<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/alpha_scale.gif" alt="alpha_scale"></p>
-<blockquote>
-<p>Using LoRA to fine tune on illustration dataset : W=W0+aΔW, where a is the merging ratio. Above gif is scaling alpha from 0 to 1. Setting alpha to 0 is same as using the original model, and setting alpha to 1 is same as using the fully fine-tuned model.</p>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>先将高维的原始数据映射到一个低维特征空间，然后从低维特征学习重建原始的数据。一个AE模型包含两部分网络：</p>
 <ul>
-<li>a : strength (SD生成结果和自定义任务FT结果的blending强度)</li>
+<li>Encoder：将原始的高维数据映射到低维特征空间，这个特征维度一般比原始数据维度要小，这样就起到压缩或者降维的目的，这个低维特征也往往成为中间隐含特征（latent representation）</li>
+<li>Decoder：基于压缩后的低维特征来重建原始数据</li>
 </ul>
-</blockquote>
+<p><img src="./_posts/assets/16206584715427.jpg" alt="img"></p>
+<p><img src="./_posts/assets/image-20230906143147776.png" alt="image-20230906143147776"></p>
 <ul>
-<li><p>Now, how would we actually use this to update diffusion model? First, we will use Stable-diffusion from <a target="_blank" rel="noopener" href="https://stability.ai/">stability-ai</a>. Their model is nicely ported through Huggingface API, so this repo has built various fine-tuning methods around them. In detail, there are three subtle but important distictions in methods to make this work out.</p>
-<ol>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2208.12242">Dreambooth</a></li>
-</ol>
-<p>  First, there is LoRA applied to Dreambooth. The idea is to use prior-preservation class images to regularize the training process, and use low-occuring tokens. This will keep the model’s generalization capability while keeping high fidelity. If you turn off prior preservation, and train text encoder embedding as well, it will become naive fine tuning.</p>
-<ol start="2">
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2208.01618">Textual Inversion</a></li>
-</ol>
-<p>  Second, there is Textual inversion. There is no room to apply LoRA here, but it is worth mentioning. The idea is to instantiate new token, and learn the token embedding via gradient descent. This is a very powerful method, and it is worth trying out if your use case is not focused on fidelity but rather on inverting conceptual ideas.</p>
-<ol start="3">
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.05744">Pivotal Tuning</a></li>
-</ol>
-<p>  Last method (although originally proposed for GANs) takes the best of both worlds to further benefit. When combined together, this can be implemented as a strict generalization of both methods. Simply you apply textual inversion to get a matching token embedding. Then, you use the token embedding + prior-preserving class image to fine-tune the model. This two-fold nature make this strict generalization of both methods.</p>
+<li>无监督学习方法，不需要标注数据</li>
+<li>自编码器的目标是学习一个恒等函数，我们可以使用交叉熵（Cross-entropy）或者均方差（Mean Square Error）构建重建损失量化输入和输出的差异，低纬度的隐层编码用于数据压缩和特征表示，类似PCA压缩，特征相似度。</li>
+</ul>
+<h3 id="变种"><a href="#变种" class="headerlink" title="变种"></a>变种</h3><h4 id="去噪自编码器（Denoising-Autoencoder，DAE）"><a href="#去噪自编码器（Denoising-Autoencoder，DAE）" class="headerlink" title="去噪自编码器（Denoising Autoencoder，DAE）"></a>去噪自编码器（Denoising Autoencoder，DAE）</h4><ul>
+<li>在训练过程先对输入进行一定的扰动，比如增加噪音或者随机mask掉一部分特征。相比AE，DAE的重建难度增加，这也使得encoder学习到的隐含特征更具有代表性。</li>
+</ul>
+<p><img src="./_posts/assets/16206585342137.jpg" alt="img"></p>
+<p><img src="./_posts/assets/image-20230906143157923.png" alt="image-20230906143157923"></p>
+<h4 id="基于MIM（mask-image-modeling-的自监督方法"><a href="#基于MIM（mask-image-modeling-的自监督方法" class="headerlink" title="基于MIM（mask image modeling)的自监督方法"></a>基于MIM（mask image modeling)的自监督方法</h4><ul>
+<li>MAE和SimMIM，它们都是采用和AE类似的设计架构，这让基于AE的无监督训练方法再次卷土重来。</li>
+</ul>
+<p><img src="./_posts/assets/image-20230906143347136.png" alt="image-20230906143347136"></p>
+<ul>
+<li>BERT可以看成是一个特殊的AE（De-noising auto-encoder）。输入为一个句子，然后对句子增加一些噪音（mask掉一些词），我们希望模型能尽可能的还原出来原始的句子。</li>
+</ul>
+<h2 id="变分自编码器（VAE）"><a href="#变分自编码器（VAE）" class="headerlink" title="变分自编码器（VAE）"></a>变分自编码器（VAE）</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1312.6114">https://arxiv.org/abs/1312.6114</a></li>
+</ul>
+<h3 id="原理-1"><a href="#原理-1" class="headerlink" title="原理"></a>原理</h3><p>​        由于自编码器仅关注隐层编码的重建能力，其隐层空间分布往往是无规律和不均匀的，在连续的隐层空间随机采样或者插值得到一组编码通常会产生无意义和不可解释的生成结果。为了构建一个有规律的隐层空间，使得我们可以在不同潜在属性上随机地采样和平滑地插值，最后通过解码器生成有意义的图像，研究者们在2014年提出了变分自编码器。</p>
+<p>​        变分自编码器不再将输入映射成隐层空间中的一个固定编码，而是转换成对隐层空间的概率分布估计，为了方便表示我们假设先验分布是一个标准高斯分布。同样的，我们训练一个概率解码器建模，实现从隐层空间分布到真实数据分布的映射。当给定一个输入，我们通过后验分布估计出关于分布的参数（多元高斯模型的均值和协方差），并在此分布上采样，可使用重参数化技巧使采样可导（为随机变量），最后通过概率解码器输出关于的分布，为了使生成图像尽量真实，我们需要求解后验分布，目标是最大化真实图像的对数似然。</p>
+<p><img src="./_posts/assets/0766b423535d7ff205c696fe1f35bbf1bf0895.jpg" alt="img"></p>
+<p>​                                                    </p>
+<p>遗憾的是，真实的后验分布根据贝叶斯模型包含对在连续空间上的积分，是不可直接求解的。为了解决上述问题，变分自编码器使用了变分推理的方法，引入一个可学习的概率编码器去近似真实的后验分布，使用KL散度度量两个分布的差异，将这个问题从求解真实的后验分布转化为如何缩小两个分布之间的距离。</p>
+<p>我们省略中间推导过程，将上式展开得到式，</p>
+<p><img src="./_posts/assets/6536eae26e27d487d9a3276e5faae2b67ff42f.png" alt="img"></p>
+<p>由于KL散度非负，我们可以将我们的最大化目标转写成，</p>
+<p><img src="./_posts/assets/999dea484e9ebbc67a3434a286e0b79e1955fc.png" alt="img"></p>
+<p>综上，我们将关于概率编码器和概率解码器的定义为模型的损失函数，其负数形式称为的证据下界（Evidence Lower Bound），最大化证据下界等效于最大化目标。上述变分过程是VAE及各种变体的核心思想，通过变分推理将问题转化为最大化生成真实数据的证据下界。</p>
+<h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><p><img src="./_posts/assets/VAE2.jpg" alt="VAE"></p>
+<p><img src="./_posts/assets/VAE3.jpg" alt="VAE"></p>
+<h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p><img src="./_posts/assets/image-20230906161221848.png" alt="image-20230906161221848"></p>
+<p><img src="./_posts/assets/image-20230906162233823.png" alt="image-20230906162233823"></p>
+<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>​        实现encoder和decoder就平常的方法来，CV的CNN，NLP的LSTM等等，只是VAE在中间转化的时候多加了点东西。</p>
+<p>​    encoder有两个：计算均值和计算方差</p>
+<ul>
+<li>计算均值的网络<ul>
+<li>本质上就是对encode的结果加上高斯噪声，使得decoder对噪声更有鲁棒性</li>
+<li>KL Loss相当于正则(对零均值的正态逼近)，使得encoder的结果具有零均值</li>
+</ul>
+</li>
+<li>计算方差的网络<ul>
+<li>相当于动态调节噪声的强度(和方差对应)</li>
+<li>刚开始训练时(重构误差&gt;&gt;KL Loss)，适当降低噪声强度(KL Loss增加)，使得拟合更容易；反之，训练久后，噪声强度增加(重构误差&lt;KL Loss)，这是噪声增加(KL Loss减少)，拟合又更困难了。也就是KL Loss和重构误差的优化是一个对抗的过程，与GAN不同的是，这两个混在一起共同优化的</li>
+</ul>
 </li>
 </ul>
-<h2 id="Main-Features"><a href="#Main-Features" class="headerlink" title="Main Features"></a>Main Features</h2><ul>
-<li>Fine-tune Stable diffusion models twice as fast than dreambooth method, by Low-rank Adaptation</li>
-<li>Get insanely small end result (1MB ~ 6MB), easy to share and download.</li>
-<li>Compatible with <code>diffusers</code></li>
-<li>Support for inpainting</li>
-<li>Sometimes <em>even better performance</em> than full fine-tuning (but left as future work for extensive comparisons)</li>
-<li>Merge checkpoints + Build recipes by merging LoRAs together</li>
-<li>Pipeline to fine-tune CLIP + Unet + token to gain better results.</li>
-<li>Out-of-the box multi-vector pivotal tuning inversion</li>
+<p>​    decoder类似</p>
+<hr>
+<h2 id="条件变分自编码器（Conditional，CVAE）"><a href="#条件变分自编码器（Conditional，CVAE）" class="headerlink" title="条件变分自编码器（Conditional，CVAE）"></a>条件变分自编码器（Conditional，CVAE）</h2><h3 id="原理-2"><a href="#原理-2" class="headerlink" title="原理"></a>原理</h3><ul>
+<li>类似CGAN，实现条件输入控制生成结果</li>
+<li>AE适合数据压缩与还原，不适合生成未见过的数据</li>
+<li>VAE适合生成未见过的数据，但不能控制生成内容</li>
+<li>CVAE（Conditional VAE）可以在生成数据时通过指定其标签来生成想生成的数据</li>
 </ul>
-<h2 id="LoRA-Applications"><a href="#LoRA-Applications" class="headerlink" title="LoRA Applications"></a>LoRA Applications</h2><h3 id="1-Character-LoRA"><a href="#1-Character-LoRA" class="headerlink" title="1 Character LoRA"></a>1 Character LoRA</h3><p>根据特定角色（如卡通或视频游戏角色）训练的模型。角色 LoRA 能够准确再现角色的外观和感觉，以及与之相关的任何关键特征。这是最常见的 LoRA 类型，因为在没有这种训练数据的情况下生成角色往往很棘手，而且不连贯。应用角色 LoRA 可以快速生成具有真实外观的角色，使其成为 AI 插图、角色概念图甚至参考表的完美选择。根据模型的训练情况，角色可能会适合某种服装、特定发型甚至某种面部表情。不过，有些角色 LoRA 可以为您选择的角色换上新的服装和设置，使其魅力倍增。</p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/lora_character.png" alt="character lora"></p>
+<p><img src="./_posts/assets/image-20230906162629090.png" alt="image-20230906162629090"></p>
+<p><img src="./_posts/assets/image-20230906162323979.png" alt="image-20230906162323979"></p>
+<hr>
+<h2 id="向量量化变分自编码器（Vector-Quantised，VQ-VAE-）"><a href="#向量量化变分自编码器（Vector-Quantised，VQ-VAE-）" class="headerlink" title="向量量化变分自编码器（Vector Quantised，VQ-VAE ）"></a>向量量化变分自编码器（Vector Quantised，VQ-VAE ）</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/ritheshkumar95/pytorch-vqvae">https://github.com/ritheshkumar95/pytorch-vqvae</a></li>
+<li>VAE 学习连续的潜在表示，而 VQ-VAE 学习离散的潜在表示</li>
+<li>VQ-VAE其实就是一个AE（自编码器）而不是VAE（变分自编码器）</li>
+<li>VQ-VAE 假定所有隐变量具有统一的先验，因此所有隐变量都被视为具有同等的可能性</li>
+</ul>
+<h3 id="隐空间"><a href="#隐空间" class="headerlink" title="隐空间"></a>隐空间</h3><p><img src="./_posts/assets/image-20230906163133409.png" alt="image-20230906163133409"></p>
 <ul>
-<li><strong>Model used</strong>: <a target="_blank" rel="noopener" href="https://civitai.com/models/1274/dreamlike-diffusion-10">Dreamlike Diffusion 1.0</a></li>
-<li><strong>LoRA used</strong>: <a target="_blank" rel="noopener" href="https://civitai.com/models/55339/the-joker-or-photorealistic-joker-lora">The Joker | Photorealistic</a></li>
-<li><strong>Prompt used</strong>: portrait of the joker, high quality, 8k</li>
+<li>原始数据用Z非线性表示</li>
+<li>如果原始数据是隐变量的线性变换，正是经典无监督算法 PCA 的设计目的：PCA 本质上试图找到基础的 Z 潜在表示。如果潜在表示与原始数据具有更复杂的非线性关系呢？例如，下图可视化了更复杂的隐空间可以编码的高级信息类型。在这种情况下，PCA 将无法找到最佳的潜在表示。我们可以使用自编码器来找到这个更抽象的隐空间。</li>
 </ul>
-<h3 id="2-Style-LoRA"><a href="#2-Style-LoRA" class="headerlink" title="2 Style LoRA"></a>2 Style LoRA</h3><p>风格 LoRA 与角色 LoRA 有许多相似之处，但它不是针对特定角色或对象进行训练，而是侧重于一种艺术风格。这种类型的模型通常是针对特定艺术家的艺术作品进行训练，让您可以在自己的作品中使用他们的标志性风格。风格 LoRA 可用于从参考图像的风格化到以相同风格创作原创作品等任何用途。顾名思义，这些模型是根据特定风格进行训练的，如动画片、水彩画、线描等的特定外观。有了这种 LoRA 模型，您就可以轻松地为您的人工智能作品赋予独特的风格，使其在众多作品中脱颖而出！</p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/lora_style.png" alt="style lora"></p>
+<p><img src="./_posts/assets/image-20220602112156946.png" alt="img"></p>
 <ul>
-<li><strong>Model used</strong>: <a target="_blank" rel="noopener" href="https://civitai.com/models/23900?modelVersionId=29792">AnyLoRA - Checkpoint</a></li>
-<li><strong>LoRA used</strong>: <a target="_blank" rel="noopener" href="https://civitai.com/models/7094/arcane-style-lora">Arcane Style LoRA</a></li>
-<li><strong>Prompt used</strong>: arcane style, 1girl, pink hair, long hair, one braid, white shirt, coat, yellow eyes, looking at viewer, city street</li>
+<li>隐空间是数据的压缩表示，强调数据最重要的特征信息。</li>
+<li>自编码器是一种用于寻找隐空间的方法，这些隐空间是数据的复杂非线性函数。</li>
+<li>变分自编码器在自编码器基础上增加了一个先验隐空间（标准正态分布），这为学习的隐空间提供了非常好的属性（我们可以通过隐空间平滑地插值数据分布）。</li>
 </ul>
-<h3 id="3-Pose-LoRA"><a href="#3-Pose-LoRA" class="headerlink" title="3 Pose LoRA"></a>3 Pose LoRA</h3><p>将姿势 LoRA 应用到生成中的效果和它听起来一样–它会以特定的方式摆出角色的姿势。这非常适合生成动态场景，在动态场景中，您可以制作特定的姿势和动作，而这些姿势和动作通常很难或无法通过常规的提示工程来实现。姿势 LoRA 模型更侧重于角色的姿势，而不是其风格或特征。例如，如果您要将姿势 LoRA 模型应用到人形角色上，它会为他们创建不同的姿势，如奔跑、跳跃或坐姿，但不会改变他们的特征、服装，也不会改变您所使用模型的风格。</p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/lora_pose.png" alt="pose lora"></p>
+<h3 id="隐空间离散表示"><a href="#隐空间离散表示" class="headerlink" title="隐空间离散表示"></a>隐空间离散表示</h3><ul>
+<li>transformers 旨在处理离散数据</li>
+</ul>
+<p><img src="./_posts/assets/image-20220602112616465.png" alt="img"></p>
+<p><img src="./_posts/assets/image-20220602112701542.png" alt="img"></p>
 <ul>
-<li><strong>Model used</strong>: <a target="_blank" rel="noopener" href="https://civitai.com/models/36520/ghostmix">GhostMix</a></li>
-<li><strong>LoRA used</strong>: <a target="_blank" rel="noopener" href="https://civitai.com/models/51900/shinji-in-a-chair-or-meme">Shinji in a Chair | Meme</a></li>
-<li><strong>Prompt used</strong>: solo, male focus, sitting, head down, short black hair, hooded jacket, jeans, sneakers</li>
-</ul>
-<h3 id="4-Clothing-LoRa"><a href="#4-Clothing-LoRa" class="headerlink" title="4 Clothing LoRa"></a>4 Clothing LoRa</h3><p>另一个有用的模型是服装 LoRA。正如您所期望的那样，这种 LoRA 模型旨在更换人物的服装和配饰。有了它，您可以快速、轻松地为任何角色换上新衣服，无论是现代风格还是历史风格。这些模型最棒的地方在于它们适用于任何类型的角色。只需一个模型，您就可以应用各种不同民族的风格和设计！例如，如果您想创建一个人物穿着传统中式服装的场景，只需将您选择的服装 LoRA 套用到您的世代上，然后就可以了–即刻就可以穿上传统的中式服装！</p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/lora_clothing.png" alt="clothing lora"></p>
-<ul>
-<li><strong>Model used</strong>: <a target="_blank" rel="noopener" href="https://civitai.com/models/36520/ghostmix">GhostMix</a></li>
-<li><strong>LoRA used</strong>: <a target="_blank" rel="noopener" href="https://civitai.com/models/15365/hanfu">hanfu</a></li>
-<li><strong>Prompt used</strong>: girl, blue hanfu, full body</li>
-</ul>
-<h3 id="5-Object-LoRA"><a href="#5-Object-LoRA" class="headerlink" title="5 Object LoRA"></a>5 Object LoRA</h3><p>最后是物体 LoRA。这是一大类 LoRA 模型，用于生成家具、植物甚至车辆等物品。当然，您可以使用这些模型创建的物品类型取决于您使用的特定模型和您提供的提示。不过，这个术语也适用于用于创建更抽象对象的 LoRA，例如游戏或网站的用户界面元素。这对于为您的项目创建更具凝聚力的外观和感觉非常有用。对于需要高效创建资产的艺术家、游戏开发人员、网页设计师和其他创意专业人员来说，对象 LoRA 都是一种宝贵的工具。能够生成具有自定义设计的对象，让您可以自由地尝试和探索不同的视觉效果，直到找到适合您项目的完美效果。</p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/lora_object.png" alt="object lora"></p>
-<ul>
-<li><strong>Model used</strong>: <a target="_blank" rel="noopener" href="https://civitai.com/models/57931/szechuan-special-sauce?modelVersionId=62378">Szechuan Special Sauce</a></li>
-<li><strong>LoRA used</strong>: <a target="_blank" rel="noopener" href="https://civitai.com/models/58247/product-design-dark-minimalism-eddiemauro-lora">Product Design (Dark minimalism-eddiemauro)</a></li>
-<li><strong>Prompt used</strong>: futuristic kettle, a computer rendering, minimalism, 4k</li>
-</ul>
-<h2 id="Captions"><a href="#Captions" class="headerlink" title="Captions"></a>Captions</h2><ul>
-<li>如果我们要训练一个角色，那么所有图片的说明都是同一个角色，这样它才能被识别。把一个女孩（a girl）换成初音未来（Hatsune Miku）</li>
-<li>如果我们要训练的是一种风格，所以会描述除了图片风格之外的一切，因此我们不会使用“插画（an illustration of）”或者“照片（a photo of）”之类的术语。基本而言，我们希望对想要改变的一切进行说明，</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230901101936968.png" alt="image-20230901101936968"></p>
-<pre class="line-numbers language-txt" data-language="txt"><code class="language-txt">这个案例中，“一个绿色长发在空中飘扬的女孩（a girl wiht long green hair is flying through the air）”描述相当准确，但还不够精准。我要描述的是一个蓝绿色眼睛、绿色双马尾长发的少女（a teenage girl with teal eyes and long teal hair in twin tails），然后删掉其余所有描述，将在空中飞扬（flying through the air）留在最后。
-
-那么，除了上述特征之外，她还有什么特点？可以看到，她穿了一件白色衬衫，白色短裙，黑色毛衣围在腰间，还穿了一件蓝色连衣裙，腿部暴露在外，还有一双蓝绿色溜冰鞋。随后，还可以看到蓝天白云。
-
-完整说明文字：a teenage girl with teal eyes and long teal hair in twin tails, wearing a white colored blouse, white skirt, black sweater tied around waist, blue dress, exposed legs, teal rollerskated, blue sky with white clouds, flying through the air
-
-那么，我为何要在这里描述的这么具体呢？如果我不在这里描述，那就意味着我希望LoRA学习这些东西，如果我不描述蓝绿色眼睛，那么最终生成的所有角色都会有蓝绿色眼睛。所以，一定要将能够改变的所有东西描述出来。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="Inference-Speed"><a href="#Inference-Speed" class="headerlink" title="Inference Speed"></a>Inference Speed</h2><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/46439983bbac8f07270f47143758571c.png" alt="img"></p>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://softwarekeep.com/help-center/how-to-use-stable-diffusion-lora-models">https://softwarekeep.com/help-center/how-to-use-stable-diffusion-lora-models</a></li>
+<li>DALL-E涉及一个 transformer，该 transformer 以文本 embeddings 和在图像上训练的 VQ-VAE 的隐变量作为输入。</li>
+<li>VQ-VAE 几乎比目前任何其他算法更好地表示多样化，复杂的数据分布。由于它与 transformers 配合得非常好，因此在给定足够大的计算预算的情况下，几乎可以扩展生成任意的可能性（不幸的是，对于最先进的结果，这是很少有个人甚至组织能够负担得起的预算）。出于这些原因，我预计 VQ-VAE 在相当长的一段时间内仍将是深度学习生态系统中的热门组件。</li>
 </ul>
 
                 
@@ -559,7 +564,7 @@ https://github.com/kohya-ss/sd-s">
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lee-jet.github.io/2023/09/01/sdwithlora/">https://lee-jet.github.io/2023/09/01/sdwithlora/</a>
+                    <a href="https://lee-jet.github.io/2023/09/07/vae/">https://lee-jet.github.io/2023/09/07/vae/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -676,7 +681,7 @@ https://github.com/kohya-ss/sd-s">
         repo: 'gitalk',
         owner: 'lee-jet',
         admin: "lee-jet",
-        id: '2023-09-01T10-50-52',
+        id: '2023-09-07T12-02-58',
         distractionFreeMode: false,  // Facebook-like distraction free mode
     });
 
@@ -704,9 +709,10 @@ https://github.com/kohya-ss/sd-s">
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2023/09/07/vae/">
                     <div class="card-image">
@@ -724,9 +730,9 @@ https://github.com/kohya-ss/sd-s">
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-09-07
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-09-07
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -739,6 +745,7 @@ https://github.com/kohya-ss/sd-s">
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -757,13 +764,13 @@ https://github.com/kohya-ss/sd-s">
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/08/31/lora/">
+                <a href="/2023/09/01/sdwithlora/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="LoRA">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="SDwithLoRA">
                         
-                        <span class="card-title">LoRA</span>
+                        <span class="card-title">SDwithLoRA</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -774,7 +781,7 @@ https://github.com/kohya-ss/sd-s">
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-31
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-09-01
                             </span>
                         <span class="publish-author">
                             

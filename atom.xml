@@ -6,7 +6,7 @@
   <link href="https://lee-jet.github.io/atom.xml" rel="self"/>
   
   <link href="https://lee-jet.github.io/"/>
-  <updated>2023-09-01T02:52:07.100Z</updated>
+  <updated>2023-09-07T04:03:16.816Z</updated>
   <id>https://lee-jet.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>VAE</title>
+    <link href="https://lee-jet.github.io/2023/09/07/vae/"/>
+    <id>https://lee-jet.github.io/2023/09/07/vae/</id>
+    <published>2023-09-07T04:02:58.000Z</published>
+    <updated>2023-09-07T04:03:16.816Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;8&#39;&gt;&lt;strong&gt;Variational AutoEncoder&lt;/strong&gt;&lt;/font&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&quot;自动编码器（Autoencoder，AE）&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
+    
+  </entry>
   
   <entry>
     <title>SDwithLoRA</title>
@@ -510,36 +538,6 @@ Rethinking SORT for Robust Multi-Object</summary>
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>paper-reading</title>
-    <link href="https://lee-jet.github.io/2023/08/01/paper-reading/"/>
-    <id>https://lee-jet.github.io/2023/08/01/paper-reading/</id>
-    <published>2023-08-01T02:09:32.000Z</published>
-    <updated>2023-08-01T02:21:34.497Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;&quot;&gt;目标检测&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;./baby_crying_detection_tutorials.md&quot;&gt;婴儿哭声检测&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a</summary>
         
       
     
