@@ -6,7 +6,7 @@
   <link href="https://lee-jet.github.io/atom.xml" rel="self"/>
   
   <link href="https://lee-jet.github.io/"/>
-  <updated>2023-09-07T04:03:16.816Z</updated>
+  <updated>2023-09-12T09:17:14.443Z</updated>
   <id>https://lee-jet.github.io/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>VisualChatGPT</title>
+    <link href="https://lee-jet.github.io/2023/09/12/visualchatgpt/"/>
+    <id>https://lee-jet.github.io/2023/09/12/visualchatgpt/</id>
+    <published>2023-09-12T09:16:03.000Z</published>
+    <updated>2023-09-12T09:17:14.443Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;4.5&#39;&gt;&lt;strong&gt;Visual ChatGPT: Talking, Drawing and Editing with Visual Foundation</summary>
+        
+      
+    
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
+    
+  </entry>
+  
+  <entry>
     <title>VAE</title>
     <link href="https://lee-jet.github.io/2023/09/07/vae/"/>
     <id>https://lee-jet.github.io/2023/09/07/vae/</id>
     <published>2023-09-07T04:02:58.000Z</published>
-    <updated>2023-09-07T04:03:16.816Z</updated>
+    <updated>2023-09-07T04:03:59.074Z</updated>
     
     
       
@@ -510,34 +535,6 @@ Latent Diffusion Textual-Inversion Enhanced Virtual</summary>
         
     <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;4.5&#39;&gt;Observation-Centric SORT:
 Rethinking SORT for Robust Multi-Object</summary>
-        
-      
-    
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Cascade-DETR</title>
-    <link href="https://lee-jet.github.io/2023/08/01/cascade-detr/"/>
-    <id>https://lee-jet.github.io/2023/08/01/cascade-detr/</id>
-    <published>2023-08-01T09:42:20.000Z</published>
-    <updated>2023-08-01T09:49:25.483Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;5&#39;&gt;Cascade-DETR: Delving into High-Quality Universal Object Detection&lt;/font&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a</summary>
         
       
     
