@@ -6,7 +6,7 @@
   <link href="https://lee-jet.github.io/atom.xml" rel="self"/>
   
   <link href="https://lee-jet.github.io/"/>
-  <updated>2023-09-12T09:17:14.443Z</updated>
+  <updated>2023-09-13T03:08:42.788Z</updated>
   <id>https://lee-jet.github.io/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>MVDiffusion</title>
+    <link href="https://lee-jet.github.io/2023/09/13/mvdiffusion/"/>
+    <id>https://lee-jet.github.io/2023/09/13/mvdiffusion/</id>
+    <published>2023-09-13T03:07:57.000Z</published>
+    <updated>2023-09-13T03:08:42.788Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;4.5&#39;&gt;&lt;strong&gt;MVDiffusion: Enabling Holistic Multi-view Image Generation with Correspondence-Aware</summary>
+        
+      
+    
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
+    
+  </entry>
+  
+  <entry>
     <title>VisualChatGPT</title>
     <link href="https://lee-jet.github.io/2023/09/12/visualchatgpt/"/>
     <id>https://lee-jet.github.io/2023/09/12/visualchatgpt/</id>
     <published>2023-09-12T09:16:03.000Z</published>
-    <updated>2023-09-12T09:17:14.443Z</updated>
+    <updated>2023-09-12T09:31:17.754Z</updated>
     
     
       
@@ -518,32 +543,6 @@ Latent Diffusion Textual-Inversion Enhanced Virtual</summary>
     
     
     <category term="Tech share" scheme="https://lee-jet.github.io/tags/Tech-share/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>OC-SORT</title>
-    <link href="https://lee-jet.github.io/2023/08/02/oc-sort/"/>
-    <id>https://lee-jet.github.io/2023/08/02/oc-sort/</id>
-    <published>2023-08-02T05:54:02.000Z</published>
-    <updated>2023-08-02T06:06:05.111Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;4.5&#39;&gt;Observation-Centric SORT:
-Rethinking SORT for Robust Multi-Object</summary>
-        
-      
-    
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
     
   </entry>
   

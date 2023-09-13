@@ -4,8 +4,12 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="标签: Tech share, AiHub">
-    <meta name="description" content="Fire">
+    <meta name="keywords" content="MVDiffusion, AiHub">
+    <meta name="description" content="MVDiffusion: Enabling Holistic Multi-view Image Generation with Correspondence-Aware Diffusion
+
+
+
+paper https://arxiv.or">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +21,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>标签: Tech share | AiHub</title>
+    <title>MVDiffusion | AiHub</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -333,442 +337,587 @@
 
 </header>
 
-    <div class="bg-cover pd-header about-cover">
-    <div class="container">
-    <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
-                
-                Go for it
-                
-            </div>
+    
 
-            <div class="description center-align">
-                
-                <span id="subtitle"></span>
-                <script src="/libs/typed/typed.js"></script>
-                <script>
-                    var typed = new Typed("#subtitle", {
-                        strings: [ 
-                            
-                                "从来没有真正的绝境, 只有心灵的迷途",
-                            
-                                "Never really desperate, only the lost of the soul",
-                            
-                        ],
-                        startDelay: 300,
-                        typeSpeed: 100,
-                        loop: true,
-                        backSpeed: 50,
-                        showCursor: true
-                    });
-                </script>
-                
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">MVDiffusion</h1>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Paper-Reading/">
+                                <span class="chip bg-color">Paper Reading</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Paper-Reading/" class="post-category">
+                                Paper Reading
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-09-13
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-09-13
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    575
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    2 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <div align='center' ><font size='4.5'><strong>MVDiffusion: Enabling Holistic Multi-view Image Generation with Correspondence-Aware Diffusion</strong></font></div>
+
+<hr>
+<ul>
+<li><p>paper <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2307.01097">https://arxiv.org/abs/2307.01097</a></p>
+</li>
+<li><p>code <a target="_blank" rel="noopener" href="https://github.com/Tangshitao/MVDiffusion">https://github.com/Tangshitao/MVDiffusion</a></p>
+</li>
+</ul>
+<p><img src="./_posts/assets/image-20230913100120215.png" alt="image-20230913100120215"></p>
+<hr>
+<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><ul>
+<li>全景图生成：输入文本提示或者文本图像条件，生成8个视角关联的图像，即可拼接成一张全景图 panaroma</li>
+<li>多视角深度图生成纹理网格：通过深度图生成 3D geometry mesh with texture</li>
+</ul>
+<h2 id="Contributions"><a href="#Contributions" class="headerlink" title="Contributions"></a>Contributions</h2><ul>
+<li>根据文本描述，MVDiffusion 可生成具有高分辨率和丰富内容的整体一致的多视角图像，这对全景生成和多视角深度图像生成等实际任务大有裨益。</li>
+</ul>
+<h2 id="Related-Work"><a href="#Related-Work" class="headerlink" title="Related Work"></a>Related Work</h2><ul>
+<li><p>Image generation  </p>
+</li>
+<li><p>3D content generation  </p>
+</li>
+</ul>
+<h2 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><p><img src="./_posts/assets/image-20230913101502480.png" alt="image-20230913101502480"></p>
+<h3 id="Text-conditioned-generation-model"><a href="#Text-conditioned-generation-model" class="headerlink" title="Text-conditioned generation model"></a>Text-conditioned generation model</h3><ul>
+<li>8个视角需要8个文本提示</li>
+<li>每张图像的latents初始化为独立的高斯噪声</li>
+<li>在去噪步，每个隐层噪声喂给多分支的UNet </li>
+<li>最后通过SD的VAE Decoder解码成多视角图像</li>
+</ul>
+<h4 id="Correspondence-aware-Attention"><a href="#Correspondence-aware-Attention" class="headerlink" title="Correspondence-aware Attention"></a>Correspondence-aware Attention</h4><ul>
+<li>目的是加强多视角特征图的连续性 consistency</li>
+<li>借鉴ControlNet，用零卷积初始化为0</li>
+</ul>
+<p><img src="./_posts/assets/image-20230913101634643.png" alt="image-20230913101634643"></p>
+<ul>
+<li><p>Source和Target的匹配点问题</p>
+<ul>
+<li>定义了KXK的领域限制，一般K=3或者K=1效率比较高</li>
+<li>位置坐标不是整数，而是通过双线性插值得到的浮点数</li>
+<li>l是第l个视角 l属于[0,N]</li>
+<li>计算采用CA标准计算 WQ, WK, and WV are the learnable weights<br>  of query, key and value matrices  </li>
+</ul>
+<p>  <img src="./_posts/assets/image-20230913103630527.png" alt="image-20230913103630527"></p>
+<ul>
+<li>最关键是：将S和S*的位置差分增加到position encoding <code>γ()</code>，因为位移提供了局部邻域的相对位置</li>
+</ul>
+</li>
+</ul>
+<p><img src="./_posts/assets/image-20230913102327679.png" alt="image-20230913102327679"></p>
+<h3 id="Image-amp-text-conditioned-generation-model"><a href="#Image-amp-text-conditioned-generation-model" class="headerlink" title="Image&amp;text-conditioned generation model"></a>Image&amp;text-conditioned generation model</h3><ul>
+<li>Image&amp;text-conditioned generation model <ul>
+<li>1个条件图，生成7个目标图像即可</li>
+<li>SD的inpainting model作为base model，再加上CAA</li>
+</ul>
+</li>
+</ul>
+<p><img src="./_posts/assets/image-20230913105835442.png" alt="image-20230913105835442"></p>
+<ul>
+<li>Multi-view depth-to-image generation  <ul>
+<li>从深度图中提取关键帧key-frame   </li>
+<li>通过给定相机pose和帧外插生成图像</li>
+</ul>
+</li>
+</ul>
+<p><img src="./_posts/assets/image-20230913105528499.png" alt="image-20230913105528499"></p>
+<h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><ul>
+<li>全景图</li>
+</ul>
+<p><img src="./_posts/assets/image-20230913105442233.png" alt="image-20230913105442233"></p>
+<ul>
+<li>深度图</li>
+</ul>
+<p><img src="./_posts/assets/image-20230913105600653.png" alt="image-20230913105600653"></p>
+<h2 id="Demos"><a href="#Demos" class="headerlink" title="Demos"></a>Demos</h2><ul>
+<li>布局明确</li>
+</ul>
+<p><img src="./_posts/assets/image-20230913110607938.png" alt="image-20230913110607938"></p>
+<ul>
+<li>卡通风格 cartoon</li>
+</ul>
+<p><img src="./_posts/assets/image-20230913110509128.png" alt="image-20230913110509128"></p>
+<ul>
+<li>油画风格 oil painting</li>
+</ul>
+<p><img src="./_posts/assets/image-20230913110520733.png" alt="image-20230913110520733"></p>
+<h2 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions"></a>Conclusions</h2><ul>
+<li>引入了<code>CAA</code>匹配点感知注意力机制 将多视角图像生成的连续性进行了强关联（匹配点）</li>
+<li>在建筑、室内设计行业，可以通过文本和图像条件直接生成全景图和3D室内模型，大大简化图纸设计工作，而且在家具布局layout和风格style上具有较好的生成表现</li>
+</ul>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://mvdiffusion.github.io/">https://mvdiffusion.github.io/</a></li>
+<li><a target="_blank" rel="noopener" href="https://huggingface.co/spaces/tangshitao/MVDiffusion">https://huggingface.co/spaces/tangshitao/MVDiffusion</a></li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Lee Jet</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://lee-jet.github.io/2023/09/13/mvdiffusion/">https://lee-jet.github.io/2023/09/13/mvdiffusion/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Lee Jet</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Paper-Reading/">
+                                    <span class="chip bg-color">Paper Reading</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script>
-    // 每天切换 banner 图.  Switch banner image every day.
-    var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
-    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
+    $(function () {
+        $('.tabs').tabs();
+    });
 </script>
 
-
+            
+        </div>
     </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
 </div>
 
-<main class="content">
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '239ba579785b9bb8ffde',
+        clientSecret: '6b8159892d8d5785b7be9a84c0998462ce8649d4',
+        repo: 'gitalk',
+        owner: 'lee-jet',
+        admin: "lee-jet",
+        id: '2023-09-13T11-07-57',
+        distractionFreeMode: false,  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
 
     
 
-<div id="tags" class="container chip-container">
-    <div class="card">
-        <div class="card-content">
-            <div class="tag-title center-align">
-                <i class="fas fa-tags"></i>&nbsp;&nbsp;文章标签
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
-            <div class="tag-chips">
-                
-                
-                <a href="/tags/Tech-share/" title="Tech share: 15">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-active "
-                            data-tagname="Tech share" style="background-color: #F9EBEA;">Tech share
-                        <span class="tag-length">15</span>
-                    </span>
+            <div class="card">
+                <a href="/2023/09/13/mvdiffusion/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="MVDiffusion">
+                        
+                        <span class="card-title">MVDiffusion</span>
+                    </div>
                 </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-09-13
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper-Reading/" class="post-category">
+                                    Paper Reading
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
                 
-                
-                <a href="/tags/Paper-Reading/" title="Paper Reading: 21">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Paper Reading" style="background-color: #F5EEF8;">Paper Reading
-                        <span class="tag-length">21</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/demos/" title="demos: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="demos" style="background-color: #D5F5E3;">demos
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Paper-Reading/">
+                        <span class="chip bg-color">Paper Reading</span>
+                    </a>
+                    
+                </div>
                 
             </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/09/12/visualchatgpt/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="VisualChatGPT">
+                        
+                        <span class="card-title">VisualChatGPT</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-09-12
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper-Reading/" class="post-category">
+                                    Paper Reading
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Paper-Reading/">
+                        <span class="chip bg-color">Paper Reading</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
         </div>
     </div>
 </div>
 
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('1'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
     
 
-    <article id="articles" class="container articles">
-        <div class="row tags-posts">
-            
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="Tech share" data-aos="fade-up">
-                <div class="card">
-                    <a href="/2023/08/16/10-shell/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="10-shell">
-                            
-                            <span class="card-title">10-shell</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-16
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Tech-share/" class="post-category">
-                                Tech share
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="Tech share" data-aos="fade-up">
-                <div class="card">
-                    <a href="/2023/08/16/terminology/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="terminology">
-                            
-                            <span class="card-title">terminology</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-16
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Tech-share/" class="post-category">
-                                Tech share
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="Tech share" data-aos="fade-up">
-                <div class="card">
-                    <a href="/2023/08/16/libtorch/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="LibTorch">
-                            
-                            <span class="card-title">LibTorch</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-16
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Tech-share/" class="post-category">
-                                Tech share
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="Tech share" data-aos="fade-up">
-                <div class="card">
-                    <a href="/2023/08/16/design-pattern/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="design-pattern">
-                            
-                            <span class="card-title">design-pattern</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-16
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Tech-share/" class="post-category">
-                                Tech share
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="Tech share" data-aos="fade-up">
-                <div class="card">
-                    <a href="/2023/08/04/model-deployment-trition/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="model-deployment-trition">
-                            
-                            <span class="card-title">model-deployment-trition</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-04
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                Lee Jet
-                                
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="Tech share" data-aos="fade-up">
-                <div class="card">
-                    <a href="/2023/07/27/model-compression-and-acceleration-md/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="model-compression-and-acceleration.md">
-                            
-                            <span class="card-title">model-compression-and-acceleration.md</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-27
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                Lee Jet
-                                
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="Tech share" data-aos="fade-up">
-                <div class="card">
-                    <a href="/2023/01/10/09-python-pytorch-tensorflow/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="09_python_pytorch_tensorflow">
-                            
-                            <span class="card-title">09_python_pytorch_tensorflow</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-10
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Tech-share/" class="post-category">
-                                Tech share
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="Tech share" data-aos="fade-up">
-                <div class="card">
-                    <a href="/2023/01/10/08-linux-shell/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="08_linux_shell">
-                            
-                            <span class="card-title">08_linux_shell</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-10
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Tech-share/" class="post-category">
-                                Tech share
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="Tech share" data-aos="fade-up">
-                <div class="card">
-                    <a href="/2023/01/09/07-bugs/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="07_bugs">
-                            
-                            <span class="card-title">07_bugs</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-09
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Tech-share/" class="post-category">
-                                Tech share
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="Tech share" data-aos="fade-up">
-                <div class="card">
-                    <a href="/2023/01/09/06-client-server/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="06_client_server">
-                            
-                            <span class="card-title">06_client_server</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-09
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Tech-share/" class="post-category">
-                                Tech share
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-        </div>
-    </article>
 </main>
-
-
-<div class="container paging">
-    <div class="row">
-        <div class="col s6 m4 l4">
-            
-            <a class="left btn-floating btn-large disabled">
-                <i class="fas fa-angle-left"></i>
-            </a>
-            
-        </div>
-        <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">1 / 2</div>
-        </div>
-        <div class="col s6 m4 l4">
-            
-            <a href="/tags/Tech-share/page/2/"
-               class="right btn-floating btn-large waves-effect waves-light bg-color">
-                <i class="fas fa-angle-right"></i>
-            </a>
-            
-        </div>
-    </div>
-</div>
 
 
 
