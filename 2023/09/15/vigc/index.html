@@ -4,15 +4,14 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="TryOnDiffusion, AiHub">
-    <meta name="description" content="TryOnDiffusion: A Tale of Two UNets
+    <meta name="keywords" content="VIGC, AiHub">
+    <meta name="description" content="VIGC: Visual Instruction Generation and Correction
 
 
 
+paper https://arxiv.org/abs/2308.12714
 
-paper https://arxiv.org/abs/2306.08276  
-
-code https://tryondiffusion.github.io/">
+code https://github.com/op">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -24,7 +23,7 @@ code https://tryondiffusion.github.io/">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>TryOnDiffusion | AiHub</title>
+    <title>VIGC | AiHub</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -344,12 +343,12 @@ code https://tryondiffusion.github.io/">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">TryOnDiffusion</h1>
+                    <h1 class="description center-align post-title">VIGC</h1>
                 </div>
             </div>
         </div>
@@ -398,21 +397,21 @@ code https://tryondiffusion.github.io/">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-08-09
+                    2023-09-15
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-09-11
+                    2023-09-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    820
+                    896
                 </div>
                 
 
@@ -442,143 +441,85 @@ code https://tryondiffusion.github.io/">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <div align='center' ><font size='6'>TryOnDiffusion: A Tale of Two UNets</font></div>
-
+                <div align='center' ><font size='4.5'><strong>VIGC: Visual Instruction Generation and Correction</strong></font></div>
 
 <hr>
 <ul>
-<li><p>paper <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2306.08276">https://arxiv.org/abs/2306.08276</a>  </p>
+<li><p>paper <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2308.12714">https://arxiv.org/abs/2308.12714</a></p>
 </li>
-<li><p>code <a target="_blank" rel="noopener" href="https://tryondiffusion.github.io/?ref=louisbouchard.ai">https://tryondiffusion.github.io/?ref=louisbouchard.ai</a></p>
+<li><p>code <a target="_blank" rel="noopener" href="https://github.com/opendatalab/vigc">https://github.com/opendatalab/vigc</a></p>
 </li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230809120431545.png" alt="image-20230809120431545"></p>
+<p><img src="./_posts/assets/overview_new.png" alt="img"></p>
 <hr>
 <h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><ul>
-<li>key challenge: 合成照片写实级的保留衣服细节，同时形变到相应的人体姿态和形态上</li>
-<li>本文提出了diffusion-based架构，统一了2个UNets，即为paralle-UNet<ul>
-<li>衣服形变：通过cross attention机制进行隐式形变</li>
-<li>衣服形变和人体混合： 将2个任务序列统一为一个过程</li>
+<li>针对 vision-language tasks，通常需要高质量的预标注图像描述对（image&amp;caption）</li>
 </ul>
-</li>
+<h2 id="Contributions"><a href="#Contributions" class="headerlink" title="Contributions"></a>Contributions</h2><ul>
+<li>Visual Instruction Generation  </li>
+<li>Visual Instruction Correction   </li>
 </ul>
-<h2 id="Contributions"><a href="#Contributions" class="headerlink" title="Contributions"></a>Contributions</h2><ol>
-<li>1k分辨率，复杂body pose，保留衣服细节（图案，文字，标签）</li>
-<li>提出parralle-UNet用attention实现隐式warping，而且将warping和blending统一为一个网络</li>
-</ol>
 <h2 id="Related-Work"><a href="#Related-Work" class="headerlink" title="Related Work"></a>Related Work</h2><ul>
-<li>Image-Based Virtual Try-On<ul>
-<li>previous works将try-on分解为2个子任务 warping 和 blending，比如VTTON利用TPS进行warping，ClothFlow利用flow fields进行warping。VITON-HD, HR-VITON提高了生成图像的分辨率到1K。SDAFN通过deformable attention提高了质量。</li>
-<li>但是上述方法都存在misalignment没有对齐问题，原因是通过显式的warping或者flow estimation带来的对齐误差。</li>
-<li>Tryongan利用unpaired数据训练 pose-guided stylegan2，在latent space进行优化，但是隐空间会丢失衣服的细节</li>
+<li>Instruction-following LLMs  </li>
+<li>Multi-modal Instruction Tunning  </li>
+<li>Visual Question Generation  </li>
 </ul>
-</li>
-<li>Diffusion Models<ul>
-<li>比GAN有很好的稳定性和更容易收敛</li>
-<li>使用通道拼接的UNet架构，在图像翻译问题上效果很好</li>
-<li>但是，garment warping是一个非线性问题，不适合通道拼接，所以提出了parallel-UNet，通过cross attention实现implicitly warping</li>
+<h2 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><ul>
+<li>训练阶段</li>
 </ul>
-</li>
-</ul>
-<h2 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230809141036254.png" alt="image-20230809141036254"></p>
-<h3 id="Preprocessing-of-inputs"><a href="#Preprocessing-of-inputs" class="headerlink" title="Preprocessing of inputs"></a>Preprocessing of inputs</h3><ul>
-<li><p>估计person和garment的segmentation和keypoints</p>
-</li>
-<li><p>对person，对garment因为clothing-agnostic RGB described in VITON-HD 存在衣服信息泄露，需要将cloth info去掉，同时复制粘贴只保留了三部分head hand lower-body</p>
-</li>
-</ul>
-<h3 id="Cascaded-Diffusion-Models-for-Try-On"><a href="#Cascaded-Diffusion-Models-for-Try-On" class="headerlink" title="Cascaded Diffusion Models for Try-On"></a>Cascaded Diffusion Models for Try-On</h3><p>​    包括1个基本的diffusion模型和2个超分diffusion模型</p>
+<p><img src="./_posts/assets/image-20230915121754844.png" alt="image-20230915121754844"></p>
 <ul>
-<li>base diffusion model  <ul>
-<li>128X128 parallet-unet</li>
-<li>输入的noise进行conditioning  augmentation</li>
+<li>推理阶段</li>
 </ul>
-</li>
-<li>super-resolution (SR) diffusion models  <ul>
-<li>128X128 -&gt; 256X256 (tryon stage)<ul>
-<li>256X256 parallet-unet</li>
-</ul>
-</li>
-<li>256X256 -&gt; 1024X1024 (only super resolution stage)<ul>
-<li>as Efficient-UNet introduced by Imagen  <ul>
-<li>Photorealistic text-to-image diffusion models with deep language understanding  </li>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2205.11487">https://arxiv.org/abs/2205.11487</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="Parallel-UNet"><a href="#Parallel-UNet" class="headerlink" title="Parallel-UNet"></a>Parallel-UNet</h3><ul>
-<li>Implicit warping  <ul>
-<li>不能直接用通道拼接方法，因为传统的UNet使用空间卷积和空间自注意力，这些操作本省就有很强的像素级bias</li>
-<li>提出cross attention，结合多头学习不同表征子空间特征</li>
-</ul>
-</li>
-</ul>
+<p><img src="./_posts/assets/image-20230915121811995.png" alt="image-20230915121811995"></p>
 <ul>
-<li><p>Combining warp and blend in a single pass  </p>
-<ul>
-<li><p><strong>1个person unet</strong></p>
-<ul>
-<li>通过通道拼接作为输入</li>
-<li><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230809144113648.png" alt="image-20230809144113648"></li>
+<li>包含4个组件：</li>
 </ul>
-</li>
-<li><p><strong>1个garment unet</strong></p>
-<ul>
-<li>通过cross attention将衣服特征融合到目标图像</li>
-<li>在32X32block出提前停止，</li>
-<li><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230809144316562.png" alt="image-20230809144316562"></li>
-</ul>
-</li>
-<li><p>cross attention</p>
-<ul>
-<li><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230809150820234.png" alt="image-20230809150820234"></li>
-</ul>
-</li>
-<li><p>person和garment的pose作为guidence非常必要</p>
-<ul>
-<li><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230809144454208.png" alt="image-20230809144454208"></li>
+<ol>
+<li>the visual encoder (ViT) (Fang et al. 2023),</li>
+<li>the large language model (Vicuna) (Chiang et al. 2023), </li>
+<li>the Q-Former (Li et al. 2023b) for visual feature extraction, </li>
+<li>the Fully-Connected (FC) projection for reconciling visual-language features.   </li>
+</ol>
+<h3 id="Visual-Instruction-Generation-（VIG）"><a href="#Visual-Instruction-Generation-（VIG）" class="headerlink" title="Visual Instruction Generation （VIG）"></a>Visual Instruction Generation （VIG）</h3><ul>
+<li>根据图像及提示，自动生成视觉问答对VAQ</li>
+<li>过程<ul>
+<li>通过ViT-G提取图像embedding视觉特征</li>
+<li>通过Q-Former的自注意机制SA感知指令信息，再通过交叉注意力CA将视觉特征和指令特征进行拼接融合，从而提取和指令更关联的视觉特征</li>
+<li>通过FC将特征进一步对齐，实现无缝集成</li>
+<li>通过Vicuna将指令对齐的特征注入到语言模型</li>
+<li>这样生成的VAQ就能本质上链接到给定图像内容</li>
 </ul>
 </li>
 </ul>
+<h3 id="Visual-Instruction-Correction-VIC"><a href="#Visual-Instruction-Correction-VIC" class="headerlink" title="Visual Instruction Correction  (VIC)"></a>Visual Instruction Correction  (VIC)</h3><ul>
+<li>多模态模型、更多是语言模型通常存在hallucination phenomenon幻觉现象（无关性），VIG也存在，如果忽略了图像信息，那么生成的答案可能和给定的图像无关</li>
+<li>在训练阶段： VIG 阶段的目标是生成相应的视觉问答对。相反，VIC 训练阶段的目标阶段的目标是向模型提供一个问题，从而引导模型在 Q-Former 特征提取过程中专注于提取与输入问题/文本相关的特征。这些特征为随后的答案的基础。</li>
+<li>在推理阶段： 使用上述 VIC 方法对模型进行训练后，它可以将 VIG 生成的问答对中的问题作为输入，并在推理阶段重新生成答案。由于该模型在制定答案时更注重问题。因此，生成的结果通常更为准确。</li>
+<li>Iterativate-Q-Former <ul>
+<li>Q-Former 模块旨在了解指令信息，进一步完善了这些视觉特征。 </li>
+<li>在部署 VIC 模块之前，我们首先使用 VIG 生成初始问题（Q）和答案（A）。<br>  在第一次迭代中，我们将指令和问题作为输入，输出答案 A1 和 A¯1输入，输出答案 A1 和 A¯1，其中 A1 代表答案的第一句话，A¯1 代表答案的第二句话。代表答案的第一句话，A¯1 代表第一句话之后的所有内容。第一句之后的所有内容。在第二次迭代中，我们输入在第二次迭代中，我们输入指令、问题和上一步的答案 A1 来预测 A2。直到遇到终止符号。</li>
+<li>这种这种迭代方法之所以有效，主要是由于视觉特征会根据最新的文本信息不断更新，从而使后续结果更加准确。</li>
+<li>但是，应该注意的是，虽然这种方法对提供图像内容的详细描述非常有益，但它在对话任务和推理任务中的有效性相对有限。这是因为对话任务通常由单句组成，而推理任务中的后续内容并不严重依赖于图像信息。</li>
+</ul>
 </li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230809144006944.png" alt="image-20230809144006944"></p>
-<h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><h3 id="Datasets"><a href="#Datasets" class="headerlink" title="Datasets"></a>Datasets</h3><ul>
-<li>400万张paried dataset进行训练，每个sample都是同一个人穿同一件衣服不同姿态</li>
-<li>6000张unpaired 进行测试， 每个sample都是2个不同的人穿2件不同衣服，2种不同姿态</li>
-<li>图像都crop-resize到1K分辨率，同时检测2D 18个关键点</li>
+<p><img src="./_posts/assets/image-20230915141331879.png" alt="image-20230915141331879"></p>
+<h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><p><img src="./_posts/assets/image-20230915121713187.png" alt="image-20230915121713187"></p>
+<p>应用</p>
+<ul>
+<li>Conversation  </li>
+<li>Detail Description  </li>
+<li>Complex Reasoning  </li>
 </ul>
-<h3 id="Implementation-details"><a href="#Implementation-details" class="headerlink" title="Implementation details"></a>Implementation details</h3><ul>
-<li>DDPM  <a target="_blank" rel="noopener" href="https://nn.labml.ai/diffusion/ddpm/index.html">https://nn.labml.ai/diffusion/ddpm/index.html</a></li>
-<li>DDIM  <a target="_blank" rel="noopener" href="https://huggingface.co/docs/diffusers/api/schedulers/ddim">https://huggingface.co/docs/diffusers/api/schedulers/ddim</a></li>
-</ul>
-<h3 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230809145257583.png" alt="image-20230809145257583"></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230809150208236.png" alt="image-20230809150208236"></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230809150224259.png" alt="image-20230809150224259"></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230809150338619.png" alt="image-20230809150338619"></p>
 <h2 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions"></a>Conclusions</h2><ul>
-<li><strong>适合穿衣服的人，如果只有衣服就无法估计pose，不适用这种情况</strong></li>
-<li><strong>在复杂pose下，garment warping和detail-preserving效果确实很好</strong></li>
-</ul>
-<h3 id="Limitation"><a href="#Limitation" class="headerlink" title="Limitation"></a>Limitation</h3><ul>
-<li>leaking artifacts: 来自segentation和pose的误差</li>
-<li>使用clothing-agnostic RGB 不够理想，因为有时候只能保留部分identity</li>
-<li>数据集背景统一且干净，在复杂背景下效果没有实验</li>
-</ul>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><p><a target="_blank" rel="noopener" href="https://www.walmart.com/cp/virtual-try-on/4879497">https://www.walmart.com/cp/virtual-try-on/4879497</a></p>
-</li>
-<li><p>FiLM: Visual Reasoning with a General Conditioning Layer</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1709.07871">https://arxiv.org/abs/1709.07871</a></li>
+<li>输入图像image和指令instruction，可以生成高精度的Visual Question Answer pairs数据</li>
+<li>如果把instruction改成image caption （让AI描述图像），可以生成image&amp;text数据，为Text2Image任务提供数据<ul>
+<li>Instruction: Describe the image content with a question and give the response.  </li>
 </ul>
 </li>
 </ul>
-
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2>
                 
             </div>
             <hr/>
@@ -604,7 +545,7 @@ code https://tryondiffusion.github.io/">
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lee-jet.github.io/2023/08/09/tryondiffusion/">https://lee-jet.github.io/2023/08/09/tryondiffusion/</a>
+                    <a href="https://lee-jet.github.io/2023/09/15/vigc/">https://lee-jet.github.io/2023/09/15/vigc/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -721,7 +662,7 @@ code https://tryondiffusion.github.io/">
         repo: 'gitalk',
         owner: 'lee-jet',
         admin: "lee-jet",
-        id: '2023-08-09T16-26-57',
+        id: '2023-09-15T14-23-37',
         distractionFreeMode: false,  // Facebook-like distraction free mode
     });
 
@@ -749,17 +690,18 @@ code https://tryondiffusion.github.io/">
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/08/10/clip/">
+                <a href="/2023/09/15/vigc/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="CLIP">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="VIGC">
                         
-                        <span class="card-title">CLIP</span>
+                        <span class="card-title">VIGC</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -769,9 +711,9 @@ code https://tryondiffusion.github.io/">
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-08-10
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-09-15
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -784,6 +726,7 @@ code https://tryondiffusion.github.io/">
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -802,13 +745,13 @@ code https://tryondiffusion.github.io/">
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/08/08/ladi-vton/">
+                <a href="/2023/09/15/opencv-installation/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="LaDI-VTON">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="opencv-installation">
                         
-                        <span class="card-title">LaDI-VTON</span>
+                        <span class="card-title">opencv-installation</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -819,14 +762,14 @@ code https://tryondiffusion.github.io/">
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-09-15
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Paper-Reading/" class="post-category">
-                                    Paper Reading
+                            <a href="/categories/Tech-share/" class="post-category">
+                                    Tech share
                                 </a>
                             
                             
@@ -836,8 +779,8 @@ code https://tryondiffusion.github.io/">
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Paper-Reading/">
-                        <span class="chip bg-color">Paper Reading</span>
+                    <a href="/tags/Tech-share/">
+                        <span class="chip bg-color">Tech share</span>
                     </a>
                     
                 </div>

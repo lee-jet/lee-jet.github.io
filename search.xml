@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>VIGC</title>
+      <link href="/2023/09/15/vigc/"/>
+      <url>/2023/09/15/vigc/</url>
+      
+        <content type="html"><![CDATA[<div align='center' ><font size='4.5'><strong>VIGC: Visual Instruction Generation and Correction</strong></font></div><hr><ul><li><p>paper <a href="https://arxiv.org/abs/2308.12714">https://arxiv.org/abs/2308.12714</a></p></li><li><p>code <a href="https://github.com/opendatalab/vigc">https://github.com/opendatalab/vigc</a></p></li></ul><p><img src="./_posts/assets/overview_new.png" alt="img"></p><hr><h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><ul><li>针对 vision-language tasks，通常需要高质量的预标注图像描述对（image&amp;caption）</li></ul><h2 id="Contributions"><a href="#Contributions" class="headerlink" title="Contributions"></a>Contributions</h2><ul><li>Visual Instruction Generation  </li><li>Visual Instruction Correction   </li></ul><h2 id="Related-Work"><a href="#Related-Work" class="headerlink" title="Related Work"></a>Related Work</h2><ul><li>Instruction-following LLMs  </li><li>Multi-modal Instruction Tunning  </li><li>Visual Question Generation  </li></ul><h2 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><ul><li>训练阶段</li></ul><p><img src="./_posts/assets/image-20230915121754844.png" alt="image-20230915121754844"></p><ul><li>推理阶段</li></ul><p><img src="./_posts/assets/image-20230915121811995.png" alt="image-20230915121811995"></p><ul><li>包含4个组件：</li></ul><ol><li>the visual encoder (ViT) (Fang et al. 2023),</li><li>the large language model (Vicuna) (Chiang et al. 2023), </li><li>the Q-Former (Li et al. 2023b) for visual feature extraction, </li><li>the Fully-Connected (FC) projection for reconciling visual-language features.   </li></ol><h3 id="Visual-Instruction-Generation-（VIG）"><a href="#Visual-Instruction-Generation-（VIG）" class="headerlink" title="Visual Instruction Generation （VIG）"></a>Visual Instruction Generation （VIG）</h3><ul><li>根据图像及提示，自动生成视觉问答对VAQ</li><li>过程<ul><li>通过ViT-G提取图像embedding视觉特征</li><li>通过Q-Former的自注意机制SA感知指令信息，再通过交叉注意力CA将视觉特征和指令特征进行拼接融合，从而提取和指令更关联的视觉特征</li><li>通过FC将特征进一步对齐，实现无缝集成</li><li>通过Vicuna将指令对齐的特征注入到语言模型</li><li>这样生成的VAQ就能本质上链接到给定图像内容</li></ul></li></ul><h3 id="Visual-Instruction-Correction-VIC"><a href="#Visual-Instruction-Correction-VIC" class="headerlink" title="Visual Instruction Correction  (VIC)"></a>Visual Instruction Correction  (VIC)</h3><ul><li>多模态模型、更多是语言模型通常存在hallucination phenomenon幻觉现象（无关性），VIG也存在，如果忽略了图像信息，那么生成的答案可能和给定的图像无关</li><li>在训练阶段： VIG 阶段的目标是生成相应的视觉问答对。相反，VIC 训练阶段的目标阶段的目标是向模型提供一个问题，从而引导模型在 Q-Former 特征提取过程中专注于提取与输入问题/文本相关的特征。这些特征为随后的答案的基础。</li><li>在推理阶段： 使用上述 VIC 方法对模型进行训练后，它可以将 VIG 生成的问答对中的问题作为输入，并在推理阶段重新生成答案。由于该模型在制定答案时更注重问题。因此，生成的结果通常更为准确。</li><li>Iterativate-Q-Former <ul><li>Q-Former 模块旨在了解指令信息，进一步完善了这些视觉特征。 </li><li>在部署 VIC 模块之前，我们首先使用 VIG 生成初始问题（Q）和答案（A）。<br>  在第一次迭代中，我们将指令和问题作为输入，输出答案 A1 和 A¯1输入，输出答案 A1 和 A¯1，其中 A1 代表答案的第一句话，A¯1 代表答案的第二句话。代表答案的第一句话，A¯1 代表第一句话之后的所有内容。第一句之后的所有内容。在第二次迭代中，我们输入在第二次迭代中，我们输入指令、问题和上一步的答案 A1 来预测 A2。直到遇到终止符号。</li><li>这种这种迭代方法之所以有效，主要是由于视觉特征会根据最新的文本信息不断更新，从而使后续结果更加准确。</li><li>但是，应该注意的是，虽然这种方法对提供图像内容的详细描述非常有益，但它在对话任务和推理任务中的有效性相对有限。这是因为对话任务通常由单句组成，而推理任务中的后续内容并不严重依赖于图像信息。</li></ul></li></ul><p><img src="./_posts/assets/image-20230915141331879.png" alt="image-20230915141331879"></p><h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><p><img src="./_posts/assets/image-20230915121713187.png" alt="image-20230915121713187"></p><p>应用</p><ul><li>Conversation  </li><li>Detail Description  </li><li>Complex Reasoning  </li></ul><h2 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions"></a>Conclusions</h2><ul><li>输入图像image和指令instruction，可以生成高精度的Visual Question Answer pairs数据</li><li>如果把instruction改成image caption （让AI描述图像），可以生成image&amp;text数据，为Text2Image任务提供数据<ul><li>Instruction: Describe the image content with a question and give the response.  </li></ul></li></ul><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> Paper Reading </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Paper Reading </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>opencv-installation</title>
       <link href="/2023/09/15/opencv-installation/"/>
       <url>/2023/09/15/opencv-installation/</url>
