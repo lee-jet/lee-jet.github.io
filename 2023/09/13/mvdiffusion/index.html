@@ -448,7 +448,7 @@ paper https://arxiv.or">
 <li><p>code <a target="_blank" rel="noopener" href="https://github.com/Tangshitao/MVDiffusion">https://github.com/Tangshitao/MVDiffusion</a></p>
 </li>
 </ul>
-<p><img src="./_posts/assets/image-20230913100120215.png" alt="image-20230913100120215"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230913100120215.png" alt="image-20230913100120215"></p>
 <hr>
 <h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><ul>
 <li>全景图生成：输入文本提示或者文本图像条件，生成8个视角关联的图像，即可拼接成一张全景图 panaroma</li>
@@ -463,7 +463,7 @@ paper https://arxiv.or">
 <li><p>3D content generation  </p>
 </li>
 </ul>
-<h2 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><p><img src="./_posts/assets/image-20230913101502480.png" alt="image-20230913101502480"></p>
+<h2 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230913101502480.png" alt="image-20230913101502480"></p>
 <h3 id="Text-conditioned-generation-model"><a href="#Text-conditioned-generation-model" class="headerlink" title="Text-conditioned generation model"></a>Text-conditioned generation model</h3><ul>
 <li>8个视角需要8个文本提示</li>
 <li>每张图像的latents初始化为独立的高斯噪声</li>
@@ -474,7 +474,7 @@ paper https://arxiv.or">
 <li>目的是加强多视角特征图的连续性 consistency</li>
 <li>借鉴ControlNet，用零卷积初始化为0</li>
 </ul>
-<p><img src="./_posts/assets/image-20230913101634643.png" alt="image-20230913101634643"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230913101634643.png" alt="image-20230913101634643"></p>
 <ul>
 <li><p>Source和Target的匹配点问题</p>
 <ul>
@@ -483,13 +483,13 @@ paper https://arxiv.or">
 <li>l是第l个视角 l属于[0,N]</li>
 <li>计算采用CA标准计算 WQ, WK, and WV are the learnable weights<br>  of query, key and value matrices  </li>
 </ul>
-<p>  <img src="./_posts/assets/image-20230913103630527.png" alt="image-20230913103630527"></p>
+<p>  <img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230913103630527.png" alt="image-20230913103630527"></p>
 <ul>
 <li>最关键是：将S和S*的位置差分增加到position encoding <code>γ()</code>，因为位移提供了局部邻域的相对位置</li>
 </ul>
 </li>
 </ul>
-<p><img src="./_posts/assets/image-20230913102327679.png" alt="image-20230913102327679"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230913102327679.png" alt="image-20230913102327679"></p>
 <h3 id="Image-amp-text-conditioned-generation-model"><a href="#Image-amp-text-conditioned-generation-model" class="headerlink" title="Image&amp;text-conditioned generation model"></a>Image&amp;text-conditioned generation model</h3><ul>
 <li>Image&amp;text-conditioned generation model <ul>
 <li>1个条件图，生成7个目标图像即可</li>
@@ -497,7 +497,7 @@ paper https://arxiv.or">
 </ul>
 </li>
 </ul>
-<p><img src="./_posts/assets/image-20230913105835442.png" alt="image-20230913105835442"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230913105835442.png" alt="image-20230913105835442"></p>
 <ul>
 <li>Multi-view depth-to-image generation  <ul>
 <li>从深度图中提取关键帧key-frame   </li>
@@ -505,27 +505,27 @@ paper https://arxiv.or">
 </ul>
 </li>
 </ul>
-<p><img src="./_posts/assets/image-20230913105528499.png" alt="image-20230913105528499"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230913105528499.png" alt="image-20230913105528499"></p>
 <h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><ul>
 <li>全景图</li>
 </ul>
-<p><img src="./_posts/assets/image-20230913105442233.png" alt="image-20230913105442233"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230913105442233.png" alt="image-20230913105442233"></p>
 <ul>
 <li>深度图</li>
 </ul>
-<p><img src="./_posts/assets/image-20230913105600653.png" alt="image-20230913105600653"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230913105600653.png" alt="image-20230913105600653"></p>
 <h2 id="Demos"><a href="#Demos" class="headerlink" title="Demos"></a>Demos</h2><ul>
 <li>布局明确</li>
 </ul>
-<p><img src="./_posts/assets/image-20230913110607938.png" alt="image-20230913110607938"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230913110607938.png" alt="image-20230913110607938"></p>
 <ul>
 <li>卡通风格 cartoon</li>
 </ul>
-<p><img src="./_posts/assets/image-20230913110509128.png" alt="image-20230913110509128"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230913110509128.png" alt="image-20230913110509128"></p>
 <ul>
 <li>油画风格 oil painting</li>
 </ul>
-<p><img src="./_posts/assets/image-20230913110520733.png" alt="image-20230913110520733"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230913110520733.png" alt="image-20230913110520733"></p>
 <h2 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions"></a>Conclusions</h2><ul>
 <li>引入了<code>CAA</code>匹配点感知注意力机制 将多视角图像生成的连续性进行了强关联（匹配点）</li>
 <li>在建筑、室内设计行业，可以通过文本和图像条件直接生成全景图和3D室内模型，大大简化图纸设计工作，而且在家具布局layout和风格style上具有较好的生成表现</li>
@@ -705,18 +705,17 @@ paper https://arxiv.or">
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/09/13/mvdiffusion/">
+                <a href="/2023/09/15/opencv-installation/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="MVDiffusion">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="opencv-installation">
                         
-                        <span class="card-title">MVDiffusion</span>
+                        <span class="card-title">opencv-installation</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -726,27 +725,26 @@ paper https://arxiv.or">
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-09-13
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-09-15
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Paper-Reading/" class="post-category">
-                                    Paper Reading
+                            <a href="/categories/Tech-share/" class="post-category">
+                                    Tech share
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Paper-Reading/">
-                        <span class="chip bg-color">Paper Reading</span>
+                    <a href="/tags/Tech-share/">
+                        <span class="chip bg-color">Tech share</span>
                     </a>
                     
                 </div>
@@ -993,7 +991,7 @@ paper https://arxiv.or">
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">62.3k</span>
+                        class="white-color">62.5k</span>
             
             
             

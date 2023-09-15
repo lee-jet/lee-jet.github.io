@@ -4,11 +4,12 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="07_bugs, AiHub">
-    <meta name="description" content="CUDARuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling cublasCreate(handle)显存不够了 类似out of memory
+    <meta name="keywords" content="opencv-installation, AiHub">
+    <meta name="description" content="CentOS 7 编译 Opencv C++ 
 
-
-OMP">
+1 安装依赖项sudo yum -y install epel-release
+sudo yum -y install gtk2-devel
+sudo yum install -y libp">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +21,7 @@ OMP">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>07_bugs | AiHub</title>
+    <title>opencv-installation | AiHub</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -340,12 +341,12 @@ OMP">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">07_bugs</h1>
+                    <h1 class="description center-align post-title">opencv-installation</h1>
                 </div>
             </div>
         </div>
@@ -394,21 +395,21 @@ OMP">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-01-09
+                    2023-09-15
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-02-10
+                    2023-09-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    88
+                    249
                 </div>
                 
 
@@ -438,20 +439,56 @@ OMP">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="CUDA"><a href="#CUDA" class="headerlink" title="CUDA"></a>CUDA</h2><h3 id="RuntimeError-CUDA-error-CUBLAS-STATUS-NOT-INITIALIZED-when-calling-cublasCreate-handle"><a href="#RuntimeError-CUDA-error-CUBLAS-STATUS-NOT-INITIALIZED-when-calling-cublasCreate-handle" class="headerlink" title="RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling cublasCreate(handle)"></a><strong>RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling</strong> <strong>cublasCreate(handle)</strong></h3><pre class="line-numbers language-none"><code class="language-none">显存不够了 类似out of memory<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+                <div align='center' ><font size='6'>CentOS 7 编译 Opencv C++ </font></div>
 
-<hr>
-<h3 id="OMP-Error-15-Initializing-libiomp5md-dll-but-found-libiomp5md-dll-already-initialized"><a href="#OMP-Error-15-Initializing-libiomp5md-dll-but-found-libiomp5md-dll-already-initialized" class="headerlink" title="OMP: Error #15: Initializing libiomp5md.dll, but found libiomp5md.dll already initialized."></a><strong>OMP: Error #15: Initializing libiomp5md.dll, but found libiomp5md.dll already initialized.</strong></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> os 
-os<span class="token punctuation">.</span>environ<span class="token punctuation">[</span><span class="token string">"KMP_DUPLICATE_LIB_OK"</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"TRUE"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="1-安装依赖项"><a href="#1-安装依赖项" class="headerlink" title="1 安装依赖项"></a>1 安装依赖项</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> yum <span class="token parameter variable">-y</span> <span class="token function">install</span> epel-release
+<span class="token function">sudo</span> yum <span class="token parameter variable">-y</span> <span class="token function">install</span> gtk2-devel
+<span class="token function">sudo</span> yum <span class="token function">install</span> <span class="token parameter variable">-y</span> libpng-devel
+<span class="token function">sudo</span> yum <span class="token function">install</span> <span class="token parameter variable">-y</span> libwebp-devel
+<span class="token function">sudo</span> yum <span class="token parameter variable">-y</span> <span class="token function">install</span> libjpeg-turbo-devel 
+<span class="token function">sudo</span> yum <span class="token parameter variable">-y</span> <span class="token function">install</span> libtiff-devel 
+<span class="token function">sudo</span> yum <span class="token parameter variable">-y</span> <span class="token function">install</span> tbb-devel 
+<span class="token function">sudo</span> yum <span class="token parameter variable">-y</span> <span class="token function">install</span> boost boost-thread boost-devel<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="PyQt5"><a href="#PyQt5" class="headerlink" title="PyQt5"></a>PyQt5</h2><h3 id="qt-qpa-screen-QXcbConnection-Could-not-connect-to-display"><a href="#qt-qpa-screen-QXcbConnection-Could-not-connect-to-display" class="headerlink" title="qt.qpa.screen: QXcbConnection: Could not connect to display"></a><strong>qt.qpa.screen: QXcbConnection: Could not connect to display</strong></h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">DISPLAY</span></span><span class="token operator">=</span><span class="token string">':0.0'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h2 id="OpenCV"><a href="#OpenCV" class="headerlink" title="OpenCV"></a><strong>OpenCV</strong></h2><h3 id="qt-qpa-plugin-Could-not-load-the-Qt-platform-plugin-“xcb”"><a href="#qt-qpa-plugin-Could-not-load-the-Qt-platform-plugin-“xcb”" class="headerlink" title="qt.qpa.plugin: Could not load the Qt platform plugin “xcb”"></a><strong>qt.qpa.plugin: Could not load the Qt platform plugin “xcb”</strong></h3><p><a target="_blank" rel="noopener" href="https://felaim.blog.csdn.net/article/details/109384602">https://felaim.blog.csdn.net/article/details/109384602</a></p>
-<p><strong>linux：can’t connect to X server</strong></p>
-<ul>
-<li>一般存在cv2.imshow等图形化界面需求</li>
+
+<h2 id="2-下载安装包"><a href="#2-下载安装包" class="headerlink" title="2 下载安装包"></a>2 下载安装包</h2><ul>
+<li>安装opencv和opencv_contrib</li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/image-20230111171352736.png" alt="image-20230111171352736"></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone https://github.com/opencv/opencv.git
+<span class="token builtin class-name">cd</span> opencv <span class="token operator">&amp;&amp;</span> <span class="token function">git</span> checkout <span class="token number">4.5</span>.0
+<span class="token function">git</span> clone https://github.com/opencv/opencv_contrib.git
+<span class="token builtin class-name">cd</span> opencv_contrib <span class="token operator">&amp;&amp;</span> <span class="token function">git</span> checkout <span class="token number">4.5</span>.0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="3-编译安装"><a href="#3-编译安装" class="headerlink" title="3 编译安装"></a>3 编译安装</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> opencv
+<span class="token function">mkdir</span> build
+<span class="token builtin class-name">cd</span> build 
+cmake <span class="token parameter variable">-D</span> <span class="token assign-left variable">CMAKE_BUILD_TYPE</span><span class="token operator">=</span>Release <span class="token parameter variable">-D</span> <span class="token assign-left variable">CMAKE_INSTALL_PREFIX</span><span class="token operator">=</span>/usr/local  <span class="token parameter variable">-D</span> <span class="token assign-left variable">OPENCV_EXTRA_MODULES_PATH</span><span class="token operator">=</span><span class="token punctuation">..</span>/opencv_contrib/modules/ <span class="token parameter variable">-D</span> <span class="token assign-left variable">WITH_TBB</span><span class="token operator">=</span>OFF  <span class="token parameter variable">-D</span> <span class="token assign-left variable">WITH_CUDA</span><span class="token operator">=</span>OFF <span class="token parameter variable">-D</span> <span class="token assign-left variable">BUILD_opencv_gpu</span><span class="token operator">=</span>OFF <span class="token parameter variable">-D</span> <span class="token assign-left variable">BUILD_opencv_gpuarithm</span><span class="token operator">=</span>OFF <span class="token parameter variable">-D</span> <span class="token assign-left variable">OPENCV_GENERATE_PKGCONFIG</span><span class="token operator">=</span>ON <span class="token punctuation">..</span> 
+<span class="token function">make</span> 
+<span class="token function">make</span> <span class="token function">install</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li><p>安装成功后，通过<code>pkg-config --modversion opencv4</code>输出版本则正确</p>
+</li>
+<li><p>注意库安装路径为：<code>CMAKE_INSTALL_PREFIX=/usr/local</code></p>
+</li>
+</ul>
+<h2 id="4-添加动态库搜索路径"><a href="#4-添加动态库搜索路径" class="headerlink" title="4 添加动态库搜索路径"></a>4 添加动态库搜索路径</h2><ul>
+<li><p>安装后指定动态库的搜索路径，否则可能出现<code>libxxx.so not found</code> ， 可以通过 <code>ldd xxx</code> 判断</p>
+</li>
+<li><p><code>vim ~/.bashrc</code>中添加下面路径，然后<code>source ~/.bashrc</code></p>
+</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">export</span> <span class="token assign-left variable">PKG_CONFIG_PATH</span><span class="token operator">=</span><span class="token variable">$PKG_CONFIG_PATH</span>:/usr/local/lib64/pkgconfig 
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">LD_LIBRARY_PATH</span><span class="token operator">=</span><span class="token variable">$LD_LIBRARY_PATH</span>:/usr/local/lib64<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<ul>
+<li>过程结果</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230915110010455.png" alt="image-20230915110010455"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230915105929736.png" alt="image-20230915105929736"></p>
 
                 
             </div>
@@ -478,7 +515,7 @@ os<span class="token punctuation">.</span>environ<span class="token punctuation"
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lee-jet.github.io/2023/01/09/07-bugs/">https://lee-jet.github.io/2023/01/09/07-bugs/</a>
+                    <a href="https://lee-jet.github.io/2023/09/15/opencv-installation/">https://lee-jet.github.io/2023/09/15/opencv-installation/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -595,7 +632,7 @@ os<span class="token punctuation">.</span>environ<span class="token punctuation"
         repo: 'gitalk',
         owner: 'lee-jet',
         admin: "lee-jet",
-        id: '2023-01-09T18-06-11',
+        id: '2023-09-15T11-16-36',
         distractionFreeMode: false,  // Facebook-like distraction free mode
     });
 
@@ -623,17 +660,18 @@ os<span class="token punctuation">.</span>environ<span class="token punctuation"
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/01/10/08-linux-shell/">
+                <a href="/2023/09/15/opencv-installation/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="08_linux_shell">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="opencv-installation">
                         
-                        <span class="card-title">08_linux_shell</span>
+                        <span class="card-title">opencv-installation</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -643,9 +681,9 @@ os<span class="token punctuation">.</span>environ<span class="token punctuation"
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-01-10
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-09-15
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -658,6 +696,7 @@ os<span class="token punctuation">.</span>environ<span class="token punctuation"
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -676,13 +715,13 @@ os<span class="token punctuation">.</span>environ<span class="token punctuation"
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/01/09/06-client-server/">
+                <a href="/2023/09/13/mvdiffusion/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="06_client_server">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="MVDiffusion">
                         
-                        <span class="card-title">06_client_server</span>
+                        <span class="card-title">MVDiffusion</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -693,14 +732,14 @@ os<span class="token punctuation">.</span>environ<span class="token punctuation"
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-09
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-09-13
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Tech-share/" class="post-category">
-                                    Tech share
+                            <a href="/categories/Paper-Reading/" class="post-category">
+                                    Paper Reading
                                 </a>
                             
                             
@@ -710,8 +749,8 @@ os<span class="token punctuation">.</span>environ<span class="token punctuation"
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Tech-share/">
-                        <span class="chip bg-color">Tech share</span>
+                    <a href="/tags/Paper-Reading/">
+                        <span class="chip bg-color">Paper Reading</span>
                     </a>
                     
                 </div>
