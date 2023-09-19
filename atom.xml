@@ -6,7 +6,7 @@
   <link href="https://lee-jet.github.io/atom.xml" rel="self"/>
   
   <link href="https://lee-jet.github.io/"/>
-  <updated>2023-09-18T09:03:07.796Z</updated>
+  <updated>2023-09-19T02:59:57.358Z</updated>
   <id>https://lee-jet.github.io/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>EfficientViT-segmentation</title>
+    <link href="https://lee-jet.github.io/2023/09/19/efficientvit-segmentation/"/>
+    <id>https://lee-jet.github.io/2023/09/19/efficientvit-segmentation/</id>
+    <published>2023-09-19T02:58:39.000Z</published>
+    <updated>2023-09-19T02:59:57.358Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;4.5&#39;&gt;&lt;strong&gt;EfficientViT: Lightweight Multi-Scale Attention for
+On-Device Semantic</summary>
+        
+      
+    
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
+    
+  </entry>
+  
+  <entry>
     <title>TextualInversion</title>
     <link href="https://lee-jet.github.io/2023/09/18/textualinversion/"/>
     <id>https://lee-jet.github.io/2023/09/18/textualinversion/</id>
     <published>2023-09-18T09:02:33.000Z</published>
-    <updated>2023-09-18T09:03:07.796Z</updated>
+    <updated>2023-09-18T09:03:39.593Z</updated>
     
     
       
@@ -499,36 +525,6 @@ Adding Conditional Control to Text-to-Image
         
         
     <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;3&#39;&gt;Diffusion Models: A Comprehensive Survey of Methods and</summary>
-        
-      
-    
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CLIP</title>
-    <link href="https://lee-jet.github.io/2023/08/10/clip/"/>
-    <id>https://lee-jet.github.io/2023/08/10/clip/</id>
-    <published>2023-08-10T06:30:10.000Z</published>
-    <updated>2023-08-10T06:31:51.175Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;4.5&#39;&gt;CLIP: Contrastive LanguageImage Pre-training&lt;/font&gt;&lt;/div&gt;
-
-
-&lt;hr&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;paper &lt;a</summary>
         
       
     

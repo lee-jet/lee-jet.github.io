@@ -448,7 +448,7 @@ paper https://arxiv.org/ab">
 <li><p>code <a target="_blank" rel="noopener" href="https://github.com/rinongal/textual_inversion">https://github.com/rinongal/textual_inversion</a></p>
 </li>
 </ul>
-<p><img src="./_posts/assets/image-20230918160805170.png" alt="image-20230918160805170"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230918160805170.png" alt="image-20230918160805170"></p>
 <hr>
 <h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><ul>
 <li>如何实现创作自由，现在只需要<code>3-5</code>张用户提供的概念图像，可以是某一类物体，亦或是某一种风格，就可以在冻结的文生图模型的嵌入空间中学习一种新的关键词（也就是创造了一种新的且和图像对应的提示词prompt）</li>
@@ -469,7 +469,7 @@ paper https://arxiv.org/ab">
 </li>
 <li>Personalization  </li>
 </ul>
-<h2 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><p><img src="./_posts/assets/image-20230918164914698.png" alt="image-20230918164914698"></p>
+<h2 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230918164914698.png" alt="image-20230918164914698"></p>
 <ul>
 <li>文本嵌入和反演过程概述 包含占位词的字符串首先被转换成标记（即字典中的单词或子单词索引）。这些标记被转换为连续向量表示（”嵌入”，v）。最后，嵌入向量被转换成一个单一的条件代码 cθ(y)，用于指导生成模型。我们优化嵌入向量 v与我们的伪词 S∗ 相关联，使用重构目标。</li>
 </ul>
@@ -486,7 +486,7 @@ paper https://arxiv.org/ab">
 </ul>
 </li>
 </ul>
-<p><img src="./_posts/assets/image-20230918164253786.png" alt="image-20230918164253786"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230918164253786.png" alt="image-20230918164253786"></p>
 <ul>
 <li><p>作为生成条件，我们从 CLIP ImageNet 模板。这些文本包含 “A photo of S∗”、”A rendition of S∗ “等形式</p>
 <p>  的提示等。</p>
@@ -497,19 +497,19 @@ paper https://arxiv.org/ab">
 <h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><ul>
 <li>Image variations <code>A photo of S*</code> 生成S*图像</li>
 </ul>
-<p><img src="./_posts/assets/image-20230918165145512.png" alt="image-20230918165145512"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230918165145512.png" alt="image-20230918165145512"></p>
 <ul>
 <li>Text-guided synthesis  <code>with S*</code> 生成S*和其他提示词合成的图像</li>
 </ul>
-<p><img src="./_posts/assets/image-20230918165247961.png" alt="image-20230918165247961"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230918165247961.png" alt="image-20230918165247961"></p>
 <ul>
 <li>Style transfer  <code>in the style of S*</code></li>
 </ul>
-<p><img src="./_posts/assets/image-20230918165429131.png" alt="image-20230918165429131"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230918165429131.png" alt="image-20230918165429131"></p>
 <ul>
 <li>Image curation  给定mask，替换成S*</li>
 </ul>
-<p><img src="./_posts/assets/image-20230918165815513.png" alt="image-20230918165815513"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230918165815513.png" alt="image-20230918165815513"></p>
 <ul>
 <li>prompt templates</li>
 </ul>
@@ -726,18 +726,17 @@ paper https://arxiv.org/ab">
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/09/18/textualinversion/">
+                <a href="/2023/09/19/efficientvit-segmentation/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="TextualInversion">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="EfficientViT-segmentation">
                         
-                        <span class="card-title">TextualInversion</span>
+                        <span class="card-title">EfficientViT-segmentation</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -747,9 +746,9 @@ paper https://arxiv.org/ab">
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-09-18
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-09-19
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -762,7 +761,6 @@ paper https://arxiv.org/ab">
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -1014,7 +1012,7 @@ paper https://arxiv.org/ab">
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">64.5k</span>
+                        class="white-color">66.1k</span>
             
             
             
