@@ -478,7 +478,7 @@ On-Device Semantic Segmentation</strong></font></div>
 </ul>
 <h3 id="EfficientViT-Architecture"><a href="#EfficientViT-Architecture" class="headerlink" title="EfficientViT Architecture"></a>EfficientViT Architecture</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230919102354273.png" alt="image-20230919102354273"></p>
 <ul>
-<li>它由输入stem和 4 个阶段组成。最近的研究 表明，在早期阶段使用卷积对 ViT 效果更好。我们遵循这个设计，并在第 3 阶段开始使用增强的线性注意力。为了突出高效的骨干本身，我们使用相同的扩展比 e 为 MBConv 和 FFN (e = 4) ，以保持超参数简单，所有深度卷积的核大小 k 相同（k = 5，除了输入stem），以及所有层的相同激活函数（hard swish）。 P2、P3 和 P4 表示阶段 2、3 和 4 的输出，形成特征图金字塔。我们按照惯例将 P2、P3 和 P4 馈送到检测头。我们使用 YoloX [58] 进行检测。对于分割，我们融合了 P2 和 P4。在 Fast-SCNN之后，融合的特征被馈送到包含多个卷积层的轻量级头部。对于分类，我们将 P4 馈送到轻量级头部，与 MobileNetV3相同。</li>
+<li>它由输入stem和 4 个阶段组成。最近的研究 表明，在早期阶段使用卷积对 ViT 效果更好。我们遵循这个设计，并在第 3 阶段开始使用增强的线性注意力。为了突出高效的骨干本身，我们使用相同的扩展比 e 为 MBConv 和 FFN (e = 4) ，以保持超参数简单，所有深度卷积的核大小 k 相同（k = 5，除了输入stem），以及所有层的相同激活函数（hard swish）。 P2、P3 和 P4 表示阶段 2、3 和 4 的输出，形成特征图金字塔。我们按照惯例将 P2、P3 和 P4 馈送到检测头。我们使用 YoloX进行检测。对于分割，我们融合了 P2 和 P4。在 Fast-SCNN之后，融合的特征被馈送到包含多个卷积层的轻量级头部。对于分类，我们将 P4 馈送到轻量级头部，与 MobileNetV3相同。</li>
 </ul>
 <h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230919104023799.png" alt="image-20230919104023799"></p>
 <p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230919101048600.png"></p>
