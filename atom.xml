@@ -6,7 +6,7 @@
   <link href="https://lee-jet.github.io/atom.xml" rel="self"/>
   
   <link href="https://lee-jet.github.io/"/>
-  <updated>2023-09-19T03:05:08.280Z</updated>
+  <updated>2023-09-20T06:21:44.570Z</updated>
   <id>https://lee-jet.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>DiffusersTutorials</title>
+    <link href="https://lee-jet.github.io/2023/09/20/diffuserstutorials/"/>
+    <id>https://lee-jet.github.io/2023/09/20/diffuserstutorials/</id>
+    <published>2023-09-20T06:20:56.000Z</published>
+    <updated>2023-09-20T06:21:44.570Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;8&#39;&gt;&lt;strong&gt;Diffusers Tutorials&lt;/strong&gt;&lt;/font&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;code &lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
+    
+  </entry>
   
   <entry>
     <title>EfficientViT-segmentation</title>
@@ -509,31 +538,6 @@ Adding Conditional Control to Text-to-Image
     
     
     <category term="Tech share" scheme="https://lee-jet.github.io/tags/Tech-share/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Diffusion</title>
-    <link href="https://lee-jet.github.io/2023/08/10/diffusion/"/>
-    <id>https://lee-jet.github.io/2023/08/10/diffusion/</id>
-    <published>2023-08-10T06:31:11.000Z</published>
-    <updated>2023-08-16T03:02:11.959Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;3&#39;&gt;Diffusion Models: A Comprehensive Survey of Methods and</summary>
-        
-      
-    
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
     
   </entry>
   
