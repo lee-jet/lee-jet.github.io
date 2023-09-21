@@ -4,15 +4,13 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="OC-SORT, AiHub">
-    <meta name="description" content="Observation-Centric SORT:
-Rethinking SORT for Robust Multi-Object Tracking
+    <meta name="keywords" content="DragDiffusion, AiHub">
+    <meta name="description" content="DragDiffusion: Harnessing Diffusion Models
+for Interactive Point-based Image Editing
 
 
 
-paper https://arxiv.org/abs/2203.14360  
-
-">
+paper https://arxiv.org/pdf/2306">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -24,7 +22,7 @@ paper https://arxiv.org/abs/2203.14360
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>OC-SORT | AiHub</title>
+    <title>DragDiffusion | AiHub</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -344,12 +342,12 @@ paper https://arxiv.org/abs/2203.14360
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">OC-SORT</h1>
+                    <h1 class="description center-align post-title">DragDiffusion</h1>
                 </div>
             </div>
         </div>
@@ -398,21 +396,21 @@ paper https://arxiv.org/abs/2203.14360
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-08-02
+                    2023-09-21
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-08-02
+                    2023-09-21
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    600
+                    717
                 </div>
                 
 
@@ -442,94 +440,74 @@ paper https://arxiv.org/abs/2203.14360
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <div align='center' ><font size='4.5'>Observation-Centric SORT:
-Rethinking SORT for Robust Multi-Object Tracking</font></div>
+                <div align='center' ><font size='4.5'><strong>DragDiffusion: Harnessing Diffusion Models
+for Interactive Point-based Image Editing</strong></font></div>
 
 <hr>
 <ul>
-<li><p>paper <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2203.14360">https://arxiv.org/abs/2203.14360</a>  </p>
+<li><p>paper <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2306.14435.pdf">https://arxiv.org/pdf/2306.14435.pdf</a></p>
 </li>
-<li><p>code <a target="_blank" rel="noopener" href="https://github.com/noahcao/OC_SORT">https://github.com/noahcao/OC_SORT</a></p>
+<li><p>code <a target="_blank" rel="noopener" href="https://yujun-shi.github.io/projects/dragdiffusion.html">https://yujun-shi.github.io/projects/dragdiffusion.html</a></p>
 </li>
 </ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230921163050042.png" alt="image-20230921163050042"></p>
 <hr>
 <h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><ul>
-<li>Kalman fileter (KF) 假设目标是线性运动（刚体），但是在遮挡和长时间的线性运动下非常不准确。由于会信任这种线性运动的prior，在遮挡的时候会累计误差，从而出现运动方向的方差很大。</li>
-<li>本文Observation-Centric SORT (OC-SORT)  在KF基础上，利用detector计算遮挡时虚拟轨迹，修正遮挡产生的累计误差。在遮挡和非线性运动下，取得了2022年的SOTA。</li>
-</ul>
-<h2 id="Related-Works"><a href="#Related-Works" class="headerlink" title="Related Works"></a>Related Works</h2><h3 id="Motion-Models"><a href="#Motion-Models" class="headerlink" title="Motion Models"></a>Motion Models</h3><ul>
-<li>KF    按照预测-更新循环的递归贝叶斯滤波器</li>
-</ul>
-<h3 id="Multi-object-Tracking"><a href="#Multi-object-Tracking" class="headerlink" title="Multi-object Tracking"></a>Multi-object Tracking</h3><ul>
-<li>SORT</li>
-<li>DeepSORT</li>
-<li>Transformer: 性能低于tracking-by-detection  </li>
+<li>GAN泛化性能上界由其模型大小决定</li>
+<li>将基于点的图像编辑框架扩展到扩散模型</li>
+<li>目前，扩散模型图像编辑是通过文本嵌入实现，并非是精准的局部空间编辑</li>
+<li>虽然扩散模型是迭代式，但本模型通过只优化某一步的隐式变量即可实现高质量高效率的图像编辑</li>
 </ul>
 <h2 id="Contributions"><a href="#Contributions" class="headerlink" title="Contributions"></a>Contributions</h2><ul>
-<li>Estimation-Centric 变成 Observation-Centric 降低KF的误差<ul>
-<li>OOS（Observation-centric Online Smoothing）：减少KF带来的累积误差</li>
-<li>OCM（Observation-centric Momentum）：在代价矩阵中加入轨迹的方向一致性，更好地实现匹配</li>
-<li>OCR（Observation-centric Recovery）：恢复由于遮挡造成的跟丢问题</li>
+<li>迭代的基于点的图像编辑框架应用到扩散模型中，从而实现精准空间编辑</li>
 </ul>
-</li>
+<h2 id="Related-Work"><a href="#Related-Work" class="headerlink" title="Related Work"></a>Related Work</h2><ul>
+<li>DragGAN</li>
+<li>Denoising diffusion probabilistic models (DDPM)   </li>
+<li>Denoising diffusion implicit models (DDIM)</li>
+<li>DDIM inversion  </li>
 </ul>
-<h2 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308021356850.png" alt="image-20230802105928151"></p>
+<h2 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230921154535385.png" alt="image-20230921154535385"></p>
+<p>分为2步</p>
 <ul>
-<li>KF固有局限性（SORT limitations）<ul>
-<li>Sensitive to State Noise  </li>
-<li>Temporal Error Magnification  </li>
-<li>Estimation-Centric  </li>
+<li>（A）通过LoRA微调SD模型，数据集为用户输入的图像。<ul>
+<li>目的是在编辑过程中（其实也是生成过程）更好的保留输入图像中物体和风格特征</li>
+</ul>
+</li>
+<li>（B）用户输入的图像作为Z0，通过DDIM Inversion得到第t步加噪声的隐变量Zt（注意，是小t，不是大T，也就是不是最终的标准高斯噪声，而是加噪的中间结果），在第t步通过<code>Motion Supervision and Point Tracking</code>——运动监督和轨迹跟踪 间接实现对图像点的拖拽得到Zt_hat, 在通过DDIM Denoising去噪生成编辑后的图像 （motion supervision 和 point tracking 是不断交替运行若干步的(论文中默认40步)）<ul>
+<li>在编辑过程中，需要增加正则项确保非编辑区域（编辑mask区域外）不变</li>
 </ul>
 </li>
 </ul>
-<h3 id="Observation-centric-Re-Update-ORU"><a href="#Observation-centric-Re-Update-ORU" class="headerlink" title="Observation-centric Re-Update (ORU)"></a>Observation-centric Re-Update (ORU)</h3><ul>
-<li>WHY<ul>
-<li>在track重激活（本来track，由于遮挡，没有了track，后来没被遮挡又被track）会由于时间累计误差放大，KF任然会lost该目标</li>
+<h3 id="Motion-Supervision"><a href="#Motion-Supervision" class="headerlink" title="Motion Supervision"></a>Motion Supervision</h3><ul>
+<li>the k-th iteration of motion supervision  </li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230921160928358.png" alt="image-20230921160928358"></p>
+<ul>
+<li>公式第一部分是对第t步的latent进行k次迭代实现点从起始位置运动到目标位置，注意是k次迭代，不是一步到位，采用的是梯度下降法（方向、步长），一次迭代只用一次梯度下降，不断迭代更新。<ul>
+<li>sg表示停止梯度stop gradient，即不会反向传播，因为最小化loss时候，采用bp，希望这一项不更新梯度</li>
+<li>di是当前控制点朝着目标点的归一化方向</li>
+<li>Fq+di是双线性插值得到的，不一定是整数</li>
+<li>Ω(hk i , r1) = {(x, y) : |x - xk i | ≤ r1, |y - yik| ≤ r1}  是q的范围，矩形区域</li>
 </ul>
 </li>
-<li>HOW<ul>
-<li>提出ORU，针对重激活，利用遮挡untrack这段时间的检测更新KF参数预测虚拟轨迹，降低累计误差。</li>
-<li>ORT作为predict-update独立分支，只对re-activate触发，其它情况不用</li>
-<li><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308021356852.png" alt="image-20230802111220560"></li>
-<li><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308021356853.png" alt="image-20230802120952100"></li>
+<li>公式第二部分是对unmasked区域保持不变</li>
 </ul>
-</li>
+<h3 id="Point-Tracking"><a href="#Point-Tracking" class="headerlink" title="Point Tracking"></a>Point Tracking</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230921162223359.png" alt="image-20230921162223359"></p>
+<ul>
+<li>因为运动监督更新了Ztk, 控制点的位置发生了变化，需要更新</li>
+<li>用Unet特征找控制点的匹配点，Unet倒数第二层的输出特征，即Unet.Decoder倒数第二个Stage的输出特征</li>
+<li>采用最近邻策略更新控制点</li>
 </ul>
-<h3 id="Observation-Centric-Momentum-OCM"><a href="#Observation-Centric-Momentum-OCM" class="headerlink" title="Observation-Centric Momentum (OCM)"></a>Observation-Centric Momentum (OCM)</h3><ul>
-<li>WHY<ul>
-<li>当时间间隔t很短，我们近似运动是线性的，而线性运动的假设要求运动方向的连续性<ul>
-<li>当t很小，速度噪声很明显</li>
-<li>当t很大，方向估计噪声很明显（因为时间误差放大和线性运动假设失效）</li>
+<h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230921162747327.png" alt="image-20230921162747327"></p>
+<h2 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions"></a>Conclusions</h2><ul>
+<li>鸡肋，水文</li>
+<li>DragDiffusion和DragGAN一样，都是通过对特征的点跟踪和运动特征监督进行</li>
+<li>注意，motion supervision 和 point tracking 是不断交替运行若干步的</li>
 </ul>
-</li>
-</ul>
-</li>
-<li>HOW<ul>
-<li>提出观察来降低运动方向计算噪声，同时提出连续项loss增加关联</li>
-<li><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308021356854.png" alt="image-20230802115846816"></li>
-<li>t需要trade-off, 增加t可以降低noise，但是需要满足线性运动时间短假设</li>
-<li><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308021356855.png" alt="image-20230802120419940"></li>
-<li><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308021356856.png" alt="image-20230802121101083"></li>
-</ul>
-</li>
-</ul>
-<h3 id="Observation-Centric-Recovery-OCR"><a href="#Observation-Centric-Recovery-OCR" class="headerlink" title="Observation-Centric Recovery (OCR)"></a>Observation-Centric Recovery (OCR)</h3><ul>
-<li>针对目标停止或者短时间遮挡情况，在正常association stage之后，增加第二关联阶段，对没有匹配的track和detection进行关联</li>
-<li><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308021356857.png" alt="image-20230802121123198"></li>
-</ul>
-<h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308021356858.png" alt="image-20230802121600293"></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308021356859.png" alt="image-20230802121643232"></p>
-<h3 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308021356860.png" alt="image-20230802120440375"></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308021356861.png" alt="image-20230802120109068"></p>
-<h2 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions"></a>Conclusions</h2><p>The gain is especially significant for multi-object tracking under occlusion and non-linear object motion.</p>
 <h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li>Deep OC-SORT: Multi-Pedestrian Tracking <strong>by Adaptive Re-Identification</strong> <ul>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2302.11813">https://arxiv.org/abs/2302.11813</a></li>
-<li> <a target="_blank" rel="noopener" href="https://github.com/GerardMaggiolino/Deep-OC-SORT">https://github.com/GerardMaggiolino/Deep-OC-SORT</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/XingangPan/DragGAN">https://github.com/XingangPan/DragGAN</a></li>
 </ul>
-</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308021357519.png" alt="image-20230802135723292"></p>
 
                 
             </div>
@@ -556,7 +534,7 @@ Rethinking SORT for Robust Multi-Object Tracking</font></div>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lee-jet.github.io/2023/08/02/oc-sort/">https://lee-jet.github.io/2023/08/02/oc-sort/</a>
+                    <a href="https://lee-jet.github.io/2023/09/21/dragdiffusion/">https://lee-jet.github.io/2023/09/21/dragdiffusion/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -673,7 +651,7 @@ Rethinking SORT for Robust Multi-Object Tracking</font></div>
         repo: 'gitalk',
         owner: 'lee-jet',
         admin: "lee-jet",
-        id: '2023-08-02T13-54-02',
+        id: '2023-09-21T16-32-09',
         distractionFreeMode: false,  // Facebook-like distraction free mode
     });
 
@@ -701,17 +679,18 @@ Rethinking SORT for Robust Multi-Object Tracking</font></div>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/08/04/model-deployment-trition/">
+                <a href="/2023/09/21/dragdiffusion/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="model-deployment-trition">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="DragDiffusion">
                         
-                        <span class="card-title">model-deployment-trition</span>
+                        <span class="card-title">DragDiffusion</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -721,22 +700,27 @@ Rethinking SORT for Robust Multi-Object Tracking</font></div>
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-08-04
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-09-21
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Lee Jet
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper-Reading/" class="post-category">
+                                    Paper Reading
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Tech-share/">
-                        <span class="chip bg-color">Tech share</span>
+                    <a href="/tags/Paper-Reading/">
+                        <span class="chip bg-color">Paper Reading</span>
                     </a>
                     
                 </div>
@@ -750,13 +734,13 @@ Rethinking SORT for Robust Multi-Object Tracking</font></div>
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/08/01/cascade-detr/">
+                <a href="/2023/09/20/diffuserstutorials/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Cascade-DETR">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="DiffusersTutorials">
                         
-                        <span class="card-title">Cascade-DETR</span>
+                        <span class="card-title">DiffusersTutorials</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -767,7 +751,7 @@ Rethinking SORT for Robust Multi-Object Tracking</font></div>
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-09-20
                             </span>
                         <span class="publish-author">
                             

@@ -6,7 +6,7 @@
   <link href="https://lee-jet.github.io/atom.xml" rel="self"/>
   
   <link href="https://lee-jet.github.io/"/>
-  <updated>2023-09-20T06:24:46.038Z</updated>
+  <updated>2023-09-21T08:33:05.534Z</updated>
   <id>https://lee-jet.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>DragDiffusion</title>
+    <link href="https://lee-jet.github.io/2023/09/21/dragdiffusion/"/>
+    <id>https://lee-jet.github.io/2023/09/21/dragdiffusion/</id>
+    <published>2023-09-21T08:32:09.000Z</published>
+    <updated>2023-09-21T08:33:05.534Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;4.5&#39;&gt;&lt;strong&gt;DragDiffusion: Harnessing Diffusion Models
+for Interactive Point-based Image</summary>
+        
+      
+    
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
+    
+  </entry>
   
   <entry>
     <title>DiffusersTutorials</title>
@@ -502,33 +528,6 @@ Adding Conditional Control to Text-to-Image
     <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;6&#39;&gt;LibTorch源码编译&lt;/font&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;Build-from-source&quot;&gt;&lt;a href=&quot;#Build-from-source&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Tech share" scheme="https://lee-jet.github.io/categories/Tech-share/"/>
-    
-    
-    <category term="Tech share" scheme="https://lee-jet.github.io/tags/Tech-share/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>design-pattern</title>
-    <link href="https://lee-jet.github.io/2023/08/16/design-pattern/"/>
-    <id>https://lee-jet.github.io/2023/08/16/design-pattern/</id>
-    <published>2023-08-16T02:59:45.000Z</published>
-    <updated>2023-08-16T03:10:25.239Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;7&#39;&gt;设计模式&lt;/font&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;创建型模式&quot;&gt;&lt;a href=&quot;#创建型模式&quot; class=&quot;headerlink&quot;</summary>
         
       
     

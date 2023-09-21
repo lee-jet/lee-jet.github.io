@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>DragDiffusion</title>
+      <link href="/2023/09/21/dragdiffusion/"/>
+      <url>/2023/09/21/dragdiffusion/</url>
+      
+        <content type="html"><![CDATA[<div align='center' ><font size='4.5'><strong>DragDiffusion: Harnessing Diffusion Modelsfor Interactive Point-based Image Editing</strong></font></div><hr><ul><li><p>paper <a href="https://arxiv.org/pdf/2306.14435.pdf">https://arxiv.org/pdf/2306.14435.pdf</a></p></li><li><p>code <a href="https://yujun-shi.github.io/projects/dragdiffusion.html">https://yujun-shi.github.io/projects/dragdiffusion.html</a></p></li></ul><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230921163050042.png" alt="image-20230921163050042"></p><hr><h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><ul><li>GAN泛化性能上界由其模型大小决定</li><li>将基于点的图像编辑框架扩展到扩散模型</li><li>目前，扩散模型图像编辑是通过文本嵌入实现，并非是精准的局部空间编辑</li><li>虽然扩散模型是迭代式，但本模型通过只优化某一步的隐式变量即可实现高质量高效率的图像编辑</li></ul><h2 id="Contributions"><a href="#Contributions" class="headerlink" title="Contributions"></a>Contributions</h2><ul><li>迭代的基于点的图像编辑框架应用到扩散模型中，从而实现精准空间编辑</li></ul><h2 id="Related-Work"><a href="#Related-Work" class="headerlink" title="Related Work"></a>Related Work</h2><ul><li>DragGAN</li><li>Denoising diffusion probabilistic models (DDPM)   </li><li>Denoising diffusion implicit models (DDIM)</li><li>DDIM inversion  </li></ul><h2 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230921154535385.png" alt="image-20230921154535385"></p><p>分为2步</p><ul><li>（A）通过LoRA微调SD模型，数据集为用户输入的图像。<ul><li>目的是在编辑过程中（其实也是生成过程）更好的保留输入图像中物体和风格特征</li></ul></li><li>（B）用户输入的图像作为Z0，通过DDIM Inversion得到第t步加噪声的隐变量Zt（注意，是小t，不是大T，也就是不是最终的标准高斯噪声，而是加噪的中间结果），在第t步通过<code>Motion Supervision and Point Tracking</code>——运动监督和轨迹跟踪 间接实现对图像点的拖拽得到Zt_hat, 在通过DDIM Denoising去噪生成编辑后的图像 （motion supervision 和 point tracking 是不断交替运行若干步的(论文中默认40步)）<ul><li>在编辑过程中，需要增加正则项确保非编辑区域（编辑mask区域外）不变</li></ul></li></ul><h3 id="Motion-Supervision"><a href="#Motion-Supervision" class="headerlink" title="Motion Supervision"></a>Motion Supervision</h3><ul><li>the k-th iteration of motion supervision  </li></ul><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230921160928358.png" alt="image-20230921160928358"></p><ul><li>公式第一部分是对第t步的latent进行k次迭代实现点从起始位置运动到目标位置，注意是k次迭代，不是一步到位，采用的是梯度下降法（方向、步长），一次迭代只用一次梯度下降，不断迭代更新。<ul><li>sg表示停止梯度stop gradient，即不会反向传播，因为最小化loss时候，采用bp，希望这一项不更新梯度</li><li>di是当前控制点朝着目标点的归一化方向</li><li>Fq+di是双线性插值得到的，不一定是整数</li><li>Ω(hk i , r1) = {(x, y) : |x - xk i | ≤ r1, |y - yik| ≤ r1}  是q的范围，矩形区域</li></ul></li><li>公式第二部分是对unmasked区域保持不变</li></ul><h3 id="Point-Tracking"><a href="#Point-Tracking" class="headerlink" title="Point Tracking"></a>Point Tracking</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230921162223359.png" alt="image-20230921162223359"></p><ul><li>因为运动监督更新了Ztk, 控制点的位置发生了变化，需要更新</li><li>用Unet特征找控制点的匹配点，Unet倒数第二层的输出特征，即Unet.Decoder倒数第二个Stage的输出特征</li><li>采用最近邻策略更新控制点</li></ul><h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230921162747327.png" alt="image-20230921162747327"></p><h2 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions"></a>Conclusions</h2><ul><li>鸡肋，水文</li><li>DragDiffusion和DragGAN一样，都是通过对特征的点跟踪和运动特征监督进行</li><li>注意，motion supervision 和 point tracking 是不断交替运行若干步的</li></ul><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul><li><a href="https://github.com/XingangPan/DragGAN">https://github.com/XingangPan/DragGAN</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Paper Reading </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Paper Reading </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>DiffusersTutorials</title>
       <link href="/2023/09/20/diffuserstutorials/"/>
       <url>/2023/09/20/diffuserstutorials/</url>
