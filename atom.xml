@@ -6,7 +6,7 @@
   <link href="https://lee-jet.github.io/atom.xml" rel="self"/>
   
   <link href="https://lee-jet.github.io/"/>
-  <updated>2023-09-21T08:33:14.260Z</updated>
+  <updated>2023-09-26T02:41:21.205Z</updated>
   <id>https://lee-jet.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>DDPM-Code</title>
+    <link href="https://lee-jet.github.io/2023/09/26/ddpm-code/"/>
+    <id>https://lee-jet.github.io/2023/09/26/ddpm-code/</id>
+    <published>2023-09-26T02:38:42.000Z</published>
+    <updated>2023-09-26T02:41:21.205Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;5&#39;&gt;&lt;strong&gt;Denoising Diffusion Probabilistic Model | Code</summary>
+        
+      
+    
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
+    
+  </entry>
   
   <entry>
     <title>DragDiffusion</title>
@@ -501,33 +526,6 @@ Adding Conditional Control to Text-to-Image
         
         
     <summary type="html">&lt;h1 id=&quot;TERMINOLOGY&quot;&gt;&lt;a href=&quot;#TERMINOLOGY&quot; class=&quot;headerlink&quot; title=&quot;TERMINOLOGY&quot;&gt;&lt;/a&gt;TERMINOLOGY&lt;/h1&gt;&lt;h3 id=&quot;FLOPs&quot;&gt;&lt;a href=&quot;#FLOPs&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Tech share" scheme="https://lee-jet.github.io/categories/Tech-share/"/>
-    
-    
-    <category term="Tech share" scheme="https://lee-jet.github.io/tags/Tech-share/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LibTorch</title>
-    <link href="https://lee-jet.github.io/2023/08/16/libtorch/"/>
-    <id>https://lee-jet.github.io/2023/08/16/libtorch/</id>
-    <published>2023-08-16T03:12:01.000Z</published>
-    <updated>2023-08-16T03:12:32.492Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;6&#39;&gt;LibTorch源码编译&lt;/font&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;Build-from-source&quot;&gt;&lt;a href=&quot;#Build-from-source&quot; class=&quot;headerlink&quot;</summary>
         
       
     
