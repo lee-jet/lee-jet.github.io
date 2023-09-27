@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>DDIM</title>
+      <link href="/2023/09/27/ddim/"/>
+      <url>/2023/09/27/ddim/</url>
+      
+        <content type="html"><![CDATA[<div align='center' ><font size='4.5'><strong>Denoising Diffusion Implicit Models</strong></font></div><hr><ul><li><p>paper <a href="https://arxiv.org/abs/2010.02502">https://arxiv.org/abs/2010.02502</a> </p></li><li><p>code <a href="https://github.com/ermongroup/ddim">https://github.com/ermongroup/ddim</a></p></li></ul><hr><h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><ul><li><p>DDIMs是一个更高效的迭代隐式概率模型，和DDPMs采用相同的训练过程</p></li><li><p>DDIMs通过一个非马尔可夫的扩散过程，从而实现相同的训练目标。这些非马尔可夫过程可以对应于确定性的生成过程，从而产生能更快地生成高质量样本的隐式模型</p></li><li><p>DDIMs相对DDPMs，生成样本的速度快了10x，甚至50x，可以生成高质量样本，最重要的是实现了inversion，图像重建误差非常小，可以在latent space进行插值实现图像的二次生成</p></li></ul><h2 id="Contributions"><a href="#Contributions" class="headerlink" title="Contributions"></a>Contributions</h2><ul><li>加速生成</li><li>隐空间重建与插值</li></ul><h2 id="Related-Work"><a href="#Related-Work" class="headerlink" title="Related Work"></a>Related Work</h2><ul><li>DDPM</li></ul><h2 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230927100244641.png" alt="image-20230927100244641"></p><h3 id="NON-MARKOVIAN-FORWARD-PROCESSES"><a href="#NON-MARKOVIAN-FORWARD-PROCESSES" class="headerlink" title="NON-MARKOVIAN FORWARD PROCESSES"></a>NON-MARKOVIAN FORWARD PROCESSES</h3><ul><li>扩散前向过程不再是马尔科夫过程（Xt只以来Xt-1），因为Xt依赖Xt-1和X0</li></ul><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230927101846948.png" alt=" "></p><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230927102007217.png" alt=" "></p><h3 id="GENERATIVE-PROCESS"><a href="#GENERATIVE-PROCESS" class="headerlink" title="GENERATIVE PROCESS"></a>GENERATIVE PROCESS</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230927102129896.png" alt=" "></p><ul><li>a fixed prior pθ(xT ) = N(0; I)  </li></ul><h3 id="UNIFIED-VARIATIONAL-INFERENCE-OBJECTIVE"><a href="#UNIFIED-VARIATIONAL-INFERENCE-OBJECTIVE" class="headerlink" title="UNIFIED VARIATIONAL INFERENCE OBJECTIVE"></a>UNIFIED VARIATIONAL INFERENCE OBJECTIVE</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230927102219225.png" alt="image-20230927102219225"></p><h3 id="SAMPLING-FROM-GENERALIZED-GENERATIVE-PROCESSES"><a href="#SAMPLING-FROM-GENERALIZED-GENERATIVE-PROCESSES" class="headerlink" title="SAMPLING FROM GENERALIZED GENERATIVE PROCESSES"></a>SAMPLING FROM GENERALIZED GENERATIVE PROCESSES</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230927100725549.png" alt="image-20230927100725549"></p><h3 id="DENOISING-DIFFUSION-IMPLICIT-MODELS"><a href="#DENOISING-DIFFUSION-IMPLICIT-MODELS" class="headerlink" title="DENOISING DIFFUSION IMPLICIT MODELS"></a>DENOISING DIFFUSION IMPLICIT MODELS</h3><ul><li>one can generate a sample xt-1 from a sample xt   </li></ul><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230927102909760.png" alt="image-20230927102909760"></p><ul><li>在所有 t 中 (t不等于1)，σt = 0；给定 xt-1 和 x0，前向过程成为确定性过程。在生成过程中，随机噪声 t 前的系数变为零。由此产生的模型成为隐式概率模型，其中样本从潜在变量生成，其固定程序为(从 xT 到 x0）</li></ul><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230927103549942.png" alt="image-20230927103549942"></p><ul><li>当 η = 1 时为 DDPM，当 η = 0 时为 DDIM</li></ul><h3 id="ACCELERATED-GENERATION-PROCESSES"><a href="#ACCELERATED-GENERATION-PROCESSES" class="headerlink" title="ACCELERATED GENERATION PROCESSES"></a>ACCELERATED GENERATION PROCESSES</h3><ul><li>DDIM 优化时与 DDPM 一样，对噪声进行拟合，但 DDIM 提出了通过一个更短的 Forward Processes 过程，通过减少采样的步数，来加快采样速度</li><li>从原先的采样序列 {1,…,<em>T</em>} 中选择一个子序列来生成图像。如原序列为 1 到 1000，抽取子序列可以是 1, 100, 200, … 1000 （类似 <code>arange(1, 1000, 100)</code>）。抽取方式不固定。在生成时同样采用公式 (1)，其中的 timestep <em>t</em> ，替换为子序列中的 timestep。其中的 α<em>ˉ</em>t 对应到训练时候的数值，比如采样 <code>1, 100, 200, ... 1000</code> 中的第二个样本，则使用训练时候采用的 <em>α</em>ˉ100 （此处只能替换 <code>alphas_cumprod</code> ˉ<em>α</em>ˉ，不能直接替换 <code>alpha</code> 参数 α<em>t</em>）</li><li>参考论文中的 Figure 3，在加速生成的情况下，η 越小，生成的图片效果越好，同时 η 的减小能够很大程度上弥补采样步数减少带来的生成质量下降问题</li></ul><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230927104507632.png" alt="image-20230927104507632"></p><h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><ul><li>重建和插值 </li></ul><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230927100431531.png" alt="image-20230927100431531"></p><h2 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions"></a>Conclusions</h2><ul><li><p>DDIM是DDPM的泛化版本</p></li><li><p>DDIM不是马尔可夫链，把所有时间步方差=0，高斯噪声的随机性被移除了，变成了确定性采样</p></li><li><p>过于理论，应用场景</p><ul><li>加速采样过程 （子序列采样，从T个时间步中采样一部分）</li><li>图像反演/重建 DDIM inversion （图像转换到隐空间，重建误差非常小）</li><li>图像插值 DDIM interpolations（不平滑）</li></ul></li></ul><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul><li>实操 <a href="https://aistudio.baidu.com/projectdetail/5279888?channelType=0&amp;channel=0">https://aistudio.baidu.com/projectdetail/5279888?channelType=0&amp;channel=0</a><ul><li>验证当 η=1 DDIM 提出的的采样方式结果与 DDPM 基本相同</li><li>DDIM 的加速采样过程</li><li>DDIM 采样的确定性及其插值</li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Paper Reading </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Paper Reading </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>DDPM-Code</title>
       <link href="/2023/09/26/ddpm-code/"/>
       <url>/2023/09/26/ddpm-code/</url>
