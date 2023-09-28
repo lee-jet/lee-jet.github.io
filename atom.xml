@@ -6,7 +6,7 @@
   <link href="https://lee-jet.github.io/atom.xml" rel="self"/>
   
   <link href="https://lee-jet.github.io/"/>
-  <updated>2023-09-27T03:08:56.496Z</updated>
+  <updated>2023-09-28T03:00:34.839Z</updated>
   <id>https://lee-jet.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>FreeU</title>
+    <link href="https://lee-jet.github.io/2023/09/28/freeu/"/>
+    <id>https://lee-jet.github.io/2023/09/28/freeu/</id>
+    <published>2023-09-28T02:59:23.000Z</published>
+    <updated>2023-09-28T03:00:34.839Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;6&#39;&gt;&lt;strong&gt;FreeU: Free Lunch in Diffusion U-Net&lt;/strong&gt;&lt;/font&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;paper &lt;a</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>DDIM</title>
@@ -514,31 +539,6 @@ Adding Conditional Control to Text-to-Image
     
     
     <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>10-shell</title>
-    <link href="https://lee-jet.github.io/2023/08/16/10-shell/"/>
-    <id>https://lee-jet.github.io/2023/08/16/10-shell/</id>
-    <published>2023-08-16T03:53:12.000Z</published>
-    <updated>2023-08-16T03:53:57.407Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Shell-变量&quot;&gt;&lt;a href=&quot;#Shell-变量&quot; class=&quot;headerlink&quot; title=&quot;Shell 变量&quot;&gt;&lt;/a&gt;Shell 变量&lt;/h2&gt;&lt;p&gt;在 Shell</summary>
-        
-      
-    
-    
-    
-    <category term="Tech share" scheme="https://lee-jet.github.io/categories/Tech-share/"/>
-    
-    
-    <category term="Tech share" scheme="https://lee-jet.github.io/tags/Tech-share/"/>
     
   </entry>
   
