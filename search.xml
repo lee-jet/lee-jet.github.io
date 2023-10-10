@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>DALL-E3</title>
+      <link href="/2023/10/10/dall-e3/"/>
+      <url>/2023/10/10/dall-e3/</url>
+      
+        <content type="html"><![CDATA[<div align='center' ><font size='4.5'><strong>DALL-E3</strong></font></div><hr><ul><li><p>project <a href="https://openai.com/dall-e-3">https://openai.com/dall-e-3</a></p></li><li><p>paper <a href="https://cdn.openai.com/papers/DALL_E_3_System_Card.pdf">https://cdn.openai.com/papers/DALL_E_3_System_Card.pdf</a></p></li></ul><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231010181845100.png" alt="image-20231010181845100"></p><hr><h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><blockquote><p>DALL-E 3 能够理解的细微差别和细节明显多于我们以前的dalle1/2系统，让您可以轻松地将您的想法转化为异常精确的图像。</p><p>现代文本到图像系统往往会忽略文字或描述，迫使用户学习提示工程。DALL-E 3 代表着我们在生成与您提供的文本完全一致的图像能力方面的一次飞跃。</p><p>DALL-E 3 是在 ChatGPT 的基础上开发的，它可以让你把 ChatGPT 作为你的头脑风暴伙伴和提示的改进者。您只需向 ChatGPT 提出您的要求，从一个简单的句子到一个详细的段落都可以。</p><p>当您提出一个想法时，ChatGPT 会自动为DALL-E 3生成量身定制的详细提示，让您的想法栩栩如生。如果您喜欢某个图像，但它不太合适，您可以要求 ChatGPT 进行调整，只需几个字即可。</p><p>DALL-E 3 将于 10 月初向 ChatGPT Plus 和企业客户推出。与 DALL-E 2 一样，您使用 DALL-E 3 创建的图片归您所有，您无需获得我们的许可即可对其进行转载、销售或商品化。</p><ul><li>OpenAI 的新图像人工智能 DALL-E 3 目前正在 ChatGPT 和必应图像创建器中部署。OpenAI 试图通过检查提示是否有违规行为，并在违规行为似乎是无意的情况下对其进行改写，从而防止创建有害或冒犯性的图片。</li><li>OpenAI 还训练了一个单独的图像分类器，以检测和防止性别歧视或攻击性内容。新版 DALL-E 3 已将生成此类图像的风险降低到 0.7%。不过，OpenAI 写道，DALL-E 3 仍然存在文化偏见，总体上偏向西方文化，尤其是在非特定查询方面。</li><li>关于版权问题，OpenAI 指出，它无法预测每一种情况或组合，因此，尽管采取了所有保障措施，但生成的图像中仍可能出现受版权保护的材料。</li></ul></blockquote><h2 id=""><a href="#" class="headerlink" title=""></a><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231010182247031.png" alt=" "></h2><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231010182624271.png" alt=" "></p><h2 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><ul><li>TODO</li></ul><h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231010182222592.png" alt=" "></p><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231010181909118.png" alt=" "></p><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231010182400756.png" alt=" "></p><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231010182423513.png" alt=" "></p><h2 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions"></a>Conclusions</h2><ul><li>现在不需要提示词工程了，直接和chatGPT对话迭代修改到您满意（你的想法和生成的图像高度匹配）</li><li>图像生成质量堪比Midjourney，由于加持了ChatGPT，DALLE3对提示词的理解会更加准确</li><li><strong>太牛13了，666，我都看笑了</strong></li></ul><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231010182831454.png" alt=" "></p><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul><li><a href="https://the-decoder.com/prompt-transformation-makes-chatgpt-openais-covert-moderator-for-dall-e-3/">https://the-decoder.com/prompt-transformation-makes-chatgpt-openais-covert-moderator-for-dall-e-3/</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Paper Reading </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Paper Reading </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>FreeU</title>
       <link href="/2023/09/28/freeu/"/>
       <url>/2023/09/28/freeu/</url>
