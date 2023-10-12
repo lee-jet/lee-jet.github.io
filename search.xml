@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>UniversalImageRestoration</title>
+      <link href="/2023/10/12/universalimagerestoration/"/>
+      <url>/2023/10/12/universalimagerestoration/</url>
+      
+        <content type="html"><![CDATA[<div align='center' ><font size='4.5'><strong>Controlling Vision-Language Models for Universal Image Restoration</strong></font></div><hr><ul><li><p>paper <a href="https://arxiv.org/abs/2310.01018">https://arxiv.org/abs/2310.01018</a></p></li><li><p>code <a href="https://github.com/algolzw/daclip-uir">https://github.com/algolzw/daclip-uir</a></p></li><li><p>project <a href="https://algolzw.github.io/daclip-uir/">https://algolzw.github.io/daclip-uir/</a></p></li></ul><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/teaser.jpg" alt="daclip"></p><hr><h2 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/overview.jpg" alt="daclip"></p><h3 id="Generating-Image-Text-Degradation-Pairs"><a href="#Generating-Image-Text-Degradation-Pairs" class="headerlink" title="Generating Image-Text-Degradation Pairs"></a>Generating Image-Text-Degradation Pairs</h3><ul><li>为了在混合降解数据集上训练 DA-CLIP，我们使用引导式视觉语言框架 BLIP 为所有 HQ 图像生成合成字幕。由于输入是干净的，因此假定生成的字幕是准确和高质量的。然后，我们可以直接将这些干净的标题、LQ 图像和相应的降解类型结合起来，构建图像-文本-降解对。</li></ul><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/data_generating.jpg" alt="img"></p><h3 id="BLIP"><a href="#BLIP" class="headerlink" title="BLIP"></a>BLIP</h3><blockquote><p>BLIP: Bootstrapping Language-Image Pre-training for Unified Vision-Language Understanding and Generation</p></blockquote><p>BLIP是引导语言图像预训练，实现统一的视觉语言理解和生成</p><ul><li><a href="https://github.com/salesforce/BLIP">https://github.com/salesforce/BLIP</a></li><li>输入图像images，输出字母caption，就可以构造图文数据集</li></ul><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231012120149853.png" alt="image-20231012120149853"></p><ul><li><a href="https://github.com/salesforce/LAVIS">https://github.com/salesforce/LAVIS</a> BLIP集成到了LAVIS里面<ul><li>Image Description Generation 功能可以构造数据</li></ul></li></ul><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/demo-6.png" alt="img"></p><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231012120629567.png" alt="image-20231012120629567"></p><h4 id="Testing-Result"><a href="#Testing-Result" class="headerlink" title="Testing Result"></a>Testing Result</h4><ul><li><a href="https://colab.research.google.com/github/salesforce/BLIP/blob/main/demo.ipynb">https://colab.research.google.com/github/salesforce/BLIP/blob/main/demo.ipynb</a></li><li>Note: comment specific transformers version</li></ul><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># !pip3 install transformers==4.15.0 timm==0.4.12 fairscale==0.4.4</span><span class="token operator">!</span>pip3 <span class="token function">install</span> transformers <span class="token assign-left variable">timm</span><span class="token operator">==</span><span class="token number">0.4</span>.12 <span class="token assign-left variable">fairscale</span><span class="token operator">==</span><span class="token number">0.4</span>.4<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><ul><li>Example 1</li></ul><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231012122457536.png" alt="image-20231012122457536"></p><ul><li>Example 2</li></ul><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231012135330101.png" alt="image-20231012135330101"></p><h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/UIR_results_radar.jpg" alt="daclip"></p><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231012115849651.png" alt="image-20231012115849651"></p><h2 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions"></a>Conclusions</h2><ul><li><p>图像修复多种应用场景</p><ul><li>人脸修复</li><li>去雨</li><li>去雪</li><li>去影子</li><li>去伪影</li><li>去噪</li><li>低光照图像增强</li></ul></li><li><p>BLIP只能粗粒度的图像描述，缺少足够的属性，可用于构造图文数据集</p></li></ul><h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> Paper Reading </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Paper Reading </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>DALL-E3</title>
       <link href="/2023/10/10/dall-e3/"/>
       <url>/2023/10/10/dall-e3/</url>

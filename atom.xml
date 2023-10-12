@@ -6,7 +6,7 @@
   <link href="https://lee-jet.github.io/atom.xml" rel="self"/>
   
   <link href="https://lee-jet.github.io/"/>
-  <updated>2023-10-11T04:13:03.663Z</updated>
+  <updated>2023-10-12T06:04:58.815Z</updated>
   <id>https://lee-jet.github.io/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>UniversalImageRestoration</title>
+    <link href="https://lee-jet.github.io/2023/10/12/universalimagerestoration/"/>
+    <id>https://lee-jet.github.io/2023/10/12/universalimagerestoration/</id>
+    <published>2023-10-12T06:03:53.000Z</published>
+    <updated>2023-10-12T06:04:58.815Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;4.5&#39;&gt;&lt;strong&gt;Controlling Vision-Language Models for Universal Image</summary>
+        
+      
+    
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
+    
+  </entry>
+  
+  <entry>
     <title>DALL-E3</title>
     <link href="https://lee-jet.github.io/2023/10/10/dall-e3/"/>
     <id>https://lee-jet.github.io/2023/10/10/dall-e3/</id>
     <published>2023-10-10T10:37:33.000Z</published>
-    <updated>2023-10-11T04:13:03.663Z</updated>
+    <updated>2023-10-11T08:41:40.441Z</updated>
     
     
       
@@ -508,32 +533,6 @@ Adding Conditional Control to Text-to-Image
 &lt;hr&gt;
 &lt;ul&gt;
 &lt;li&gt;paper &lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ChatGPT</title>
-    <link href="https://lee-jet.github.io/2023/08/21/chatgpt/"/>
-    <id>https://lee-jet.github.io/2023/08/21/chatgpt/</id>
-    <published>2023-08-21T07:11:28.000Z</published>
-    <updated>2023-08-21T07:12:44.714Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;ChatGPT&quot;&gt;&lt;a href=&quot;#ChatGPT&quot; class=&quot;headerlink&quot; title=&quot;ChatGPT&quot;&gt;&lt;/a&gt;ChatGPT&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;GPT （Generative Pre-training</summary>
         
       
     
