@@ -409,21 +409,21 @@ Abstrac">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-10-11
+                    2023-10-25
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    2.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    8 分
                 </div>
                 
 
@@ -552,6 +552,41 @@ Abstrac">
 </ul>
 </li>
 </ul>
+<h2 id="Paper-2-Improving-Image-Generation-with-Better-Captions"><a href="#Paper-2-Improving-Image-Generation-with-Better-Captions" class="headerlink" title="Paper 2 Improving Image Generation with Better Captions"></a>Paper 2 Improving Image Generation with Better Captions</h2><h3 id="1-Abstract"><a href="#1-Abstract" class="headerlink" title="1 Abstract"></a>1 Abstract</h3><ul>
+<li>文生图模型可以通过在高度描述性生成的图像字幕上训练来提升提示词能力</li>
+<li>现存的研究主要是沿着详细的图像描述而忽略了单词和混淆提示（歧义），在数据集上表现为噪声和不准确，从而影响精度</li>
+<li>DALL-E 3 通过训练一个定制的图像字母器对训练集重新生成字幕，并用它们训练数据集，最后公开了样例和评估代码</li>
+</ul>
+<h3 id="2-Dataset-Recaptioning"><a href="#2-Dataset-Recaptioning" class="headerlink" title="2 Dataset Recaptioning"></a>2 Dataset Recaptioning</h3><p>训练用的文本图像对中，文本字幕通常来源于人类标注，其主要关注主体对象，而忽略了背景细节或者图像中颜色等感知关系，而这些缺点都可以通过合成生成字幕解决。被忽略的细节如下：</p>
+<ol>
+<li>厨房里的水槽或人行道上的停车标志等物体的存在，以及对这些物体的描述。<br> 这些物体。</li>
+<li>物体在场景中的位置和数量。</li>
+<li>常识细节，如场景中物体的颜色和大小。</li>
+<li>图像中显示的文字</li>
+</ol>
+<h4 id="2-1-Building-an-image-captioner"><a href="#2-1-Building-an-image-captioner" class="headerlink" title="2.1 Building an image captioner"></a>2.1 Building an image captioner</h4><ul>
+<li><code>i： image</code> <code>t： token</code></li>
+</ul>
+<p>Step 1 将输入的文本字符化，将离散的字符用序列表征，<code>t = [t1, t2, . . . , tn]  </code></p>
+<p>Step 2 构建一个语言模型 Model A ，最大化似然函数 <code>L（t）</code></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231025103038018.png" alt="image-20231025103038018"></p>
+<p>Step 3 在Model A 基础上构建 图像字幕生成器 Model B，考虑到图像像素空间太大，需要通过CLIP压缩图像表征空间<code>F(i)</code>，最大化似然函数<code>L(t,i)</code></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231025115017663.png" alt="image-20231025115017663"></p>
+<p>Step 4 将Model A和Model B 联和训练</p>
+<h4 id="2-1-1-Fine-tuning-the-captioner"><a href="#2-1-1-Fine-tuning-the-captioner" class="headerlink" title="2.1.1 Fine-tuning the captioner"></a>2.1.1 Fine-tuning the captioner</h4><p><strong>Stage 1 SSC</strong></p>
+<ul>
+<li>先构造一个小的只对图像主体描述的字幕数据集，模型偏好生成图像主体的提示词，这一步微调叫做 <strong>short synthetic captions</strong>  </li>
+</ul>
+<p><strong>Stage 2 DSC</strong></p>
+<ul>
+<li>再构造一个大的详细描述的字幕数据集，包括图像中主体及其环境、背景、文字、风格、颜色等细节，再次进行微调，这一步叫做 <strong>descriptive synthetic captions</strong>  </li>
+</ul>
+<h3 id="3-Results"><a href="#3-Results" class="headerlink" title="3 Results"></a>3 Results</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231025115317387.png" alt="image-20231025115317387"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231025120329276.png" alt="image-20231025120329276"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231025120433835.png" alt="image-20231025120433835"></p>
+<h3 id="4-Limitations-amp-Risk"><a href="#4-Limitations-amp-Risk" class="headerlink" title="4 Limitations &amp; Risk"></a>4 Limitations &amp; Risk</h3><h4 id="Spatial-awareness"><a href="#Spatial-awareness" class="headerlink" title="Spatial awareness"></a>Spatial awareness</h4><p>在对象定位和空间感知方面存在困难。例如，使用词语 “在左边”、”在下面”、”在后面” 等是相当不可靠的。这是因为我们的合成字幕生成器也有这个弱点：它在陈述对象位置方面不可靠，这反映在我们的下游模型中。</p>
+<h4 id="Text-rendering"><a href="#Text-rendering" class="headerlink" title="Text rendering"></a>Text rendering</h4><p>在构建我们的字幕生成器时，我们特别注意确保它能够在生成的字幕中包含在图像中找到的显著单词。因此，DALL-E3 可以在提供提示时生成文本。在测试过程中，我们注意到这种功能不够可靠，因为单词可能丢失或多余字符。我们怀疑这可能与我们使用的 T5 文本编码器有关：当模型遇到提示中的文本时，实际上它会看到代表整个单词的标记，并必须将这些标记映射到图像中的字母。</p>
+<h4 id="Specificity"><a href="#Specificity" class="headerlink" title="Specificity"></a>Specificity</h4><p>我们观察到我们的合成标题容易产生关于图像的重要细节的幻觉。例如，给定一幅花的植物图，字幕生成器通常会幻想一个植物的属和种，并将其放入标题中，即使这些细节在图像中以文本形式可用。当描述鸟类图片时，我们观察到类似的行为：物种可能被幻想，或者根本不提到。这对我们的文本到图像模型产生了下游影响：DALL-E3 在为上述特定术语生成图像方面不可靠</p>
 <h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231010182222592.png" alt=" "></p>
 <p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231010181909118.png" alt=" "></p>
 <p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231010182400756.png" alt=" "></p>
@@ -1010,7 +1045,7 @@ Abstrac">
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">75.5k</span>
+                        class="white-color">76.5k</span>
             
             
             
