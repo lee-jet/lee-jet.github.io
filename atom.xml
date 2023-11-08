@@ -6,7 +6,7 @@
   <link href="https://lee-jet.github.io/atom.xml" rel="self"/>
   
   <link href="https://lee-jet.github.io/"/>
-  <updated>2023-10-12T06:04:58.815Z</updated>
+  <updated>2023-11-08T03:56:07.072Z</updated>
   <id>https://lee-jet.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>VideoCrafter</title>
+    <link href="https://lee-jet.github.io/2023/11/08/videocrafter/"/>
+    <id>https://lee-jet.github.io/2023/11/08/videocrafter/</id>
+    <published>2023-11-08T03:55:01.000Z</published>
+    <updated>2023-11-08T03:56:07.072Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;4.5&#39;&gt;&lt;strong&gt;VideoCrafter1: Open Diffusion Models for High-Quality Video</summary>
+        
+      
+    
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
+    
+  </entry>
   
   <entry>
     <title>UniversalImageRestoration</title>
@@ -504,35 +529,6 @@ On-Device Semantic</summary>
     <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;3&#39;&gt;&lt;strong&gt;ControlNet:
 Adding Conditional Control to Text-to-Image
     Diffusion</summary>
-        
-      
-    
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>StableDiffusion</title>
-    <link href="https://lee-jet.github.io/2023/08/25/stablediffusion/"/>
-    <id>https://lee-jet.github.io/2023/08/25/stablediffusion/</id>
-    <published>2023-08-25T06:25:42.000Z</published>
-    <updated>2023-08-25T06:29:30.086Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;7&#39;&gt; &lt;strong&gt;Stable Diffusion&lt;/strong&gt; &lt;/font&gt;&lt;/div&gt;
-
-&lt;hr&gt;
-&lt;ul&gt;
-&lt;li&gt;paper &lt;a</summary>
         
       
     

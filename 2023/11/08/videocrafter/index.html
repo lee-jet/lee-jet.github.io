@@ -4,13 +4,14 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="EfficientViT-segmentation, AiHub">
-    <meta name="description" content="EfficientViT: Lightweight Multi-Scale Attention for
-On-Device Semantic Segmentation
+    <meta name="keywords" content="VideoCrafter, AiHub">
+    <meta name="description" content="VideoCrafter1: Open Diffusion Models for High-Quality Video Generation
 
 
 
-paper https://arxiv.org/pdf/2205.">
+paper https://arxiv.org/pdf/2310.19512.pdf  
+
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -22,7 +23,7 @@ paper https://arxiv.org/pdf/2205.">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>EfficientViT-segmentation | AiHub</title>
+    <title>VideoCrafter | AiHub</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -342,12 +343,12 @@ paper https://arxiv.org/pdf/2205.">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">EfficientViT-segmentation</h1>
+                    <h1 class="description center-align post-title">VideoCrafter</h1>
                 </div>
             </div>
         </div>
@@ -396,28 +397,28 @@ paper https://arxiv.org/pdf/2205.">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-09-19
+                    2023-11-08
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-09-19
+                    2023-11-08
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    772
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    3 分
                 </div>
                 
 
@@ -440,56 +441,108 @@ paper https://arxiv.org/pdf/2205.">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <div align='center' ><font size='4.5'><strong>EfficientViT: Lightweight Multi-Scale Attention for
-On-Device Semantic Segmentation</strong></font></div>
+                <div align='center' ><font size='4.5'><strong>VideoCrafter1: Open Diffusion Models for High-Quality Video Generation</strong></font></div>
 
 <hr>
 <ul>
-<li><p>paper <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2205.14756.pdf">https://arxiv.org/pdf/2205.14756.pdf</a></p>
+<li><p>paper <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2310.19512.pdf">https://arxiv.org/pdf/2310.19512.pdf</a>  </p>
 </li>
-<li><p>code <a target="_blank" rel="noopener" href="https://github.com/mit-han-lab/efficientvit">https://github.com/mit-han-lab/efficientvit</a></p>
+<li><p>code <a target="_blank" rel="noopener" href="https://github.com/ailab-cvc/videocrafter">https://github.com/ailab-cvc/videocrafter</a></p>
 </li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/sam_l0_box.jpg" alt="demo"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231108102745812.png" alt="image-20231108102745812"></p>
 <hr>
-<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><blockquote>
-<p>EfficientViT is a new family of vision models for efficient high-resolution dense prediction. The core building block of EfficientViT is a new lightweight multi-scale linear attention module that achieves global receptive field and multi-scale learning with only hardware-efficient operations.</p>
-</blockquote>
-<ul>
-<li>在针对高分辨率视觉应用时，ViT 不如卷积神经网络 (CNN)。 ViT 的关键计算瓶颈是 softmax 注意力模块，其计算复杂度与输入分辨率成二次方。降低 ViT 的成本以将其部署在边缘设备上至关重要。现有方法（例如 Swin、PVT）将 softmax 注意力限制在局部窗口内或降低键/值张量的分辨率以降低成本，从而牺牲了 ViT 在全局特征提取方面的核心优势。</li>
-<li> EfficientViT是一种用于高分辨率低计算视觉识别的高效 ViT 架构。我们建议用线性注意力代替softmax注意力，而不是限制softmax注意力，同时通过深度卷积增强其局部特征提取能力。 EfficientViT 保持全局和局部特征提取能力，同时享受线性计算复杂度。</li>
-<li>EfficientViT是一个全新的轻量级多尺度注意力的新语义分割模型系列。与之前的语义分割模型不同，这些模型依赖于沉重的自我关注、硬件效率低下的大核卷积或复杂拓扑结构来获得良好性能，而我们的轻量级多尺度注意力只需轻量级和高效的硬件操作，就能实现全局感受野和多尺度学习（语义分割模型的两个关键特征）。</li>
-<li>在基准数据集上，EfficientViT 比以往最先进的语义分割模型有显著的性能提升，并在移动平台上显著提速。在 Cityscapes 上，我们的 EfficientViT 在不损失性能的情况下，在移动平台上的性能分别提高了 15 倍和 9.3 倍。和 SegNeXt 相比，移动延迟分别减少了 15 倍和 9.3 倍。和 SegNeXt 相比，移动延迟分别减少了 15 倍和 9.3 倍。在保持相同移动延迟，EfficientViT 在 ADE20K 上比 SegNeXt 增加了 7.4 mIoU</li>
+<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><ul>
+<li>商用的Text2Video模型可以生成高质量的视频，但是不开源，无法研究</li>
+<li>VideoCrafter开源了2个模型，Text2Video和Image2Video，其中I2V可以生成1024X576高分辨率的电影质量的视频，在质量上超过其它开源模型，而且是业内第一个开源的的I2V模型。（I2V模型输入为text和reference image）</li>
 </ul>
 <h2 id="Contributions"><a href="#Contributions" class="headerlink" title="Contributions"></a>Contributions</h2><ul>
-<li>将注意力机制softmax平方复杂度降低到线性复杂度，同时引入深度卷积增强局部特征提取能力</li>
+<li>T2V模型可以生成高分辨率高质量视频，训练集集为2千万视频和6亿张图像</li>
+<li>I2V模型可以很好的保留参考图像的内容、结构和风格</li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230919102753047.png" alt="image-20230919102753047"></p>
 <h2 id="Related-Work"><a href="#Related-Work" class="headerlink" title="Related Work"></a>Related Work</h2><ul>
-<li>ViT-based model</li>
-<li>设备端高分辨率语义分割</li>
+<li>Video Diffusion Models (VDMs)  </li>
+<li>ImagenVideo   </li>
+<li>DragNUWA  </li>
 </ul>
-<h2 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><h3 id="Lightweight-Multi-Scale-Attention"><a href="#Lightweight-Multi-Scale-Attention" class="headerlink" title="Lightweight Multi-Scale Attention"></a>Lightweight Multi-Scale Attention</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230919102314552.png" alt="image-20230919102314552"></p>
+<h2 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231108104712911.png" alt="image-20231108104712911"></p>
+<p>包括2个关键部分：video vae 和 video diffusion </p>
 <ul>
-<li>虽然线性注意力在计算复杂度和硬件延迟方面优于softmax注意力，但线性注意力有局限性。以前的研究  表明，在 NLP 中，<strong>线性注意力和 softmax 注意力之间通常存在显著的性能差距</strong>。对于视觉任务，之前的工作也表明线性注意力不如 softmax 注意力。</li>
-<li><strong>线性注意力的劣势主要是由于局部特征提取能力的损失</strong>。如果没有 softmax 注意力中使用的非线性分数归一化，线性注意力很难像 softmax 注意力那样集中其注意力分布。给定相同的原始注意力分数，使用 softmax 比不使用 softmax 更能集中注意力。因此，线性注意力不能有效地集中在局部模式产生的高注意力分数，削弱了其局部特征提取能力</li>
-<li>我们的想法是通过卷积来增强线性注意力，这在局部特征提取中非常有效。这样，我们就不需要依赖线性注意力来捕获局部特征，而可以专注于全局特征提取。具体来说，<strong>为了保持线性注意力的效率和简单性，我们建议在每个 FFN 层中插入一个深度卷积（DWConvGconv）</strong>，这会产生很少的计算开销，同时大大提高线性注意力的局部特征提取能力。</li>
-<li>展示了增强型线性注意力的详细架构，它由一个线性注意力层和一个 FFN 层组成。将深度卷积插入 FFN 的中间。与之前的方法 不同，<strong>我们在 EfficientViT 中不使用相对位置偏差</strong>。虽然相对位置偏差可以提高性能，但它使模型对分辨率变化很脆弱。多分辨率训练或新分辨率下的测试在检测和分割中很常见。去除相对位置偏差使 EfficientViT 对输入分辨率更加灵活。与以前的低计算 CNN中的设计不同，我们为下采样块添加了额外的下采样shortcuts。每个下采样shortcut由一个平均池化和一个 1x1 卷积组成。在我们的实验中，这些额外的下采样shortcuts可以稳定 EfficientViT 的训练并提高性能。</li>
+<li>video vae 负责降低采样维度<ul>
+<li>视频数据X0喂给VAE编码器E，映射到隐层Z0，其可以以低维表示压缩的视频表征</li>
+<li>Z0通过解码器D反映射会视频数据空间，进行重构X0’</li>
+<li>VAE采用的是Stable Diffusion的VAE，将每一帧独自投影，不包含时间信息</li>
 </ul>
-<h3 id="EfficientViT-Architecture"><a href="#EfficientViT-Architecture" class="headerlink" title="EfficientViT Architecture"></a>EfficientViT Architecture</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230919102354273.png" alt="image-20230919102354273"></p>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231108111414839.png" alt="image-20231108111414839"></p>
 <ul>
-<li>它由输入stem和 4 个阶段组成。最近的研究 表明，在早期阶段使用卷积对 ViT 效果更好。我们遵循这个设计，并在第 3 阶段开始使用增强的线性注意力。为了突出高效的骨干本身，我们使用相同的扩展比 e 为 MBConv 和 FFN (e = 4) ，以保持超参数简单，所有深度卷积的核大小 k 相同（k = 5，除了输入stem），以及所有层的相同激活函数（hard swish）。 P2、P3 和 P4 表示阶段 2、3 和 4 的输出，形成特征图金字塔。我们按照惯例将 P2、P3 和 P4 馈送到检测头。我们使用 YoloX进行检测。对于分割，我们融合了 P2 和 P4。在 Fast-SCNN之后，融合的特征被馈送到包含多个卷积层的轻量级头部。对于分类，我们将 P4 馈送到轻量级头部，与 MobileNetV3相同。</li>
+<li>video diffusion<ul>
+<li>对视频隐层Z0进行去噪，最后通过VAE解码器在像素空间生成视频</li>
+<li>采用3D U-Net架构，包含了时间维度</li>
 </ul>
-<h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230919104023799.png" alt="image-20230919104023799"></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230919101048600.png"></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/cls_results.png"></p>
+</li>
+</ul>
+<h3 id="Denoising-3D-U-Net"><a href="#Denoising-3D-U-Net" class="headerlink" title="Denoising 3D U-Net"></a>Denoising 3D U-Net</h3><ul>
+<li>每一个block包含卷积层、空间变换ST、时间变换TT</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231108112046340.png" alt="image-20231108112046340"></p>
+<ul>
+<li><p>控制信号包括语义控制（文本提示）和动作速度控制（FPS帧率）</p>
+<ul>
+<li>语义控制通过CA交叉注意力注入到网络中，其中 φi(zt) ∈ RN×di ϵ represents spatially flattened tokens of<br>  video latent, ϕ denotes the Clip text encoder, and y is the input text prompt.    </li>
+</ul>
+<p>  <img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231108112244180.png" alt="image-20231108112244180"></p>
+<ul>
+<li>时间步T和帧率FPS分别通过sinusoidal embedding（正弦嵌入）映射为向量，再通过2层的MLP映射为学习嵌入，最后通过逐元素相加融合</li>
+</ul>
+<p>  <img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231108112640660.png" alt="image-20231108112640660"></p>
+</li>
+</ul>
+<h3 id="Text-Aligned-Rich-Image-Embedding"><a href="#Text-Aligned-Rich-Image-Embedding" class="headerlink" title="Text-Aligned Rich Image Embedding"></a>Text-Aligned Rich Image Embedding</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231108110036296.png" alt="image-20231108110036296"></p>
+<ul>
+<li>文本提示聚焦在语义水平特征，而不是细节外表特征</li>
+<li>在I2V模型中，需要额外集成条件输入，即图像提示。为了将图像信息用于视频模型中，需要将图像特征投影到文本对齐的嵌入空间，这样才能兼容（就是同一个特征空间）</li>
+<li>Text Encoder 是 CLIP的文本编码器，其全局语义字符 fcls  和图像字幕对齐，主要在语义水平表征视频内容，同时很少捕捉细节。因此，<code>需要利用来自CLIP image ViT （clip image encoder）的最后一层的全部面片patch的token Fvis = &#123;fi&#125;K i=0   </code> </li>
+<li>为了和文本嵌入对齐，采用learnable投影网络 P 对 Fvis 映射 到 目标图像嵌入 <code>Fimg = P(Fvis) </code> </li>
+<li>将文本嵌入Ftext和图像嵌入Fimg通过CA层融合，用于计算内部特征Fin</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231108114344516.png" alt="image-20231108114344516"></p>
+<h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><ul>
+<li>开源里面，性能较好，但是和商用的Gen2在视觉质量和动作质量上有差距</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231108114424527.png" alt="image-20231108114424527"></p>
+<ul>
+<li>在五边形战士里，仅次于Gen2</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231108114431546.png" alt="image-20231108114431546"></p>
+<ul>
+<li>图像条件输入控制对比</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231108114758612.png" alt="image-20231108114758612"></p>
+<ul>
+<li>T2V</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231108114824763.png" alt="image-20231108114824763"></p>
+<ul>
+<li>I2V</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231108114657469.png" alt="image-20231108114657469"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231108115035248.png" alt="image-20231108115035248"></p>
 <h2 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions"></a>Conclusions</h2><ul>
-<li>主要是为语义分割任务设计的模型，但在图像分类任务ImageNet上不仅精度高，而且速度快 （不是SOTA，只是比较高而已，Top1 acc排名100左右了）</li>
-<li>针对高分辨率场景，降低了attention的复杂度</li>
-<li>针对边缘设备端分割模型的推理性能优化，达到实时推理的目的</li>
-<li>金标准（Conv+Pseudo-MHSA 卷积加多头自注意力机制）的问题，至少可以说明两点，一就是卷积的局部性+等变性的归纳偏置加MHSA的长距离表示能力；二是硬件和编译软件和运行软件对CNN支持的较好，对transformer还需要更多的支持</li>
+<li><p>开源了还可以</p>
+</li>
+<li><p>论文对比从没输过，实测效果却一般</p>
+</li>
 </ul>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231108115147302.png" alt="image-20231108115147302"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231108115209613.png" alt="image-20231108115209613"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231108115243336.png" alt="image-20231108115243336"></p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/Picsart-AI-Research/Text2Video-Zero">https://github.com/Picsart-AI-Research/Text2Video-Zero</a> 这个I2V效果更好</li>
+</ul>
+<p><img src="./assets/image-20231108115307285.png" alt="image-20231108115307285"></p>
+
                 
             </div>
             <hr/>
@@ -515,7 +568,7 @@ On-Device Semantic Segmentation</strong></font></div>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lee-jet.github.io/2023/09/19/efficientvit-segmentation/">https://lee-jet.github.io/2023/09/19/efficientvit-segmentation/</a>
+                    <a href="https://lee-jet.github.io/2023/11/08/videocrafter/">https://lee-jet.github.io/2023/11/08/videocrafter/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -632,7 +685,7 @@ On-Device Semantic Segmentation</strong></font></div>
         repo: 'gitalk',
         owner: 'lee-jet',
         admin: "lee-jet",
-        id: '2023-09-19T10-58-39',
+        id: '2023-11-08T11-55-01',
         distractionFreeMode: false,  // Facebook-like distraction free mode
     });
 
@@ -660,17 +713,18 @@ On-Device Semantic Segmentation</strong></font></div>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/09/20/diffuserstutorials/">
+                <a href="/2023/11/08/videocrafter/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="DiffusersTutorials">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="VideoCrafter">
                         
-                        <span class="card-title">DiffusersTutorials</span>
+                        <span class="card-title">VideoCrafter</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -680,9 +734,9 @@ On-Device Semantic Segmentation</strong></font></div>
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-09-20
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-11-08
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -695,6 +749,7 @@ On-Device Semantic Segmentation</strong></font></div>
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -713,13 +768,13 @@ On-Device Semantic Segmentation</strong></font></div>
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/09/18/textualinversion/">
+                <a href="/2023/10/12/universalimagerestoration/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="TextualInversion">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="UniversalImageRestoration">
                         
-                        <span class="card-title">TextualInversion</span>
+                        <span class="card-title">UniversalImageRestoration</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -730,7 +785,7 @@ On-Device Semantic Segmentation</strong></font></div>
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-09-18
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-10-12
                             </span>
                         <span class="publish-author">
                             
