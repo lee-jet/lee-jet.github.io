@@ -4,15 +4,12 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="DDIM, AiHub">
-    <meta name="description" content="Denoising Diffusion Implicit Models
+    <meta name="keywords" content="pixelization, AiHub">
+    <meta name="description" content="Make Your Own Sprites: Aliasing-Aware and Cell-Controllable Pixelization
 
 
 
-paper https://arxiv.org/abs/2010.02502 
-
-code https://github.com/ermongroup/ddim
-">
+paper https://orca.cardiff.ac.uk/id/eprint/1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -24,7 +21,7 @@ code https://github.com/ermongroup/ddim
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>DDIM | AiHub</title>
+    <title>pixelization | AiHub</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -344,12 +341,12 @@ code https://github.com/ermongroup/ddim
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">DDIM</h1>
+                    <h1 class="description center-align post-title">pixelization</h1>
                 </div>
             </div>
         </div>
@@ -398,28 +395,28 @@ code https://github.com/ermongroup/ddim
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-09-27
+                    2023-11-09
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-09-27
+                    2023-11-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    771
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    5 分
                 </div>
                 
 
@@ -442,86 +439,175 @@ code https://github.com/ermongroup/ddim
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <div align='center' ><font size='4.5'><strong>Denoising Diffusion Implicit Models</strong></font></div>
+                <div align='center' ><font size='4.5'><strong>Make Your Own Sprites: Aliasing-Aware and Cell-Controllable Pixelization</strong></font></div>
 
 <hr>
 <ul>
-<li><p>paper <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2010.02502">https://arxiv.org/abs/2010.02502</a> </p>
+<li><p>paper <a target="_blank" rel="noopener" href="https://orca.cardiff.ac.uk/id/eprint/152816/">https://orca.cardiff.ac.uk/id/eprint/152816/</a></p>
 </li>
-<li><p>code <a target="_blank" rel="noopener" href="https://github.com/ermongroup/ddim">https://github.com/ermongroup/ddim</a></p>
+<li><p>code <a target="_blank" rel="noopener" href="https://github.com/WuZongWei6/Pixelization">https://github.com/WuZongWei6/Pixelization</a></p>
 </li>
 </ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/9562.png" alt="img"></p>
 <hr>
 <h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><ul>
-<li><p>DDIMs是一个更高效的迭代隐式概率模型，和DDPMs采用相同的训练过程</p>
-</li>
-<li><p>DDIMs通过一个非马尔可夫的扩散过程，从而实现相同的训练目标。这些非马尔可夫过程可以对应于确定性的生成过程，从而产生能更快地生成高质量样本的隐式模型</p>
-</li>
-<li><p>DDIMs相对DDPMs，生成样本的速度快了10x，甚至50x，可以生成高质量样本，最重要的是实现了inversion，图像重建误差非常小，可以在latent space进行插值实现图像的二次生成</p>
-</li>
+<li>像素艺术是一种具有低分辨率外表的独一无二的艺术风格，可将其视为二维网格，每个网格单元包含 N × N<br>  相同颜色的像素。由于分辨率有限，像素画需要色彩单元均匀分布，才能有效地表现重要内容。</li>
+<li>我们提出了一种数据驱动的像素化方法，该方法可以在控制单元大小的情况下产生清晰（sharp）的单元效果</li>
+<li>我们将像素化过程分解为特定的单元感知阶段cell-aware和锯齿感知aliasing-aware阶段，从而减少了联合学习单元大小、锯齿效应和颜色分配时的模糊性</li>
 </ul>
-<h2 id="Contributions"><a href="#Contributions" class="headerlink" title="Contributions"></a>Contributions</h2><ul>
-<li>加速生成</li>
-<li>隐空间重建与插值</li>
-</ul>
-<h2 id="Related-Work"><a href="#Related-Work" class="headerlink" title="Related Work"></a>Related Work</h2><ul>
-<li>DDPM</li>
-</ul>
-<h2 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230927100244641.png" alt="image-20230927100244641"></p>
-<h3 id="NON-MARKOVIAN-FORWARD-PROCESSES"><a href="#NON-MARKOVIAN-FORWARD-PROCESSES" class="headerlink" title="NON-MARKOVIAN FORWARD PROCESSES"></a>NON-MARKOVIAN FORWARD PROCESSES</h3><ul>
-<li>扩散前向过程不再是马尔科夫过程（Xt只以来Xt-1），因为Xt依赖Xt-1和X0</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230927101846948.png" alt=" "></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230927102007217.png" alt=" "></p>
-<h3 id="GENERATIVE-PROCESS"><a href="#GENERATIVE-PROCESS" class="headerlink" title="GENERATIVE PROCESS"></a>GENERATIVE PROCESS</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230927102129896.png" alt=" "></p>
+<h2 id="Contributions"><a href="#Contributions" class="headerlink" title="Contributions"></a>Contributions</h2><ol>
+<li>像素化通常应满足以下要求：</li>
+</ol>
 <ul>
-<li>a fixed prior pθ(xT ) = N(0; I)  </li>
+<li><p>识别锯齿：像素艺术应具有清晰锐利的边缘，而不是抗锯齿外观</p>
+</li>
+<li><p>可控制单元格：用户可根据需要控制结果的单元格大小</p>
+</li>
+<li><p>保留细节：结果应尽可能保留特征和连续边缘的外观</p>
+</li>
+<li><p>非配对数据：对于基于学习的方法，其训练应不需要像素艺术和相应的高分辨率图像的配对数据。<br>  因为目前还没有这种成对图像的大比例数据集</p>
+</li>
 </ul>
-<h3 id="UNIFIED-VARIATIONAL-INFERENCE-OBJECTIVE"><a href="#UNIFIED-VARIATIONAL-INFERENCE-OBJECTIVE" class="headerlink" title="UNIFIED VARIATIONAL INFERENCE OBJECTIVE"></a>UNIFIED VARIATIONAL INFERENCE OBJECTIVE</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230927102219225.png" alt="image-20230927102219225"></p>
-<h3 id="SAMPLING-FROM-GENERALIZED-GENERATIVE-PROCESSES"><a href="#SAMPLING-FROM-GENERALIZED-GENERATIVE-PROCESSES" class="headerlink" title="SAMPLING FROM GENERALIZED GENERATIVE PROCESSES"></a>SAMPLING FROM GENERALIZED GENERATIVE PROCESSES</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230927100725549.png" alt="image-20230927100725549"></p>
-<h3 id="DENOISING-DIFFUSION-IMPLICIT-MODELS"><a href="#DENOISING-DIFFUSION-IMPLICIT-MODELS" class="headerlink" title="DENOISING DIFFUSION IMPLICIT MODELS"></a>DENOISING DIFFUSION IMPLICIT MODELS</h3><ul>
-<li>one can generate a sample xt-1 from a sample xt   </li>
+<ol start="2">
+<li>构造了非配对像素数据集</li>
+</ol>
+<h2 id="Related-Work"><a href="#Related-Work" class="headerlink" title="Related Work"></a>Related Work</h2><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231109101523060.png" alt="image-20231109101523060"></p>
+<h3 id="经典的插值方法"><a href="#经典的插值方法" class="headerlink" title="经典的插值方法"></a>经典的插值方法</h3><ul>
+<li>nearest-neighbor, bicubic (最近邻采样会丢失原始图像中的关键细节，而双三次取样则会产生不理想的抗锯齿效果)</li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230927102909760.png" alt="image-20230927102909760"></p>
+<ol>
+<li><p>最近邻插值：</p>
 <ul>
-<li>在所有 t 中 (t不等于1)，σt = 0；给定 xt-1 和 x0，前向过程成为确定性过程。在生成过程中，随机噪声 t 前的系数变为零。由此产生的模型成为隐式概率模型，其中样本从潜在变量生成，其固定程序为(从 xT 到 x0）</li>
+<li>原理：最近邻插值是一种简单的插值方法，它选择离目标位置最近的已知像素值作为插值结果。</li>
+<li>优点：计算速度快，实现简单。</li>
+<li>缺点：结果可能不够平滑，会产生<strong>锯齿状</strong>的伪影效果。</li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230927103549942.png" alt="image-20230927103549942"></p>
+</li>
+<li><p>双线性插值：</p>
 <ul>
-<li>当 η = 1 时为 DDPM，当 η = 0 时为 DDIM</li>
+<li>原理：双线性插值使用目标位置周围4个最近的已知像素值，根据距离和权重进行加权平均来计算插值结果。</li>
+<li>优点：相比于最近邻插值，<strong>结果更平滑，减少了锯齿状伪影</strong>。</li>
+<li>缺点：计算量较大，对于图像旋转和放大时，可能会引入一定程度的<strong>模糊</strong>。</li>
 </ul>
-<h3 id="ACCELERATED-GENERATION-PROCESSES"><a href="#ACCELERATED-GENERATION-PROCESSES" class="headerlink" title="ACCELERATED GENERATION PROCESSES"></a>ACCELERATED GENERATION PROCESSES</h3><ul>
-<li>DDIM 优化时与 DDPM 一样，对噪声进行拟合，但 DDIM 提出了通过一个更短的 Forward Processes 过程，通过减少采样的步数，来加快采样速度</li>
-<li>从原先的采样序列 {1,…,<em>T</em>} 中选择一个子序列来生成图像。如原序列为 1 到 1000，抽取子序列可以是 1, 100, 200, … 1000 （类似 <code>arange(1, 1000, 100)</code>）。抽取方式不固定。在生成时同样采用公式 (1)，其中的 timestep <em>t</em> ，替换为子序列中的 timestep。其中的 α<em>ˉ</em>t 对应到训练时候的数值，比如采样 <code>1, 100, 200, ... 1000</code> 中的第二个样本，则使用训练时候采用的 <em>α</em>ˉ100 （此处只能替换 <code>alphas_cumprod</code> ˉ<em>α</em>ˉ，不能直接替换 <code>alpha</code> 参数 α<em>t</em>）</li>
-<li>参考论文中的 Figure 3，在加速生成的情况下，η 越小，生成的图片效果越好，同时 η 的减小能够很大程度上弥补采样步数减少带来的生成质量下降问题</li>
+</li>
+<li><p>双三次插值（bicubic interpolation）：</p>
+<ul>
+<li>原理：双三次插值在目标位置周围16个最近的已知像素值上应用三次多项式插值，根据距离和权重进行加权平均计算插值结果。</li>
+<li>优点：<strong>结果更加平滑，图像细节保留较好</strong>，适用于图像放大和缩小。</li>
+<li>缺点：计算量较大，对于一些特定的图像纹理，可能会引入一定程度的模糊</li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230927104507632.png" alt="image-20230927104507632"></p>
+<table>
+<thead>
+<tr>
+<th align="center">插值方法</th>
+<th align="center">原理</th>
+<th align="center">优点</th>
+<th align="center">缺点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">最近邻插值</td>
+<td align="center">选择离目标位置最近的已知像素值作为插值结果</td>
+<td align="center">计算速度快</td>
+<td align="center">结果可能不够平滑，产生锯齿状伪影</td>
+</tr>
+<tr>
+<td align="center">双线性插值</td>
+<td align="center">使用目标位置周围4个最近的已知像素值进行加权平均插值</td>
+<td align="center">结果相对平滑，减少锯齿状伪影</td>
+<td align="center">计算量较大，对于旋转和放大可能会引入模糊</td>
+</tr>
+<tr>
+<td align="center">双三次插值 (Bicubic)</td>
+<td align="center">在目标位置周围16个最近的已知像素值上应用三次多项式插值进行加权平均插值</td>
+<td align="center">结果平滑，保留图像细节</td>
+<td align="center">计算量较大，对于某些纹理可能会引入模糊</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<ul>
+<li>锯齿感，就是边缘有锯齿，抗锯齿越强，边缘锯齿越平滑，效果越模糊</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231109104725803.png" alt="image-20231109104725803"></p>
+<h3 id="基于深度学习的方法"><a href="#基于深度学习的方法" class="headerlink" title="基于深度学习的方法"></a>基于深度学习的方法</h3><ul>
+<li><p><strong>Deep Pixelization</strong></p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/csqiangwen/Deep-Unsupervised-Pixelization![Our">https://github.com/csqiangwen/Deep-Unsupervised-Pixelization![Our</a> teaser](<a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/teaser.png">https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/teaser.png</a>)</p>
+</li>
+<li><p>在无监督的情况下，在输入图像和生成的像素艺术之间建立图像到图像的循环转换过程，虽然在锯齿感知和细节保存方面取得了突破，但仍存在两个主要问题。</p>
+</li>
+<li><p>首先，其结果可能包含大小不一的非均匀单元，即它无法控制单元。此外，其模型将内容和像素化风格纠缠在一起，可能会导致色彩失真。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Make Your Own Sprites: Aliasing-Aware and Cell-Controllable Pixelization</strong></p>
+<ul>
+<li>我们的方法能生成与输入图像分辨率相同的结果图像，其中的像素形成指定单元大小的单元。</li>
+</ul>
+</li>
+</ul>
+<h2 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231109101741735.png" alt="image-20231109101741735"></p>
+<p>1 我们将像素艺术视为由正方形单元格组成的网格，其中每个单元格包含𝑁×𝑁 个相同颜色的像素。对于这样的像素画，我们称其单元大小为 𝑁× 。在最简单的情况下，每个单元只包含一个像素（即单元大小为 1 × ），<br>我们将这种像素艺术称为 “一单元一像素”。为了便于显示或编辑、可使用<strong>最近邻插值法</strong>将此类像素艺术<strong>放大</strong>为单元大小为的𝑁×形式，其中 𝑁 &gt; 1。另一方面,单元大小为 𝑁× ( 𝑁 &gt; 1)的像素艺术也可以使用<strong>最近邻插值法</strong>缩减为一个单元一个像素的形式。</p>
+<p>2 为了充分利用未配对的数据，我们的网络以双向和循环的方式进行训练。一方面，训练按照 CSEnc → I2PNet → AliasNet → P2INet 的数据流进行，另一方面，训练按照数据流P2INet → CSEnc → I2PNet → AliasNet 的数据流，NumEnc 模块仅在训练过程中用作的像素艺术输出的判别器。</p>
+<ul>
+<li>&lt;1&gt;Structural Cell Representation    单元结构</li>
+<li>&lt;2&gt;Two-stage Pixelization    图像与像素的双向流</li>
+<li>&lt;3&gt;Numerical Cell Representation   单元表征</li>
+</ul>
+<h2 id="DATASETS"><a href="#DATASETS" class="headerlink" title="DATASETS"></a>DATASETS</h2><ul>
+<li>unpaired data<ul>
+<li>原图和像素图</li>
+</ul>
+</li>
+<li>像素图构造<ul>
+<li>通过原图下采样（Lanczos filter，产生锯齿感）后，再上采样（nearest-neighbor，1单元N像素）</li>
+<li><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231109104355844.png" alt="image-20231109104355844"></li>
+</ul>
+</li>
+</ul>
+<h2 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h2><h4 id="I2PNet-AliasNet-and-P2INet"><a href="#I2PNet-AliasNet-and-P2INet" class="headerlink" title="I2PNet, AliasNet and P2INet"></a>I2PNet, AliasNet and P2INet</h4><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231109104441081.png" alt="image-20231109104441081"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231109104508884.png" alt="image-20231109104508884"></p>
+<ul>
+<li>核心是利用 unpaired data 实现 image translation （image2pixel &amp; pixel2image），网络结构以GAN为主，很重要的是实现了单元N的控制</li>
+</ul>
 <h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><ul>
-<li>重建和插值 </li>
+<li>定量比较，FID最小，比商用的PixelMe要好</li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230927100431531.png" alt="image-20230927100431531"></p>
-<h2 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions"></a>Conclusions</h2><ul>
-<li><p>DDIM是DDPM的泛化版本</p>
-</li>
-<li><p>DDIM不是马尔可夫链，把所有时间步方差=0，高斯噪声的随机性被移除了，变成了确定性采样</p>
-</li>
-<li><p>过于理论，应用场景</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231109104939557.png" alt="image-20231109104939557"></p>
 <ul>
-<li>加速采样过程 （子序列采样，从T个时间步中采样一部分）</li>
-<li>图像反演/重建 DDIM inversion （图像转换到隐空间，重建误差非常小）</li>
-<li>图像插值 DDIM interpolations（不平滑）</li>
+<li>Nx 效果对比</li>
 </ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231109104959019.png" alt="image-20231109104959019"></p>
+<ul>
+<li>定性比较</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231109104054106.png" alt="image-20231109104054106"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231109105115669.png" alt="image-20231109105115669"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231109110028204.png" alt="image-20231109110028204"></p>
+<h2 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions"></a>Conclusions</h2><ul>
+<li><p>N可以表示缩放系数，比如8X，可以将图像缩小8倍变成1单元1像素，也可以将1单元1像素放大8倍变成1单元8像素（需要采用最近邻插值算法实现缩放）</p>
+</li>
+<li><p>如果需要得到32X32的1单元1像素图像，可以有256X256的1单元8像素缩小8倍获取。</p>
+</li>
+<li><p>实测效果对比图，效果符合预期</p>
 </li>
 </ul>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li>实操 <a target="_blank" rel="noopener" href="https://aistudio.baidu.com/projectdetail/5279888?channelType=0&amp;channel=0">https://aistudio.baidu.com/projectdetail/5279888?channelType=0&amp;channel=0</a><ul>
-<li>验证当 η=1 DDIM 提出的的采样方式结果与 DDPM 基本相同</li>
-<li>DDIM 的加速采样过程</li>
-<li>DDIM 采样的确定性及其插值</li>
-</ul>
-</li>
-</ul>
-
+<table>
+<thead>
+<tr>
+<th align="center">像素原图256x256</th>
+<th align="center">先缩小到32x32</th>
+<th align="center">后放大到256x256</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/1-1699499627506-14.png" alt="1"></td>
+<td align="center"><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/1_INTER_NEAREST.png" alt="1_INTER_NEAREST"></td>
+<td align="center"><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/2_INTER_NEAREST.png" alt="2_INTER_NEAREST"></td>
+</tr>
+</tbody></table>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2>
                 
             </div>
             <hr/>
@@ -547,7 +633,7 @@ code https://github.com/ermongroup/ddim
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lee-jet.github.io/2023/09/27/ddim/">https://lee-jet.github.io/2023/09/27/ddim/</a>
+                    <a href="https://lee-jet.github.io/2023/11/09/pixelization/">https://lee-jet.github.io/2023/11/09/pixelization/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -664,7 +750,7 @@ code https://github.com/ermongroup/ddim
         repo: 'gitalk',
         owner: 'lee-jet',
         admin: "lee-jet",
-        id: '2023-09-27T11-08-08',
+        id: '2023-11-09T11-12-02',
         distractionFreeMode: false,  // Facebook-like distraction free mode
     });
 
@@ -692,17 +778,18 @@ code https://github.com/ermongroup/ddim
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/09/28/freeu/">
+                <a href="/2023/11/09/pixelization/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="FreeU">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="pixelization">
                         
-                        <span class="card-title">FreeU</span>
+                        <span class="card-title">pixelization</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -712,16 +799,29 @@ code https://github.com/ermongroup/ddim
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-09-28
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-11-09
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Lee Jet
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper-Reading/" class="post-category">
+                                    Paper Reading
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Paper-Reading/">
+                        <span class="chip bg-color">Paper Reading</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -733,13 +833,13 @@ code https://github.com/ermongroup/ddim
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/09/26/ddpm-code/">
+                <a href="/2023/11/08/videocrafter/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="DDPM-Code">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="VideoCrafter">
                         
-                        <span class="card-title">DDPM-Code</span>
+                        <span class="card-title">VideoCrafter</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -750,7 +850,7 @@ code https://github.com/ermongroup/ddim
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-09-26
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-11-08
                             </span>
                         <span class="publish-author">
                             
