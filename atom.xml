@@ -6,7 +6,7 @@
   <link href="https://lee-jet.github.io/atom.xml" rel="self"/>
   
   <link href="https://lee-jet.github.io/"/>
-  <updated>2023-11-22T04:13:09.272Z</updated>
+  <updated>2023-12-06T10:16:17.722Z</updated>
   <id>https://lee-jet.github.io/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>ISP</title>
+    <link href="https://lee-jet.github.io/2023/12/06/isp/"/>
+    <id>https://lee-jet.github.io/2023/12/06/isp/</id>
+    <published>2023-12-06T10:05:57.000Z</published>
+    <updated>2023-12-06T10:16:17.722Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;8&#39;&gt;&lt;strong&gt;ISP Pipeline&lt;/strong&gt;&lt;/font&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
+    
+  </entry>
+  
+  <entry>
     <title>BoT-SORT</title>
     <link href="https://lee-jet.github.io/2023/11/22/bot-sort/"/>
     <id>https://lee-jet.github.io/2023/11/22/bot-sort/</id>
     <published>2023-11-22T04:12:32.000Z</published>
-    <updated>2023-11-22T04:13:09.272Z</updated>
+    <updated>2023-11-22T04:14:02.932Z</updated>
     
     
       
@@ -504,31 +531,6 @@ On-Device Semantic</summary>
 &lt;hr&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LoRA</title>
-    <link href="https://lee-jet.github.io/2023/08/31/lora/"/>
-    <id>https://lee-jet.github.io/2023/08/31/lora/</id>
-    <published>2023-08-31T06:58:18.000Z</published>
-    <updated>2023-08-31T07:00:32.855Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;4.5&#39;&gt;&lt;strong&gt;LoRA: Low-Rank Adaptation of Large Language</summary>
         
       
     

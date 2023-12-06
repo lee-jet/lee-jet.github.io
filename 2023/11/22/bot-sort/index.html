@@ -450,7 +450,7 @@ code https://github.c">
 <li><p>code <a target="_blank" rel="noopener" href="https://github.com/NirAharon/BoT-SORT">https://github.com/NirAharon/BoT-SORT</a></p>
 </li>
 </ul>
-<p><img src="./_posts/assets/Results_Bubbles.png" alt=" "></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/Results_Bubbles.png" alt=" "></p>
 <hr>
 <h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>多目标跟踪（MOT）是检测和跟踪场景中的所有物体，同时为每个物体保留唯一的标识符。在本文中，我们提出了一种新的鲁棒性先进跟踪器，<strong>它能将运动和外观信息的优势与摄像机运动补偿以及更精确的卡尔曼滤波器状态向量结合起来</strong>。我们的新跟踪器 BoT-SORT 和 BoT-SORT-ReID 在 MOTChallenge 数据集的 MOT17 和 MOT20 测试集上，在所有主要 MOT 指标方面均排名第一： MOTA、IDF1 和 HOTA。在 MOT17 中：MOTA 达到 80.5，IDF1 达到 80.2，HOTA 达到 65.0。</p>
 <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><ol>
@@ -485,18 +485,18 @@ code https://github.c">
 <li>Motion Models</li>
 <li>Appearance models and re-identification</li>
 </ul>
-<h2 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><p><img src="./_posts/assets/image-20231122104743714.png" alt=" "></p>
+<h2 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231122104743714.png" alt=" "></p>
 <h3 id="Kalman-Filter"><a href="#Kalman-Filter" class="headerlink" title="Kalman Filter"></a>Kalman Filter</h3><ul>
 <li>通常采用SORT中恒速先验的卡尔曼滤波建模目标运动，其状态向量是7元组，但是实验中发现对边界框宽高的估计会比宽高比的估计更好，所以改成了8元组状态向量</li>
 </ul>
-<p><img src="./_posts/assets/image-20231122110059513.png" alt=" "></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231122110059513.png" alt=" "></p>
 <ul>
 <li><p>SORT中 Q R 选择时间无关的矩阵</p>
 </li>
 <li><p>长时间使用KF会出现边界框形变，即宽度误差（图中蓝色），而改进的KF对宽度拟合更好（绿色），实验中HOTA指标更高</p>
 </li>
 </ul>
-<p><img src="./_posts/assets/image-20231122105248602.png" alt=" "></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231122105248602.png" alt=" "></p>
 <h3 id="Camera-Motion-Compensation-CMC"><a href="#Camera-Motion-Compensation-CMC" class="headerlink" title="Camera Motion Compensation (CMC)"></a>Camera Motion Compensation (CMC)</h3><ul>
 <li><code>Tracking-by-detection</code> 跟踪器严重依赖于预测轨迹的边界框和检测到的边界框之间的重叠</li>
 <li>在动态相机情况下，图像平面中的边界框位置可能会发生显著变化，这可能会导致 ID 切换或假阴性增加。</li>
@@ -510,41 +510,41 @@ code https://github.c">
 </ul>
 </li>
 </ul>
-<p><img src="./_posts/assets/image-20231122111608868.png" alt=" "></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231122111608868.png" alt=" "></p>
 <ul>
 <li>M包含A中的scale和rotation部分，T包含translation部分</li>
 </ul>
-<p><img src="./_posts/assets/image-20231122112528462.png" alt=" "></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231122112528462.png" alt=" "></p>
 <ul>
 <li>第k帧补偿前后的状态为（X_hat, P_hat 为补偿后状态），X表示状态向量，P表示KF预测的协方差矩阵</li>
 </ul>
-<p><img src="./_posts/assets/image-20231122112536074.png" alt=" "></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231122112536074.png" alt=" "></p>
 <ul>
 <li>用补偿后状态更新KF</li>
 </ul>
-<p><img src="./_posts/assets/image-20231122112656715.png" alt=" "></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231122112656715.png" alt=" "></p>
 <ul>
 <li>在高速的情况下，状态向量的完全修正，包括速度项是必要的。当相机与帧率相比变化缓慢时，校正值可以省略。通过应用这种方法，跟踪器对相机的运动具有较好鲁棒性。</li>
 </ul>
-<p><img src="./_posts/assets/image-20231122110601186.png" alt=" "></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231122110601186.png" alt=" "></p>
 <h3 id="IoU-Re-ID-Fusion"><a href="#IoU-Re-ID-Fusion" class="headerlink" title="IoU - Re-ID Fusion"></a>IoU - Re-ID Fusion</h3><ul>
 <li>为了提取这些 <code>Re-ID</code> 特征，在来自 <code>FastReID</code> 库的 <code>BoT</code> (<code>SBS</code>) 之上采用了更强的基线。</li>
 <li>因为外观特征可能容易受到人群、遮挡和模糊对象的影响，为了保持正确的特征向量，只考虑高置信度检测。为了在平均轨迹外观状态和新的检测嵌入向量之间进行匹配，测量余弦相似度。作者决定放弃外观成本 Aa 和运动成本Am之间的共同加权和来计算成本矩阵C，lambda=0.98</li>
 </ul>
-<p><img src="./_posts/assets/image-20231122120136994.png" alt=" "></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231122120136994.png" alt=" "></p>
 <ul>
 <li>开发了一种结合运动和外观信息的新方法，即 <code>IoU</code> 距离矩阵和余弦距离矩阵。首先，就 <code>IoU</code> 的分数而言，低余弦相似度或距离较远的候选者会被拒绝。然后，使用矩阵的每个元素中的最小值作为Cost矩阵 C 的最终值。<code>IoU-ReID</code> 融合管道可以表述如下</li>
 </ul>
-<p><img src="./_posts/assets/image-20231122115931063.png" alt=" "></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231122115931063.png" alt=" "></p>
 <h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><ul>
 <li>Ablation study</li>
 </ul>
-<p><img src="./_posts/assets/image-20231122120353287.png" alt=" "></p>
-<p><img src="./_posts/assets/image-20231122120425916.png" alt=" "></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231122120353287.png" alt=" "></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231122120425916.png" alt=" "></p>
 <ul>
 <li>SOTA</li>
 </ul>
-<p><img src="./_posts/assets/image-20231122120446963.png" alt=" "></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231122120446963.png" alt=" "></p>
 <h2 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions"></a>Conclusions</h2><ul>
 <li>用了很多 trick 提高性能指标，包括对KF中宽高的估计、运动相机补偿、IOU和REid融合</li>
 <li>其中运动相机补偿最重要</li>
@@ -720,18 +720,17 @@ code https://github.c">
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/11/22/bot-sort/">
+                <a href="/2023/12/06/isp/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="BoT-SORT">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="ISP">
                         
-                        <span class="card-title">BoT-SORT</span>
+                        <span class="card-title">ISP</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -741,9 +740,9 @@ code https://github.c">
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-11-22
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-12-06
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -756,7 +755,6 @@ code https://github.c">
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -1008,7 +1006,7 @@ code https://github.c">
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">83k</span>
+                        class="white-color">89.8k</span>
             
             
             
