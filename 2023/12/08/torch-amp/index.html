@@ -4,14 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="VisualChatGPT, AiHub">
-    <meta name="description" content="Visual ChatGPT: Talking, Drawing and Editing with Visual Foundation Models
-
-
-
-paper https://arxiv.org/abs/2303.04671
-
-co">
+    <meta name="keywords" content="torch_amp, AiHub">
+    <meta name="description" content="AMPAUTOMATIC MIXED PRECISION唯一要求是 Pytorch 1.6 以上版本和支持 CUDA 的 GPU
+torch.cuda.amp 为混合精度提供了方便的方法，其中一些操作使用 torch.float32 (浮点">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -23,7 +18,7 @@ co">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>VisualChatGPT | AiHub</title>
+    <title>torch_amp | AiHub</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -343,12 +338,12 @@ co">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">VisualChatGPT</h1>
+                    <h1 class="description center-align post-title">torch_amp</h1>
                 </div>
             </div>
         </div>
@@ -397,28 +392,28 @@ co">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-09-12
+                    2023-12-08
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-09-12
+                    2023-12-08
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    482
+                    1.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    7 分
                 </div>
                 
 
@@ -441,184 +436,138 @@ co">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <div align='center' ><font size='4.5'><strong>Visual ChatGPT: Talking, Drawing and Editing with Visual Foundation Models</strong></font></div>
+                <h2 id="AMP"><a href="#AMP" class="headerlink" title="AMP"></a>AMP</h2><p><code>AUTOMATIC MIXED PRECISION</code>唯一要求是 Pytorch 1.6 以上版本和支持 CUDA 的 GPU</p>
+<p>torch.cuda.amp 为混合精度提供了方便的方法，其中一些操作使用 torch.float32 (浮点数) 数据类型，另一些操作使用 torch.float16 (半精度)。一些操作，如线性层和卷积，在 float16 中速度更快。其他操作，如reductions 还原，通常需要 float32 的动态范围。混合精度尝试将每个操作与其相应的数据类型相匹配，这可以减少网络的运行时间和内存占用。</p>
+<p>混合精度主要有利于支持张量核的架构（Volta、Turing、Ampere）。在这些架构上，此配方应能显示出显著（2-3 倍）的速度提升。在早期的架构（开普勒、麦克斯韦、帕斯卡）上，您可能会观察到适度的速度提升。运行 nvidia-smi 来显示 GPU 的架构。</p>
+<p>batch_size、in_size、out_size 和 num_layers 被选择得足够大，以便让 GPU 的工作达到饱和。通常情况下，当 GPU 达到饱和时，混合精度会带来最大的速度提升。在这种情况下，混合精度不会提高性能。在选择尺寸时，线性层的参与维度也是 8 的倍数，以便在支持张量核的 GPU 上使用张量核</p>
+<h3 id="torch-cuda-amp-autocast"><a href="#torch-cuda-amp-autocast" class="headerlink" title="torch.cuda.amp.autocast"></a>torch.cuda.amp.autocast</h3><p><code>torch.cuda.amp.autocast</code>在这些区域，CUDA 操作会在自动转换选择的 dtype 中运行，以提高性能，同时保持准确性。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">for</span> epoch <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment"># 0 epochs, this section is for illustration only</span>
+    <span class="token keyword">for</span> <span class="token builtin">input</span><span class="token punctuation">,</span> target <span class="token keyword">in</span> <span class="token builtin">zip</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> targets<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment"># Runs the forward pass under autocast.</span>
+        <span class="token keyword">with</span> torch<span class="token punctuation">.</span>cuda<span class="token punctuation">.</span>amp<span class="token punctuation">.</span>autocast<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            output <span class="token operator">=</span> net<span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">)</span>
+            <span class="token comment"># output is float16 because linear layers autocast to float16.</span>
+            <span class="token keyword">assert</span> output<span class="token punctuation">.</span>dtype <span class="token keyword">is</span> torch<span class="token punctuation">.</span>float16
 
-<hr>
+            loss <span class="token operator">=</span> loss_fn<span class="token punctuation">(</span>output<span class="token punctuation">,</span> target<span class="token punctuation">)</span>
+            <span class="token comment"># loss is float32 because mse_loss layers autocast to float32.</span>
+            <span class="token keyword">assert</span> loss<span class="token punctuation">.</span>dtype <span class="token keyword">is</span> torch<span class="token punctuation">.</span>float32
+
+        <span class="token comment"># Exits autocast before backward().</span>
+        <span class="token comment"># Backward passes under autocast are not recommended.</span>
+        <span class="token comment"># Backward ops run in the same dtype autocast chose for corresponding forward ops.</span>
+        loss<span class="token punctuation">.</span>backward<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        opt<span class="token punctuation">.</span>step<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        opt<span class="token punctuation">.</span>zero_grad<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># set_to_none=True here can modestly improve performance</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="torch-cuda-amp-GradScaler"><a href="#torch-cuda-amp-GradScaler" class="headerlink" title="torch.cuda.amp.GradScaler"></a>torch.cuda.amp.GradScaler</h3><p><code>Gradient scaling</code> 梯度缩放有助于防止在使用混合精度进行训练时，幅度较小的梯度冲向零（”下溢”）</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># Constructs scaler once, at the beginning of the convergence run, using default args.</span>
+<span class="token comment"># If your network fails to converge with default GradScaler args, please file an issue.</span>
+<span class="token comment"># The same GradScaler instance should be used for the entire convergence run.</span>
+<span class="token comment"># If you perform multiple convergence runs in the same script, each run should use</span>
+<span class="token comment"># a dedicated fresh GradScaler instance.  GradScaler instances are lightweight.</span>
+scaler <span class="token operator">=</span> torch<span class="token punctuation">.</span>cuda<span class="token punctuation">.</span>amp<span class="token punctuation">.</span>GradScaler<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">for</span> epoch <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment"># 0 epochs, this section is for illustration only</span>
+    <span class="token keyword">for</span> <span class="token builtin">input</span><span class="token punctuation">,</span> target <span class="token keyword">in</span> <span class="token builtin">zip</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> targets<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">with</span> torch<span class="token punctuation">.</span>cuda<span class="token punctuation">.</span>amp<span class="token punctuation">.</span>autocast<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            output <span class="token operator">=</span> net<span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">)</span>
+            loss <span class="token operator">=</span> loss_fn<span class="token punctuation">(</span>output<span class="token punctuation">,</span> target<span class="token punctuation">)</span>
+
+        <span class="token comment"># Scales loss.  Calls backward() on scaled loss to create scaled gradients.</span>
+        scaler<span class="token punctuation">.</span>scale<span class="token punctuation">(</span>loss<span class="token punctuation">)</span><span class="token punctuation">.</span>backward<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        <span class="token comment"># scaler.step() first unscales the gradients of the optimizer's assigned params.</span>
+        <span class="token comment"># If these gradients do not contain infs or NaNs, optimizer.step() is then called,</span>
+        <span class="token comment"># otherwise, optimizer.step() is skipped.</span>
+        scaler<span class="token punctuation">.</span>step<span class="token punctuation">(</span>opt<span class="token punctuation">)</span>
+
+        <span class="token comment"># Updates the scale for next iteration.</span>
+        scaler<span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        opt<span class="token punctuation">.</span>zero_grad<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># set_to_none=True here can modestly improve performance</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="All-together"><a href="#All-together" class="headerlink" title="All together"></a>All together</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">use_amp <span class="token operator">=</span> <span class="token boolean">True</span>
+
+net <span class="token operator">=</span> make_model<span class="token punctuation">(</span>in_size<span class="token punctuation">,</span> out_size<span class="token punctuation">,</span> num_layers<span class="token punctuation">)</span>
+opt <span class="token operator">=</span> torch<span class="token punctuation">.</span>optim<span class="token punctuation">.</span>SGD<span class="token punctuation">(</span>net<span class="token punctuation">.</span>parameters<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> lr<span class="token operator">=</span><span class="token number">0.001</span><span class="token punctuation">)</span>
+scaler <span class="token operator">=</span> torch<span class="token punctuation">.</span>cuda<span class="token punctuation">.</span>amp<span class="token punctuation">.</span>GradScaler<span class="token punctuation">(</span>enabled<span class="token operator">=</span>use_amp<span class="token punctuation">)</span>
+
+start_timer<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> epoch <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>epochs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">for</span> <span class="token builtin">input</span><span class="token punctuation">,</span> target <span class="token keyword">in</span> <span class="token builtin">zip</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> targets<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">with</span> torch<span class="token punctuation">.</span>cuda<span class="token punctuation">.</span>amp<span class="token punctuation">.</span>autocast<span class="token punctuation">(</span>enabled<span class="token operator">=</span>use_amp<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            output <span class="token operator">=</span> net<span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">)</span>
+            loss <span class="token operator">=</span> loss_fn<span class="token punctuation">(</span>output<span class="token punctuation">,</span> target<span class="token punctuation">)</span>
+        scaler<span class="token punctuation">.</span>scale<span class="token punctuation">(</span>loss<span class="token punctuation">)</span><span class="token punctuation">.</span>backward<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        scaler<span class="token punctuation">.</span>step<span class="token punctuation">(</span>opt<span class="token punctuation">)</span>
+        scaler<span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        opt<span class="token punctuation">.</span>zero_grad<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># set_to_none=True here can modestly improve performance</span>
+end_timer_and_print<span class="token punctuation">(</span><span class="token string">"Mixed precision:"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="Inspecting-modifying-gradients"><a href="#Inspecting-modifying-gradients" class="headerlink" title="Inspecting/modifying gradients"></a>Inspecting/modifying gradients</h3><p>所有由 <code>scaler.scale(loss).backward() </code>生成的梯度都是按比例缩放的。如果要在<code>backward()</code>和 <code>scaler.step(optimizer) </code>之间修改或检查参数的<code>.grad</code>  属性，应首先使用 <code>scaler.unscale_(optimizer) </code>取消缩放。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">for</span> epoch <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment"># 0 epochs, this section is for illustration only</span>
+    <span class="token keyword">for</span> <span class="token builtin">input</span><span class="token punctuation">,</span> target <span class="token keyword">in</span> <span class="token builtin">zip</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> targets<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">with</span> torch<span class="token punctuation">.</span>cuda<span class="token punctuation">.</span>amp<span class="token punctuation">.</span>autocast<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            output <span class="token operator">=</span> net<span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">)</span>
+            loss <span class="token operator">=</span> loss_fn<span class="token punctuation">(</span>output<span class="token punctuation">,</span> target<span class="token punctuation">)</span>
+        scaler<span class="token punctuation">.</span>scale<span class="token punctuation">(</span>loss<span class="token punctuation">)</span><span class="token punctuation">.</span>backward<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        <span class="token comment"># Unscales the gradients of optimizer's assigned params in-place</span>
+        scaler<span class="token punctuation">.</span>unscale_<span class="token punctuation">(</span>opt<span class="token punctuation">)</span>
+
+        <span class="token comment"># Since the gradients of optimizer's assigned params are now unscaled, clips as usual.</span>
+        <span class="token comment"># You may use the same value for max_norm here as you would without gradient scaling.</span>
+        torch<span class="token punctuation">.</span>nn<span class="token punctuation">.</span>utils<span class="token punctuation">.</span>clip_grad_norm_<span class="token punctuation">(</span>net<span class="token punctuation">.</span>parameters<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> max_norm<span class="token operator">=</span><span class="token number">0.1</span><span class="token punctuation">)</span>
+
+        scaler<span class="token punctuation">.</span>step<span class="token punctuation">(</span>opt<span class="token punctuation">)</span>
+        scaler<span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        opt<span class="token punctuation">.</span>zero_grad<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># set_to_none=True here can modestly improve performance</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Saving-Resuming"><a href="#Saving-Resuming" class="headerlink" title="Saving/Resuming"></a>Saving/Resuming</h3><p><code>scaler.state_dict()</code></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">checkpoint <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">"model"</span><span class="token punctuation">:</span> net<span class="token punctuation">.</span>state_dict<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+              <span class="token string">"optimizer"</span><span class="token punctuation">:</span> opt<span class="token punctuation">.</span>state_dict<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+              <span class="token string">"scaler"</span><span class="token punctuation">:</span> scaler<span class="token punctuation">.</span>state_dict<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span>
+<span class="token comment"># Write checkpoint as desired, e.g.,</span>
+<span class="token comment"># torch.save(checkpoint, "filename")</span>
+
+<span class="token comment"># Read checkpoint as desired, e.g.,</span>
+<span class="token comment"># dev = torch.cuda.current_device()</span>
+<span class="token comment"># checkpoint = torch.load("filename",</span>
+<span class="token comment">#                         map_location = lambda storage, loc: storage.cuda(dev))</span>
+net<span class="token punctuation">.</span>load_state_dict<span class="token punctuation">(</span>checkpoint<span class="token punctuation">[</span><span class="token string">"model"</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+opt<span class="token punctuation">.</span>load_state_dict<span class="token punctuation">(</span>checkpoint<span class="token punctuation">[</span><span class="token string">"optimizer"</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+scaler<span class="token punctuation">.</span>load_state_dict<span class="token punctuation">(</span>checkpoint<span class="token punctuation">[</span><span class="token string">"scaler"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
-<li><p>paper <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2303.04671">https://arxiv.org/abs/2303.04671</a></p>
+<li>如果检查点是在没有使用 Amp 的情况下创建的，而你又想继续使用 Amp 进行训练，请像往常一样从检查点加载模型和优化器状态。检查点不包含已保存的缩放器状态，因此需要使用新的 GradScaler 实例。</li>
+<li>如果检查点是在使用 Amp 的情况下创建的，并且您想在不使用 Amp 的情况下恢复训练，则应像往常一样从检查点加载模型和优化器状态，而忽略已保存的缩放器状态。</li>
+</ul>
+<h3 id="Troubleshooting"><a href="#Troubleshooting" class="headerlink" title="Troubleshooting"></a>Troubleshooting</h3><h4 id="Speedup-with-Amp-is-minor"><a href="#Speedup-with-Amp-is-minor" class="headerlink" title="Speedup with Amp is minor"></a>Speedup with Amp is minor</h4><ol>
+<li>Your network may fail to saturate the GPU(s) with work, and is therefore CPU bound. Amp’s effect on GPU performance won’t matter.<ul>
+<li>A rough rule of thumb to saturate the GPU is to increase batch and/or network size(s) as much as you can without running OOM.</li>
+<li>Try to avoid excessive CPU-GPU synchronization (<code>.item()</code> calls, or printing values from CUDA tensors).</li>
+<li>Try to avoid sequences of many small CUDA ops (coalesce these into a few large CUDA ops if you can).</li>
+</ul>
 </li>
-<li><p>code <a target="_blank" rel="noopener" href="https://github.com/microsoft/TaskMatrix">https://github.com/microsoft/TaskMatrix</a></p>
-</li>
+<li>Your network may be GPU compute bound (lots of matmuls/convolutions) but your GPU does not have Tensor Cores. In this case a reduced speedup is expected.</li>
+<li>Matmul dimensions are not Tensor Core-friendly. Make sure matmuls’ participating sizes are multiples of 8. (For NLP models with encoders/decoders, this can be subtle. Also, convolutions used to have similar size constraints for Tensor Core use, but for CuDNN versions 7.3 and later, no such constraints exist. See <a target="_blank" rel="noopener" href="https://github.com/NVIDIA/apex/issues/221#issuecomment-478084841">here</a> for guidance.)</li>
+</ol>
+<h4 id="Loss-is-inf-NaN"><a href="#Loss-is-inf-NaN" class="headerlink" title="Loss is inf/NaN"></a>Loss is inf/NaN</h4><p>First, check if your network fits an <a target="_blank" rel="noopener" href="https://h-huang.github.io/tutorials/recipes/recipes/amp_recipe.html#advanced-topics">advanced use case</a>. See also <a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/amp.html#prefer-binary-cross-entropy-with-logits-over-binary-cross-entropy">Prefer binary_cross_entropy_with_logits over binary_cross_entropy</a>.</p>
+<p>If you’re confident your Amp usage is correct, you may need to file an issue, but before doing so, it’s helpful to gather the following information:</p>
+<ol>
+<li>Disable <code>autocast</code> or <code>GradScaler</code> individually (by passing <code>enabled=False</code> to their constructor) and see if infs/NaNs persist.</li>
+<li>If you suspect part of your network (e.g., a complicated loss function) overflows , run that forward region in <code>float32</code> and see if infs/NaNs persist. <a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/amp.html#torch.cuda.amp.autocast">The autocast docstring</a>’s last code snippet shows forcing a subregion to run in <code>float32</code> (by locally disabling autocast and casting the subregion’s inputs).</li>
+</ol>
+<h4 id="Type-mismatch-error-may-manifest-as-CUDNN-STATUS-BAD-PARAM"><a href="#Type-mismatch-error-may-manifest-as-CUDNN-STATUS-BAD-PARAM" class="headerlink" title="Type mismatch error (may manifest as CUDNN_STATUS_BAD_PARAM)"></a>Type mismatch error (may manifest as CUDNN_STATUS_BAD_PARAM)</h4><p>Autocast tries to cover all ops that benefit from or require casting. <a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/amp.html#autocast-op-reference">Ops that receive explicit coverage</a> are chosen based on numerical properties, but also on experience. If you see a type mismatch error in an autocast-enabled forward region or a backward pass following that region, it’s possible autocast missed an op.</p>
+<p>Please file an issue with the error backtrace. <code>export TORCH_SHOW_CPP_STACKTRACES=1</code> before running your script to provide fine-grained information on which backend op is failing.</p>
+<p><strong>Total running time of the script:</strong> ( 0 minutes 0.000 seconds)</p>
+<h2 id="Ref"><a href="#Ref" class="headerlink" title="Ref"></a>Ref</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://h-huang.github.io/tutorials/recipes/recipes/amp_recipe.html">https://h-huang.github.io/tutorials/recipes/recipes/amp_recipe.html</a></li>
+<li><a target="_blank" rel="noopener" href="https://h-huang.github.io/tutorials/_downloads/567344fc555d23cad9b277a314a24a59/amp_recipe.ipynb">https://h-huang.github.io/tutorials/_downloads/567344fc555d23cad9b277a314a24a59/amp_recipe.ipynb</a></li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230912103922740.png" alt="image-20230912103922740"></p>
-<hr>
-<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><ul>
-<li><strong>TaskMatrix</strong> connects ChatGPT and a series of Visual Foundation Models to enable <strong>sending</strong> and <strong>receiving</strong> images during chatting.</li>
-<li>核心是Prompts manager，能够让chatGPT理解visual tasks prompts，然后根据prompts来调用相关的视觉模型进行任务处理</li>
-</ul>
-<h2 id="Contributions"><a href="#Contributions" class="headerlink" title="Contributions"></a>Contributions</h2><ul>
-<li>Prompts manager</li>
-</ul>
-<h2 id="Related-Work"><a href="#Related-Work" class="headerlink" title="Related Work"></a>Related Work</h2><ul>
-<li>VAQ 视觉任务的问答对 （visual question-answer pairs ）</li>
-</ul>
-<h2 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/figure.jpg" alt="Logo"></p>
-<h3 id="Prompts-manager"><a href="#Prompts-manager" class="headerlink" title="Prompts manager"></a>Prompts manager</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230912104018193.png" alt="image-20230912104018193"></p>
-<h3 id="Visual-foundation-models"><a href="#Visual-foundation-models" class="headerlink" title="Visual foundation models"></a>Visual foundation models</h3><p>Here we list the GPU memory usage of each visual foundation model, you can specify which one you like:</p>
-<table>
-<thead>
-<tr>
-<th>Foundation Model</th>
-<th>GPU Memory (MB)</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>ImageEditing</td>
-<td>3981</td>
-</tr>
-<tr>
-<td>InstructPix2Pix</td>
-<td>2827</td>
-</tr>
-<tr>
-<td>Text2Image</td>
-<td>3385</td>
-</tr>
-<tr>
-<td>ImageCaptioning</td>
-<td>1209</td>
-</tr>
-<tr>
-<td>Image2Canny</td>
-<td>0</td>
-</tr>
-<tr>
-<td>CannyText2Image</td>
-<td>3531</td>
-</tr>
-<tr>
-<td>Image2Line</td>
-<td>0</td>
-</tr>
-<tr>
-<td>LineText2Image</td>
-<td>3529</td>
-</tr>
-<tr>
-<td>Image2Hed</td>
-<td>0</td>
-</tr>
-<tr>
-<td>HedText2Image</td>
-<td>3529</td>
-</tr>
-<tr>
-<td>Image2Scribble</td>
-<td>0</td>
-</tr>
-<tr>
-<td>ScribbleText2Image</td>
-<td>3531</td>
-</tr>
-<tr>
-<td>Image2Pose</td>
-<td>0</td>
-</tr>
-<tr>
-<td>PoseText2Image</td>
-<td>3529</td>
-</tr>
-<tr>
-<td>Image2Seg</td>
-<td>919</td>
-</tr>
-<tr>
-<td>SegText2Image</td>
-<td>3529</td>
-</tr>
-<tr>
-<td>Image2Depth</td>
-<td>0</td>
-</tr>
-<tr>
-<td>DepthText2Image</td>
-<td>3531</td>
-</tr>
-<tr>
-<td>Image2Normal</td>
-<td>0</td>
-</tr>
-<tr>
-<td>NormalText2Image</td>
-<td>3529</td>
-</tr>
-<tr>
-<td>VisualQuestionAnswering</td>
-<td>1495</td>
-</tr>
-</tbody></table>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230912104049766.png" alt="image-20230912104049766"></p>
-<h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/demo_short.gif" alt="demo_short"></p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># clone the repo</span>
-<span class="token function">git</span> clone https://github.com/microsoft/TaskMatrix.git
-
-<span class="token comment"># Go to directory</span>
-<span class="token builtin class-name">cd</span> visual-chatgpt
-
-<span class="token comment"># create a new environment</span>
-conda create <span class="token parameter variable">-n</span> visgpt <span class="token assign-left variable">python</span><span class="token operator">=</span><span class="token number">3.8</span>
-
-<span class="token comment"># activate the new environment</span>
-conda activate visgpt
-
-<span class="token comment">#  prepare the basic environments</span>
-pip <span class="token function">install</span> <span class="token parameter variable">-r</span> requirements.txt
-pip <span class="token function">install</span>  git+https://github.com/IDEA-Research/GroundingDINO.git
-pip <span class="token function">install</span>  git+https://github.com/facebookresearch/segment-anything.git
-
-<span class="token comment"># prepare your private OpenAI key (for Linux)</span>
-<span class="token builtin class-name">export</span> <span class="token assign-left variable">OPENAI_API_KEY</span><span class="token operator">=</span><span class="token punctuation">&#123;</span>Your_Private_Openai_Key<span class="token punctuation">&#125;</span>
-
-<span class="token comment"># prepare your private OpenAI key (for Windows)</span>
-<span class="token builtin class-name">set</span> <span class="token assign-left variable">OPENAI_API_KEY</span><span class="token operator">=</span><span class="token punctuation">&#123;</span>Your_Private_Openai_Key<span class="token punctuation">&#125;</span>
-
-<span class="token comment"># Start TaskMatrix !</span>
-<span class="token comment"># You can specify the GPU/CPU assignment by "--load", the parameter indicates which </span>
-<span class="token comment"># Visual Foundation Model to use and where it will be loaded to</span>
-<span class="token comment"># The model and device are separated by underline '_', the different models are separated by comma ','</span>
-<span class="token comment"># The available Visual Foundation Models can be found in the following table</span>
-<span class="token comment"># For example, if you want to load ImageCaptioning to cpu and Text2Image to cuda:0</span>
-<span class="token comment"># You can use: "ImageCaptioning_cpu,Text2Image_cuda:0"</span>
-
-<span class="token comment"># Advice for CPU Users</span>
-python visual_chatgpt.py <span class="token parameter variable">--load</span> ImageCaptioning_cpu,Text2Image_cpu
-
-<span class="token comment"># Advice for 1 Tesla T4 15GB  (Google Colab)                       </span>
-python visual_chatgpt.py <span class="token parameter variable">--load</span> <span class="token string">"ImageCaptioning_cuda:0,Text2Image_cuda:0"</span>
-                                
-<span class="token comment"># Advice for 4 Tesla V100 32GB                            </span>
-python visual_chatgpt.py <span class="token parameter variable">--load</span> <span class="token string">"Text2Box_cuda:0,Segmenting_cuda:0,
-    Inpainting_cuda:0,ImageCaptioning_cuda:0,
-    Text2Image_cuda:1,Image2Canny_cpu,CannyText2Image_cuda:1,
-    Image2Depth_cpu,DepthText2Image_cuda:1,VisualQuestionAnswering_cuda:2,
-    InstructPix2Pix_cuda:2,Image2Scribble_cpu,ScribbleText2Image_cuda:2,
-    SegText2Image_cuda:2,Image2Pose_cpu,PoseText2Image_cuda:2,
-    Image2Hed_cpu,HedText2Image_cuda:3,Image2Normal_cpu,
-    NormalText2Image_cuda:3,Image2Line_cpu,LineText2Image_cuda:3"</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions"></a>Conclusions</h2><ul>
-<li>需要OpenAI的ChatGPT的API KEY</li>
-<li>用问答的方式处理视觉任务，比如检测、分割等</li>
-<li>支持cpu gpu，根据memory加载合适的visual models</li>
-</ul>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li>API KEY <a target="_blank" rel="noopener" href="https://platform.openai.com/playground">https://platform.openai.com/playground</a></li>
-</ul>
-<blockquote>
-<p>You can find your Secret API key in your <a target="_blank" rel="noopener" href="https://beta.openai.com/account/api-keys">User settings</a>.</p>
-<p>Check out our <a target="_blank" rel="noopener" href="https://help.openai.com/en/articles/5112595">Best Practices for API Key Safety</a> to learn how you can keep your API key protected.</p>
-</blockquote>
 
                 
             </div>
@@ -645,7 +594,7 @@ python visual_chatgpt.py <span class="token parameter variable">--load</span> <s
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lee-jet.github.io/2023/09/12/visualchatgpt/">https://lee-jet.github.io/2023/09/12/visualchatgpt/</a>
+                    <a href="https://lee-jet.github.io/2023/12/08/torch-amp/">https://lee-jet.github.io/2023/12/08/torch-amp/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -762,7 +711,7 @@ python visual_chatgpt.py <span class="token parameter variable">--load</span> <s
         repo: 'gitalk',
         owner: 'lee-jet',
         admin: "lee-jet",
-        id: '2023-09-12T17-16-03',
+        id: '2023-12-08T11-10-26',
         distractionFreeMode: false,  // Facebook-like distraction free mode
     });
 
@@ -790,17 +739,18 @@ python visual_chatgpt.py <span class="token parameter variable">--load</span> <s
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/09/13/mvdiffusion/">
+                <a href="/2023/12/08/torch-amp/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="MVDiffusion">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="torch_amp">
                         
-                        <span class="card-title">MVDiffusion</span>
+                        <span class="card-title">torch_amp</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -810,9 +760,9 @@ python visual_chatgpt.py <span class="token parameter variable">--load</span> <s
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-09-13
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-08
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -825,6 +775,7 @@ python visual_chatgpt.py <span class="token parameter variable">--load</span> <s
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -843,13 +794,13 @@ python visual_chatgpt.py <span class="token parameter variable">--load</span> <s
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/09/07/vae/">
+                <a href="/2023/12/06/isp/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="VAE">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="ISP">
                         
-                        <span class="card-title">VAE</span>
+                        <span class="card-title">ISP</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -860,7 +811,7 @@ python visual_chatgpt.py <span class="token parameter variable">--load</span> <s
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-09-07
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-06
                             </span>
                         <span class="publish-author">
                             

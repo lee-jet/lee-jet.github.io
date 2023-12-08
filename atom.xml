@@ -6,7 +6,7 @@
   <link href="https://lee-jet.github.io/atom.xml" rel="self"/>
   
   <link href="https://lee-jet.github.io/"/>
-  <updated>2023-12-07T02:15:47.962Z</updated>
+  <updated>2023-12-08T03:11:45.722Z</updated>
   <id>https://lee-jet.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>torch_amp</title>
+    <link href="https://lee-jet.github.io/2023/12/08/torch-amp/"/>
+    <id>https://lee-jet.github.io/2023/12/08/torch-amp/</id>
+    <published>2023-12-08T03:10:26.000Z</published>
+    <updated>2023-12-08T03:11:45.722Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;AMP&quot;&gt;&lt;a href=&quot;#AMP&quot; class=&quot;headerlink&quot; title=&quot;AMP&quot;&gt;&lt;/a&gt;AMP&lt;/h2&gt;&lt;p&gt;&lt;code&gt;AUTOMATIC MIXED PRECISION&lt;/code&gt;唯一要求是 Pytorch 1.6 以上版本和支持</summary>
+        
+      
+    
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
+    
+  </entry>
   
   <entry>
     <title>ISP</title>
@@ -502,35 +527,6 @@ On-Device Semantic</summary>
 
 &lt;hr&gt;
 &lt;h2 id=&quot;自动编码器（Autoencoder，AE）&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SDwithLoRA</title>
-    <link href="https://lee-jet.github.io/2023/09/01/sdwithlora/"/>
-    <id>https://lee-jet.github.io/2023/09/01/sdwithlora/</id>
-    <published>2023-09-01T02:50:52.000Z</published>
-    <updated>2023-09-01T02:52:07.100Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;4.5&#39;&gt;&lt;strong&gt;Using LoRA to quickly fine-tune diffusion models&lt;/strong&gt;&lt;/font&gt;&lt;/div&gt;
-
-&lt;hr&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a</summary>
         
       
     
