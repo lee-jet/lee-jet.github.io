@@ -6,7 +6,7 @@
   <link href="https://lee-jet.github.io/atom.xml" rel="self"/>
   
   <link href="https://lee-jet.github.io/"/>
-  <updated>2023-12-08T03:11:45.722Z</updated>
+  <updated>2023-12-11T04:15:17.685Z</updated>
   <id>https://lee-jet.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>DSP</title>
+    <link href="https://lee-jet.github.io/2023/12/11/dsp/"/>
+    <id>https://lee-jet.github.io/2023/12/11/dsp/</id>
+    <published>2023-12-11T04:04:10.000Z</published>
+    <updated>2023-12-11T04:15:17.685Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;8&#39;&gt;&lt;strong&gt;Digital signal process&lt;/strong&gt;&lt;/font&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;Digital-signal-process-DSP&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
+    
+  </entry>
   
   <entry>
     <title>torch_amp</title>
@@ -499,34 +526,6 @@ On-Device Semantic</summary>
         
         
     <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;4.5&#39;&gt;&lt;strong&gt;Visual ChatGPT: Talking, Drawing and Editing with Visual Foundation</summary>
-        
-      
-    
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>VAE</title>
-    <link href="https://lee-jet.github.io/2023/09/07/vae/"/>
-    <id>https://lee-jet.github.io/2023/09/07/vae/</id>
-    <published>2023-09-07T04:02:58.000Z</published>
-    <updated>2023-09-07T04:03:59.074Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;8&#39;&gt;&lt;strong&gt;Variational AutoEncoder&lt;/strong&gt;&lt;/font&gt;&lt;/div&gt;
-
-&lt;hr&gt;
-&lt;h2 id=&quot;自动编码器（Autoencoder，AE）&quot;&gt;&lt;a</summary>
         
       
     
