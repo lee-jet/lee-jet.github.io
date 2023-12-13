@@ -4,19 +4,16 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="DALL-E3, AiHub">
-    <meta name="description" content="DALL-E3
+    <meta name="keywords" content="AISP, AiHub">
+    <meta name="description" content="⚡ Model-Based Image Signal Processors via Learnable Dictionaries
 
 
 
-project https://openai.com/dall-e-3
-
-paper https://cdn.openai.com/papers/DALL_E_3_System_Card.pdf
+paper https://mv-lab.github.io/model-isp22/
 
 
 
-
-Abstrac">
+✌️ 本文">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -28,7 +25,7 @@ Abstrac">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>DALL-E3 | AiHub</title>
+    <title>AISP | AiHub</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -348,12 +345,12 @@ Abstrac">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">DALL-E3</h1>
+                    <h1 class="description center-align post-title">AISP</h1>
                 </div>
             </div>
         </div>
@@ -402,28 +399,28 @@ Abstrac">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-10-10
+                    2023-12-13
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-10-25
+                    2023-12-13
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.4k
+                    2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    7 分
                 </div>
                 
 
@@ -446,159 +443,181 @@ Abstrac">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <div align='center' ><font size='4.5'><strong>DALL-E3</strong></font></div>
+                <div align='center' ><font size='4.5'><strong>⚡ Model-Based Image Signal Processors via Learnable Dictionaries</strong></font></div>
 
 <hr>
 <ul>
-<li><p>project <a target="_blank" rel="noopener" href="https://openai.com/dall-e-3">https://openai.com/dall-e-3</a></p>
-</li>
-<li><p>paper <a target="_blank" rel="noopener" href="https://cdn.openai.com/papers/DALL_E_3_System_Card.pdf">https://cdn.openai.com/papers/DALL_E_3_System_Card.pdf</a></p>
-</li>
+<li>paper <a target="_blank" rel="noopener" href="https://mv-lab.github.io/model-isp22/">https://mv-lab.github.io/model-isp22/</a></li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231010181845100.png" alt="image-20231010181845100"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231213144234847.png" alt=" "></p>
+<blockquote>
+<p>✌️ 本文主要介绍<strong>华为手机相机成像模块中基于AI的ISP</strong>，可取代传统人工调参的ISP pipeline，实现了RGB和RAW可逆双向映射。</p>
+</blockquote>
 <hr>
-<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><blockquote>
-<p>DALL-E 3 能够理解的细微差别和细节明显多于我们以前的dalle1/2系统，让您可以轻松地将您的想法转化为异常精确的图像。</p>
-<p>现代文本到图像系统往往会忽略文字或描述，迫使用户学习提示工程。DALL-E 3 代表着我们在生成与您提供的文本完全一致的图像能力方面的一次飞跃。</p>
-<p>DALL-E 3 是在 ChatGPT 的基础上开发的，它可以让你把 ChatGPT 作为你的头脑风暴伙伴和提示的改进者。您只需向 ChatGPT 提出您的要求，从一个简单的句子到一个详细的段落都可以。</p>
-<p>当您提出一个想法时，ChatGPT 会自动为DALL-E 3生成量身定制的详细提示，让您的想法栩栩如生。如果您喜欢某个图像，但它不太合适，您可以要求 ChatGPT 进行调整，只需几个字即可。</p>
-<p>DALL-E 3 将于 10 月初向 ChatGPT Plus 和企业客户推出。与 DALL-E 2 一样，您使用 DALL-E 3 创建的图片归您所有，您无需获得我们的许可即可对其进行转载、销售或商品化。</p>
-<ul>
-<li>OpenAI 的新图像人工智能 DALL-E 3 目前正在 ChatGPT 和必应图像创建器中部署。OpenAI 试图通过检查提示是否有违规行为，并在违规行为似乎是无意的情况下对其进行改写，从而防止创建有害或冒犯性的图片。</li>
-<li>OpenAI 还训练了一个单独的图像分类器，以检测和防止性别歧视或攻击性内容。新版 DALL-E 3 已将生成此类图像的风险降低到 0.7%。不过，OpenAI 写道，DALL-E 3 仍然存在文化偏见，总体上偏向西方文化，尤其是在非特定查询方面。</li>
-<li>关于版权问题，OpenAI 指出，它无法预测每一种情况或组合，因此，尽管采取了所有保障措施，但生成的图像中仍可能出现受版权保护的材料。</li>
-</ul>
-</blockquote>
-<h2 id=""><a href="#" class="headerlink" title=""></a><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231010182247031.png" alt=" "></h2><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231010182624271.png" alt=" "></p>
-<h2 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><h2 id="DALL·E-3-System-Card"><a href="#DALL·E-3-System-Card" class="headerlink" title="DALL·E 3 System Card"></a>DALL·E 3 System Card</h2><blockquote>
-<p>2023年10月3号，由OpenAI发布</p>
-</blockquote>
-<h3 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1 Introduction"></a>1 Introduction</h3><ul>
-<li><p>DALL-E 3 是一个人工智能系统，它将文本提示作为输入，并生成新图像作为输出。<strong>DALL-E 3 建立在 DALL-E 2的基础上，提高了字幕保真度和图像质量</strong>。</p>
+<h2 id="👀-Abstract"><a href="#👀-Abstract" class="headerlink" title="👀 Abstract"></a>👀 Abstract</h2><ul>
+<li><p>数码相机通过其图像信号处理器 （ISP） 将传感器 RAW 读数转换为 RGB 图像。计算摄影任务（如图像去噪和色彩恒定性）通常在RAW域中执行，部分原因是固有的硬件设计，但也由于直接传感器读数产生的噪声统计的简单性。尽管如此，与可用RGB数据的丰富性和多样性相比，RAW图像的可用性是有限的。</p>
 </li>
-<li><p>DALL-E 3 集成到了 ChatGPT / GPT-4中，流程是：</p>
-<p>  <code>用户提供相对模糊的图像请求描述 -&gt; GPT4 -&gt; 生成细节提示词 -&gt; DALL-E 3 -&gt; 生成高质量细节图像</code>（降低了用户描述和图像质量的GAP）</p>
+<li><p>最近的方法试图通过估计RGB到RAW的映射来弥合这一差距：手工制作的基于模型的可解释和可控方法通常需要手动参数微调，而端到端可学习的神经网络需要大量的训练数据，有时需要复杂的训练程序，并且通常缺乏可解释性和参数控制。</p>
+</li>
+<li><p>为了解决这些局限性，我们提出了一种基于混合模型和数据驱动的新型 ISP，它建立在规范的 ISP 操作之上，并且具有可学习性和可解释性。我们提出的<strong>可逆模型能够在RAW和RGB域之间进行双向映射</strong>，采用丰富的参数表示（即字典）的端到端学习，这些表示不受直接参数监督，并且还能够实现真实的数据增强。我们通过在RAW图像重建和RAW图像去噪任务下的广泛实验证明了我们的数据生成过程的价值，并在两者中都获得了最先进的性能。此外，我们表明，我们的ISP可以从少量数据样本中学习有意义的映射，并且使用我们基于字典的数据增强训练的去噪模型具有竞争力，尽管只有很少或零的真值标签。</p>
 </li>
 </ul>
-<h4 id="1-1-Mitigation-Stack"><a href="#1-1-Mitigation-Stack" class="headerlink" title="1.1 Mitigation Stack"></a>1.1 Mitigation Stack</h4><ul>
-<li><p>数据过滤：暴力等不健康的内容</p>
-</li>
-<li><p>过滤算法：在DALL-E 2基础上，降低了暴力等宽泛过滤阈值。降低这些过滤器的选择性，可以增加我们的训练数据集，减少模型对生成女性的偏差</p>
-</li>
-<li><p>安全措施：</p>
-<ul>
-<li>ChatGPT：会拒绝用户输入的不健康内容</li>
-<li>提示输入分类器：识别ChatGPT和用户对话中可能侵犯使用政策的信息并拒绝</li>
-<li>拦截列表：我们根据以前在 DALL-E 2 上的工作、主动风险发现和早期用户的结果，维护了各种类别的文本屏蔽列表</li>
-<li>提示转化：ChatGPT 可改写已提交的文本，以便更有效地进行提示<br>  DALL-E 3 更有效。该流程还用于确保提示符合我们的准则，包括删除公众人物的名字，以特定属性的人物为基础、并以通用方式书写品牌对象</li>
-<li>图像输出分类器： 开发了图像分类器，可对 DALL-E 3 生成的图像进行分类。如果这些分类器被激活，可能会在输出之前阻止图像。</li>
+<h2 id="🌈-Contributions"><a href="#🌈-Contributions" class="headerlink" title="🌈 Contributions"></a>🌈 Contributions</h2><ul>
+<li>我们提出了一种混合模型，该模型结合了基于模型的物理 ISP 操作和数据驱动的深度学习方法的强大功能。我们用可微分的ISP模型来约束求解空间，把相机参数作为字典来学习。</li>
+<li>我们可以端到端地学习相机参数，无需手动微调或参数监督。因此，我们可以在没有先验信息的情况下对任何相机进行建模。</li>
+<li>该模型具有模块化和可解释性，允许我们添加、修改或检查任何所需的块。</li>
+<li>我们的方法是可逆的，我们可以学习任何ISP相机的正向和反向转换。</li>
 </ul>
-</li>
-</ul>
-<h3 id="2-Deployment-Preparation"><a href="#2-Deployment-Preparation" class="headerlink" title="2 Deployment Preparation"></a>2 Deployment Preparation</h3><p>早起版本中先测试，分析了这些部署所产生的数据，以进一步改进 DALL-E 3 在风险领域的行为，如公众人物世代、人口偏见和sexual内容。我们发现，在试验中，包含人物描写的图片主要倾向于白人、年轻人和女性。为此，我们调整了 ChatGPT 的的用户提示转换，以指定更多样化的人物描述。</p>
+<h2 id="🐶-Related-Work"><a href="#🐶-Related-Work" class="headerlink" title="🐶 Related Work"></a>🐶 Related Work</h2><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231213144707527.png" alt=" "></p>
 <ul>
-<li><p>大量的风险分析以及分类器等缓解措施，降低不健康内容的出现概率</p>
+<li><p>6个阶段的ISP参数化建模</p>
 <ul>
-<li>比如不穿衣服，不行</li>
+<li>Colour Filter Array Mosaic</li>
 </ul>
-<p>  <img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231011115616205.png" alt="image-20231011115616205"></p>
+<p>  <img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231213115957044.png" alt=" "></p>
 <ul>
-<li>比如公众人物，不行</li>
+<li>Lens Shading Effect</li>
 </ul>
-<p>  <img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231011115537430.png" alt="image-20231011115537430"></p>
+<p>  <img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231213120022940.png" alt=" "></p>
 <ul>
-<li>比如艺术家风格作品，不行</li>
+<li>White Balance and Digital Gain</li>
 </ul>
-<p>  <img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231011115527139.png" alt="image-20231011115527139"></p>
+<p>  <img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231213120032541.png" alt=" "></p>
 <ul>
-<li>……，侵权的不行，那还搞啥，他喵的！</li>
+<li>Color Correction</li>
 </ul>
-</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231011115000785.png" alt="image-20231011115000785"></p>
+<p>  <img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231213120042326.png" alt=" "></p>
 <ul>
-<li>描述越详细越好，也就是附加多种属性</li>
+<li>Gamma Correction</li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231011115254636.png" alt="image-20231011115254636"></p>
+<p>  <img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231213120111045.png" alt=" "></p>
 <ul>
-<li>年龄、性别、人种分布（20-29岁，白种人，女性 占大头）</li>
+<li>Tone Mapping</li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231011115416813.png" alt="image-20231011115416813"></p>
-<h3 id="3-DALL-E-3-体验入口"><a href="#3-DALL-E-3-体验入口" class="headerlink" title="3 DALL-E 3 体验入口"></a>3 DALL-E 3 体验入口</h3><p>微软的Bing浏览器可以，但是国内被屏蔽</p>
-<ul>
-<li><p><a target="_blank" rel="noopener" href="https://bing.com/chat">https://bing.com/chat</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://cn.bing.com/create">https://cn.bing.com/create</a></p>
+<p>  <img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231213120122277.png" alt=" "></p>
 </li>
 </ul>
-<h3 id="4-改进总结"><a href="#4-改进总结" class="headerlink" title="4 改进总结"></a>4 改进总结</h3><ul>
-<li><p>DALL-E 2 原理 </p>
+<h2 id="😍-Methodology"><a href="#😍-Methodology" class="headerlink" title="😍 Methodology"></a>😍 Methodology</h2><h3 id="1️⃣-Overview"><a href="#1️⃣-Overview" class="headerlink" title="1️⃣ Overview"></a>1️⃣ Overview</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/main_diagram.png" alt=" "></p>
 <ul>
-<li><p>CLIP文本编码器将图像描述映射到表示空间；</p>
+<li><p>前向 RAW to RGB</p>
 </li>
-<li><p>然后扩散先验从CLIP文本编码映射到相应的CLIP图像编码；</p>
+<li><p>反向 RGB to RAW</p>
 </li>
-<li><p>最后，修改版的GLIDE生成模型通过反向扩散从表示空间映射到图像空间，生成众多可能图像中的一个</p>
+<li><p>6个stage的参数化建模，参考Related Work</p>
 </li>
-<li><p>海量数据对</p>
-</li>
-</ul>
+<li><p>整个pipeline端到端训练</p>
 </li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231011120509580.png" alt="image-20231011120509580"></p>
+<h3 id="2️⃣-Learning-Parameter-Representations"><a href="#2️⃣-Learning-Parameter-Representations" class="headerlink" title="2️⃣ Learning Parameter Representations"></a>2️⃣ Learning Parameter Representations</h3><h4 id="Color-Correction"><a href="#Color-Correction" class="headerlink" title="Color Correction"></a>Color Correction</h4><p>现代智能手机摄像头通常会根据特定的光线条件和拍摄模式使用不同的 CCM （Color<br>Correction Matrix）和捕捉模式的不同而使用不同的 CCM。</p>
+<p>CCM 模式的方法可能难以应对色彩变化。此外，ISP 模型可能会被训练用于重建不同相机拍摄的 RAW 图像，因此也会有不同的 ISP 和 CCM。</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231213120923165.png" alt=" "></p>
 <ul>
-<li>DALL-E 3 改进 <ul>
-<li>最大的改进，就是样本质量的提高，其次模型结构微调了（论文未披露），最后就是GPT加持提示词转化精度更高</li>
+<li>创建一个字典 Dccm，每个原子都是 CCM</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231213115053075.png" alt=" "></p>
+<ul>
+<li>为了保留这些矩阵的意义和物理并避免学习非现实的参数，我们对字典中学习到的原子进行约束<br>  按照 L1规范对每个矩阵进行列规范化</li>
+<li>我们以卷积操作的方式进行色彩校正。卷积核是 Dccm 的原子，输入是 ISP 模型中前一个函数的中间表示，输出N个 RGB 图像 Iccm：</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231213115452640.png" alt=" "></p>
+<ul>
+<li>Iccm 通过 一个CNN编码器 Eccm，产生权重向量 Wccm</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231213120355577.png" alt=" "></p>
+<ul>
+<li>经过色彩转换的 sRGB 图像是由 Iccm 和 Wccm 的线性组合获得，这相当于将字典中的原子进行线性组合，并将结果 CCM 应用于图像</li>
+<li>模型同时学习字典 Dccm 和编码器 Eccm</li>
+<li>这种新颖的摄像机参数字典表示法可以一次性学习各种摄像机的 CCM</li>
+<li>注意可逆映射过程中Eccm前向和反向是不同的</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231213143238519.png" alt=" "></p>
+<h4 id="Digital-Gain-and-White-Balance"><a href="#Digital-Gain-and-White-Balance" class="headerlink" title="Digital Gain and White Balance"></a>Digital Gain and White Balance</h4><ul>
+<li>定义参数字典 Dwb，N个白平衡和数字增益</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231213121453650.png" alt=" "></p>
+<ul>
+<li>每个原子是一个标量三元组 </li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231213121511274.png" alt=" "></p>
+<ul>
+<li>将字典中每一个原子 g 用于输入图像，得到 Iwb，  表示将对输入图像应用每个 g i 后得到线性分解的结果</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231213121614025.png" alt=" "></p>
+<ul>
+<li>编码器 Ewb 产生权重 Wwb</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231213121913962.png" alt=" "></p>
+<ul>
+<li>编码器 Ewb 和字典 Dwb 在优化过程中共同学习</li>
+<li>Iwb 和 Wwb 线性组合产生白平衡图像</li>
+<li>为了确保我们所学 WB 增益的物理意义和可解释性，我们发现使用均匀分布 U(1,2) 来初始化 Dwb 中的原子就足够</li>
+<li>注意 Ewb 前向和反向不同参数但是原理相同</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231213143226320.png" alt=" "></p>
+<h4 id="Dictionary-Augmentations"><a href="#Dictionary-Augmentations" class="headerlink" title="Dictionary Augmentations"></a>Dictionary Augmentations</h4><ul>
+<li>对于给定的 RGB 输入，编码器找到字典中能优化 RAW 图像重构的原子组合，其表示为权重 W。</li>
+<li>我们可以进一步利用这种表示，通过对最佳权重 Wccm 和 Wwb 增加扰动，比如添加高斯噪声，生成无限的 RAW 图像</li>
+<li>这些字典代表了可信参数的凸壳空间。因此，该空间内的任何变化都有可能为下游任务提供有用的数据。</li>
+</ul>
+<h3 id="2️⃣-Piecewise-Linear-Tone-Mapping"><a href="#2️⃣-Piecewise-Linear-Tone-Mapping" class="headerlink" title="2️⃣ Piecewise Linear Tone Mapping"></a>2️⃣ Piecewise Linear Tone Mapping</h3><ul>
+<li>色调映射是照相机用来映射一组颜色的技术，通过压缩高强度和低强度值比中间强度值更大。色调映射<br>  通常设计为一维查找表（LUT），应用于每个色彩通道，以调整图像的色调值，或平滑步进 S 曲线。<br>  从 sRGB 重建 RAW 数据色调是一项挑战，尤其是在过曝区域和高动态范围图像中。</li>
+<li>提出了一种 piecewise linear CNN。在正向传递中，使用 f 1 进行色调映射。在反向传递中，我们使用 f -1 进行反色调映射。这两个函数都是使用 pixel-wise convolutional blocks 实现的浅层 CNN，限制可能的变换并轻松控制网络，</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231213143157459.png" alt=" "></p>
+<h3 id="3️⃣-Lens-Shading-Modelling"><a href="#3️⃣-Lens-Shading-Modelling" class="headerlink" title="3️⃣ Lens Shading Modelling"></a>3️⃣ Lens Shading Modelling</h3><ul>
+<li><p>由于传感器的光学原理，照射到传感器上的光量向边缘径向衰减，产生渐晕效果，即所谓的镜头阴影。</p>
+</li>
+<li><p>我们建议将该掩码建模为像素级的增益图 gain map</p>
+<ul>
+<li><p>1 Gaussian mask </p>
+<ul>
+<li><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231213141443517.png" alt=" "></li>
+<li>优化  µ 和 Σ</li>
+</ul>
+</li>
+<li><p>2 Attention-guided mask  </p>
+<ul>
+<li><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231213141527787.png" alt=" "></li>
+<li>用 CNN attention block</li>
 </ul>
 </li>
 </ul>
-<h2 id="Paper-2-Improving-Image-Generation-with-Better-Captions"><a href="#Paper-2-Improving-Image-Generation-with-Better-Captions" class="headerlink" title="Paper 2 Improving Image Generation with Better Captions"></a>Paper 2 Improving Image Generation with Better Captions</h2><h3 id="1-Abstract"><a href="#1-Abstract" class="headerlink" title="1 Abstract"></a>1 Abstract</h3><ul>
-<li>文生图模型可以通过在高度描述性生成的图像字幕上训练来提升提示词能力</li>
-<li>现存的研究主要是沿着详细的图像描述而忽略了单词和混淆提示（歧义），在数据集上表现为噪声和不准确，从而影响精度</li>
-<li>DALL-E 3 通过训练一个定制的图像字母器对训练集重新生成字幕，并用它们训练数据集，最后公开了样例和评估代码</li>
+</li>
 </ul>
-<h3 id="2-Dataset-Recaptioning"><a href="#2-Dataset-Recaptioning" class="headerlink" title="2 Dataset Recaptioning"></a>2 Dataset Recaptioning</h3><p>训练用的文本图像对中，文本字幕通常来源于人类标注，其主要关注主体对象，而忽略了背景细节或者图像中颜色等感知关系，而这些缺点都可以通过合成生成字幕解决。被忽略的细节如下：</p>
-<ol>
-<li>厨房里的水槽或人行道上的停车标志等物体的存在，以及对这些物体的描述。<br> 这些物体。</li>
-<li>物体在场景中的位置和数量。</li>
-<li>常识细节，如场景中物体的颜色和大小。</li>
-<li>图像中显示的文字</li>
-</ol>
-<h4 id="2-1-Building-an-image-captioner"><a href="#2-1-Building-an-image-captioner" class="headerlink" title="2.1 Building an image captioner"></a>2.1 Building an image captioner</h4><ul>
-<li><code>i： image</code> <code>t： token</code></li>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231213143109275.png" alt=" "></p>
+<h3 id="4️⃣-Training"><a href="#4️⃣-Training" class="headerlink" title="4️⃣ Training"></a>4️⃣ Training</h3><ul>
+<li>整个管道是端到端可训练的，我们可以使用训练 RAW 图像 y 和估计 RAW 图像  y_hat 之间简单的 L2 loss</li>
+<li>为确保整个管道是可逆的，我们为每个中间图像添加了 L2 损失，以及正向和反向编码器的分解向量 w 的一致性损失</li>
 </ul>
-<p>Step 1 将输入的文本字符化，将离散的字符用序列表征，<code>t = [t1, t2, . . . , tn]  </code></p>
-<p>Step 2 构建一个语言模型 Model A ，最大化似然函数 <code>L（t）</code></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231025103038018.png" alt="image-20231025103038018"></p>
-<p>Step 3 在Model A 基础上构建 图像字幕生成器 Model B，考虑到图像像素空间太大，需要通过CLIP压缩图像表征空间<code>F(i)</code>，最大化似然函数<code>L(t,i)</code></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231025115017663.png" alt="image-20231025115017663"></p>
-<p>Step 4 将Model A和Model B 联和训练</p>
-<h4 id="2-1-1-Fine-tuning-the-captioner"><a href="#2-1-1-Fine-tuning-the-captioner" class="headerlink" title="2.1.1 Fine-tuning the captioner"></a>2.1.1 Fine-tuning the captioner</h4><p><strong>Stage 1 SSC</strong></p>
+<h2 id="🏀-Experiments"><a href="#🏀-Experiments" class="headerlink" title="🏀 Experiments"></a>🏀 Experiments</h2><h3 id="Datasets"><a href="#Datasets" class="headerlink" title="Datasets"></a>Datasets</h3><ul>
+<li>SIDD</li>
+<li>MIT-Adobe FiveK dataset</li>
+</ul>
+<h3 id="Quantitative-comparison"><a href="#Quantitative-comparison" class="headerlink" title="Quantitative comparison"></a>Quantitative comparison</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231213142552556.png" alt=" "></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231213142535571.png" alt=" "></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231213142504843.png" alt=" "></p>
+<h3 id="Qualitative-comparison"><a href="#Qualitative-comparison" class="headerlink" title="Qualitative comparison"></a>Qualitative comparison</h3><ul>
+<li>从左到右：sRGB、RAW、使用我们的方法生成的 RAW。（来自数码单反相机佳能 EOS 5D 和尼康 D700 的图像）</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/dslr.png" alt=" "></p>
 <ul>
-<li>先构造一个小的只对图像主体描述的字幕数据集，模型偏好生成图像主体的提示词，这一步微调叫做 <strong>short synthetic captions</strong>  </li>
+<li>使用 SIDD 数据集进行定性 RAW 重建比较。我们的方法重建了RAW图像更好的颜色、色调和亮度。</li>
 </ul>
-<p><strong>Stage 2 DSC</strong></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/reconst.png" alt=" "></p>
 <ul>
-<li>再构造一个大的详细描述的字幕数据集，包括图像中主体及其环境、背景、文字、风格、颜色等细节，再次进行微调，这一步叫做 <strong>descriptive synthetic captions</strong>  </li>
+<li>定性 RAW 降噪样本。我们的模型在保留纹理和细节的同时去除了噪点。</li>
 </ul>
-<h3 id="3-Results"><a href="#3-Results" class="headerlink" title="3 Results"></a>3 Results</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231025115317387.png" alt="image-20231025115317387"></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231025120329276.png" alt="image-20231025120329276"></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231025120433835.png" alt="image-20231025120433835"></p>
-<h3 id="4-Limitations-amp-Risk"><a href="#4-Limitations-amp-Risk" class="headerlink" title="4 Limitations &amp; Risk"></a>4 Limitations &amp; Risk</h3><h4 id="Spatial-awareness"><a href="#Spatial-awareness" class="headerlink" title="Spatial awareness"></a>Spatial awareness</h4><p>在对象定位和空间感知方面存在困难。例如，使用词语 “在左边”、”在下面”、”在后面” 等是相当不可靠的。这是因为我们的合成字幕生成器也有这个弱点：它在陈述对象位置方面不可靠，这反映在我们的下游模型中。</p>
-<h4 id="Text-rendering"><a href="#Text-rendering" class="headerlink" title="Text rendering"></a>Text rendering</h4><p>在构建我们的字幕生成器时，我们特别注意确保它能够在生成的字幕中包含在图像中找到的显著单词。因此，DALL-E3 可以在提供提示时生成文本。在测试过程中，我们注意到这种功能不够可靠，因为单词可能丢失或多余字符。我们怀疑这可能与我们使用的 T5 文本编码器有关：当模型遇到提示中的文本时，实际上它会看到代表整个单词的标记，并必须将这些标记映射到图像中的字母。</p>
-<h4 id="Specificity"><a href="#Specificity" class="headerlink" title="Specificity"></a>Specificity</h4><p>我们观察到我们的合成标题容易产生关于图像的重要细节的幻觉。例如，给定一幅花的植物图，字幕生成器通常会幻想一个植物的属和种，并将其放入标题中，即使这些细节在图像中以文本形式可用。当描述鸟类图片时，我们观察到类似的行为：物种可能被幻想，或者根本不提到。这对我们的文本到图像模型产生了下游影响：DALL-E3 在为上述特定术语生成图像方面不可靠</p>
-<h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231010182222592.png" alt=" "></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231010181909118.png" alt=" "></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231010182400756.png" alt=" "></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231010182423513.png" alt=" "></p>
-<h2 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions"></a>Conclusions</h2><ul>
-<li>现在不需要提示词工程了，直接和chatGPT对话迭代修改到您满意（你的想法和生成的图像高度匹配）</li>
-<li>图像生成质量堪比Midjourney，由于加持了ChatGPT，DALLE3对提示词的理解会更加准确</li>
-<li><strong>太牛13了，666，我都看笑了</strong></li>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/denoise.png" alt=" "></p>
+<ul>
+<li>Few-shot and Unsupervised Denoising </li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231010182831454.png" alt=" "></p>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://the-decoder.com/prompt-transformation-makes-chatgpt-openais-covert-moderator-for-dall-e-3/">https://the-decoder.com/prompt-transformation-makes-chatgpt-openais-covert-moderator-for-dall-e-3/</a></li>
+<h2 id="✋-Conclusions"><a href="#✋-Conclusions" class="headerlink" title="✋ Conclusions"></a>✋ Conclusions</h2><ul>
+<li>较好的效果 RAW image reconstruction &amp; RAW image denoising</li>
+<li>少量标注样本即可训练鲁棒模型</li>
+<li>将传统的ISP用参数化方法建模，通过神经网络学习映射，实现了端到端的RGB2RAW和RAW2RGB （双向可逆）</li>
+</ul>
+<h2 id="🤝-References"><a href="#🤝-References" class="headerlink" title="🤝 References"></a>🤝 References</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/mv-lab/AISP">https://github.com/mv-lab/AISP</a></li>
 </ul>
 
                 
@@ -626,7 +645,7 @@ Abstrac">
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lee-jet.github.io/2023/10/10/dall-e3/">https://lee-jet.github.io/2023/10/10/dall-e3/</a>
+                    <a href="https://lee-jet.github.io/2023/12/13/aisp/">https://lee-jet.github.io/2023/12/13/aisp/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -743,7 +762,7 @@ Abstrac">
         repo: 'gitalk',
         owner: 'lee-jet',
         admin: "lee-jet",
-        id: '2023-10-10T18-37-33',
+        id: '2023-12-13T14-50-32',
         distractionFreeMode: false,  // Facebook-like distraction free mode
     });
 
@@ -771,17 +790,18 @@ Abstrac">
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/10/12/universalimagerestoration/">
+                <a href="/2023/12/13/aisp/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="UniversalImageRestoration">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="AISP">
                         
-                        <span class="card-title">UniversalImageRestoration</span>
+                        <span class="card-title">AISP</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -791,9 +811,59 @@ Abstrac">
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-10-12
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-13
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper-Reading/" class="post-category">
+                                    Paper Reading
+                                </a>
+                            
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Paper-Reading/">
+                        <span class="chip bg-color">Paper Reading</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/12/11/dsp/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="DSP">
+                        
+                        <span class="card-title">DSP</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-11
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -813,43 +883,6 @@ Abstrac">
                         <span class="chip bg-color">Paper Reading</span>
                     </a>
                     
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2023/09/28/freeu/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="FreeU">
-                        
-                        <span class="card-title">FreeU</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-09-28
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            Lee Jet
-                            
-                        </span>
-                    </div>
                 </div>
                 
             </div>
