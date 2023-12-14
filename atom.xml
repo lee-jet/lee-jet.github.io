@@ -6,7 +6,7 @@
   <link href="https://lee-jet.github.io/atom.xml" rel="self"/>
   
   <link href="https://lee-jet.github.io/"/>
-  <updated>2023-12-13T06:51:49.724Z</updated>
+  <updated>2023-12-14T04:03:14.389Z</updated>
   <id>https://lee-jet.github.io/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>202312_Part01</title>
+    <link href="https://lee-jet.github.io/2023/12/14/202312-part01/"/>
+    <id>https://lee-jet.github.io/2023/12/14/202312-part01/</id>
+    <published>2023-12-14T04:00:56.000Z</published>
+    <updated>2023-12-14T04:03:14.389Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;6&#39;&gt;&lt;strong&gt;⚡ Weekly AIGC News | 202312 Part One&lt;/strong&gt;&lt;/font&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;❤️</summary>
+        
+      
+    
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
+    
+  </entry>
+  
+  <entry>
     <title>AISP</title>
     <link href="https://lee-jet.github.io/2023/12/13/aisp/"/>
     <id>https://lee-jet.github.io/2023/12/13/aisp/</id>
     <published>2023-12-13T06:50:32.000Z</published>
-    <updated>2023-12-13T06:51:49.724Z</updated>
+    <updated>2023-12-13T10:24:20.282Z</updated>
     
     
       
@@ -510,31 +538,6 @@ On-Device Semantic</summary>
     
     
     <category term="Tech share" scheme="https://lee-jet.github.io/tags/Tech-share/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MVDiffusion</title>
-    <link href="https://lee-jet.github.io/2023/09/13/mvdiffusion/"/>
-    <id>https://lee-jet.github.io/2023/09/13/mvdiffusion/</id>
-    <published>2023-09-13T03:07:57.000Z</published>
-    <updated>2023-09-13T03:09:09.179Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;4.5&#39;&gt;&lt;strong&gt;MVDiffusion: Enabling Holistic Multi-view Image Generation with Correspondence-Aware</summary>
-        
-      
-    
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
     
   </entry>
   
