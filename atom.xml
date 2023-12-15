@@ -6,7 +6,7 @@
   <link href="https://lee-jet.github.io/atom.xml" rel="self"/>
   
   <link href="https://lee-jet.github.io/"/>
-  <updated>2023-12-14T04:07:34.085Z</updated>
+  <updated>2023-12-15T03:48:52.342Z</updated>
   <id>https://lee-jet.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>GPT-4Vision</title>
+    <link href="https://lee-jet.github.io/2023/12/15/gpt-4vision/"/>
+    <id>https://lee-jet.github.io/2023/12/15/gpt-4vision/</id>
+    <published>2023-12-15T03:45:14.000Z</published>
+    <updated>2023-12-15T03:48:52.342Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;5&#39;&gt;&lt;strong&gt;⚡ OpenAI推出GPT-4 Vision&lt;/strong&gt;&lt;/font&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;本文将向您介绍有关 GPT-4 Vision</summary>
+        
+      
+    
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
+    
+  </entry>
   
   <entry>
     <title>202312_Part01</title>
@@ -511,33 +540,6 @@ On-Device Semantic</summary>
     
     
     <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>opencv-installation</title>
-    <link href="https://lee-jet.github.io/2023/09/15/opencv-installation/"/>
-    <id>https://lee-jet.github.io/2023/09/15/opencv-installation/</id>
-    <published>2023-09-15T03:16:36.000Z</published>
-    <updated>2023-09-15T03:17:13.552Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;6&#39;&gt;CentOS 7 编译 Opencv C++ &lt;/font&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;1-安装依赖项&quot;&gt;&lt;a href=&quot;#1-安装依赖项&quot; class=&quot;headerlink&quot; title=&quot;1</summary>
-        
-      
-    
-    
-    
-    <category term="Tech share" scheme="https://lee-jet.github.io/categories/Tech-share/"/>
-    
-    
-    <category term="Tech share" scheme="https://lee-jet.github.io/tags/Tech-share/"/>
     
   </entry>
   

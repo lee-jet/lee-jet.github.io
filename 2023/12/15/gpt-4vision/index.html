@@ -4,11 +4,18 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="LibTorch, AiHub">
-    <meta name="description" content="LibTorch源码编译
+    <meta name="keywords" content="GPT-4Vision, AiHub">
+    <meta name="description" content="⚡ OpenAI推出GPT-4 Vision
 
-Build from sourceStep 1 Download pytorchgit clone --recursive https://github.com/pytorch/pytorch
-cd pytorc">
+
+
+本文将向您介绍有关 GPT-4 Vision 的所有信息，从访问它到动手进入现实世界的示例，以及它的局限性。
+
+
+
+
+
+paper https://cdn.openai.com/paper">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +27,7 @@ cd pytorc">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>LibTorch | AiHub</title>
+    <title>GPT-4Vision | AiHub</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -340,12 +347,12 @@ cd pytorc">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">LibTorch</h1>
+                    <h1 class="description center-align post-title">GPT-4Vision</h1>
                 </div>
             </div>
         </div>
@@ -369,8 +376,8 @@ cd pytorc">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Tech-share/">
-                                <span class="chip bg-color">Tech share</span>
+                            <a href="/tags/Paper-Reading/">
+                                <span class="chip bg-color">Paper Reading</span>
                             </a>
                         
                     </div>
@@ -381,8 +388,8 @@ cd pytorc">
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Tech-share/" class="post-category">
-                                Tech share
+                            <a href="/categories/Paper-Reading/" class="post-category">
+                                Paper Reading
                             </a>
                         
                     </div>
@@ -394,28 +401,28 @@ cd pytorc">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-08-16
+                    2023-12-15
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-08-16
+                    2023-12-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    382
+                    3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    11 分
                 </div>
                 
 
@@ -438,114 +445,152 @@ cd pytorc">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <div align='center' ><font size='6'>LibTorch源码编译</font></div>
+                <div align='center' ><font size='5'><strong>⚡ OpenAI推出GPT-4 Vision</strong></font></div>
 
-<h2 id="Build-from-source"><a href="#Build-from-source" class="headerlink" title="Build from source"></a>Build from source</h2><h3 id="Step-1-Download-pytorch"><a href="#Step-1-Download-pytorch" class="headerlink" title="Step 1 Download pytorch"></a>Step 1 Download pytorch</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone <span class="token parameter variable">--recursive</span> https://github.com/pytorch/pytorch
-<span class="token builtin class-name">cd</span> pytorch
-<span class="token function">git</span> submodule update <span class="token parameter variable">--init</span> <span class="token parameter variable">--recursive</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<hr>
+<blockquote>
+<p>本文将向您介绍有关 GPT-4 Vision 的所有信息，从访问它到动手进入现实世界的示例，以及它的局限性。</p>
+</blockquote>
+<img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231215112757987.png" alt="image-20231215112757987" style="zoom:200%;" />
 
-
-
-<h3 id="Step-2-Installing-dependencies"><a href="#Step-2-Installing-dependencies" class="headerlink" title="Step 2 Installing dependencies"></a>Step 2 Installing dependencies</h3><ul>
-<li>CMake version &gt; 3.18</li>
-<li>Python version &gt; 3.8</li>
-<li>C++ 17</li>
-</ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda create <span class="token parameter variable">-n</span> libtorch <span class="token assign-left variable">python</span><span class="token operator">=</span><span class="token number">3.9</span>
-conda activate libtorch
-conda <span class="token function">install</span> astunparse numpy ninja pyyaml mkl mkl-include setuptools cmake cffi typing_extensions future six requests dataclasses<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h3 id="Step-3-Starting-compiling"><a href="#Step-3-Starting-compiling" class="headerlink" title="Step 3 Starting compiling"></a>Step 3 Starting compiling</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mkdir</span> pytorch-build
-<span class="token builtin class-name">cd</span> pytorch-build
-cmake <span class="token parameter variable">-DBUILD_SHARED_LIBS:BOOL</span><span class="token operator">=</span>ON <span class="token parameter variable">-DCMAKE_BUILD_TYPE:STRING</span><span class="token operator">=</span>Release <span class="token parameter variable">-DPYTHON_EXECUTABLE:PATH</span><span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token function">which</span> python3<span class="token variable">`</span></span> <span class="token parameter variable">-DCMAKE_INSTALL_PREFIX:PATH</span><span class="token operator">=</span><span class="token punctuation">..</span>/pytorch-install <span class="token punctuation">..</span>/
-cmake <span class="token parameter variable">--build</span> <span class="token builtin class-name">.</span> <span class="token parameter variable">-j8</span> <span class="token parameter variable">--target</span> <span class="token function">install</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h3 id="Step-4-Examples"><a href="#Step-4-Examples" class="headerlink" title="Step 4 Examples"></a>Step 4 Examples</h3><ul>
-<li>文件结构</li>
-</ul>
-<pre class="line-numbers language-none"><code class="language-none">$ tree ..&#x2F;example-app&#x2F; -L 1
-..&#x2F;example-app&#x2F;
-├── build
-├── CMakeLists.txt
-└── example-app.cpp
-
-1 directory, 2 files<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/TlWiMux5N_1Dbpk04uj7CIhZqqUY7V-KnhdzeZCELwo5od8SU2UTcsSPx9XiOr_sn67wYBFOO2WG7JVUqFonfg4M4pHRAzNLmVUIT9_4nVmaprgpZzSUkOqGsJwRLq3fzfu7bVIsmurzuCVfT6wWnQ.png" alt="img"></p>
 <ul>
-<li><code>example-app.cpp</code></li>
+<li>paper <a target="_blank" rel="noopener" href="https://cdn.openai.com/papers/GPTV_System_Card.pdf">https://cdn.openai.com/papers/GPTV_System_Card.pdf</a></li>
 </ul>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;torch&#x2F;torch.h&gt;
-#include &lt;iostream&gt;
-
-int main() &#123;
-          torch::Tensor tensor &#x3D; torch::rand(&#123;2, 3&#125;); &#x2F;&#x2F;生成大小为2*3的随机数矩阵
-          std::cout &lt;&lt; tensor &lt;&lt; std::endl;           &#x2F;&#x2F;标准输出流打印至屏幕
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+<hr>
+<h1 id="😘-Contents"><a href="#😘-Contents" class="headerlink" title="😘 Contents"></a>😘 Contents</h1><p>[TOC]</p>
+<h2 id="1️⃣-什么是-GPT-4-Vision"><a href="#1️⃣-什么是-GPT-4-Vision" class="headerlink" title="1️⃣ 什么是 GPT-4 Vision"></a>1️⃣ 什么是 GPT-4 Vision</h2><ul>
+<li>GPT-4 Vision，通常缩写为 GPT-4V，是 OpenAI 高级模型 GPT-4 的一项创新功能。GPT-4V 于 2023 年 9 月推出，使 AI 能够解释视觉内容和文本。GPT-4 以其增强的视觉能力给人留下深刻印象，为用户提供更丰富、更直观的交互体验。</li>
+<li>GPT-4V 模型使用带有预训练组件的视觉编码器进行视觉感知，将编码的视觉特征与语言模型对齐。GPT-4 建立在复杂的深度学习算法之上，使其能够有效地处理复杂的视觉数据。</li>
+<li>有了这款具有视觉功能的 GPT-4，您现在可以分析图像输入并开辟人工智能研发可能性的新世界。将图像功能整合到 AI 系统（尤其是大型语言模型）中，标志着 AI 的下一个前沿领域，为突破性应用解锁了新颖的界面和功能。这为与机器进行更直观、更类似人类的交互铺平了道路，标志着向全面理解文本和视觉数据迈出了一大步。</li>
+<li>简单来说，GPT-4V 允许用户上传图像作为输入并询问有关图像的问题，这种任务类型称为视觉问答 （VQA）。想象一下，与一个不仅会听你说什么，还会观察和分析你展示的图片的人交谈。这就是适合你的 GPT-4V。</li>
+</ul>
+<h2 id="2️⃣-GPT-4-Vision-如何工作"><a href="#2️⃣-GPT-4-Vision-如何工作" class="headerlink" title="2️⃣ GPT-4 Vision 如何工作"></a>2️⃣ GPT-4 Vision 如何工作</h2><p>GPT-4V 于 2022 年接受训练，具有独特的理解图像的能力，而不仅仅是识别物体。它查看来自互联网和其他来源的大量图像，类似于在阅读标题时翻阅巨大的相册。它理解上下文、细微差别和微妙之处，使其能够像我们一样看待世界，但具有机器的计算能力。</p>
+<h3 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h3><ul>
+<li>多模态处理： GPT-4 Vision 可以处理文本和图像输入，使您能够参与有关图像的交互式对话，并利用模型的知识库生成基于视觉内容的创意文本格式。</li>
+<li>图像分析和理解： GPT-4 Vision 可以分析和理解图像内容，提供描述、识别对象，甚至解释场景。此功能为图像分类、对象检测和视觉内容审核提供了可能性。</li>
+<li>创意文本生成： GPT-4 Vision 可以根据图像生成创意文本格式，包括诗歌、代码、脚本、音乐作品、电子邮件、信件等。此功能使作家、艺术家和设计师能够探索新的创作可能性。</li>
+<li>跨语言翻译： GPT-4 Vision可以翻译图像中的文本，打破语言障碍，促进不同文化和语言之间的沟通。</li>
+</ul>
+<h3 id="训练和机制"><a href="#训练和机制" class="headerlink" title="训练和机制"></a>训练和机制</h3><ul>
+<li><p>GPT-4V 利用先进的机器学习技术来解释和分析视觉和文本信息。它的实力在于它对庞大数据集的训练，其中不仅包括文本，还包括来自互联网各个角落的各种视觉元素。</p>
+</li>
+<li><p>训练过程结合了强化学习，增强了 GPT-4 作为多模态模型的能力。</p>
+</li>
+<li><p>但更有趣的是两阶段的训练方法。最初，该模型已准备好掌握视觉语言知识，确保它理解文本和视觉之间的复杂关系。</p>
+</li>
+<li><p>在此之后，先进的人工智能系统对更小、更高质量的数据集进行微调。这一步对于提高其生成的可靠性和可用性至关重要，确保用户获得最准确和最相关的信息。</p>
+</li>
+</ul>
+<h2 id="3️⃣-动手实践"><a href="#3️⃣-动手实践" class="headerlink" title="3️⃣ 动手实践"></a>3️⃣ 动手实践</h2><p>GPT-4 Vision 目前（截至 2023 年 10 月）仅适用于 ChatGPT Plus 和企业用户。ChatGPT Plus 每月收费 20 美元，可以从您的常规免费 ChatGPT 帐户升级到。</p>
+<p>访问 GPT-4 Vision 的方法:</p>
 <ul>
-<li><code>CMakeLists.txt</code><ul>
-<li>注意 需要c++ 17 <code>set_property(TARGET example-app PROPERTY CXX_STANDARD 17)</code></li>
+<li>访问 OpenAI ChatGPT 网站并注册一个帐户。</li>
+<li>登录您的帐户并导航到“升级到Plus”选项。</li>
+<li>继续升级以获得 ChatGPT Plus 的访问权限（注意：这是每月 20 美元的订阅费）</li>
+<li>在聊天窗口中选择“GPT-4”作为您的模型，如下图所示。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image9_e5720ab68f.png" alt="OpenAI chat with images"></p>
+<ul>
+<li>点击图片图标上传图片，并添加提示，指示 GPT-4 执行。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image7_3eb3e28ddc.png" alt="Asking ChatGPT about an image"></p>
+<h2 id="4️⃣-GPT-4-Vision-真实世界的用例和示例"><a href="#4️⃣-GPT-4-Vision-真实世界的用例和示例" class="headerlink" title="4️⃣ GPT-4 Vision 真实世界的用例和示例"></a>4️⃣ GPT-4 Vision 真实世界的用例和示例</h2><h3 id="1-学术研究"><a href="#1-学术研究" class="headerlink" title="1. 学术研究"></a>1. 学术研究</h3><p>GPT-4 Vision 将高级语言建模与视觉功能相结合，为学术领域开辟了新的可能性，尤其是在破译历史手稿方面。传统上，这项任务是由熟练的古文字学家和历史学家进行的细致而耗时的工作。</p>
+<p>我们首先给出一张图片，它似乎是一篇旧报纸文章的一部分：</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image12_dda7bc5c1e.png" alt="Old newspaper image in ChatGPT"></p>
+<p>GPT-4 Vision 在读取图像内容和解释图像方面做得很好：</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image13_7127035d43.png" alt="ChatGPT&#39;s response to the newspaper image"></p>
+<p>该模型能够读取、破译内容并提供分析，同时提供现实的答案，即图像的某些部分被截断和遮挡。</p>
+<h3 id="2-网站开发"><a href="#2-网站开发" class="headerlink" title="2. 网站开发"></a>2. 网站开发</h3><p>GPT-4 愿景可以在提供所需设计的视觉图像时为网站编写代码。它从视觉设计到网站的源代码。该模型的这种单一功能可以大大减少构建网站所需的时间。</p>
+<p>让我们用手绘的简单设计来提示 GPT-4 Vision，用于博客网站。</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image3_026e1efa00.png" alt=" "></p>
+<p>一旦它提供了源代码，我们只需按照说明复制粘贴并创建 HTML 和 CSS 文件。以下是该网站的外观：</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image10_e6c081830f.png" alt=" "></p>
+<p>它看起来不是惊人的相似吗？当然，我们举了一个简单的例子，但你可以从这里开始，在很短的时间内开发一个更复杂和量身定制的网站，这要归功于新引入的 GPT-4 Vision 模型。</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/e6tYYEswfPnmlkudW5haFOo613UINdSc7oJrL7P0easpo0G8y8PhGJ3yEkO4AD1_NrPkm7JEOeJo2ADwjT8hgbLu5niKkw1by3mxiPwO5yDAsy3HJM5es1YpmWkNZw1H1UxwOWN162QQmpFQi6hYsQ.png" alt="Converting wireframe to CSS code by GPT-4 Vision"></p>
+<h3 id="3-数据解读"><a href="#3-数据解读" class="headerlink" title="3. 数据解读"></a>3. 数据解读</h3><p>该模型能够分析数据可视化，以解释基础数据，并基于可视化提供关键见解。为了测试这个功能，我们可以简单地给出一个图并征求见解。</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image5_feff3783f4.png" alt="Graph image fed into chatgpt"></p>
+<p>虽然它在理解绘图的整体上下文和线性趋势方面做得很好，但它将起始年份提到为 1950 年会出错，尽管数据点仅从 1960 年开始。该模型还推导出人口增长和经济发展等因素——虽然它们可能是正确的，但这些见解不能仅从这张特定的图表中得出。</p>
+<p>人们可以提出多个后续问题来完善 GPT-4 Vision 模型的初始输出。根据我们的测试，仍然需要人工参与来审查见解，并且该模型可以提高数据解释用例的生产力。</p>
+<h3 id="4-创意内容创作"><a href="#4-创意内容创作" class="headerlink" title="4.创意内容创作"></a>4.创意内容创作</h3><p>随着 ChatGPT 的出现，社交媒体上充斥着各种提示工程技术，许多人发现了令人惊讶的创造性方法来利用生成技术来发挥自己的优势。</p>
+<p>在本教程中，我们将使用 DALL-E-3（在 ChatGPT Plus 中也可用）和 GPT-4 Vision，创造性地创建社交媒体帖子。</p>
+<ul>
+<li>第 1 步：让 GPT-4 创建生成图像的提示。假设你想创建一个帖子，对比初创公司和公司数据科学家角色之间的差异。<ul>
+<li><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image2_dd3edfb398.png" alt="Prompt Engineer ChatGPT Prompt"></li>
+</ul>
+</li>
+<li>第 2 步：使用提示符并从 DALL-E 生成图像。您可以调整和完善提示，直到您对输出感到满意为止。<ul>
+<li><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image6_5a61194841.png" alt="Output image"></li>
+</ul>
+</li>
+<li>第 3 步：使用图像并要求 GPT-4 Vision 创建一个与图像并排的帖子。<ul>
+<li><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image1_4f35edf575.png" alt="Feeding AI image back into ChatGPT"></li>
 </ul>
 </li>
 </ul>
-<pre class="line-numbers language-cmake" data-language="cmake"><code class="language-cmake"><span class="token keyword">cmake_minimum_required</span><span class="token punctuation">(</span><span class="token property">VERSION</span> <span class="token number">3.0</span> FATAL_ERROR<span class="token punctuation">)</span>
-<span class="token keyword">project</span><span class="token punctuation">(</span>example-app<span class="token punctuation">)</span>
-
-<span class="token keyword">find_package</span><span class="token punctuation">(</span>Torch REQUIRED<span class="token punctuation">)</span>
-<span class="token keyword">set</span><span class="token punctuation">(</span><span class="token variable">CMAKE_CXX_FLAGS</span> <span class="token string">"<span class="token interpolation"><span class="token punctuation">$&#123;</span><span class="token variable">CMAKE_CXX_FLAGS</span><span class="token punctuation">&#125;</span></span> <span class="token interpolation"><span class="token punctuation">$&#123;</span><span class="token variable">TORCH_CXX_FLAGS</span><span class="token punctuation">&#125;</span></span>"</span><span class="token punctuation">)</span>
-
-<span class="token keyword">add_executable</span><span class="token punctuation">(</span>example-app example-app.cpp<span class="token punctuation">)</span>
-<span class="token keyword">target_link_libraries</span><span class="token punctuation">(</span>example-app <span class="token string">"<span class="token interpolation"><span class="token punctuation">$&#123;</span><span class="token variable">TORCH_LIBRARIES</span><span class="token punctuation">&#125;</span></span>"</span><span class="token punctuation">)</span>
-<span class="token keyword">set_property</span><span class="token punctuation">(</span>TARGET example-app PROPERTY <span class="token property">CXX_STANDARD</span> <span class="token number">17</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+<p>通过调整和提供更详细的提示，可以获得更好的输出，并可以进一步探索创意内容的生成。值得注意的是，不建议在互联网或社交媒体上发送带有 AI 生成内容的垃圾邮件，因为这些内容有其自身的局限性。相反，用你自己的经验进行事实核查和完善。</p>
+<p>当然，这并不是一个可能的用例的详尽列表——GPT-4 Vision 具有更多功能。相反，将其视为通过将技术应用于您选择的领域来探索您的好奇心的灵感和起点。</p>
+<h2 id="5️⃣-GPT-4-Vision-的局限性和降低风险"><a href="#5️⃣-GPT-4-Vision-的局限性和降低风险" class="headerlink" title="5️⃣ GPT-4 Vision 的局限性和降低风险"></a>5️⃣ GPT-4 Vision 的局限性和降低风险</h2><p>因为自 2023 年 3 月推出 GPT-4 以来，OpenAI 自己又花了几个月的时间，通过内部和外部的“红队”练习对其进行测试，以确定这种生成技术的缺点，他们在系统卡中概述了这些缺点。</p>
+<h3 id="1-准确性和可靠性"><a href="#1-准确性和可靠性" class="headerlink" title="1.准确性和可靠性"></a>1.准确性和可靠性</h3><p>虽然 GPT-4 模型代表了可靠性和准确性的重大进步，但情况并非总是如此。根据 OpenAI 的说法，根据内部测试，GPT-4 Vision 有时仍然可能不可靠和不准确。该团队甚至提到“ChatGPT 可能会犯错误。</p>
+<h3 id="2-隐私和偏见问题"><a href="#2-隐私和偏见问题" class="headerlink" title="2. 隐私和偏见问题"></a>2. 隐私和偏见问题</h3><p>根据 OpenAI 的说法，与其前辈类似，GPT-4 Vision 继续强化社会偏见和世界观，包括对某些边缘化群体的有害刻板印象和贬低性联想。因此，重要的是要了解这一限制并采取其他必要步骤来处理用例本身的偏差，而不是依赖模型来解决它。</p>
+<p>除了偏见问题外，与 ChatGPT 共享的数据还可用于训练模型，除非选择退出;因此，请务必注意不要与模型共享任何敏感或私人信息。用户还可以通过进入“设置和测试版”部分下的“数据控件”来选择不共享数据以改进模型。</p>
+<h3 id="3-限制执行危险任务"><a href="#3-限制执行危险任务" class="headerlink" title="3. 限制执行危险任务"></a>3. 限制执行危险任务</h3><p>GPT-4 Vision 无法回答要求识别图像中特定个体的问题。这是设计上预期的“拒绝”行为。此外，OpenAI 建议不要在高风险任务上使用 GPT-4 Vision，其中包括：</p>
 <ul>
-<li>命令行<ul>
-<li><code>/path/to/pytorch-install</code> 为libtorch编译成功后的位置</li>
+<li>科学能力：模型可能会遗漏文本或字符，忽略提供科学信息的图像中的数学符号，并且无法识别空间位置和颜色映射。</li>
+<li>医疗建议：该模型有时会为基于医学成像的问题提供正确的答案，但有时会为同一问题提供动摇。如果回答不一致，则不应依赖模型的答案或输出来代替专业医疗建议。</li>
+<li>虚假信息风险：据说人们在附有图像时会相信陈述（与它们是否真实无关）。该模型可用于生成为图像输入量身定制的合理、逼真和有针对性的文本内容，因此具有虚假信息风险。</li>
+<li>仇恨内容：在某些情况下，该模型拒绝回答带有仇恨符号和极端主义内容的问题，但情况并非总是如此。对于OpenAI来说，这仍然是一个具有挑战性的问题。</li>
 </ul>
-</li>
+<p>因此，作为用户，我们需要在负责任地使用 GPT-4 Vision 时保持警惕，尤其是在上述高风险任务和敏感环境中。</p>
+<h2 id="6️⃣-GPT-4-Vision-API调用"><a href="#6️⃣-GPT-4-Vision-API调用" class="headerlink" title="6️⃣ GPT-4 Vision API调用"></a>6️⃣ GPT-4 Vision API调用</h2><ul>
+<li>如果您本地有一个图像或一组图像，则可以将它们以 Base 64 编码格式传递给模型</li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> example-app
-<span class="token function">mkdir</span> build <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">cd</span> build
-cmake <span class="token parameter variable">-DCMAKE_PREFIX_PATH</span><span class="token operator">=</span>/path/to/pytorch-install <span class="token punctuation">..</span>
-<span class="token function">make</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> os
+<span class="token keyword">import</span> requests
+<span class="token keyword">import</span> base64
+ 
+<span class="token comment"># Configuration</span>
+GPT4V_KEY <span class="token operator">=</span> <span class="token string">"YOUR_API_KEY"</span>
+encoded_image <span class="token operator">=</span> base64<span class="token punctuation">.</span>b64encode<span class="token punctuation">(</span><span class="token builtin">open</span><span class="token punctuation">(</span>IMAGE_PATH<span class="token punctuation">,</span> <span class="token string">'rb'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'ascii'</span><span class="token punctuation">)</span>
+headers <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+    <span class="token string">"Content-Type"</span><span class="token punctuation">:</span> <span class="token string">"application/json"</span><span class="token punctuation">,</span>
+    <span class="token string">"api-key"</span><span class="token punctuation">:</span> GPT4V_KEY<span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span>
+ 
+<span class="token comment"># Payload for the request</span>
+payload <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  <span class="token string">"messages"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">&#123;</span>
+      <span class="token string">"role"</span><span class="token punctuation">:</span> <span class="token string">"system"</span><span class="token punctuation">,</span>
+      <span class="token string">"content"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">&#123;</span>
+          <span class="token string">"type"</span><span class="token punctuation">:</span> <span class="token string">"text"</span><span class="token punctuation">,</span>
+          <span class="token string">"text"</span><span class="token punctuation">:</span> <span class="token string">"You are an AI assistant that helps people find information."</span>
+        <span class="token punctuation">&#125;</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token string">"temperature"</span><span class="token punctuation">:</span> <span class="token number">0.7</span><span class="token punctuation">,</span>
+  <span class="token string">"top_p"</span><span class="token punctuation">:</span> <span class="token number">0.95</span><span class="token punctuation">,</span>
+  <span class="token string">"max_tokens"</span><span class="token punctuation">:</span> <span class="token number">800</span>
+<span class="token punctuation">&#125;</span>
+ 
+GPT4<span class="token operator">-</span>V_ENDPOINT <span class="token operator">=</span> <span class="token string">"https://xx.openai.azure.com/openai/deployments/gpt-4-vision-preview/chat/completions?api-version=2023-07-01-preview"</span>
+ 
+<span class="token comment"># Send request</span>
+<span class="token keyword">try</span><span class="token punctuation">:</span>
+    response <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>GPT4<span class="token operator">-</span>V_ENDPOINT<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">,</span> json<span class="token operator">=</span>payload<span class="token punctuation">)</span>
+    response<span class="token punctuation">.</span>raise_for_status<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment"># Will raise an HTTPError if the HTTP request returned an unsuccessful status code</span>
+<span class="token keyword">except</span> requests<span class="token punctuation">.</span>RequestException <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+    <span class="token keyword">raise</span> SystemExit<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Failed to make the request. Error: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>e<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+ 
+<span class="token comment"># Handle the response as needed (e.g., print or process)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<ul>
-<li>输出结果</li>
-</ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ ./example-app 
-
- <span class="token number">0.4473</span>  <span class="token number">0.6516</span>  <span class="token number">0.0226</span>
- <span class="token number">0.3360</span>  <span class="token number">0.1509</span>  <span class="token number">0.0269</span>
-<span class="token punctuation">[</span> CPUFloatType<span class="token punctuation">&#123;</span><span class="token number">2,3</span><span class="token punctuation">&#125;</span> <span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="Script"><a href="#Script" class="headerlink" title="Script"></a>Script</h2><ul>
-<li><code>libtorch_compile.sh</code></li>
-</ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># step 1</span>
-<span class="token function">git</span> clone <span class="token parameter variable">--recursive</span> https://github.com/pytorch/pytorch
-<span class="token builtin class-name">cd</span> pytorch
-<span class="token function">git</span> submodule update <span class="token parameter variable">--init</span> <span class="token parameter variable">--recursive</span>
-
-<span class="token comment"># step 2</span>
-conda create <span class="token parameter variable">-n</span> libtorch <span class="token assign-left variable">python</span><span class="token operator">=</span><span class="token number">3.9</span>
-conda activate libtorch
-conda <span class="token function">install</span> astunparse numpy ninja pyyaml mkl mkl-include setuptools cmake cffi typing_extensions future six requests dataclasses
-
-<span class="token comment"># step 3</span>
-<span class="token function">mkdir</span> pytorch-build
-<span class="token builtin class-name">cd</span> pytorch-build
-cmake <span class="token parameter variable">-DBUILD_SHARED_LIBS:BOOL</span><span class="token operator">=</span>ON <span class="token parameter variable">-DCMAKE_BUILD_TYPE:STRING</span><span class="token operator">=</span>Release <span class="token parameter variable">-DPYTHON_EXECUTABLE:PATH</span><span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token function">which</span> python3<span class="token variable">`</span></span> <span class="token parameter variable">-DCMAKE_INSTALL_PREFIX:PATH</span><span class="token operator">=</span><span class="token punctuation">..</span>/pytorch-install <span class="token punctuation">..</span>/
-cmake <span class="token parameter variable">--build</span> <span class="token builtin class-name">.</span> <span class="token parameter variable">-j8</span> <span class="token parameter variable">--target</span> <span class="token function">install</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://pytorch.org/cppdocs/installing.html#">https://pytorch.org/cppdocs/installing.html#</a></li>
-</ul>
+<h2 id="🤝-Thank-you"><a href="#🤝-Thank-you" class="headerlink" title="🤝 Thank you"></a>🤝 Thank you</h2><blockquote>
+<p>❤️ 每周免费分享AIGC相关最新资讯，感兴趣可以关注，喜欢动动小手点个赞，谢谢支持！</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231215114614598.png" alt="image-20231215114614598"></p>
 
                 
             </div>
@@ -572,7 +617,7 @@ cmake <span class="token parameter variable">--build</span> <span class="token b
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lee-jet.github.io/2023/08/16/libtorch/">https://lee-jet.github.io/2023/08/16/libtorch/</a>
+                    <a href="https://lee-jet.github.io/2023/12/15/gpt-4vision/">https://lee-jet.github.io/2023/12/15/gpt-4vision/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -610,8 +655,8 @@ cmake <span class="token parameter variable">--build</span> <span class="token b
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Tech-share/">
-                                    <span class="chip bg-color">Tech share</span>
+                                <a href="/tags/Paper-Reading/">
+                                    <span class="chip bg-color">Paper Reading</span>
                                 </a>
                             
                         </div>
@@ -689,7 +734,7 @@ cmake <span class="token parameter variable">--build</span> <span class="token b
         repo: 'gitalk',
         owner: 'lee-jet',
         admin: "lee-jet",
-        id: '2023-08-16T11-12-01',
+        id: '2023-12-15T11-45-14',
         distractionFreeMode: false,  // Facebook-like distraction free mode
     });
 
@@ -717,17 +762,18 @@ cmake <span class="token parameter variable">--build</span> <span class="token b
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/08/16/terminology/">
+                <a href="/2023/12/15/gpt-4vision/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="terminology">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="GPT-4Vision">
                         
-                        <span class="card-title">terminology</span>
+                        <span class="card-title">GPT-4Vision</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -737,26 +783,27 @@ cmake <span class="token parameter variable">--build</span> <span class="token b
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-08-16
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-15
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Tech-share/" class="post-category">
-                                    Tech share
+                            <a href="/categories/Paper-Reading/" class="post-category">
+                                    Paper Reading
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Tech-share/">
-                        <span class="chip bg-color">Tech share</span>
+                    <a href="/tags/Paper-Reading/">
+                        <span class="chip bg-color">Paper Reading</span>
                     </a>
                     
                 </div>
@@ -770,13 +817,13 @@ cmake <span class="token parameter variable">--build</span> <span class="token b
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/08/16/design-pattern/">
+                <a href="/2023/12/14/202312-part01/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="design-pattern">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="202312_Part01">
                         
-                        <span class="card-title">design-pattern</span>
+                        <span class="card-title">202312_Part01</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -787,14 +834,14 @@ cmake <span class="token parameter variable">--build</span> <span class="token b
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-14
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Tech-share/" class="post-category">
-                                    Tech share
+                            <a href="/categories/Paper-Reading/" class="post-category">
+                                    Paper Reading
                                 </a>
                             
                             
@@ -804,8 +851,8 @@ cmake <span class="token parameter variable">--build</span> <span class="token b
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Tech-share/">
-                        <span class="chip bg-color">Tech share</span>
+                    <a href="/tags/Paper-Reading/">
+                        <span class="chip bg-color">Paper Reading</span>
                     </a>
                     
                 </div>
