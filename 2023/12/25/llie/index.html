@@ -4,14 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="VisualChatGPT, AiHub">
-    <meta name="description" content="Visual ChatGPT: Talking, Drawing and Editing with Visual Foundation Models
+    <meta name="keywords" content="LLIE, AiHub">
+    <meta name="description" content="⚡ AISP之突破黑暗：低照度图像增强(LLIE) ⚡
 
 
-
-paper https://arxiv.org/abs/2303.04671
-
-co">
+低照度图像增强（LLIE）的目的是改善在光照不足的环境中拍摄的图像的感知或可解释性。这一领域的最新进展主要是基于深度学习的解决方案，其中采用了各种学习策略、网络结构、损失函数、训练">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -23,7 +20,7 @@ co">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>VisualChatGPT | AiHub</title>
+    <title>LLIE | AiHub</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -343,12 +340,12 @@ co">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">VisualChatGPT</h1>
+                    <h1 class="description center-align post-title">LLIE</h1>
                 </div>
             </div>
         </div>
@@ -397,28 +394,28 @@ co">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-09-12
+                    2023-12-25
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-09-12
+                    2023-12-25
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    482
+                    3.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    10 分
                 </div>
                 
 
@@ -441,184 +438,72 @@ co">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <div align='center' ><font size='4.5'><strong>Visual ChatGPT: Talking, Drawing and Editing with Visual Foundation Models</strong></font></div>
+                <div align='center' ><font size='5'><strong>⚡ AISP之突破黑暗：低照度图像增强(LLIE) ⚡</strong></font></div>
 
-<hr>
-<ul>
-<li><p>paper <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2303.04671">https://arxiv.org/abs/2303.04671</a></p>
-</li>
-<li><p>code <a target="_blank" rel="noopener" href="https://github.com/microsoft/TaskMatrix">https://github.com/microsoft/TaskMatrix</a></p>
-</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230912103922740.png" alt="image-20230912103922740"></p>
-<hr>
-<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><ul>
-<li><strong>TaskMatrix</strong> connects ChatGPT and a series of Visual Foundation Models to enable <strong>sending</strong> and <strong>receiving</strong> images during chatting.</li>
-<li>核心是Prompts manager，能够让chatGPT理解visual tasks prompts，然后根据prompts来调用相关的视觉模型进行任务处理</li>
-</ul>
-<h2 id="Contributions"><a href="#Contributions" class="headerlink" title="Contributions"></a>Contributions</h2><ul>
-<li>Prompts manager</li>
-</ul>
-<h2 id="Related-Work"><a href="#Related-Work" class="headerlink" title="Related Work"></a>Related Work</h2><ul>
-<li>VAQ 视觉任务的问答对 （visual question-answer pairs ）</li>
-</ul>
-<h2 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/figure.jpg" alt="Logo"></p>
-<h3 id="Prompts-manager"><a href="#Prompts-manager" class="headerlink" title="Prompts manager"></a>Prompts manager</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230912104018193.png" alt="image-20230912104018193"></p>
-<h3 id="Visual-foundation-models"><a href="#Visual-foundation-models" class="headerlink" title="Visual foundation models"></a>Visual foundation models</h3><p>Here we list the GPU memory usage of each visual foundation model, you can specify which one you like:</p>
-<table>
-<thead>
-<tr>
-<th>Foundation Model</th>
-<th>GPU Memory (MB)</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>ImageEditing</td>
-<td>3981</td>
-</tr>
-<tr>
-<td>InstructPix2Pix</td>
-<td>2827</td>
-</tr>
-<tr>
-<td>Text2Image</td>
-<td>3385</td>
-</tr>
-<tr>
-<td>ImageCaptioning</td>
-<td>1209</td>
-</tr>
-<tr>
-<td>Image2Canny</td>
-<td>0</td>
-</tr>
-<tr>
-<td>CannyText2Image</td>
-<td>3531</td>
-</tr>
-<tr>
-<td>Image2Line</td>
-<td>0</td>
-</tr>
-<tr>
-<td>LineText2Image</td>
-<td>3529</td>
-</tr>
-<tr>
-<td>Image2Hed</td>
-<td>0</td>
-</tr>
-<tr>
-<td>HedText2Image</td>
-<td>3529</td>
-</tr>
-<tr>
-<td>Image2Scribble</td>
-<td>0</td>
-</tr>
-<tr>
-<td>ScribbleText2Image</td>
-<td>3531</td>
-</tr>
-<tr>
-<td>Image2Pose</td>
-<td>0</td>
-</tr>
-<tr>
-<td>PoseText2Image</td>
-<td>3529</td>
-</tr>
-<tr>
-<td>Image2Seg</td>
-<td>919</td>
-</tr>
-<tr>
-<td>SegText2Image</td>
-<td>3529</td>
-</tr>
-<tr>
-<td>Image2Depth</td>
-<td>0</td>
-</tr>
-<tr>
-<td>DepthText2Image</td>
-<td>3531</td>
-</tr>
-<tr>
-<td>Image2Normal</td>
-<td>0</td>
-</tr>
-<tr>
-<td>NormalText2Image</td>
-<td>3529</td>
-</tr>
-<tr>
-<td>VisualQuestionAnswering</td>
-<td>1495</td>
-</tr>
-</tbody></table>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230912104049766.png" alt="image-20230912104049766"></p>
-<h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/demo_short.gif" alt="demo_short"></p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># clone the repo</span>
-<span class="token function">git</span> clone https://github.com/microsoft/TaskMatrix.git
-
-<span class="token comment"># Go to directory</span>
-<span class="token builtin class-name">cd</span> visual-chatgpt
-
-<span class="token comment"># create a new environment</span>
-conda create <span class="token parameter variable">-n</span> visgpt <span class="token assign-left variable">python</span><span class="token operator">=</span><span class="token number">3.8</span>
-
-<span class="token comment"># activate the new environment</span>
-conda activate visgpt
-
-<span class="token comment">#  prepare the basic environments</span>
-pip <span class="token function">install</span> <span class="token parameter variable">-r</span> requirements.txt
-pip <span class="token function">install</span>  git+https://github.com/IDEA-Research/GroundingDINO.git
-pip <span class="token function">install</span>  git+https://github.com/facebookresearch/segment-anything.git
-
-<span class="token comment"># prepare your private OpenAI key (for Linux)</span>
-<span class="token builtin class-name">export</span> <span class="token assign-left variable">OPENAI_API_KEY</span><span class="token operator">=</span><span class="token punctuation">&#123;</span>Your_Private_Openai_Key<span class="token punctuation">&#125;</span>
-
-<span class="token comment"># prepare your private OpenAI key (for Windows)</span>
-<span class="token builtin class-name">set</span> <span class="token assign-left variable">OPENAI_API_KEY</span><span class="token operator">=</span><span class="token punctuation">&#123;</span>Your_Private_Openai_Key<span class="token punctuation">&#125;</span>
-
-<span class="token comment"># Start TaskMatrix !</span>
-<span class="token comment"># You can specify the GPU/CPU assignment by "--load", the parameter indicates which </span>
-<span class="token comment"># Visual Foundation Model to use and where it will be loaded to</span>
-<span class="token comment"># The model and device are separated by underline '_', the different models are separated by comma ','</span>
-<span class="token comment"># The available Visual Foundation Models can be found in the following table</span>
-<span class="token comment"># For example, if you want to load ImageCaptioning to cpu and Text2Image to cuda:0</span>
-<span class="token comment"># You can use: "ImageCaptioning_cpu,Text2Image_cuda:0"</span>
-
-<span class="token comment"># Advice for CPU Users</span>
-python visual_chatgpt.py <span class="token parameter variable">--load</span> ImageCaptioning_cpu,Text2Image_cpu
-
-<span class="token comment"># Advice for 1 Tesla T4 15GB  (Google Colab)                       </span>
-python visual_chatgpt.py <span class="token parameter variable">--load</span> <span class="token string">"ImageCaptioning_cuda:0,Text2Image_cuda:0"</span>
-                                
-<span class="token comment"># Advice for 4 Tesla V100 32GB                            </span>
-python visual_chatgpt.py <span class="token parameter variable">--load</span> <span class="token string">"Text2Box_cuda:0,Segmenting_cuda:0,
-    Inpainting_cuda:0,ImageCaptioning_cuda:0,
-    Text2Image_cuda:1,Image2Canny_cpu,CannyText2Image_cuda:1,
-    Image2Depth_cpu,DepthText2Image_cuda:1,VisualQuestionAnswering_cuda:2,
-    InstructPix2Pix_cuda:2,Image2Scribble_cpu,ScribbleText2Image_cuda:2,
-    SegText2Image_cuda:2,Image2Pose_cpu,PoseText2Image_cuda:2,
-    Image2Hed_cpu,HedText2Image_cuda:3,Image2Normal_cpu,
-    NormalText2Image_cuda:3,Image2Line_cpu,LineText2Image_cuda:3"</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions"></a>Conclusions</h2><ul>
-<li>需要OpenAI的ChatGPT的API KEY</li>
-<li>用问答的方式处理视觉任务，比如检测、分割等</li>
-<li>支持cpu gpu，根据memory加载合适的visual models</li>
-</ul>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li>API KEY <a target="_blank" rel="noopener" href="https://platform.openai.com/playground">https://platform.openai.com/playground</a></li>
-</ul>
 <blockquote>
-<p>You can find your Secret API key in your <a target="_blank" rel="noopener" href="https://beta.openai.com/account/api-keys">User settings</a>.</p>
-<p>Check out our <a target="_blank" rel="noopener" href="https://help.openai.com/en/articles/5112595">Best Practices for API Key Safety</a> to learn how you can keep your API key protected.</p>
+<p>低照度图像增强（LLIE）的目的是改善在光照不足的环境中拍摄的图像的感知或可解释性。这一领域的最新进展主要是基于深度学习的解决方案，其中采用了各种学习策略、网络结构、损失函数、训练数据等。</p>
 </blockquote>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231225181520211.png" alt="image-20231225181520211"></p>
+<hr>
+<p>[TOC]</p>
+<h2 id="1️⃣-如何评估低质量图像"><a href="#1️⃣-如何评估低质量图像" class="headerlink" title="1️⃣ 如何评估低质量图像"></a>1️⃣ 如何评估低质量图像</h2><p>低照度图像增强只是对在低环境光环境下拍摄的图像进行增强，以提高图像视觉清晰度，如下图所示：</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/1xzlL7uvkD68NwvGKd-K1aQ.png" alt="左图 — 原始图像，右图 — 弱光增强"></p>
+<p>在进入低光图像增强过程之前，首先要确定低光图像的问题或原因是什么。低光照条件的原因可能是：</p>
+<p>​    （1）光源不足或缺失</p>
+<p>​    （2）背光、阴影造成的照度不均匀</p>
+<p>​    （3）相机配置不正确，以及光电传感器在捕捉全范围光线和颜色（或曝光不足的图像）方面的局限性</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231225180357351.png" alt="image-20231225180357351"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/1CDzWhG50ANe10kgSxzu6eA.png" alt="低光图像示例"></p>
+<p>首先，我们需要量化什么是“弱光”图像。直方图可用于可视化图像像素的亮度通道。亮度直方图（下图）显示了在光线不足的环境中拍摄的图像与在光线充足的环境中拍摄的图像的不同特征。</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/15lqwWmDVm5IVoaqs9yr65A.png" alt="低光图像和增强图像的比较"></p>
+<p>低光图像的直方图（左）显示了两个观测值。首先，像素值集中在较暗色调的狭窄范围内，并且整个直方图分布不均匀。其次，直方图显示一个单一的主峰，表明没有音调变化。相比之下，非低光图像（右图）的直方图在整个色调范围内分布广泛。直方图还具有多个峰和谷的特征，这些峰和谷彼此明显分开。</p>
+<p>我们认为，评估图像质量的方法是必不可少的，因为它是低图像增强的前兆。能够评估图像质量是有效图像处理、增强和校正的先决条件。能够量化地评估具有弱光问题的图像意味着我们不必处理对视觉清晰度的主观感知。这可以转化为更可靠和可重复的图像处理结果。</p>
+<p>因此，我们开发了一种使用支持向量机 （SVM） 的方法，其输入特征来自从图像直方图中获得的累积分布函数 （CDF）。下面的 CDF 直方图示例。</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/1bEJcAqoxJQtsHiUhfbaKjQ.png" alt="可视化 CDF 图形的示例"></p>
+<p>图像直方图的 CDF 是一种数学函数，它将直方图转换为图像中像素强度值累积概率的表示。与直方图相比，CDF 是 SVM 分类的卓越特征输入，因为它超出了表示关键统计数据（如最小值、最大值、中位数和百分位数）的能力。CDF 提供了更全面的数据表示形式，从而能够更好地表示数据异常值和分布。这使得它在图像分类任务中更加有效，尤其是在处理弱光图像数据集时。以下示例表明，直方图容易受到数据异常值的错误表示，尤其是当条柱大小不正确时。</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/16q4OhQTzPV7EAaDlMJrx3A.png" alt="使用具有不同条柱大小的直方图表示异常值的数据集示例"></p>
+<p>在左侧的直方图中，异常值是不可观察的（由于分箱偏差），但在中间的直方图中显示出来。对于 CDF，异常值在 CDF 曲线的尾部更突出地表示。</p>
+<p>CDF 可以消除不正确的 bin 大小问题（也称为 binning bias），并提供一种更准确的方法来识别和分析通常位于数据分布尾部的异常值（如下所示）。</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/15U7UTPCZC0wM7ofWgjRuCg.png" alt="将数据分布表示为 CDF 和基于 2 个数据分布之间距离的 K-S 统计量。（由上图中的黑色箭头表示）"></p>
+<p>CDF 是分析数据分布的强大工具，它使用统计检验（如 Kolmogorov-Smirnov （K-S） 检验）来衡量不同类别之间的相似性。与仅限于视觉比较的直方图不同，K-S 检验使用 CDF 来计算两个类之间的距离测量值，以便对数据进行准确和可量化的比较。</p>
+<p>在我们的实验中，我们使用了 11,000 张开源图像（AMOS²、LOL³）的数据集来检验我们的假设。我们的假设假设，与使用直方图相比，使用 CDF 作为支持向量机 （SVM） 的输入特征将在对弱光图像进行分类方面产生更高的性能。验证检验的结果支持了我们的假设，表明使用 CDF 训练的 SVM （SVM-CDF） 在整体预测准确性方面优于使用直方图训练的 SVM （SVM-HIST）。</p>
+<p>SVM-CDF方法表现出更高的分类准确性，宏观平均F1得分为97.1%，而SVM-HIST的宏观平均F1得分为下表中的79.7%。</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/12s7TGH3LryxjP8ifVmsx7Q.png" alt="表比较了 SVM-CDF 与 SVM-HIST 的精度性能。"></p>
+<p>对 SVM-HIST 准确性性能的进一步分析表明，该模型容易受到较高的误报率的影响，导致精度较低但召回率较高。很明显，<strong>CDF是自动检测低光图像的更有效的输入特征</strong>。</p>
+<h2 id="2️⃣-低照度图像增强方法"><a href="#2️⃣-低照度图像增强方法" class="headerlink" title="2️⃣ 低照度图像增强方法"></a>2️⃣ 低照度图像增强方法</h2><ol>
+<li><strong>直方图均衡方法</strong>：这是计算机图像处理中的一种技术，它通过分散强度值来提高图像的全局对比度，从而实现更平衡的像素强度分布。这可以使图像具有更高的对比度，因为它可以带出图像的明暗区域的细节。然而，在不考虑局部变化的情况下，它可能会导致图像某些区域的过度增强。在已经存在高对比度或显着强度变化的区域，直方图均衡会过度放大这些差异。因此，这些区域可能会显得过于明亮或黑暗，从而失去图像的平衡和自然外观。</li>
+<li><strong>Retinex方法</strong>：这些方法基于一个理论模型，该模型模拟了人类视觉系统在不同照明条件下感知图像的能力。Retinex 方法中的一种常见方法是将照明分量与反射分量分开，然后应用适当的算法来增强反射分量，同时保留照明分量。这样可以提高图像质量，增强色彩准确性、对比度和细节。</li>
+<li><strong>深度学习方法</strong>：这些技术使用深度神经网络架构来学习特定于弱光条件的复杂特征和模式。训练后，神经网络可以通过对输入图像应用学习的转换或调整来提高低光图像的质量。</li>
+</ol>
+<p>在本文中，我们将重点介绍深度学习方法的使用，例如ZeroDCE（零参考深度曲线估计）及其变体来增强弱光图像。根据发表在IEEE计算机学会上的一篇研究论文，ZeroDCE显示出比其他现有零参考方法更好的结果。不同之处在于，在传统的零参考模型中，最暗和最亮的像素通常用作参考点。ZeroDCE采用不同的方法，使用基于深度学习的模型来估计曲线，该曲线根据图像的特征增强图像，而不依赖于任何特定的参考点。这促使我们进一步研究ZeroDCE及其变体，并探索通过我们自己策划的一组低光图像来适应我们的需求。</p>
+<h2 id="3️⃣-DN-ZeroDCE-模型"><a href="#3️⃣-DN-ZeroDCE-模型" class="headerlink" title="3️⃣ DN-ZeroDCE 模型"></a>3️⃣ <strong>DN-ZeroDCE 模型</strong></h2><p>ZeroDCE及其改进版ZeroDCE++[ZeroDCEs]是前沿的低照度增强模型，在深度学习图像处理领域引起了广泛关注。这些模型由研究人员开发，并采用独特的弱光增强方法。传统方法需要配对数据集（由弱光和正常光图像对组成），而 ZeroDCE 使用卷积神经网络 （CNN） 由七个卷积层组成，具有非参考损失函数来估计图像的光增强 （LE） 曲线的最佳参数。</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231225181901813.png" alt="Zero-DCE"></p>
+<p>ZeroDCE方法从其他弱光增强模型中脱颖而出的原因在于，模型训练可以在不需要配对数据集的情况下完成。这使得它在现场非常受欢迎，因为它减轻了收集此类数据的难度，并允许更容易地训练模型。该方法不仅准确且强大，而且能够实时处理图像（对于 RTX 3090 GPU 卡上的 1290 x 1080 图像，帧速率为 ~20 FPS 或更高）。</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231225181941570.png" alt="The framework of Zero-DCE"></p>
+<p>在我们的工作中，我们专注于提高ZeroDCE有效去噪输入图像的能力，并实现卓越的增强效果。我们在ZeroDCE网络的前端增加了一个自动编码器模块，并开发了<strong>De-Noise ZeroDCE（DN-ZeroDCE）</strong>的架构，如下所示。</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/1bfGDtNIVQIB2N855nARA1w.png" alt="DN-ZeroDCE架构图"></p>
+<p>在我们的实验中，DN-ZeroDCE有效地消除了与低光图像相关的噪点。最初的ZeroDCE模型依赖于一组精心设计的非参考损耗函数。这些损失函数包括色彩恒定性损失、曝光损失、照明平滑度损失和空间一致性损失。DN-ZeroDCE 是 Zero-DCE 的改进版本，它集成了额外的非参考噪声损失功能。</p>
+<p>为了在模型训练过程中降低噪声，我们引入了噪声水平函数 （NLF）⁵ 作为 DN-ZeroDCE 的非参考噪声损失函数。NLF 有两个目的：（1） 保持模型的零参考特性，以及 （2） 训练网络从增强图像中去除噪声的能力。NLF 测量噪声相对于原始图像和增强图像的图像强度的标准偏差。</p>
+<p>NLF 噪声损失函数可以表示为：</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/1kVzXp4kLJlYnesst4_CGuQ.png" alt="噪声电平函数的表示"></p>
+<p>我们的DN-ZeroDCE方法可以通过降低噪声水平来改善增强图像，表明模型在图像降噪方面的有效性。这可以从下面 ZeroDCE 和 DN-ZeroDCE 模型的输出伪影中看出。</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/1V-lIQ45esp533bLL1lU0Gg.png" alt="增强图像中的噪点比较"></p>
+<p>DN-ZeroDCE能够更好地抑制图像增强（或图像中存在的原始噪声）引起的噪点伪影。您可以在左侧的ZeroDCE增强图像中看到可见的噪点斑点，但在右侧则看不到。这种增强功能非常重要，因为它可以消除输出图像中不需要的噪声和失真，这些噪声和失真可能会影响它们在实际应用中的实用性。</p>
+<p>我们的实验表明，DN-ZeroDCE在峰值信噪比（PSNR）、结构相似性（SSIM）和平均绝对误差（MAE）方面可以获得更好的图像增强效果，如下表1所示。在 ZeroDCE 模型之前加入自动编码器模块，对 PSNR 和 SSIM 索引都进行了重大改进，同时保持了与原始 ZeroDCE 几乎相同的推理速度。</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/1YmVuC13LP5sO5j2yUUh3FA.png" alt="表 1：DN-ZeroDCE 和 ZeroDCE 之间的性能比较"></p>
+<h2 id="4️⃣-模型性能评估"><a href="#4️⃣-模型性能评估" class="headerlink" title="4️⃣ 模型性能评估"></a>4️⃣ 模型性能评估</h2><p>利用来自闭路电视的精选低光图像数据集，我们重新训练和增强了模型，以更好地处理现实世界的条件。这些图像来自各种相机型号，具有不同质量的光电传感器，从而导致不同的图像捕获。这些问题是由于部署的相机传感器具有更宽的视野，进而在单个图像中捕获不同的照明条件。</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/1tPeTREw0l5-CkTcyWQRmdw.png" alt="开源图像与闭路电视图像的视觉比较。"></p>
+<p>​        </p>
+<p>在开源图像和内部策划图像上使用DN-ZeroDCE模型比较结果，我们能够验证我们的假设，并证明我们的方法在色彩和细节再现方面为2个图像源带来了显着改进（如下图所示）。</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/1foTZ05c6yd7UX78ch2PdRQ.png" alt="增强图像结果的视觉比较"></p>
+<h2 id="5️⃣-全自动工作流程"><a href="#5️⃣-全自动工作流程" class="headerlink" title="5️⃣ 全自动工作流程"></a>5️⃣ <strong>全自动工作流程</strong></h2><p>虽然有许多低光图像增强型号可用，但它们容易受到不切实际的增强和色彩失真等问题的影响，导致输出质量欠佳。<strong>过度增强图像，尤其是非低光图像时，会导致引入额外的噪点和伪影，最终降低整体图像质量</strong>。</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/1QXzuq9zRuQdxO-qZIMDiiw.png" alt="过度增强的图像与噪点、伪影和失真的视觉比较。"></p>
+<p>我们开发了一种低光增强产品，可以执行自动校正不同类型的弱光问题并生成视觉上令人愉悦和自然的图像的端到端过程。<strong>该工作流程旨在首先使用 SVM 模型确定图像是否需要弱光增强（在上一节中讨论）。如果图像是低光并且需要增强，则图像将通过低光增强模型。</strong>应用增强模型后，使用图像质量评估方法（如 Brisque）对生成的图像进行排名。然后，从这个排名中，我们选择前N个质量的图像作为低光增强过程的输出。</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/1onFqicNQENyJVLKwPlZGqw.png" alt="实施低光增强管线"></p>
+<h2 id="🤝-Thank-you"><a href="#🤝-Thank-you" class="headerlink" title="🤝 Thank you"></a>🤝 Thank you</h2><blockquote>
+<p>❤️ 每周免费分享CV&amp;AIGC相关最新资讯，感兴趣可以关注，喜欢动动小手点个赞，谢谢支持！</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231225181620040-1703499837451-20.png" alt="Thank you"></p>
 
                 
             </div>
@@ -645,7 +530,7 @@ python visual_chatgpt.py <span class="token parameter variable">--load</span> <s
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lee-jet.github.io/2023/09/12/visualchatgpt/">https://lee-jet.github.io/2023/09/12/visualchatgpt/</a>
+                    <a href="https://lee-jet.github.io/2023/12/25/llie/">https://lee-jet.github.io/2023/12/25/llie/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -762,7 +647,7 @@ python visual_chatgpt.py <span class="token parameter variable">--load</span> <s
         repo: 'gitalk',
         owner: 'lee-jet',
         admin: "lee-jet",
-        id: '2023-09-12T17-16-03',
+        id: '2023-12-25T18-22-01',
         distractionFreeMode: false,  // Facebook-like distraction free mode
     });
 
@@ -790,17 +675,18 @@ python visual_chatgpt.py <span class="token parameter variable">--load</span> <s
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/09/13/mvdiffusion/">
+                <a href="/2023/12/25/llie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="MVDiffusion">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="LLIE">
                         
-                        <span class="card-title">MVDiffusion</span>
+                        <span class="card-title">LLIE</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -810,9 +696,9 @@ python visual_chatgpt.py <span class="token parameter variable">--load</span> <s
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-09-13
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-25
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -825,6 +711,7 @@ python visual_chatgpt.py <span class="token parameter variable">--load</span> <s
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -843,13 +730,13 @@ python visual_chatgpt.py <span class="token parameter variable">--load</span> <s
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/09/07/vae/">
+                <a href="/2023/12/22/202312-part02/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="VAE">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="202312-Part02">
                         
-                        <span class="card-title">VAE</span>
+                        <span class="card-title">202312-Part02</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -860,7 +747,7 @@ python visual_chatgpt.py <span class="token parameter variable">--load</span> <s
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-09-07
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-22
                             </span>
                         <span class="publish-author">
                             
