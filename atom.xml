@@ -6,7 +6,7 @@
   <link href="https://lee-jet.github.io/atom.xml" rel="self"/>
   
   <link href="https://lee-jet.github.io/"/>
-  <updated>2023-12-25T10:25:39.769Z</updated>
+  <updated>2023-12-26T06:47:44.094Z</updated>
   <id>https://lee-jet.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SD_timeline</title>
+    <link href="https://lee-jet.github.io/2023/12/26/sd-timeline/"/>
+    <id>https://lee-jet.github.io/2023/12/26/sd-timeline/</id>
+    <published>2023-12-26T06:38:39.000Z</published>
+    <updated>2023-12-26T06:47:44.094Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;6&#39;&gt;&lt;strong&gt;⚡Stable Diffusion 所有版本对比⚡&lt;/strong&gt;&lt;/font&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;本文主要介绍截止到2023年12月 Stable</summary>
+        
+      
+    
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
+    
+  </entry>
   
   <entry>
     <title>LLIE</title>
@@ -501,35 +529,6 @@
         
     <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;4.5&#39;&gt;&lt;strong&gt;DragDiffusion: Harnessing Diffusion Models
 for Interactive Point-based Image</summary>
-        
-      
-    
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>DiffusersTutorials</title>
-    <link href="https://lee-jet.github.io/2023/09/20/diffuserstutorials/"/>
-    <id>https://lee-jet.github.io/2023/09/20/diffuserstutorials/</id>
-    <published>2023-09-20T06:20:56.000Z</published>
-    <updated>2023-09-20T06:24:46.038Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;8&#39;&gt;&lt;strong&gt;Diffusers Tutorials&lt;/strong&gt;&lt;/font&gt;&lt;/div&gt;
-
-&lt;hr&gt;
-&lt;ul&gt;
-&lt;li&gt;code &lt;a</summary>
         
       
     
