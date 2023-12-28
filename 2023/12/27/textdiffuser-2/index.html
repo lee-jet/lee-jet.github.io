@@ -4,15 +4,18 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Cascade-DETR, AiHub">
-    <meta name="description" content="Cascade-DETR: Delving into High-Quality Universal Object Detection
+    <meta name="keywords" content="TextDiffuser-2, AiHub">
+    <meta name="description" content="⚡ TextDiffuser-2 | 图像加logo神器
 
 
-Paper
-Code 
 
-Abstract
-Transformer-based检测器在coco上占主导">
+本文主要介绍用于 TextDiffuser-2 的应用，即用户输入文本描述，即可生成指定文本logo的图像。
+
+
+
+
+👀 目录[TOC]
+1️⃣ 方法论我们提出 TextDi">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -24,7 +27,7 @@ Transformer-based检测器在coco上占主导">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Cascade-DETR | AiHub</title>
+    <title>TextDiffuser-2 | AiHub</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -344,12 +347,12 @@ Transformer-based检测器在coco上占主导">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Cascade-DETR</h1>
+                    <h1 class="description center-align post-title">TextDiffuser-2</h1>
                 </div>
             </div>
         </div>
@@ -398,21 +401,21 @@ Transformer-based检测器在coco上占主导">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-08-01
+                    2023-12-27
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-08-01
+                    2023-12-27
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    497
+                    712
                 </div>
                 
 
@@ -442,98 +445,80 @@ Transformer-based检测器在coco上占主导">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <div align='center' ><font size='5'>Cascade-DETR: Delving into High-Quality Universal Object Detection</font></div>
+                <div align='center' ><font size='4.5'><strong>⚡ TextDiffuser-2 | 图像加logo神器</strong></font></div>
 
+<hr>
+<blockquote>
+<p>本文主要介绍用于 TextDiffuser-2 的应用，即用户输入文本描述，即可生成指定文本logo的图像。</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/teaser-1703667300190-1.jpg" alt="img"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231227171242480.png" alt="image-20231227171242480"></p>
+<hr>
+<h2 id="👀-目录"><a href="#👀-目录" class="headerlink" title="👀 目录"></a>👀 目录</h2><p>[TOC]</p>
+<h2 id="1️⃣-方法论"><a href="#1️⃣-方法论" class="headerlink" title="1️⃣ 方法论"></a>1️⃣ 方法论</h2><p>我们提出 TextDiffuser-2，旨在释放语言模型用于文本渲染的力量。具体来说，我们将语言模型驯化为布局规划器，以使用标题-OCR 对将用户提示转换为布局。该语言模型通过从用户提示中推断关键字或合并用户指定的关键字来确定其位置来展示灵活性和自动化。其次，我们利用扩散模型中的语言模型作为布局编码器来表示行级别文本的位置和内容。这种方法使扩散模型能够生成具有更广泛多样性的文本图像。</p>
+<h3 id="TextDiffuser-2-的架构"><a href="#TextDiffuser-2-的架构" class="headerlink" title="TextDiffuser-2 的架构"></a>TextDiffuser-2 的架构</h3><ul>
+<li>语言模型M1和扩散模型分两个阶段进行训练。语言模型M1可以将用户提示转换为语言格式的布局，并且还允许用户选择性地指定关键字。此外，提示和语言格式布局利用扩散模型内的可训练语言模型M2进行编码以生成图像。 M1在第一阶段通过交叉熵损失进行训练，而M2和U-Net在第二阶段使用去噪L2损失进行训练。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/architecture.jpg" alt=" "></p>
+<h2 id="2️⃣-效果对比"><a href="#2️⃣-效果对比" class="headerlink" title="2️⃣ 效果对比"></a>2️⃣ 效果对比</h2><h3 id="1-与现有方法相比文本到图像结果的可视化"><a href="#1-与现有方法相比文本到图像结果的可视化" class="headerlink" title="1 与现有方法相比文本到图像结果的可视化"></a>1 与现有方法相比文本到图像结果的可视化</h3><ul>
+<li>TextDiffuser-2可以自动从提示中提取关键字以进行准确渲染。此外，TextDiffuser-2 生成的字体表现出广泛的多样性。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231227172133126.png" alt=" "></p>
+<h3 id="2-在同一提示下生成多个图像的多样性的可视化"><a href="#2-在同一提示下生成多个图像的多样性的可视化" class="headerlink" title="2 在同一提示下生成多个图像的多样性的可视化"></a>2 在同一提示下生成多个图像的多样性的可视化</h3><ul>
+<li> TextDiffuser-2 能够生成更具艺术性的字体，增加字符位置和文本行倾斜角度的多样性。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231227172155802.png" alt=" "></p>
+<h3 id="3-文本修复任务与TextDiffuser可视化比较"><a href="#3-文本修复任务与TextDiffuser可视化比较" class="headerlink" title="3 文本修复任务与TextDiffuser可视化比较"></a>3 文本修复任务与TextDiffuser可视化比较</h3><ul>
+<li>TextDiffuser-2 可以生成更连贯的文本</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231227172240907.png" alt=" "></p>
+<h3 id="4-定量结果和用户研究的演示"><a href="#4-定量结果和用户研究的演示" class="headerlink" title="4 定量结果和用户研究的演示"></a>4 定量结果和用户研究的演示</h3><ul>
+<li>我们还将 GPT-4V 纳入用户研究中。最好和第二好的结果以粗体和下划线的形式表示。 TextDiffuser-2 在大多数指标下取得了最佳结果。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/quanti.jpg" alt=" "></p>
+<h2 id="3️⃣-美图秀儿"><a href="#3️⃣-美图秀儿" class="headerlink" title="3️⃣ 美图秀儿"></a>3️⃣ 美图秀儿</h2><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231227171314855.png" alt="image-20231227171314855"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231227174827023.png" alt="image-20231227174827023"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231227174902274.png" alt="image-20231227174902274"></p>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2307.11035">Paper</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/SysCV/cascade-detr">Code</a> </li>
+<li><strong>The words ‘KFC Plus’ are inscribed upon the wall in a neon light effect</strong></li>
 </ul>
-<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><ul>
-<li>Transformer-based检测器在coco上占主导地位，但是在其它domain不具有竞争力——在复杂环境下泛化能力不佳</li>
-<li>本文提出了Cascade Attention layer, 通过限制注意力到先前的box预测来隐式地将物体中心信息整合到检测解码器。为了进一步提升准确率，预测查询的预期 IoU，从而大大提高了校准过的可信度</li>
-<li>UDB10 Benchmark包含10类不同数据集， spanning traffic, medical, art, open-world, etc.  </li>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-1703670084642-22.png" alt="img"></p>
+<ul>
+<li><strong>portrait of a ‘dragon’, concept art, sumi - e style, intricate linework, green smoke, artstation, trending, highly detailed, smooth, focus, art by yoji shinkawa,</strong></li>
 </ul>
-<h2 id="Related-Work"><a href="#Related-Work" class="headerlink" title="Related Work"></a>Related Work</h2><ul>
-<li>DETR-based Object Detection    <ul>
-<li>CNN-based  </li>
-<li>DETR-based ：超过了CNN-based<ul>
-<li>DN-DETR: as baseline</li>
-<li>DINO</li>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-1703670843572-1.png" alt="img"></p>
+<ul>
+<li><strong>‘iResearch666’ hat</strong></li>
 </ul>
-</li>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-1703670996841-4.png" alt="img"></p>
+<ul>
+<li><strong>Thanksgiving ‘iResearch666’ Mens T Shirt</strong></li>
 </ul>
-</li>
-<li>Cross-attention in DETR-based Decoder  <ul>
-<li>Deformable DETR: deformable attention</li>
-<li>Mask2Former: mask attention for segmentation </li>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-1703671248946-11.png" alt="img"></p>
+<h2 id="4️⃣-免费测试"><a href="#4️⃣-免费测试" class="headerlink" title="4️⃣ 免费测试"></a>4️⃣ 免费测试</h2><ul>
+<li>提示词</li>
 </ul>
-</li>
-<li>High-quality Object Detection<ul>
-<li>R-CNN based<ul>
-<li>Cascade R-CNN</li>
-<li>Dynamic R-CNN  </li>
-<li>FCOS</li>
+<p><strong>A detailed portrait of a dog with a shield with Thanks written on it, by victo ngai and justin gerard, digital art, realistic painting</strong></p>
+<ul>
+<li>生成图像</li>
 </ul>
-</li>
-<li>DETR-based <ul>
-<li>first one</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>DETR-based Universal Object Detection  <ul>
-<li>COCO</li>
-<li>UDB10</li>
-</ul>
-</li>
-</ul>
-<h2 id="Contributions"><a href="#Contributions" class="headerlink" title="Contributions"></a>Contributions</h2><ul>
-<li>Cascade Attention  </li>
-<li>IoU-aware Query Recalibration  </li>
-</ul>
-<h2 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308011748074.png" alt="image-20230801161017608"></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308011748075.png" alt="image-20230801164536052"></p>
-<h3 id="Cascade-Attention"><a href="#Cascade-Attention" class="headerlink" title="Cascade Attention"></a>Cascade Attention</h3><ul>
-<li>Why<ul>
-<li>标准的DETR decoder中利用的是全局图像特征，本文认为（假设）query领域的local信息更加重要。在COCO上，交叉注意力map收敛到object位置的周边区域。之所以网络可以学习这种inductive bias，是因为数据量很大。所以对小批量数据或者多样性的数据并不合适。</li>
-</ul>
-</li>
-<li>How<ul>
-<li>本文提出将目标中心prior作为已知约束整合到网络的初始化和训练过程，具体就是在decoder的每一层预测的box作为交叉注意力的范围进行约束。</li>
-<li><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308011748076.png" alt="image-20230801164253653"></li>
-</ul>
-</li>
-<li>What</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308011748077.png" alt="image-20230801161702452"></p>
-<p>​        上图可见，attention map区域就是box区域，这种inductive bias使得DETR快速收敛且提升性能，尤其是在小数据集和多样性数据集上</p>
-<h3 id="IoU-aware-Query-Recalibration"><a href="#IoU-aware-Query-Recalibration" class="headerlink" title="IoU-aware Query Recalibration"></a>IoU-aware Query Recalibration</h3><ul>
-<li>Why<ul>
-<li>分类得分没有显示考虑到预测的bbox准确率, 而高质量的propasals需要高的IOU</li>
-</ul>
-</li>
-<li>How<ul>
-<li>在网络的最后一层增加了一个由linear layer构成的branch，用来预测IOU的期望，采用L2 loss</li>
-<li><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308011748079.png" alt="image-20230801164218728"></li>
-</ul>
-</li>
-<li>What<ul>
-<li><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308011748080.png" alt="image-20230801163453254"></li>
-<li>re-calibrated 更接近，具有更好的定位质量</li>
-</ul>
-</li>
-</ul>
-<h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308011748081.png" alt="image-20230801164121735"></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308011748082.png" alt="image-20230801164045970"></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308011748083.png" alt="image-20230801163942235"></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308011748084.png" alt="image-20230801164351031"></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/images/202308011748085.png" alt="image-20230801164801157"></p>
-<h2 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions"></a>Conclusions</h2><ul>
-<li>很强</li>
-</ul>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2203.01305">DN-DETR: Accelerate DETR Training by Introducing Query DeNoising</a></li>
-</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231227173421943.png" alt=" "></p>
+<p>✅ 论文 <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2311.16465">https://arxiv.org/abs/2311.16465</a></p>
+<p>✅ 代码 <a target="_blank" rel="noopener" href="https://github.com/microsoft/unilm/tree/master/textdiffuser-2">https://github.com/microsoft/unilm/tree/master/textdiffuser-2</a></p>
+<p>✅ 测试</p>
+<p>​    👉 <a target="_blank" rel="noopener" href="https://huggingface.co/spaces/JingyeChen22/TextDiffuser-2">https://huggingface.co/spaces/JingyeChen22/TextDiffuser-2</a></p>
+<p>​    👉 <a target="_blank" rel="noopener" href="https://huggingface.co/spaces/JingyeChen22/TextDiffuser">https://huggingface.co/spaces/JingyeChen22/TextDiffuser</a></p>
+<h2 id="🤝-Thank-you"><a href="#🤝-Thank-you" class="headerlink" title="🤝 Thank you"></a>🤝 Thank you</h2><blockquote>
+<p>❤️ 每周免费分享CV&amp;AIGC相关最新资讯，感兴趣可以关注，喜欢动动小手点个赞，谢谢支持！</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-1703672764909-16.png" alt="image"></th>
+<th><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-1703669718686-19-1703672767388-18.png" alt="image-1703669718686-19"></th>
+</tr>
+</thead>
+</table>
 
                 
             </div>
@@ -560,7 +545,7 @@ Transformer-based检测器在coco上占主导">
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lee-jet.github.io/2023/08/01/cascade-detr/">https://lee-jet.github.io/2023/08/01/cascade-detr/</a>
+                    <a href="https://lee-jet.github.io/2023/12/27/textdiffuser-2/">https://lee-jet.github.io/2023/12/27/textdiffuser-2/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -677,7 +662,7 @@ Transformer-based检测器在coco上占主导">
         repo: 'gitalk',
         owner: 'lee-jet',
         admin: "lee-jet",
-        id: '2023-08-01T17-42-20',
+        id: '2023-12-27T18-25-05',
         distractionFreeMode: false,  // Facebook-like distraction free mode
     });
 
@@ -705,17 +690,18 @@ Transformer-based检测器在coco上占主导">
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/08/02/oc-sort/">
+                <a href="/2023/12/27/textdiffuser-2/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="OC-SORT">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="TextDiffuser-2">
                         
-                        <span class="card-title">OC-SORT</span>
+                        <span class="card-title">TextDiffuser-2</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -725,9 +711,9 @@ Transformer-based检测器在coco上占主导">
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-08-02
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-27
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -740,6 +726,7 @@ Transformer-based检测器在coco上占主导">
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -758,13 +745,13 @@ Transformer-based检测器在coco上占主导">
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/08/01/paper-reading/">
+                <a href="/2023/12/26/sd-timeline/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="paper-reading">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="SD_timeline">
                         
-                        <span class="card-title">paper-reading</span>
+                        <span class="card-title">SD_timeline</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -775,7 +762,7 @@ Transformer-based检测器在coco上占主导">
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-26
                             </span>
                         <span class="publish-author">
                             

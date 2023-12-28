@@ -6,7 +6,7 @@
   <link href="https://lee-jet.github.io/atom.xml" rel="self"/>
   
   <link href="https://lee-jet.github.io/"/>
-  <updated>2023-12-26T06:47:44.094Z</updated>
+  <updated>2023-12-27T10:27:43.988Z</updated>
   <id>https://lee-jet.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>TextDiffuser-2</title>
+    <link href="https://lee-jet.github.io/2023/12/27/textdiffuser-2/"/>
+    <id>https://lee-jet.github.io/2023/12/27/textdiffuser-2/</id>
+    <published>2023-12-27T10:25:05.000Z</published>
+    <updated>2023-12-27T10:27:43.988Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;4.5&#39;&gt;&lt;strong&gt;⚡ TextDiffuser-2 | 图像加logo神器&lt;/strong&gt;&lt;/font&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;本文主要介绍用于</summary>
+        
+      
+    
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
+    
+  </entry>
   
   <entry>
     <title>SD_timeline</title>
@@ -503,32 +532,6 @@
         
         
     <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;5&#39;&gt;&lt;strong&gt;Denoising Diffusion Probabilistic Model | Code</summary>
-        
-      
-    
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>DragDiffusion</title>
-    <link href="https://lee-jet.github.io/2023/09/21/dragdiffusion/"/>
-    <id>https://lee-jet.github.io/2023/09/21/dragdiffusion/</id>
-    <published>2023-09-21T08:32:09.000Z</published>
-    <updated>2023-09-21T08:33:14.260Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;4.5&#39;&gt;&lt;strong&gt;DragDiffusion: Harnessing Diffusion Models
-for Interactive Point-based Image</summary>
         
       
     
