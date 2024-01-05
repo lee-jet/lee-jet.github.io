@@ -6,7 +6,7 @@
   <link href="https://lee-jet.github.io/atom.xml" rel="self"/>
   
   <link href="https://lee-jet.github.io/"/>
-  <updated>2023-12-27T10:27:43.988Z</updated>
+  <updated>2024-01-05T02:51:15.705Z</updated>
   <id>https://lee-jet.github.io/</id>
   
   <author>
@@ -15,6 +15,140 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>DeepHDR</title>
+    <link href="https://lee-jet.github.io/2024/01/05/deephdr/"/>
+    <id>https://lee-jet.github.io/2024/01/05/deephdr/</id>
+    <published>2024-01-05T02:47:51.000Z</published>
+    <updated>2024-01-05T02:51:15.705Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;5&#39;&gt;&lt;strong&gt;⚡ AISP之HDR | 深度高动态范围成像 ⚡&lt;/strong&gt;&lt;/font&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;在摄影和ISP成像领域，高动态范围 (HDR)</summary>
+        
+      
+    
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>AnyText</title>
+    <link href="https://lee-jet.github.io/2024/01/03/anytext/"/>
+    <id>https://lee-jet.github.io/2024/01/03/anytext/</id>
+    <published>2024-01-03T10:29:46.000Z</published>
+    <updated>2024-01-03T10:31:17.281Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;6&#39;&gt;&lt;strong&gt;⚡ AnyText | 广告营销文本生成 &lt;/strong&gt;&lt;/font&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;paper &lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>artistic_lettering</title>
+    <link href="https://lee-jet.github.io/2024/01/02/artistic-lettering/"/>
+    <id>https://lee-jet.github.io/2024/01/02/artistic-lettering/</id>
+    <published>2024-01-02T10:27:59.000Z</published>
+    <updated>2024-01-02T10:33:19.586Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;5&#39;&gt;&lt;strong&gt;⚡ AIGC绘画|艺术字及古诗意境生成</summary>
+        
+      
+    
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LLIE_denoise</title>
+    <link href="https://lee-jet.github.io/2023/12/29/llie-denoise/"/>
+    <id>https://lee-jet.github.io/2023/12/29/llie-denoise/</id>
+    <published>2023-12-29T08:20:24.000Z</published>
+    <updated>2024-01-02T10:29:45.900Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;5&#39;&gt;&lt;strong&gt;⚡ AISP之超感光降噪与暗光增强 ⚡&lt;/strong&gt;&lt;/font&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;本文主要介绍超感光降噪技术 Unprocessing</summary>
+        
+      
+    
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CrispMix</title>
+    <link href="https://lee-jet.github.io/2023/12/28/crispmix/"/>
+    <id>https://lee-jet.github.io/2023/12/28/crispmix/</id>
+    <published>2023-12-28T10:02:10.000Z</published>
+    <updated>2023-12-28T10:03:46.969Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;6&#39;&gt;&lt;strong&gt;⚡ AIGC绘画 | 清爽风格</summary>
+        
+      
+    
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
+    
+  </entry>
   
   <entry>
     <title>TextDiffuser-2</title>
@@ -399,139 +533,6 @@
         
         
     <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;4.5&#39;&gt;&lt;strong&gt;VideoCrafter1: Open Diffusion Models for High-Quality Video</summary>
-        
-      
-    
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>UniversalImageRestoration</title>
-    <link href="https://lee-jet.github.io/2023/10/12/universalimagerestoration/"/>
-    <id>https://lee-jet.github.io/2023/10/12/universalimagerestoration/</id>
-    <published>2023-10-12T06:03:53.000Z</published>
-    <updated>2023-10-12T06:04:58.815Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;4.5&#39;&gt;&lt;strong&gt;Controlling Vision-Language Models for Universal Image</summary>
-        
-      
-    
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>DALL-E3</title>
-    <link href="https://lee-jet.github.io/2023/10/10/dall-e3/"/>
-    <id>https://lee-jet.github.io/2023/10/10/dall-e3/</id>
-    <published>2023-10-10T10:37:33.000Z</published>
-    <updated>2023-10-25T04:11:26.603Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;4.5&#39;&gt;&lt;strong&gt;DALL-E3&lt;/strong&gt;&lt;/font&gt;&lt;/div&gt;
-
-&lt;hr&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;project &lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>FreeU</title>
-    <link href="https://lee-jet.github.io/2023/09/28/freeu/"/>
-    <id>https://lee-jet.github.io/2023/09/28/freeu/</id>
-    <published>2023-09-28T02:59:23.000Z</published>
-    <updated>2023-09-28T03:00:34.839Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;6&#39;&gt;&lt;strong&gt;FreeU: Free Lunch in Diffusion U-Net&lt;/strong&gt;&lt;/font&gt;&lt;/div&gt;
-
-&lt;hr&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;paper &lt;a</summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>DDIM</title>
-    <link href="https://lee-jet.github.io/2023/09/27/ddim/"/>
-    <id>https://lee-jet.github.io/2023/09/27/ddim/</id>
-    <published>2023-09-27T03:08:08.000Z</published>
-    <updated>2023-09-27T03:08:56.496Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;4.5&#39;&gt;&lt;strong&gt;Denoising Diffusion Implicit Models&lt;/strong&gt;&lt;/font&gt;&lt;/div&gt;
-
-&lt;hr&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;paper &lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>DDPM-Code</title>
-    <link href="https://lee-jet.github.io/2023/09/26/ddpm-code/"/>
-    <id>https://lee-jet.github.io/2023/09/26/ddpm-code/</id>
-    <published>2023-09-26T02:38:42.000Z</published>
-    <updated>2023-09-26T02:41:21.205Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;5&#39;&gt;&lt;strong&gt;Denoising Diffusion Probabilistic Model | Code</summary>
         
       
     
