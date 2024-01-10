@@ -4,14 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="VAE, AiHub">
-    <meta name="description" content="Variational AutoEncoder
+    <meta name="keywords" content="GenAnimation, AiHub">
+    <meta name="description" content="⚡ AIGC绘画 | outfit anyone 虚拟试衣 &amp; animate anyone 图像动画化|  
 
 
-自动编码器（Autoencoder，AE）
-https://arxiv.org/abs/2003.05991
-
-原理先将高维的原始数据映射到一个低维特征空间，然后从低维特征学习重建原始的数">
+本文主要介绍2篇最新研究，outfit anyone 虚拟试衣 和 animate anyone 图像动画化，在在线购物试衣">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -23,7 +20,7 @@ https://arxiv.org/abs/2003.05991
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>VAE | AiHub</title>
+    <title>GenAnimation | AiHub</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -343,12 +340,12 @@ https://arxiv.org/abs/2003.05991
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">VAE</h1>
+                    <h1 class="description center-align post-title">GenAnimation</h1>
                 </div>
             </div>
         </div>
@@ -397,28 +394,28 @@ https://arxiv.org/abs/2003.05991
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-09-07
+                    2024-01-10
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-09-07
+                    2024-01-10
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2k
+                    4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    13 分
                 </div>
                 
 
@@ -441,103 +438,132 @@ https://arxiv.org/abs/2003.05991
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <div align='center' ><font size='8'><strong>Variational AutoEncoder</strong></font></div>
+                <div align='center' ><font size='6'><strong>⚡ AIGC绘画 | outfit anyone 虚拟试衣 & animate anyone 图像动画化|  </strong></font></div>
 
-<hr>
-<h2 id="自动编码器（Autoencoder，AE）"><a href="#自动编码器（Autoencoder，AE）" class="headerlink" title="自动编码器（Autoencoder，AE）"></a>自动编码器（Autoencoder，AE）</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2003.05991">https://arxiv.org/abs/2003.05991</a></li>
+<blockquote>
+<p>本文主要介绍2篇最新研究，outfit anyone 虚拟试衣 和 animate anyone 图像动画化，在在线购物试衣和动画制作上迈出了一小步！</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/2.gif" alt="An Asian girl, smiling, dancing in central park, wearing long shirt and long jeans."></p>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>[TOC]</p>
+<h2 id="☢️虚拟试衣-amp-图片动画化"><a href="#☢️虚拟试衣-amp-图片动画化" class="headerlink" title="☢️虚拟试衣 &amp; 图片动画化"></a>☢️虚拟试衣 &amp; 图片动画化</h2><ul>
+<li>先选择衣服和模特进行试衣</li>
+<li>后驱动图像动画化</li>
 </ul>
-<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>先将高维的原始数据映射到一个低维特征空间，然后从低维特征学习重建原始的数据。一个AE模型包含两部分网络：</p>
-<ul>
-<li>Encoder：将原始的高维数据映射到低维特征空间，这个特征维度一般比原始数据维度要小，这样就起到压缩或者降维的目的，这个低维特征也往往成为中间隐含特征（latent representation）</li>
-<li>Decoder：基于压缩后的低维特征来重建原始数据</li>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240105171214723.png" alt=" "></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240110103042526.png" alt=" "></p>
+<h2 id="☣️-Outfit-Anyone-虚拟换衣——告别试衣间"><a href="#☣️-Outfit-Anyone-虚拟换衣——告别试衣间" class="headerlink" title="☣️ Outfit Anyone 虚拟换衣——告别试衣间"></a>☣️ Outfit Anyone 虚拟换衣——告别试衣间</h2><h3 id="🍇-论文原理"><a href="#🍇-论文原理" class="headerlink" title="🍇 论文原理"></a>🍇 论文原理</h3><p><code>Outfit Anyone</code>是一项新的虚拟试穿技术。该技术通过两流程条件扩散模型，有效处理服装变形，提供更逼真的虚拟试穿效果。它在众多场景中表现出色，包括真实环境、个性化服饰、不同体型甚至动漫角色的试穿。这一技术不仅展现了高度的适应性，还提供了后期精细化处理功能，以增强服装和皮肤纹理的真实感。凭借其超高质量的虚拟试穿功能、多功能性和可扩展性，它提供了真正身临其境且便捷的购物体验。<strong>与 Outfit Anyone 一起告别试衣间的麻烦，拥抱时尚的未来</strong>。</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/fm.jpg" alt=" "></p>
+<p>我们方法的核心条件扩散模型使用服装图像作为控制因素来处理模型、服装和随附文本提示的图像。在内部，网络分为两个流，用于独立处理模型和服装数据。这些流汇聚在一个融合网络中，有助于将服装细节嵌入到模型的特征表示中。在此基础上，我们建立了 Outfit Anyone，包括两个关键要素：用于初始试穿图像的零样本试穿网络，以及用于输出图像中服装和皮肤纹理细节增强的事后优化器。</p>
+<p>- <strong>定制的双流处理：</strong> “Outfit Anyone”通过将网络分为两个流来处理图像，从而允许单独处理模型和服装数据。这种分离确保了精确的服装变形以及更好地贴合虚拟模型。</p>
+<p>- <strong>复杂的融合网络：</strong> “Outfit Anyone”的核心是一个融合网络，差异化的流汇聚于此。在这里，服装细节与模型的特征表示精心结合，有助于实现逼真的虚拟试穿结果。</p>
+<p>- <strong>后期处理细化：</strong> 除了初始图像之外，“Outfit Anyone”还采用了事后细化器，可以细化服装和皮肤纹理，从而为最终输出图像提供更高水平的真实感。</p>
+<p>“服装任何人”展示了值得称赞的多功能性，处理多样化的风格、体型，甚至在虚拟空间中启用新的角色动画。与“Animate Anyone”相结合，它可以在运动视频中生成服装变化。需要注意的是，该项目的目的纯粹是学术性的，只是作为效果展示，没有任何商业目的。作为研究的延伸以及对 VITON 和 DressCode 等现有公共数据集的认可，“Outfit Anyone”踏上了时尚行业未来愿景的旅程，想象力和包容性塑造了我们与风格和服装互动的方式。</p>
+<h3 id="🍈-应用场景及特点"><a href="#🍈-应用场景及特点" class="headerlink" title="🍈 应用场景及特点"></a>🍈 应用场景及特点</h3><p><strong>Outfit Anyone使用场景：</strong></p>
+<p>电商平台：用户可以在线试穿各种服装款式，提高购物体验</p>
+<p>虚拟试衣场景：用户可以通过手机应用程序尝试不同的衣物组合</p>
+<p>动漫角色设计：设计师可以使用 Outfit Anyone 为动漫角色设计各种服装样式</p>
+<p><strong>Outfit Anyone功能:</strong></p>
+<p>高质量虚拟试穿：Outfit Anyone技术可以生成高分辨率、逼真的虚拟试穿效果，用户可以在虚拟环境中试穿各种服装，并查看效果。</p>
+<p>任意服装虚拟试穿：无论是来自电商平台的商品，还是来自街拍的时尚单品，Outfit Anyone都可以进行虚拟试穿，使用户能够在购买前预览效果。</p>
+<p>多种风格试穿：Outfit Anyone支持多种风格的虚拟试穿，包括休闲、商务、正式等，用户可以根据自己的需求选择不同的风格进行试穿。</p>
+<p>实时渲染：Outfit Anyone采用实时渲染技术，能够在短时间内生成虚拟试穿效果，使用户能够快速查看试穿效果。</p>
+<p>人工智能驱动：Outfit Anyone基于人工智能技术，能够自动处理和优化虚拟试穿效果，使试穿效果更加逼真。</p>
+<p>用户定制：用户可以根据自己的需求和偏好，选择不同的服装、发型、配饰等进行虚拟试穿，定制自己的试穿效果。</p>
+<p><strong>Outfit Anyone优势：</strong></p>
+<p>适用于任何衣服和人物：无论是什么样的衣服或是什么样的人，都能完美适配。</p>
+<p>个性化时尚展示：可以展示各种独特和时尚的服装搭配。- 适应不同体型：能够适应不同的体型，为各种身材的人提供试衣效果。</p>
+<p>强大泛化能力：模型具有强大的泛化能力，可以支持动画角色的新服装形象创建。</p>
+<p>细节增强：它能够显着增强服装的质感和真实感，同时保持服装的一致性。</p>
+<p>在实际应用中，用户可以看到自己在不同风格、不同类型的服装下的样子，而无需实际试穿，这不仅省时省力，还能提供更多的选择和灵感，随着技术的不断进步和应用的深入，我相信类似 Outfit Anyone 这样的应用将在未来变得更加普遍，它不仅会成为我们日常生活中的一部分，更会成为推动时尚行业发展的重要力量。</p>
+<h3 id="🍉-实验结果"><a href="#🍉-实验结果" class="headerlink" title="🍉 实验结果"></a>🍉 实验结果</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/Item.gif" alt=" "></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/2-1704853392119-5.gif" alt=" "></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/1.gif" alt=" "></p>
+<h4 id="1-平铺图输入，且支持单件、上下装成套的试衣"><a href="#1-平铺图输入，且支持单件、上下装成套的试衣" class="headerlink" title="1. 平铺图输入，且支持单件、上下装成套的试衣"></a><strong>1. 平铺图输入，且支持单件、上下装成套的试衣</strong></h4><p>支持平铺图的输入，并且可同时支持单件或者上下搭配。模型根据模特姿势身材的不同，相应生成褶皱、光照等细节不同的服饰上身效果，从而实现百变的换装体验。</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/640.gif" alt=" "></p>
+<h4 id="2-奇装异服试衣"><a href="#2-奇装异服试衣" class="headerlink" title="2. 奇装异服试衣"></a><strong>2. 奇装异服试衣</strong></h4><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/640-1704445509642-6.gif" alt=" "></p>
+<h4 id="3-服饰细节一致性"><a href="#3-服饰细节一致性" class="headerlink" title="3. 服饰细节一致性"></a><strong>3. 服饰细节一致性</strong></h4><p>可以在保留服饰基本属性基础上，Refiner模型显著提升服饰的材料质感，模特的皮肤真实度。</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/640-1704445533197-9.gif" alt=" "></p>
+<h3 id="🍊-测试结果"><a href="#🍊-测试结果" class="headerlink" title="🍊 测试结果"></a>🍊 测试结果</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240110113607895.png" alt="image-20240110113607895"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240110113616341.png" alt="image-20240110113616341"></p>
+<h3 id="🔞-免费试玩"><a href="#🔞-免费试玩" class="headerlink" title="🔞 免费试玩"></a>🔞 免费试玩</h3><ul>
+<li>project <a target="_blank" rel="noopener" href="https://humanaigc.github.io/outfit-anyone/">https://humanaigc.github.io/outfit-anyone/</a></li>
+<li>demo <a target="_blank" rel="noopener" href="https://huggingface.co/spaces/HumanAIGC/OutfitAnyone">https://huggingface.co/spaces/HumanAIGC/OutfitAnyone</a></li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/16206584715427.jpg" alt="img"></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230906143147776.png" alt="image-20230906143147776"></p>
-<ul>
-<li>无监督学习方法，不需要标注数据</li>
-<li>自编码器的目标是学习一个恒等函数，我们可以使用交叉熵（Cross-entropy）或者均方差（Mean Square Error）构建重建损失量化输入和输出的差异，低纬度的隐层编码用于数据压缩和特征表示，类似PCA压缩，特征相似度。</li>
-</ul>
-<h3 id="变种"><a href="#变种" class="headerlink" title="变种"></a>变种</h3><h4 id="去噪自编码器（Denoising-Autoencoder，DAE）"><a href="#去噪自编码器（Denoising-Autoencoder，DAE）" class="headerlink" title="去噪自编码器（Denoising Autoencoder，DAE）"></a>去噪自编码器（Denoising Autoencoder，DAE）</h4><ul>
-<li>在训练过程先对输入进行一定的扰动，比如增加噪音或者随机mask掉一部分特征。相比AE，DAE的重建难度增加，这也使得encoder学习到的隐含特征更具有代表性。</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/16206585342137.jpg" alt="img"></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230906143157923.png" alt="image-20230906143157923"></p>
-<h4 id="基于MIM（mask-image-modeling-的自监督方法"><a href="#基于MIM（mask-image-modeling-的自监督方法" class="headerlink" title="基于MIM（mask image modeling)的自监督方法"></a>基于MIM（mask image modeling)的自监督方法</h4><ul>
-<li>MAE和SimMIM，它们都是采用和AE类似的设计架构，这让基于AE的无监督训练方法再次卷土重来。</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230906143347136.png" alt="image-20230906143347136"></p>
-<ul>
-<li>BERT可以看成是一个特殊的AE（De-noising auto-encoder）。输入为一个句子，然后对句子增加一些噪音（mask掉一些词），我们希望模型能尽可能的还原出来原始的句子。</li>
-</ul>
-<h2 id="变分自编码器（VAE）"><a href="#变分自编码器（VAE）" class="headerlink" title="变分自编码器（VAE）"></a>变分自编码器（VAE）</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1312.6114">https://arxiv.org/abs/1312.6114</a></li>
-</ul>
-<h3 id="原理-1"><a href="#原理-1" class="headerlink" title="原理"></a>原理</h3><p>​        由于自编码器仅关注隐层编码的重建能力，其隐层空间分布往往是无规律和不均匀的，在连续的隐层空间随机采样或者插值得到一组编码通常会产生无意义和不可解释的生成结果。为了构建一个有规律的隐层空间，使得我们可以在不同潜在属性上随机地采样和平滑地插值，最后通过解码器生成有意义的图像，研究者们在2014年提出了变分自编码器。</p>
-<p>​        变分自编码器不再将输入映射成隐层空间中的一个固定编码，而是转换成对隐层空间的概率分布估计，为了方便表示我们假设先验分布是一个标准高斯分布。同样的，我们训练一个概率解码器建模，实现从隐层空间分布到真实数据分布的映射。当给定一个输入，我们通过后验分布估计出关于分布的参数（多元高斯模型的均值和协方差），并在此分布上采样，可使用重参数化技巧使采样可导（为随机变量），最后通过概率解码器输出关于的分布，为了使生成图像尽量真实，我们需要求解后验分布，目标是最大化真实图像的对数似然。</p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/0766b423535d7ff205c696fe1f35bbf1bf0895.jpg" alt="img"></p>
-<p>​                                                    </p>
-<p>遗憾的是，真实的后验分布根据贝叶斯模型包含对在连续空间上的积分，是不可直接求解的。为了解决上述问题，变分自编码器使用了变分推理的方法，引入一个可学习的概率编码器去近似真实的后验分布，使用KL散度度量两个分布的差异，将这个问题从求解真实的后验分布转化为如何缩小两个分布之间的距离。</p>
-<p>我们省略中间推导过程，将上式展开得到式，</p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/6536eae26e27d487d9a3276e5faae2b67ff42f.png" alt="img"></p>
-<p>由于KL散度非负，我们可以将我们的最大化目标转写成，</p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/999dea484e9ebbc67a3434a286e0b79e1955fc.png" alt="img"></p>
-<p>综上，我们将关于概率编码器和概率解码器的定义为模型的损失函数，其负数形式称为的证据下界（Evidence Lower Bound），最大化证据下界等效于最大化目标。上述变分过程是VAE及各种变体的核心思想，通过变分推理将问题转化为最大化生成真实数据的证据下界。</p>
-<h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/VAE2.jpg" alt="VAE"></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/VAE3.jpg" alt="VAE"></p>
-<h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230906161221848.png" alt="image-20230906161221848"></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230906162233823.png" alt="image-20230906162233823"></p>
-<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>​        实现encoder和decoder就平常的方法来，CV的CNN，NLP的LSTM等等，只是VAE在中间转化的时候多加了点东西。</p>
-<p>​    encoder有两个：计算均值和计算方差</p>
-<ul>
-<li>计算均值的网络<ul>
-<li>本质上就是对encode的结果加上高斯噪声，使得decoder对噪声更有鲁棒性</li>
-<li>KL Loss相当于正则(对零均值的正态逼近)，使得encoder的结果具有零均值</li>
-</ul>
+<h2 id="🚸-Animate-Anyone-动画生成——人人均可科目三"><a href="#🚸-Animate-Anyone-动画生成——人人均可科目三" class="headerlink" title="🚸 Animate Anyone 动画生成——人人均可科目三"></a>🚸 Animate Anyone 动画生成——人人均可科目三</h2><h3 id="🥝-论文原理"><a href="#🥝-论文原理" class="headerlink" title="🥝 论文原理"></a>🥝 论文原理</h3><p>这篇论文提出了一个名为Animate Anyone的框架，旨在将静态角色图像转换为动态视频，同时保持与参考角色图像的一致性和时间稳定性。核心思想和方法包括：</p>
+<ol>
+<li><strong>ReferenceNet</strong>：为了保持参考图像中复杂外观特征的一致性，作者设计了ReferenceNet，这是一个对称的UNet结构，用于通过空间注意力合并细节特征。ReferenceNet与去噪UNet共享相同的网络结构和初始化权重，使得去噪UNet能够在一致的特征空间中学习与参考图像相关联的特征。</li>
+<li><strong>Pose Guider</strong>：为了确保角色动作的可控性和连续性，引入了一个高效的Pose Guider来引导角色的运动。Pose Guider使用四个卷积层来对齐姿势图像，并将其添加到噪声潜在空间中，然后输入到去噪UNet中。</li>
+<li><strong>Temporal Layer</strong>：为了确保视频帧之间的平滑过渡，作者引入了一个时间层来建模多帧之间的时间关系。这个时间层被集成在Res-Trans块的空间注意力和交叉注意力组件之后。</li>
+<li><strong>训练策略</strong>：训练过程分为两个阶段。第一阶段使用单个视频帧进行训练，不包括时间层，只训练ReferenceNet和Pose Guider。第二阶段引入时间层，并训练整个网络，包括Res-Trans块中的时间层。</li>
+<li><strong>实验结果</strong>：Animate Anyone在多个基准测试中表现出色，包括时尚视频合成和人类舞蹈生成。与现有方法相比，该方法在动画质量和时间稳定性方面都有所提升。</li>
+<li><strong>局限性</strong>：尽管Animate Anyone在角色动画方面取得了显著成果，但仍存在一些局限性，例如在处理手部运动时可能不够稳定，生成未见过的视角部分时可能存在不稳定性，以及由于使用了DDPM，模型的运行效率相对较低。</li>
+<li><strong>结论</strong>：Animate Anyone作为一个基础方法，为未来在各种图像到视频应用中的扩展提供了潜力。</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/f2_img.png" alt="MY ALT TEXT"></p>
+<p>姿势序列最初使用 Pose Guider 进行编码，并与多帧噪声融合，然后由 Denoising UNet 进行视频生成的去噪过程。 Denoising UNet 的计算模块由 Spatial-Attention、Cross-Attention 和 Temporal-Attention 组成，如右侧虚线框所示。参考图像的集成涉及两个方面。首先，通过ReferenceNet提取详细特征并用于空间注意力。其次，通过CLIP图像编码器提取语义特征进行交叉注意力。时间注意力在时间维度上运作。最后，VAE解码器将结果解码为视频剪辑。</p>
+<h4 id="ReferenceNet-原理"><a href="#ReferenceNet-原理" class="headerlink" title="ReferenceNet 原理"></a>ReferenceNet 原理</h4><p> <code>ReferenceNet</code> 是一个关键组件，它被设计用来从参考图像中提取和保持复杂的外观特征，以便在生成动画视频时保持与参考角色的一致性。以下是 <code>ReferenceNet</code> 的工作原理：</p>
+<ol>
+<li><p><strong>网络结构</strong>：<code>ReferenceNet</code> 采用了与去噪UNet（用于视频生成的网络）相同的网络结构，但不包括时间层。这意味着它在网络的每个对应层中都有与去噪UNet相同的卷积块和自注意力机制。</p>
 </li>
-<li>计算方差的网络<ul>
-<li>相当于动态调节噪声的强度(和方差对应)</li>
-<li>刚开始训练时(重构误差&gt;&gt;KL Loss)，适当降低噪声强度(KL Loss增加)，使得拟合更容易；反之，训练久后，噪声强度增加(重构误差&lt;KL Loss)，这是噪声增加(KL Loss减少)，拟合又更困难了。也就是KL Loss和重构误差的优化是一个对抗的过程，与GAN不同的是，这两个混在一起共同优化的</li>
-</ul>
+<li><p><strong>特征提取</strong>：<code>ReferenceNet</code> 的主要任务是从参考图像中提取特征。这些特征包括角色的外观细节，如面部特征、服装纹理等。这些特征随后被用来引导视频生成过程中的细节保持一致。</p>
 </li>
+<li><p><strong>空间注意力</strong>：在去噪UNet的每个对应层中，<code>ReferenceNet</code> 提取的特征通过空间注意力机制与去噪UNet的特征进行融合。这种融合是通过复制<code>ReferenceNet</code>的特征图并将其与去噪UNet的特征图在宽度维度上拼接，然后进行自注意力操作来实现的。这样，去噪UNet可以选择性地学习与参考图像特征空间中相关联的特征。</p>
+</li>
+<li><p><strong>权重共享</strong>：<code>ReferenceNet</code> 和去噪UNet共享初始化权重，这有助于网络在训练过程中更快地收敛，并确保特征提取的一致性。此外，<code>ReferenceNet</code> 的权重更新是独立的，这意味着它只需要在训练过程中提取一次特征，而不是像去噪UNet那样在每个视频帧上都进行特征提取。</p>
+</li>
+<li><p><strong>与CLIP的结合</strong>：除了使用<code>ReferenceNet</code>，网络还利用CLIP图像编码器进行交叉注意力操作，这提供了参考图像的语义特征。这种结合有助于网络更好地理解参考图像的上下文，并在生成过程中保持一致性。</p>
+</li>
+</ol>
+<p>通过这种方式，<code>ReferenceNet</code> 确保了在生成动画视频时，角色的外观细节能够与参考图像保持一致，从而提高了动画的质量和真实感。</p>
+<h4 id="Pose-Guider-原理"><a href="#Pose-Guider-原理" class="headerlink" title="Pose Guider 原理"></a>Pose Guider 原理</h4><p> <code>Pose Guider</code> 是 <code>Animate Anyone</code> 框架中的一个组件，它负责将角色的动态姿势信息编码到生成的视频序列中，以实现对角色动作的控制。以下是 <code>Pose Guider</code> 的工作原理：</p>
+<ol>
+<li><p><strong>姿势编码</strong>：首先，<code>Pose Guider</code> 使用一系列卷积层来处理和编码角色的姿势信息。这些卷积层通常包括多个卷积操作，以提取姿势的关键特征。这些特征随后被用于指导角色在视频中的动作。</p>
+</li>
+<li><p><strong>与噪声潜在空间的融合</strong>：处理后的姿势图像与视频序列的噪声潜在空间（noise latent space）进行融合。这种融合是通过将姿势图像与噪声潜在空间的表示相加来实现的，这样姿势信息就被编码到了视频帧的生成过程中。</p>
+</li>
+<li><p><strong>输入到去噪UNet</strong>：融合后的姿势和噪声潜在空间的表示被输入到去噪UNet中。去噪UNet 是一个用于视频生成的网络，它通过逐步去除噪声来生成视频帧。</p>
+</li>
+<li><p><strong>控制角色动作</strong>：<code>Pose Guider</code> 的输出被用作条件信息，指导去噪UNet在生成视频帧时如何表现角色的动作。这样，去噪UNet不仅能够根据噪声潜在空间生成视频内容，还能够根据姿势信息来控制角色的动作和姿态。</p>
+</li>
+<li><p><strong>权重初始化</strong>：<code>Pose Guider</code> 的权重通常使用高斯分布进行初始化，除了最后一个投影层使用零卷积（zero convolution）之外。这种初始化方式有助于网络学习到与姿势相关的特征，并在视频中准确地再现这些特征。</p>
+</li>
+</ol>
+<p>通过这种方式，<code>Pose Guider</code> 使得 <code>Animate Anyone</code> 框架能够根据给定的姿势序列生成具有连贯动作的视频，同时保持角色的外观细节与参考图像的一致性。这种方法提高了角色动画的可控性和真实感。</p>
+<h4 id="Temporal-Layer-原理"><a href="#Temporal-Layer-原理" class="headerlink" title="Temporal Layer 原理"></a>Temporal Layer 原理</h4><p><code>Temporal Layer</code> 负责捕捉视频帧之间的时间依赖关系，以确保生成的视频在时间轴上具有平滑的过渡和连续性。以下是 <code>Temporal Layer</code> 的工作原理：</p>
+<ol>
+<li><p><strong>时间注意力</strong>：<code>Temporal Layer</code> 使用自注意力（self-attention）机制来捕捉视频帧之间的时间依赖。在自注意力中，网络能够学习到不同时间点的特征之间的相互关系，这对于理解视频内容的时间动态至关重要。</p>
+</li>
+<li><p><strong>特征重塑</strong>：为了应用自注意力，首先需要将特征图重塑为适合时间维度操作的形式。具体来说，特征图会被重塑为一个序列，其中每个元素代表一个时间步的特征。</p>
+</li>
+<li><p><strong>时间维度的自注意力</strong>：在重塑后的特征序列上，网络执行自注意力操作。这种操作允许网络在时间维度上考虑每个时间步的特征，从而理解视频帧之间的动态变化。</p>
+</li>
+<li><p><strong>特征融合</strong>：自注意力操作后得到的特征被融合回原始特征图中。这种融合通常是通过残差连接（residual connection）实现的，这样可以保留原始特征的同时引入时间维度的信息。</p>
+</li>
+<li><p><strong>保持空间注意力和交叉注意力</strong>：<code>Temporal Layer</code> 是在空间注意力（Spatial Attention）和交叉注意力（Cross Attention）之后添加的。这意味着在进行时间维度的操作之前，网络已经通过空间注意力和交叉注意力处理了特征，这有助于网络更好地理解空间信息和参考图像的语义内容。</p>
+</li>
+<li><p><strong>训练策略</strong>：在训练过程中，<code>Temporal Layer</code> 被集成在去噪UNet的Res-Trans块中，这些块负责处理视频帧的特征。在训练的第二阶段，网络的权重被更新以优化时间层的性能。</p>
+</li>
+</ol>
+<p>通过这种方式，<code>Temporal Layer</code> 使得 <code>Animate Anyone</code> 能够在生成动画视频时保持时间上的连续性和稳定性，这对于角色动画的自然表现和观众的观看体验至关重要。</p>
+<h3 id="🍑-实验结果"><a href="#🍑-实验结果" class="headerlink" title="🍑 实验结果"></a>🍑 实验结果</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/tutieshi_320x156_4s.gif" alt=" "></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240110103224322.png" alt=" "></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240110103409765.png" alt=" "></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240110103321335.png" alt=" "></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240110103305337.png" alt=" "></p>
+<h3 id="🔞-免费试玩-1"><a href="#🔞-免费试玩-1" class="headerlink" title="🔞 免费试玩"></a>🔞 免费试玩</h3><ul>
+<li>project <a target="_blank" rel="noopener" href="https://humanaigc.github.io/animate-anyone/">https://humanaigc.github.io/animate-anyone/</a></li>
 </ul>
-<p>​    decoder类似</p>
-<hr>
-<h2 id="条件变分自编码器（Conditional，CVAE）"><a href="#条件变分自编码器（Conditional，CVAE）" class="headerlink" title="条件变分自编码器（Conditional，CVAE）"></a>条件变分自编码器（Conditional，CVAE）</h2><h3 id="原理-2"><a href="#原理-2" class="headerlink" title="原理"></a>原理</h3><ul>
-<li>类似CGAN，实现条件输入控制生成结果</li>
-<li>AE适合数据压缩与还原，不适合生成未见过的数据</li>
-<li>VAE适合生成未见过的数据，但不能控制生成内容</li>
-<li>CVAE（Conditional VAE）可以在生成数据时通过指定其标签来生成想生成的数据</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230906162629090.png" alt="image-20230906162629090"></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230906162323979.png" alt="image-20230906162323979"></p>
-<hr>
-<h2 id="向量量化变分自编码器（Vector-Quantised，VQ-VAE-）"><a href="#向量量化变分自编码器（Vector-Quantised，VQ-VAE-）" class="headerlink" title="向量量化变分自编码器（Vector Quantised，VQ-VAE ）"></a>向量量化变分自编码器（Vector Quantised，VQ-VAE ）</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/ritheshkumar95/pytorch-vqvae">https://github.com/ritheshkumar95/pytorch-vqvae</a></li>
-<li>VAE 学习连续的潜在表示，而 VQ-VAE 学习离散的潜在表示</li>
-<li>VQ-VAE其实就是一个AE（自编码器）而不是VAE（变分自编码器）</li>
-<li>VQ-VAE 假定所有隐变量具有统一的先验，因此所有隐变量都被视为具有同等的可能性</li>
-</ul>
-<h3 id="隐空间"><a href="#隐空间" class="headerlink" title="隐空间"></a>隐空间</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230906163133409.png" alt="image-20230906163133409"></p>
-<ul>
-<li>原始数据用Z非线性表示</li>
-<li>如果原始数据是隐变量的线性变换，正是经典无监督算法 PCA 的设计目的：PCA 本质上试图找到基础的 Z 潜在表示。如果潜在表示与原始数据具有更复杂的非线性关系呢？例如，下图可视化了更复杂的隐空间可以编码的高级信息类型。在这种情况下，PCA 将无法找到最佳的潜在表示。我们可以使用自编码器来找到这个更抽象的隐空间。</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20220602112156946.png" alt="img"></p>
-<ul>
-<li>隐空间是数据的压缩表示，强调数据最重要的特征信息。</li>
-<li>自编码器是一种用于寻找隐空间的方法，这些隐空间是数据的复杂非线性函数。</li>
-<li>变分自编码器在自编码器基础上增加了一个先验隐空间（标准正态分布），这为学习的隐空间提供了非常好的属性（我们可以通过隐空间平滑地插值数据分布）。</li>
-</ul>
-<h3 id="隐空间离散表示"><a href="#隐空间离散表示" class="headerlink" title="隐空间离散表示"></a>隐空间离散表示</h3><ul>
-<li>transformers 旨在处理离散数据</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20220602112616465.png" alt="img"></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20220602112701542.png" alt="img"></p>
-<ul>
-<li>DALL-E涉及一个 transformer，该 transformer 以文本 embeddings 和在图像上训练的 VQ-VAE 的隐变量作为输入。</li>
-<li>VQ-VAE 几乎比目前任何其他算法更好地表示多样化，复杂的数据分布。由于它与 transformers 配合得非常好，因此在给定足够大的计算预算的情况下，几乎可以扩展生成任意的可能性（不幸的是，对于最先进的结果，这是很少有个人甚至组织能够负担得起的预算）。出于这些原因，我预计 VQ-VAE 在相当长的一段时间内仍将是深度学习生态系统中的热门组件。</li>
-</ul>
+<h2 id="🤝-Thank-you"><a href="#🤝-Thank-you" class="headerlink" title="🤝 Thank you"></a>🤝 Thank you</h2><blockquote>
+<p>❤️ 每周免费分享AIGC相关最新资讯，感兴趣可以关注，喜欢动动小手点个赞，谢谢支持！</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-1704857165050-16-1704857601815-17.png" alt="Thank you"></th>
+<th><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-1704857373261-19-1704857605778-19.png" alt="Thank you"></th>
+</tr>
+</thead>
+</table>
 
                 
             </div>
@@ -564,7 +590,7 @@ https://arxiv.org/abs/2003.05991
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lee-jet.github.io/2023/09/07/vae/">https://lee-jet.github.io/2023/09/07/vae/</a>
+                    <a href="https://lee-jet.github.io/2024/01/10/genanimation/">https://lee-jet.github.io/2024/01/10/genanimation/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -681,7 +707,7 @@ https://arxiv.org/abs/2003.05991
         repo: 'gitalk',
         owner: 'lee-jet',
         admin: "lee-jet",
-        id: '2023-09-07T12-02-58',
+        id: '2024-01-10T11-32-42',
         distractionFreeMode: false,  // Facebook-like distraction free mode
     });
 
@@ -709,17 +735,18 @@ https://arxiv.org/abs/2003.05991
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/09/12/visualchatgpt/">
+                <a href="/2024/01/10/genanimation/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="VisualChatGPT">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="GenAnimation">
                         
-                        <span class="card-title">VisualChatGPT</span>
+                        <span class="card-title">GenAnimation</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -729,9 +756,9 @@ https://arxiv.org/abs/2003.05991
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-09-12
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-01-10
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -744,6 +771,7 @@ https://arxiv.org/abs/2003.05991
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -762,13 +790,13 @@ https://arxiv.org/abs/2003.05991
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/09/01/sdwithlora/">
+                <a href="/2024/01/05/deephdr/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="SDwithLoRA">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="DeepHDR">
                         
-                        <span class="card-title">SDwithLoRA</span>
+                        <span class="card-title">DeepHDR</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -779,7 +807,7 @@ https://arxiv.org/abs/2003.05991
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-09-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-01-05
                             </span>
                         <span class="publish-author">
                             
