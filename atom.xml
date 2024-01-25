@@ -6,7 +6,7 @@
   <link href="https://lee-jet.github.io/atom.xml" rel="self"/>
   
   <link href="https://lee-jet.github.io/"/>
-  <updated>2024-01-10T03:39:48.356Z</updated>
+  <updated>2024-01-25T02:48:41.373Z</updated>
   <id>https://lee-jet.github.io/</id>
   
   <author>
@@ -15,6 +15,87 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>InstantID</title>
+    <link href="https://lee-jet.github.io/2024/01/25/instantid/"/>
+    <id>https://lee-jet.github.io/2024/01/25/instantid/</id>
+    <published>2024-01-25T02:47:02.000Z</published>
+    <updated>2024-01-25T02:48:41.373Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;6&#39;&gt;&lt;strong&gt;⚡[AIGC服务] 换脸&amp;生成 | 让你们的脸为所欲为 &lt;/strong&gt;&lt;/font&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;本文介绍</summary>
+        
+      
+    
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PhotoMaker</title>
+    <link href="https://lee-jet.github.io/2024/01/18/photomaker/"/>
+    <id>https://lee-jet.github.io/2024/01/18/photomaker/</id>
+    <published>2024-01-18T08:42:21.000Z</published>
+    <updated>2024-01-18T08:43:43.936Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;6&#39;&gt;&lt;strong&gt;⚡[AIGC服务] 换脸生成 | 让你的脸为所欲为 &lt;/strong&gt;&lt;/font&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;本文主要介绍腾讯ARC</summary>
+        
+      
+    
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ToneMapping</title>
+    <link href="https://lee-jet.github.io/2024/01/12/tonemapping/"/>
+    <id>https://lee-jet.github.io/2024/01/12/tonemapping/</id>
+    <published>2024-01-12T03:44:32.000Z</published>
+    <updated>2024-01-12T03:48:27.943Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;5&#39;&gt;&lt;strong&gt;⚡ AISP之Tone Mapping | HDR中智能色调映射</summary>
+        
+      
+    
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
+    
+  </entry>
   
   <entry>
     <title>GenAnimation</title>
@@ -456,83 +537,6 @@
     <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;8&#39;&gt;&lt;strong&gt;ISP Pipeline&lt;/strong&gt;&lt;/font&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>BoT-SORT</title>
-    <link href="https://lee-jet.github.io/2023/11/22/bot-sort/"/>
-    <id>https://lee-jet.github.io/2023/11/22/bot-sort/</id>
-    <published>2023-11-22T04:12:32.000Z</published>
-    <updated>2023-11-22T04:14:02.932Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;4.5&#39;&gt;&lt;strong&gt;BoT-SORT: Robust Associations Multi-Pedestrian</summary>
-        
-      
-    
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Inference via TorchScript</title>
-    <link href="https://lee-jet.github.io/2023/11/17/torchscript/"/>
-    <id>https://lee-jet.github.io/2023/11/17/torchscript/</id>
-    <published>2023-11-17T04:02:58.000Z</published>
-    <updated>2023-11-17T10:27:33.923Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;4.5&#39;&gt;&lt;strong&gt;Inference via TorchScript&lt;/strong&gt;&lt;/font&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>pixelization</title>
-    <link href="https://lee-jet.github.io/2023/11/09/pixelization/"/>
-    <id>https://lee-jet.github.io/2023/11/09/pixelization/</id>
-    <published>2023-11-09T03:12:02.000Z</published>
-    <updated>2023-11-09T03:14:41.910Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;4.5&#39;&gt;&lt;strong&gt;Make Your Own Sprites: Aliasing-Aware and Cell-Controllable</summary>
         
       
     

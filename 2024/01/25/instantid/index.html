@@ -1,0 +1,1471 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="InstantID, AiHub">
+    <meta name="description" content="⚡[AIGC服务] 换脸&amp;生成 | 让你们的脸为所欲为 
+
+
+本文介绍 InstantID，一句话概括：带“你们”的脸去任何地方。
+（多人图像合成：比如你和你的闺蜜，你和你的对象，你和你的基友，哈哈哈哈！）
+
+
+
+🍜 目录[TOC]
+
+�">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>InstantID | AiHub</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/reward.css">
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+	
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4517244572130756"
+		 crossorigin="anonymous"></script>
+<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="AiHub" type="application/atom+xml">
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">AiHub</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">AiHub</div>
+        <div class="logo-desc">
+            
+            Fire
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/lee-jet" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/lee-jet" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">InstantID</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Paper-Reading/">
+                                <span class="chip bg-color">Paper Reading</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Paper-Reading/" class="post-category">
+                                Paper Reading
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-01-25
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2024-01-25
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    4.3k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    15 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <div align='center' ><font size='6'><strong>⚡[AIGC服务] 换脸&生成 | 让你们的脸为所欲为 </strong></font></div>
+
+<blockquote>
+<p>本文介绍 InstantID，一句话概括：带<strong>“你们”</strong>的脸去任何地方。</p>
+<p>（多人图像合成：比如你和你的闺蜜，你和你的对象，你和你的基友，哈哈哈哈！）</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240125104048827.png" alt=" "></p>
+<hr>
+<h2 id="🍜-目录"><a href="#🍜-目录" class="headerlink" title="🍜 目录"></a>🍜 目录</h2><p>[TOC]</p>
+<hr>
+<h2 id="👼-简介"><a href="#👼-简介" class="headerlink" title="👼 简介"></a>👼 简介</h2><ul>
+<li>InstantID 是一种新的最先进的免调整方法（<strong>插件</strong>），只需单个图像即可实现 ID 保留生成，支持各种下游任务。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240124175611881.png" alt=" "></p>
+<h2 id="🎅-生成效果"><a href="#🎅-生成效果" class="headerlink" title="🎅 生成效果"></a>🎅 生成效果</h2><h3 id="👍-风格合成"><a href="#👍-风格合成" class="headerlink" title="👍 风格合成"></a>👍 风格合成</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240124175810309.png" alt=" "></p>
+<ul>
+<li>一共支持8种风格</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240124182431828.png" alt=" "></p>
+<h3 id="👍-视角合成"><a href="#👍-视角合成" class="headerlink" title="👍 视角合成"></a>👍 视角合成</h3><ul>
+<li>给定参考姿势图像ref pose，参考图像会生成相同的姿势，即生成给定视角的图像</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240125095913739.png" alt=" "></p>
+<h3 id="👍-属性插值"><a href="#👍-属性插值" class="headerlink" title="👍 属性插值"></a>👍 属性插值</h3><ul>
+<li>给定2个ref image，将2个图像的人脸按照一定比例融合</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240125100141548.png" alt=" "></p>
+<h3 id="👍-多人属性合成"><a href="#👍-多人属性合成" class="headerlink" title="👍 多人属性合成"></a>👍 多人属性合成</h3><ul>
+<li>给定2个ref image，在一张图中合成2个人脸</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240125100227165.png" alt=" "></p>
+<h2 id="🤶-基本原理"><a href="#🤶-基本原理" class="headerlink" title="🤶 基本原理"></a>🤶 基本原理</h2><p>通过 Textual Inversion、DreamBooth 和 LoRA 等方法，个性化图像合成取得了重大进展。然而，它们在现实世界中的适用性受到高存储需求、冗长的微调过程以及对多个参考图像的需求的阻碍。相反，现有的基于 ID 嵌入的方法虽然只需要一次前向推理，但也面临着挑战：它们要么需要对众多模型参数进行广泛的微调，要么缺乏与社区预训练模型的兼容性，要么无法保持高面部保真度。为了解决这些限制，我们引入了 InstantID，这是一种基于扩散模型的强大解决方案。我们的即插即用模块仅使用单个面部图像就能熟练地处理各种风格的图像个性化，同时确保高保真度。为了实现这一目标，我们设计了一个新颖的 IdentityNet，通过强加语义和弱空间条件，将面部和地标图像与文本提示相结合来引导图像生成。 InstantID 展示了卓越的性能和效率，在身份保存至关重要的现实应用中非常有用。此外，<strong>我们的工作与流行的预训练文本到图像扩散模型（如 SD1.5 和 SDXL）无缝集成，作为一个适应性强的插件</strong>。</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240124181325204.png" alt=" "></p>
+<h3 id="🤛-核心内容"><a href="#🤛-核心内容" class="headerlink" title="🤛 核心内容"></a>🤛 核心内容</h3><p>这篇文章介绍了一个名为InstantID的新型图像生成框架，它专注于在几秒钟内实现零样本（zero-shot）的身份保持（ID preservation）图像生成。InstantID基于扩散模型，旨在解决个性化图像合成领域中的一些挑战，如高存储需求、耗时的微调过程以及对多张参考图像的需求。以下是文章的主要内容总结：</p>
+<ol>
+<li><p><strong>背景与挑战</strong>：</p>
+<ul>
+<li>文章指出，尽管文本到图像的扩散模型（如Textual Inversion、DreamBooth和LoRA）在个性化图像合成方面取得了显著进展，但它们在实际应用中的适用性受到限制。</li>
+<li>现有的基于ID嵌入的方法虽然只需要单次前向推理，但在保持高面部保真度、兼容性和无需微调方面面临挑战。</li>
+</ul>
+</li>
+<li><p><strong>InstantID框架</strong>：</p>
+<ul>
+<li>InstantID是一个即插即用的模块，能够使用单张面部图像在各种风格中进行图像个性化，同时确保高保真度。</li>
+<li>它通过设计一个新颖的IdentityNet，通过强语义和弱空间条件，将面部和关键点图像与文本提示结合起来，引导图像生成过程。</li>
+</ul>
+</li>
+<li><p><strong>方法论</strong>：</p>
+<ul>
+<li>InstantID包含三个关键组件：ID嵌入（捕捉强大的语义面部信息）、轻量级适配模块（支持图像作为视觉提示）和IdentityNet（编码参考面部图像的详细特征并提供额外的空间控制）。</li>
+<li>在训练过程中，只有Image Adapter和IdentityNet的参数被优化，而预训练的扩散模型参数保持冻结。</li>
+</ul>
+</li>
+<li><p><strong>实验结果</strong>：</p>
+<ul>
+<li>文章展示了InstantID在不同设置下的定性结果，包括仅使用图像、图像加文本提示以及结合空间控制的情况。</li>
+<li>InstantID在保持文本编辑能力的同时，能够实现性别、服装和发色等属性的编辑。</li>
+<li>与现有的基于ID嵌入的方法（如IP-Adapter）和LoRA模型相比，InstantID在保持身份的同时，展示了更高的保真度和风格灵活性。</li>
+</ul>
+</li>
+<li><p><strong>应用</strong>：</p>
+<ul>
+<li>InstantID的低成本和即插即用特性为多种下游应用打开了大门，如新视角合成、身份插值和多身份合成。</li>
+</ul>
+</li>
+<li><p><strong>结论与未来工作</strong>：</p>
+<ul>
+<li>InstantID作为一个零样本身份保持生成的解决方案，通过简单的即插即用模块，展示了在各种风格中进行图像个性化的强大能力。</li>
+<li>文章提出了未来的研究方向，包括解耦面部属性特征以增强灵活性，以及考虑模型中固有的偏见和伦理问题。</li>
+</ul>
+</li>
+</ol>
+<p>文章强调了InstantID在保持高效率的同时，能够实现高质量的个性化图像生成，这对于需要精确保持人物身份的应用场景具有重要意义。</p>
+<h3 id="🤜-IdentityNet"><a href="#🤜-IdentityNet" class="headerlink" title="🤜 IdentityNet"></a>🤜 IdentityNet</h3><p> IdentityNet是InstantID框架中的一个关键组件，它旨在通过强语义和弱空间条件来保留和增强图像生成过程中的面部身份信息。IdentityNet的设计允许它有效地将参考面部图像的详细特征与文本提示结合起来，以生成高保真度的定制图像。以下是IdentityNet的详细介绍及其组件：</p>
+<ol>
+<li><p><strong>ID嵌入（ID Embedding）</strong>：</p>
+<ul>
+<li>IdentityNet使用一个预训练的面部模型（如antelopev21）来检测和提取参考面部图像中的面部ID嵌入。这些嵌入包含了丰富的语义信息，如身份、年龄和性别，这对于精确和详细的身份保持至关重要。</li>
+</ul>
+</li>
+<li><p><strong>轻量级适配模块（Lightweight Adapted Module）</strong>：</p>
+<ul>
+<li>这个模块采用了类似于IP-Adapter的策略，通过引入一个具有解耦交叉注意力的轻量级适配器，支持图像作为视觉提示。与IP-Adapter不同的是，IdentityNet使用ID嵌入而不是CLIP嵌入作为图像提示，以实现更细腻和语义丰富的提示集成。</li>
+</ul>
+</li>
+<li><p><strong>空间控制（Spatial Control）</strong>：</p>
+<ul>
+<li>IdentityNet在空间控制方面进行了调整，使用五个面部关键点（两个眼睛、一个鼻子和两个嘴巴）作为条件输入，而不是使用精细的OpenPose面部关键点。这种设计旨在在保持编辑能力的同时，减少对冗余面部信息（如面部形状或嘴巴闭合）的过度强调。</li>
+</ul>
+</li>
+<li><p><strong>训练策略</strong>：</p>
+<ul>
+<li>在训练过程中，只有Image Adapter和IdentityNet的参数被优化，而预训练的文本到图像模型的参数保持冻结。这种策略允许IdentityNet专注于ID相关的表示，不受文本提示的一般描述影响。</li>
+</ul>
+</li>
+<li><p><strong>IdentityNet的生成过程</strong>：</p>
+<ul>
+<li>在IdentityNet中，生成过程完全由面部嵌入引导，不涉及任何文本信息。这使得网络能够专注于ID的表示，同时保持对生成图像的精细控制。</li>
+</ul>
+</li>
+<li><p><strong>与ControlNet的集成</strong>：</p>
+<ul>
+<li>IdentityNet采用了ControlNet的方法，这是一种通常用于空间控制的扩散模型。在IdentityNet的适应中，ControlNet的交叉注意力层被用于处理ID嵌入，而不是文本提示。</li>
+</ul>
+</li>
+</ol>
+<p>IdentityNet的设计使其能够与现有的预训练文本到图像扩散模型（如SD1.5和SDXL）无缝集成，作为一个灵活的插件。这种设计不仅提高了面部保真度，而且保持了对文本编辑的控制能力，使得InstantID在各种风格中生成图像时能够保持高效率和实用性。</p>
+<h3 id="🤜-Image-Adapter"><a href="#🤜-Image-Adapter" class="headerlink" title="🤜 Image Adapter"></a>🤜 Image Adapter</h3><p> Image Adapter是InstantID框架中的一个关键组件，它允许模型将图像作为视觉提示（visual prompt）集成到文本到图像的扩散模型中。这个组件的设计目的是为了增强面部细节的保真度，同时保持对文本提示的控制。以下是Image Adapter的详细设计和工作原理：</p>
+<ol>
+<li><p><strong>解耦交叉注意力（Decoupled Cross-Attention）</strong>：</p>
+<ul>
+<li>Image Adapter采用了一种独特的解耦交叉注意力策略，这允许模型在保持文本提示的同时，引入图像特征。这种策略通过额外的交叉注意力层实现，这些层专门用于处理图像特征，而不改变原始模型的其他参数。</li>
+</ul>
+</li>
+<li><p><strong>图像特征嵌入</strong>：</p>
+<ul>
+<li>Image Adapter使用ID嵌入作为图像提示，而不是依赖于CLIP图像编码器。这样做的目的是为了获得更丰富和精确的语义信息，这些信息对于面部身份的保持至关重要。</li>
+</ul>
+</li>
+<li><p><strong>轻量级适配</strong>：</p>
+<ul>
+<li>Image Adapter是一个轻量级模块，这意味着它不需要对整个扩散模型进行微调。这种设计使得InstantID能够快速适应不同的风格和应用，同时保持高效率。</li>
+</ul>
+</li>
+<li><p><strong>与IdentityNet的集成</strong>：</p>
+<ul>
+<li>Image Adapter与IdentityNet紧密集成，共同工作以生成高质量的定制图像。IdentityNet专注于面部特征的详细编码，而Image Adapter则负责将这些特征与文本提示结合起来，引导图像生成过程。</li>
+</ul>
+</li>
+<li><p><strong>训练过程</strong>：</p>
+<ul>
+<li>在训练过程中，Image Adapter的参数会被优化，以确保它能够有效地将ID嵌入作为视觉提示融入到扩散模型中。这个过程不涉及对预训练扩散模型的微调，从而保持了模型的灵活性和通用性。</li>
+</ul>
+</li>
+<li><p><strong>空间控制信号</strong>：</p>
+<ul>
+<li>Image Adapter利用面部关键点作为空间控制信号，这些关键点提供了面部区域的粗略位置信息。这种设计有助于在生成过程中保持面部特征的准确性，同时避免过度强调面部形状等非关键信息。</li>
+</ul>
+</li>
+<li><p><strong>与ControlNet的兼容性</strong>：</p>
+<ul>
+<li>Image Adapter的设计使其与ControlNet兼容，这意味着它可以与ControlNet结合使用，为图像生成提供额外的空间控制能力，如边缘检测（canny）或深度信息。</li>
+</ul>
+</li>
+</ol>
+<p>通过这些设计，Image Adapter在InstantID中扮演了至关重要的角色，它不仅提高了生成图像的面部细节保真度，而且通过与IdentityNet的协同工作，实现了对文本提示的精确控制，从而在各种风格中生成高质量的定制图像。</p>
+<h3 id="🧘-模型训练过程"><a href="#🧘-模型训练过程" class="headerlink" title="🧘 模型训练过程"></a>🧘 模型训练过程</h3><p> InstantID的训练过程旨在优化Image Adapter和IdentityNet的参数，同时保持预训练的文本到图像扩散模型（如Stable Diffusion）的参数冻结。以下是训练过程的详细步骤和关键细节：</p>
+<ol>
+<li><p><strong>数据准备</strong>：</p>
+<ul>
+<li>InstantID在大规模的开源数据集LAION-Face上进行训练，该数据集包含5000万张图像-文本对，以确保多样性。</li>
+<li>另外，从互联网收集了1000万张高质量的人类图像，并使用BLIP2自动生成注释，以进一步提高生成质量。</li>
+</ul>
+</li>
+<li><p><strong>面部特征提取</strong>：</p>
+<ul>
+<li>使用预训练的面部模型（如antelopev21）来检测和提取人类图像中的面部ID嵌入。</li>
+</ul>
+</li>
+<li><p><strong>训练目标</strong>：</p>
+<ul>
+<li><p>在训练过程中，InstantID的目标是最小化生成图像与条件（文本提示和图像条件）之间的差异。训练目标定义为：</p>
+</li>
+<li><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240124182034262.png" alt=" "></p>
+<p>  其中，<code>Ci</code>是IdentityNet特有的图像条件，<code>ϵθ</code>是扩散模型的去噪函数，<code>zt</code>是噪声潜在表示，<code>C</code>是文本提示的嵌入。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>训练策略</strong>：</p>
+<ul>
+<li>在训练过程中，只有Image Adapter和IdentityNet的参数会被更新，而预训练的文本到图像模型的参数保持不变。</li>
+<li>训练过程中不随机丢弃文本或图像条件，因为IdentityNet中已经移除了文本提示条件。</li>
+</ul>
+</li>
+<li><p><strong>空间控制的敏感应用</strong>：</p>
+<ul>
+<li>IdentityNet在空间控制方面进行了调整，使用五个面部关键点（两个眼睛、一个鼻子和两个嘴巴）作为条件输入，以实现更通用的约束。</li>
+</ul>
+</li>
+<li><p><strong>训练过程</strong>：</p>
+<ul>
+<li>实验基于SDXL-1.0模型，在48个NVIDIA H800 GPUs（80GB）上进行，每个GPU的批量大小为2。</li>
+<li>训练过程中，Image Adapter和IdentityNet的参数被优化，以提高面部细节的恢复和ID嵌入的整合。</li>
+</ul>
+</li>
+<li><p><strong>权重调整</strong>：</p>
+<ul>
+<li>在训练过程中，可以独立且灵活地调整图像条件的权重，确保训练和推理过程的控制性和针对性。</li>
+</ul>
+</li>
+</ol>
+<p>通过这种训练策略，InstantID能够在不牺牲文本编辑能力的情况下，实现对面部身份的精确保持。训练完成后，用户可以生成具有高保真度的ID保持图像，而无需进行额外的微调。这种即插即用的特性使得InstantID在实际应用中具有很高的灵活性和实用性。</p>
+<h3 id="🛀-实验对比"><a href="#🛀-实验对比" class="headerlink" title="🛀 实验对比"></a>🛀 实验对比</h3><ul>
+<li>似乎比photomaker要好一些哈</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240124180159706.png" alt=" "></p>
+<ul>
+<li>与预先训练的角色 LoRA 的比较。我们不需要多个图像，并且仍然可以在没有任何训练的情况下获得与 LoRA 一样的有竞争力的结果。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240124180220850.png" alt=" "></p>
+<ul>
+<li>与 InsightFace Swapper（也称为 ROOP 或 Refactor）的比较。然而，在非写实风格中，我们的作品在面部和背景的融合上更加灵活。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240124180307519.png" alt=" "></p>
+<ul>
+<li>鲁棒性、可编辑性、兼容性</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240125095738284.png" alt=" "></p>
+<h2 id="🦸-产品应用"><a href="#🦸-产品应用" class="headerlink" title="🦸 产品应用"></a>🦸 产品应用</h2><p> InstantID的高效性和即插即用的特性为其在多个领域提供了广阔的应用前景。以下是一些潜在的应用场景：</p>
+<ol>
+<li><p><strong>电子商务和广告</strong>：</p>
+<ul>
+<li>InstantID可以用于创建个性化的产品展示，如将顾客的面部特征融入到广告中，提供更加个性化的购物体验。</li>
+<li>在服装和配饰的虚拟试穿中，InstantID可以帮助用户预览不同风格和颜色的服装在自己身上的效果。</li>
+</ul>
+</li>
+<li><p><strong>娱乐和媒体</strong>：</p>
+<ul>
+<li>在电影和视频游戏制作中，InstantID可以用来快速生成或修改角色的外观，减少CGI制作的时间和成本。</li>
+<li>对于音乐视频和MV制作，InstantID可以用于创造独特的视觉效果，如将艺术家的面部特征融入到特定的艺术风格中。</li>
+</ul>
+</li>
+<li><p><strong>社交媒体和内容创作</strong>：</p>
+<ul>
+<li>用户可以利用InstantID生成具有特定风格或情感的个性化头像和背景图像，增强社交媒体互动。</li>
+<li>内容创作者可以使用InstantID来创作漫画、插画或其他艺术作品，将个人风格与不同的艺术风格相结合。</li>
+</ul>
+</li>
+<li><p><strong>虚拟和增强现实（VR/AR）</strong>：</p>
+<ul>
+<li>在VR和AR应用中，InstantID可以用来创建逼真的虚拟角色和环境，提供更加沉浸式的体验。</li>
+<li>用户可以在虚拟空间中尝试不同的外观和风格，如在虚拟世界中尝试不同的发型、服装和配饰。</li>
+</ul>
+</li>
+<li><p><strong>教育和培训</strong>：</p>
+<ul>
+<li>InstantID可以用于创建定制化的教育材料，如将学习者的特征融入到教学图像中，提高学习兴趣和参与度。</li>
+<li>在模拟训练和教育中，InstantID可以帮助创建逼真的场景和角色，用于安全培训、医疗教育等领域。</li>
+</ul>
+</li>
+<li><p><strong>艺术和设计</strong>：</p>
+<ul>
+<li>艺术家和设计师可以利用InstantID探索新的风格和表现形式，创作出独特的艺术作品。</li>
+<li>在室内设计和建筑可视化中，InstantID可以帮助设计师快速预览不同风格和装饰的效果。</li>
+</ul>
+</li>
+<li><p><strong>身份验证和安全</strong>：</p>
+<ul>
+<li>InstantID可以用于生成用于身份验证的图像，提高系统的安全性。</li>
+<li>在法医分析和犯罪侦查中，InstantID可以帮助生成嫌疑人的模拟图像，辅助调查工作。</li>
+</ul>
+</li>
+</ol>
+<p>InstantID的这些应用前景展示了其在个性化图像生成领域的实用性和创新潜力，有望在多个行业中推动创意和效率的提升。</p>
+<h2 id="🧙-免费试玩（3天左右）"><a href="#🧙-免费试玩（3天左右）" class="headerlink" title="🧙 免费试玩（3天左右）"></a>🧙 <strong>免费试玩（3天左右）</strong></h2><h3 id="🍗-链接"><a href="#🍗-链接" class="headerlink" title="🍗 链接"></a>🍗 <strong>链接</strong></h3><ul>
+<li><p>如果链接失效，可私信或者输入 <code>InstantID</code>获取最新链接</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://911f21c836f3d2c6fe.gradio.live/">https://911f21c836f3d2c6fe.gradio.live</a>  </li>
+</ul>
+</li>
+<li><p>如果链接失效，可私信或者输入 <code>PhotoMaker</code>获取最新链接</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://cbae57f7a9ea6a9768.gradio.live/">https://cbae57f7a9ea6a9768.gradio.live</a>  </li>
+</ul>
+</li>
+</ul>
+<p>❗️❗️❗️【重要】个性化步骤：<br>1️⃣ 上传人物图片。对于多人图像，我们只会检测最大的脸部。确保脸部不要太小，并且没有明显遮挡或模糊。<br>2️⃣ <strong>（可选）上传另一个人的图像作为参考姿势。如果没有上传，我们将使用第一人称图像来提取地标。如果您在步骤1中使用了裁剪后的脸部，建议上传它以提取新的姿势。</strong><br>3️⃣ 输入文本提示，就像在普通文本到图像模型中所做的那样。<br>4️⃣ 单击“提交”按钮开始定制。</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240125103353164.png" alt=" "></p>
+<h3 id="🍿-样例"><a href="#🍿-样例" class="headerlink" title="🍿 样例"></a>🍿 样例</h3><p>**1 输入参考图像 **</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/demo1-1706150833734-1.png" alt=" "></p>
+<p><strong>2 输入提示词</strong></p>
+<ul>
+<li><code>a man, suit</code></li>
+</ul>
+<p><strong>3 输入参考姿势图像（可选项）</strong></p>
+<ul>
+<li>输入的Pose姿势图像，可以调整生成图像的面部姿势（朝向）</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/avatar.png" alt=" "></p>
+<p><strong>4 选择风格</strong></p>
+<ul>
+<li>默认写实风格 <code>No style</code></li>
+</ul>
+<p><strong>输出</strong></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-1706150833734-2.png" alt=" "></p>
+<h2 id="🤝-Thank-you"><a href="#🤝-Thank-you" class="headerlink" title="🤝 Thank you"></a>🤝 Thank you</h2><blockquote>
+<p>❤️ 每周免费分享AIGC相关最新资讯，感兴趣可以关注，喜欢动动小手点个赞，谢谢支持！</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240125103836043.png" alt="Thank you"></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Lee Jet</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://lee-jet.github.io/2024/01/25/instantid/">https://lee-jet.github.io/2024/01/25/instantid/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Lee Jet</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Paper-Reading/">
+                                    <span class="chip bg-color">Paper Reading</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '239ba579785b9bb8ffde',
+        clientSecret: '6b8159892d8d5785b7be9a84c0998462ce8649d4',
+        repo: 'gitalk',
+        owner: 'lee-jet',
+        admin: "lee-jet",
+        id: '2024-01-25T10-47-02',
+        distractionFreeMode: false,  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2024/01/25/instantid/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="InstantID">
+                        
+                        <span class="card-title">InstantID</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-01-25
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper-Reading/" class="post-category">
+                                    Paper Reading
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Paper-Reading/">
+                        <span class="chip bg-color">Paper Reading</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/01/18/photomaker/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="PhotoMaker">
+                        
+                        <span class="card-title">PhotoMaker</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-01-18
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper-Reading/" class="post-category">
+                                    Paper Reading
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Paper-Reading/">
+                        <span class="chip bg-color">Paper Reading</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('1'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2023-2024</span>
+            
+            <a href="/about" target="_blank">Lee Jet</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">142.8k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/lee-jet" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1874087716@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1874087716" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1874087716" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
