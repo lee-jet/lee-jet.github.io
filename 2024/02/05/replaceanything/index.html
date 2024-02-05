@@ -4,16 +4,17 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="design-pattern, AiHub">
-    <meta name="description" content="设计模式
+    <meta name="keywords" content="ReplaceAnything, AiHub">
+    <meta name="description" content="⚡[AIGC服务] ReplaceAnything | 图像内容任意替换 
 
-创建型模式
-创建型模式（Creational Pattern）主要关注对象创建过程的灵活性和可复用性
 
-工厂方法
+本文主要介绍基于AI的图像内容替换的应用，包括人物替换、服装替换、背景替换，非常适合数字内容制作和电商广告营销。（后期会详细介绍实现原理和技术细节）
 
-工厂方法模式是一种创建型设计模式， 其在父类中提供一个创建对象的方法， 允许子类决定实例化对象的类型
-如果无法预">
+
+
+
+
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -25,7 +26,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>design-pattern | AiHub</title>
+    <title>ReplaceAnything | AiHub</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -345,12 +346,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">design-pattern</h1>
+                    <h1 class="description center-align post-title">ReplaceAnything</h1>
                 </div>
             </div>
         </div>
@@ -374,8 +375,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Tech-share/">
-                                <span class="chip bg-color">Tech share</span>
+                            <a href="/tags/Paper-Reading/">
+                                <span class="chip bg-color">Paper Reading</span>
                             </a>
                         
                     </div>
@@ -386,8 +387,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Tech-share/" class="post-category">
-                                Tech share
+                            <a href="/categories/Paper-Reading/" class="post-category">
+                                Paper Reading
                             </a>
                         
                     </div>
@@ -399,28 +400,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-08-16
+                    2024-02-05
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-08-16
+                    2024-02-05
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.7k
+                    947
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    3 分
                 </div>
                 
 
@@ -443,191 +444,80 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <div align='center' ><font size='7'>设计模式</font></div>
+                <div align='center' ><font size='6'><strong>⚡[AIGC服务] ReplaceAnything | 图像内容任意替换 </strong></font></div>
 
-<h2 id="创建型模式"><a href="#创建型模式" class="headerlink" title="创建型模式"></a>创建型模式</h2><blockquote>
-<p>创建型模式（Creational Pattern）主要关注对象创建过程的灵活性和可复用性</p>
+<blockquote>
+<p>本文主要介绍基于AI的图像内容替换的应用，包括人物替换、服装替换、背景替换，非常适合数字内容制作和电商广告营销。（后期会详细介绍实现原理和技术细节）</p>
 </blockquote>
-<h3 id="工厂方法"><a href="#工厂方法" class="headerlink" title="工厂方法"></a>工厂方法</h3><blockquote>
-<ul>
-<li><strong>工厂方法模式</strong>是一种创建型设计模式， 其在父类中提供一个创建对象的方法， 允许子类决定实例化对象的类型</li>
-<li>如果无法预知对象确切类别及其依赖关系时，可使用工厂方法</li>
-</ul>
-</blockquote>
-<ul>
-<li><p>工厂方法模式建议使用特殊的<em>工厂</em>方法代替对于对象构造函数的直接调用 （即使用 <code>new</code>运算符）。 不用担心， 对象仍将通过 <code>new</code>运算符创建， 只是该运算符改在工厂方法中调用罢了。 工厂方法返回的对象通常被称作 “产品”。</p>
-</li>
-<li><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230816103014820.png" alt="image-20230816103014820"></p>
-</li>
-<li><p>工厂方法（Factory Method）模式适用于将对象的创建和使用分离，并希望尽可能多地复用现有代码来处理新型对象的情景。</p>
-  <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">class Network &#123;
-public:
-  virtual ~Network() &#123; cout &lt;&lt; &quot;Network destroyed&quot; &lt;&lt; endl; &#125;
-  virtual string getNetworkType() const &#x3D; 0;
-&#125;;
-class CNN : public Network &#123;
-public:
-    string getNetworkType() const override &#123;
-        return &quot;CNN&quot;;
-    &#125;
-&#125;;
-
-class GAN : public Network &#123;
-public:
-    string getNetworkType() const override &#123;
-        return &quot;GAN&quot;;
-    &#125;
-&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<ul>
-<li>纯虚函数<code>getNetworkType()</code>用来返回网络的类型</li>
-</ul>
-</li>
-</ul>
-<h3 id="抽象工厂"><a href="#抽象工厂" class="headerlink" title="抽象工厂"></a>抽象工厂</h3><blockquote>
-<ul>
-<li>抽象工厂（Abstract Factory）适用于需要创建许多种一系列相互依赖的对象的情景。</li>
-<li>如果代码需要与多个不同系列的相关产品交互，但是由于无法提前获取相关信息，或者出于对未来扩展性的考虑，你不希望代码基于产品的具体类进行构建，在这种情况下，你可以使用抽象工厂</li>
-<li>工厂方法与抽象工厂的根本区别在于工厂方法是“方法”，抽象工厂是“对象”。具体地，工厂方法的目的在于用基类的不同子类来表示不同的对象；抽象工厂只需要关心如何创建一系列相互依赖的对象，可以理解为一种包含很多工厂方法的对象。</li>
-</ul>
-</blockquote>
-<p>抽象工厂模式建议为系列中的每件产品明确声明接口 （例如椅子、 沙发或咖啡桌）。 然后， 确保所有产品变体都继承这些接口。 例如， 所有风格的椅子都实现 <code>椅子</code>接口； 所有风格的咖啡桌都实现 <code>咖啡桌</code>接口， 以此类推</p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230816103433089.png" alt="image-20230816103433089"></p>
-<p> 例如，  <code>现代家具工厂</code>Modern­Furniture­Factory只能创建 <code>现代椅子</code>Modern­Chair 、  <code>现代沙发</code>Modern­Sofa和 <code>现代咖啡桌</code>Modern­Coffee­Table对象。</p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230816103556663.png" alt="image-20230816103556663"></p>
-<ul>
-<li><p>在两个<code>Network</code>的子类里，我们调用<code>Dataset</code>接口的方式是相同的：<code>dataset.getDatasetName()</code>，区别在于我们需要在<code>CNN</code>的实现当中只关心<code>CNN</code>的数据预处理，在<code>GAN</code>当中只关心<code>GAN</code>的数据预处理</p>
-  <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Dataset</span> <span class="token punctuation">&#123;</span>
-public<span class="token punctuation">:</span>
-    virtual <span class="token operator">~</span>Dataset<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Dataset destroyed"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token punctuation">&#125;</span>
-    virtual string getDatasetName<span class="token punctuation">(</span><span class="token punctuation">)</span> const <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-
-<span class="token keyword">class</span> <span class="token class-name">ImageNet</span> <span class="token punctuation">:</span> public Dataset <span class="token punctuation">&#123;</span>
-public<span class="token punctuation">:</span>
-    string getDatasetName<span class="token punctuation">(</span><span class="token punctuation">)</span> const override <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> <span class="token string">"ImageNet"</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-
-<span class="token keyword">class</span> <span class="token class-name">CelebA</span> <span class="token punctuation">:</span> public Dataset <span class="token punctuation">&#123;</span>
-public<span class="token punctuation">:</span>
-    string getDatasetName<span class="token punctuation">(</span><span class="token punctuation">)</span> const override <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> <span class="token string">"CelebA"</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-
-<span class="token keyword">class</span> <span class="token class-name">Network</span> <span class="token punctuation">&#123;</span>
-public<span class="token punctuation">:</span>
-    virtual <span class="token operator">~</span>Network<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Network destroyed"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token punctuation">&#125;</span>
-    virtual string getNetworkType<span class="token punctuation">(</span><span class="token punctuation">)</span> const <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    virtual string giveMeADataset<span class="token punctuation">(</span>const Dataset<span class="token operator">&amp;</span> dataset<span class="token punctuation">)</span> const <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-
-<span class="token keyword">class</span> <span class="token class-name">CNN</span> <span class="token punctuation">:</span> public Network <span class="token punctuation">&#123;</span>
-public<span class="token punctuation">:</span>
-    string getNetworkType<span class="token punctuation">(</span><span class="token punctuation">)</span> const override <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> <span class="token string">"CNN"</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    string giveMeADataset<span class="token punctuation">(</span>const Dataset<span class="token operator">&amp;</span> dataset<span class="token punctuation">)</span> const override <span class="token punctuation">&#123;</span>
-        const string dataset_name <span class="token operator">=</span> dataset<span class="token punctuation">.</span>getDatasetName<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> <span class="token string">"I am training a CNN with "</span> <span class="token operator">+</span> dataset_name<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-
-<span class="token keyword">class</span> <span class="token class-name">GAN</span> <span class="token punctuation">:</span> public Network <span class="token punctuation">&#123;</span>
-public<span class="token punctuation">:</span>
-    string getNetworkType<span class="token punctuation">(</span><span class="token punctuation">)</span> const override <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> <span class="token string">"GAN"</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    string giveMeADataset<span class="token punctuation">(</span>const Dataset<span class="token operator">&amp;</span> dataset<span class="token punctuation">)</span> const override <span class="token punctuation">&#123;</span>
-        const string dataset_name <span class="token operator">=</span> dataset<span class="token punctuation">.</span>getDatasetName<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> <span class="token string">"I am training a GAN with "</span> <span class="token operator">+</span> dataset_name<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p><strong>抽象工厂</strong>是一种创建型设计模式， 它能创建一系列相关或相互依赖的对象， 而无需指定其具体类。什么是 “系列对象”？ 例如有这样一组的对象：  <code>运输工具</code>+ <code>引擎</code>+ <code>控制器</code> 。 它可能会有几个变体：</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240205144501801.png" alt=" "></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240205144730675.png" alt=" "></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240205145047940.png" alt=" "></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240205145121938.png" alt=" "></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240205150434773.png" alt=" "></p>
+<h2 id="👽-目录"><a href="#👽-目录" class="headerlink" title="👽 目录"></a>👽 目录</h2><p>[TOC]</p>
+<h2 id="😀-项目简介"><a href="#😀-项目简介" class="headerlink" title="😀 项目简介"></a>😀 项目简介</h2><p>在人工智能驱动的软件开发不断发展的格局中，ReplaceAnything 作为一种尖端工具出现，使开发人员和创意人员能够彻底改变他们的内容创建过程。这一创新的应用程序可让您根据您的描述无缝地用新生成的图像替换图像的任何部分。此类技术的影响涵盖从数字营销到游戏开发的各个领域，让我们得以一睹创造力边界显着扩展的未来。</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/main.xAwMSAze.png" alt=" "></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/a004.jpg" alt=" "></p>
+<h2 id="😁-核心功能"><a href="#😁-核心功能" class="headerlink" title="😁 核心功能"></a>😁 核心功能</h2><p>ReplaceAnything 以其独特的功能脱颖而出，在内容替换领域树立了新的标杆。主要特点包括：</p>
 <ol>
-<li><code>汽车</code>+ <code>内燃机</code>+ <code>方向盘</code></li>
-<li><code>飞机</code>+ <code>喷气式发动机</code>+ <code>操纵杆</code></li>
+<li>基于图像的内容替换：用自然语言描述生成的新内容替换图像的部分内容。</li>
+<li>直观的用户界面：用户友好的界面，可以轻松选择和替换图像片段。</li>
+<li>多功能应用：非常适合内容审核、创建定制营销材料和增强数字艺术。</li>
 </ol>
-<p>  如果你的程序中并不涉及产品系列的话， 那就不需要抽象工厂。</p>
-</li>
+<p>其在<strong>人物替换、服装替换、背景替换</strong>等场景中都有广泛的应用。</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image07.jpg" alt=" "></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/bg_009.jpg" alt=" "></p>
+<h2 id="😂-工作原理"><a href="#😂-工作原理" class="headerlink" title="😂 工作原理"></a>😂 工作原理</h2><p>ReplaceAnything 采用先进的人工智能算法，旨在识别和修改图像中的特定元素。该工具利用机器学习技术来准确识别图像中的对象或特征，并提供根据用户偏好更改它们的功能。其功能反映了人工智能处理复杂图像处理任务的增长趋势。</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image09.jpg" alt=" "></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/bg_004.jpg" alt=" "></p>
+<h2 id="😇-行业应用"><a href="#😇-行业应用" class="headerlink" title="😇 行业应用"></a>😇 行业应用</h2><ul>
+<li>平面设计：使设计师能够通过改变关键图像元素来创造独特的视觉效果。</li>
+<li>营销和广告：协助创建更具吸引力和定制化的广告视觉效果。</li>
+<li>教育目的：作为教授人工智能图像处理能力的工具。</li>
 </ul>
-<h3 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h3><blockquote>
-<p>生成器（Builder）模式适用于需要分很多步骤创建不同对象的情景。也就是说我所创建的对象可以由许多重复性的基本组件构成。</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/65b77b4c4401f4eb13b77208_0_3%20(2).jpg" alt=" "></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/a003.jpg" alt=" "></p>
+<p>解决了数字图像领域的特定挑战：</p>
+<ul>
+<li>减少图像编辑的时间和精力：简化复杂图像修改的过程。</li>
+<li>提供创意灵活性：提供超越传统方法的创造性操作图像的新方法。</li>
+<li>增强人工智能的学习和探索：为那些对人工智能在视觉艺术中的应用感兴趣的人提供教育工具。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/65b77b4c4401f4eb13b77206_0_1%20(2).jpg" alt=" "></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/a002.jpg" alt=" "></p>
+<h2 id="😜-适合用户"><a href="#😜-适合用户" class="headerlink" title="😜 适合用户"></a>😜 适合用户</h2><p>迎合多样化的用户群，包括：</p>
+<ul>
+<li>平面设计师和艺术家：寻求操作图像的创新方法。</li>
+<li>营销专业人士：寻找独特的视觉内容创建工具。</li>
+<li>人工智能和技术爱好者：有兴趣探索人工智能在图像处理方面的能力。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/65b77b4c4401f4eb13b77205_0_0%20(2).jpg" alt=" "></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/a007.jpg" alt=" "></p>
+<h2 id="🤭-免费试玩"><a href="#🤭-免费试玩" class="headerlink" title="🤭 免费试玩"></a>🤭 免费试玩</h2><ul>
+<li>链接：<a target="_blank" rel="noopener" href="https://huggingface.co/spaces/modelscope/ReplaceAnything">https://huggingface.co/spaces/modelscope/ReplaceAnything</a></li>
+</ul>
+<h3 id="😵‍💫-提示"><a href="#😵‍💫-提示" class="headerlink" title="😵‍💫 提示"></a>😵‍💫 提示</h3><p>⭐️步骤1：上传或从示例中选择一张图片<br>⭐️步骤2：点击Input-image选择需要保留的对象（或者上传黑白Mask图片，其中白色表示要保留不变的区域）<br>⭐️步骤3：输入提示或参考图片（强烈推荐）以生成新内容<br>⭐️第4步：点击运行按钮</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240205145805982.png" alt=" "></p>
+<h3 id="🥶-样例"><a href="#🥶-样例" class="headerlink" title="🥶 样例"></a>🥶 样例</h3><ul>
+<li>上传图像 </li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/GDjbySyXgAAIe58.jpeg" alt=" "></p>
+<ul>
+<li>点击分割（上传图片后，直接点击图片中某个对象，就是要保留的区域，本图中绿色为保留区域，其它会根据提示词替换掉）</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/GDjbzFcWQAApJI4.jpeg" alt=" "></p>
+<ul>
+<li><strong>输入提示词（Prompt，哥们请别再输入中文了，服务器都崩溃了）</strong></li>
+</ul>
+<p><code>a futuristic space soldier woman, arms outstretched, inside a spaceship</code></p>
+<ul>
+<li>生成图像（Run）</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-1707117793818-1.png" alt=" "></p>
+<h2 id="🤝-Thank-you"><a href="#🤝-Thank-you" class="headerlink" title="🤝 Thank you"></a>🤝 Thank you</h2><blockquote>
+<p>❤️ 每周免费分享AIGC相关最新资讯，感兴趣可以关注</p>
 </blockquote>
-<ul>
-<li><p>基于神经网络的分类模型，具体的结构可以有很多种，例如只有1个全连通层的线性模型、包含多个全连通层的MLP、以及同时包含多个卷积层和全连通层的CNN等。这些不同的模型都是由“全连通层”和“卷积层”这两个基本单元构成的</p>
-  <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Builder</span> <span class="token punctuation">&#123;</span>
-public<span class="token punctuation">:</span>
-    virtual <span class="token operator">~</span>Builder<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Builder destroyed"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token punctuation">&#125;</span>
-    virtual void createLinearLayer<span class="token punctuation">(</span><span class="token punctuation">)</span> const <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    virtual void createConvLayer<span class="token punctuation">(</span><span class="token punctuation">)</span> const <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    virtual void createLossLayer<span class="token punctuation">(</span><span class="token punctuation">)</span> const <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>定义模块化组件进行组装</p>
-</li>
-<li><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230816104604315.png" alt="image-20230816104604315"></p>
-</li>
-</ul>
-<h3 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h3><blockquote>
-<p>原型（Prototype）模式适用于需要复制复杂的对象，并希望新复制的对象独立于原来的代码的情景。</p>
-</blockquote>
-<ul>
-<li><code>clone()</code>接口就是原型模式的关键所在</li>
-</ul>
-<h3 id="单例"><a href="#单例" class="headerlink" title="单例"></a>单例</h3><blockquote>
-<p>单例（Singleton）模式适用于一个类只需要一个实例的情景。抽象工厂模式、生成器模式和原型模式都可以用单例模式实现</p>
-</blockquote>
-<ul>
-<li><p>我们一方面要避免在代码中显示地对模型进行复制（否则内存会爆掉），另一方面在设计模型的接口时也要保证其他人在调用我们的接口时不会随意地复制模型</p>
-  <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">class Model &#123;
-private:
-    Model() &#123;&#125;
-    ~Model() &#123;&#125;
-protected:
-    Model(const string id) : model_id(id) &#123;&#125;
-    static Model* model;
-    string model_id;
-public:
-    Model(const Model&amp;) &#x3D; delete;
-    Model(Model&amp;&amp;) &#x3D; delete;
-    void operator&#x3D;(const Model&amp;) &#x3D; delete;
-    void operator&#x3D;(Model&amp;&amp;) &#x3D; delete;
-
-    void train() &#123;
-        cout &lt;&lt; &quot;Training done with &quot; + model_id + &quot;\n&quot;;
-    &#125;
-
-    static Model* getInstance(const string&amp; id);
-    static Model&amp; getInstanceSafe(const string&amp; id);
-&#125;;
-
-
-Model* Model::model &#x3D; nullptr;
-Model* Model::getInstance(const string&amp; id) &#123;
-    if (model &#x3D;&#x3D; nullptr)
-        model &#x3D; new Model(id);
-    return model;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>我们只希望<code>Model</code>自己有权对模型进行创建和删除，所以把<code>constructor</code>和<code>destructor</code>声明为<code>private</code>。另外，我们不希望<code>Model</code>的调用者对模型进行复制，所以需要禁用其<code>copy constructor</code>，<code>move constructor</code>，<code>copy assignment operator</code>和<code>move assignment operator</code></p>
-</li>
-<li><p>所有单例的实现都包含以下两个相同的步骤：</p>
-<ul>
-<li><p><strong>将默认构造函数设为私有， 防止其他对象使用单例类的 <code>new</code>运算符。</strong></p>
-</li>
-<li><p><strong>新建一个静态构建方法作为构造函数。 该函数会 “偷偷” 调用私有构造函数来创建对象， 并将其保存在一个静态成员变量中。 此后所有对于该函数的调用都将返回这一缓存对象。</strong></p>
-</li>
-</ul>
-</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230816105335776.png" alt="image-20230816105335776"></p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://refactoringguru.cn/design-patterns">https://refactoringguru.cn/design-patterns</a></li>
-<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844904174363082766">https://juejin.cn/post/6844904174363082766</a></li>
-</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/1DXLtXZRdT-DgWPUJigB92A.jpeg" alt="Thank you"></p>
 
                 
             </div>
@@ -654,7 +544,7 @@ Model* Model::getInstance(const string&amp; id) &#123;
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lee-jet.github.io/2023/08/16/design-pattern/">https://lee-jet.github.io/2023/08/16/design-pattern/</a>
+                    <a href="https://lee-jet.github.io/2024/02/05/replaceanything/">https://lee-jet.github.io/2024/02/05/replaceanything/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -692,8 +582,8 @@ Model* Model::getInstance(const string&amp; id) &#123;
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Tech-share/">
-                                    <span class="chip bg-color">Tech share</span>
+                                <a href="/tags/Paper-Reading/">
+                                    <span class="chip bg-color">Paper Reading</span>
                                 </a>
                             
                         </div>
@@ -771,7 +661,7 @@ Model* Model::getInstance(const string&amp; id) &#123;
         repo: 'gitalk',
         owner: 'lee-jet',
         admin: "lee-jet",
-        id: '2023-08-16T10-59-45',
+        id: '2024-02-05T15-22-57',
         distractionFreeMode: false,  // Facebook-like distraction free mode
     });
 
@@ -799,17 +689,18 @@ Model* Model::getInstance(const string&amp; id) &#123;
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/08/16/libtorch/">
+                <a href="/2024/02/05/replaceanything/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="LibTorch">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="ReplaceAnything">
                         
-                        <span class="card-title">LibTorch</span>
+                        <span class="card-title">ReplaceAnything</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -819,26 +710,27 @@ Model* Model::getInstance(const string&amp; id) &#123;
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-08-16
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-02-05
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Tech-share/" class="post-category">
-                                    Tech share
+                            <a href="/categories/Paper-Reading/" class="post-category">
+                                    Paper Reading
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Tech-share/">
-                        <span class="chip bg-color">Tech share</span>
+                    <a href="/tags/Paper-Reading/">
+                        <span class="chip bg-color">Paper Reading</span>
                     </a>
                     
                 </div>
@@ -852,13 +744,13 @@ Model* Model::getInstance(const string&amp; id) &#123;
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/08/10/diffusion/">
+                <a href="/2024/01/25/instantid/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Diffusion">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="InstantID">
                         
-                        <span class="card-title">Diffusion</span>
+                        <span class="card-title">InstantID</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -869,7 +761,7 @@ Model* Model::getInstance(const string&amp; id) &#123;
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-01-25
                             </span>
                         <span class="publish-author">
                             
