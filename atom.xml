@@ -6,7 +6,7 @@
   <link href="https://lee-jet.github.io/atom.xml" rel="self"/>
   
   <link href="https://lee-jet.github.io/"/>
-  <updated>2024-02-05T07:24:13.184Z</updated>
+  <updated>2024-02-06T03:08:04.166Z</updated>
   <id>https://lee-jet.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>GenerativeAITop150</title>
+    <link href="https://lee-jet.github.io/2024/02/06/generativeaitop150/"/>
+    <id>https://lee-jet.github.io/2024/02/06/generativeaitop150/</id>
+    <published>2024-02-06T03:03:05.000Z</published>
+    <updated>2024-02-06T03:08:04.166Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;6&#39;&gt;&lt;strong&gt;⚡</summary>
+        
+      
+    
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
+    
+  </entry>
   
   <entry>
     <title>ReplaceAnything</title>
@@ -510,31 +535,6 @@
     <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;8&#39;&gt;&lt;strong&gt;Digital signal process&lt;/strong&gt;&lt;/font&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;Digital-signal-process-DSP&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>torch_amp</title>
-    <link href="https://lee-jet.github.io/2023/12/08/torch-amp/"/>
-    <id>https://lee-jet.github.io/2023/12/08/torch-amp/</id>
-    <published>2023-12-08T03:10:26.000Z</published>
-    <updated>2023-12-08T03:11:45.722Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;AMP&quot;&gt;&lt;a href=&quot;#AMP&quot; class=&quot;headerlink&quot; title=&quot;AMP&quot;&gt;&lt;/a&gt;AMP&lt;/h2&gt;&lt;p&gt;&lt;code&gt;AUTOMATIC MIXED PRECISION&lt;/code&gt;唯一要求是 Pytorch 1.6 以上版本和支持</summary>
         
       
     
