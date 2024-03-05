@@ -1,0 +1,1372 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="SORA, AiHub">
+    <meta name="description" content="[AI Milestone] Sora | 2024年最强AI视频生成大模型
+
+
+本文主要从Sora的诞生背景、技术原理、能力演示、应用前景和变现思路等多个角度进行介绍这一划时代的最新视频生成技术。
+
+在美国当地时间2024年2月15日，O">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>SORA | AiHub</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/reward.css">
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+	
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4517244572130756"
+		 crossorigin="anonymous"></script>
+<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="AiHub" type="application/atom+xml">
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">AiHub</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">AiHub</div>
+        <div class="logo-desc">
+            
+            Fire
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/lee-jet" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/lee-jet" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">SORA</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Paper-Reading/">
+                                <span class="chip bg-color">Paper Reading</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Paper-Reading/" class="post-category">
+                                Paper Reading
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-03-05
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2024-03-05
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    6.2k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    21 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <div align='center' ><font size='6'><strong>[AI Milestone] Sora | 2024年最强AI视频生成大模型</strong></font></div>
+
+<blockquote>
+<p>本文主要从Sora的诞生背景、技术原理、能力演示、应用前景和<strong>变现思路</strong>等多个角度进行介绍这一划时代的最新视频生成技术。</p>
+<ul>
+<li>在美国当地时间2024年2月15日，OpenAI发布首个视频大模型Sora，一句话生成一分钟高清连贯视频。</li>
+<li>Sora，源自日语的そら，空。色即是空。色、受、想、行、识，五蕴亦皆空。至大无外，至小无内，这个产品注定会给人无穷的想象空间。OpenAI 团队用一个充满禅意的词，又一次开启了AIGC 的新时代。</li>
+</ul>
+<p><strong>Plus: [爱研究]AI交流群</strong>：为了方便交流，建立了群聊，后台私信发送：666</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/642-1.gif" alt="img"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/11-1.gif" alt="img"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/v2-03fc84613d16e019ff7344eca94722ac_b.webp" alt="动图"></p>
+<hr>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>[TOC]</p>
+<hr>
+<h2 id="😀引言"><a href="#😀引言" class="headerlink" title="😀引言"></a>😀引言</h2><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240305144606274.png" alt=" "></p>
+<p>AI视频技术的发展历程可以追溯到2022年，当时初创公司Runway在这一领域取得了显著成就，其技术甚至被用于热门科幻电影《瞬息全宇宙》的视频编辑。此后，AI视频技术经历了快速的发展，Runway、Pika、Meta（Emu Video）等公司纷纷加入竞争。然而，早期的AI视频通常存在一些限制，如视频长度有限（通常只有几秒钟），场景逼真度不足，元素突然出现或消失，以及运动不连贯等问题，这些问题使得视频内容容易被识别为AI生成。</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/15-1.gif" alt=" "></p>
+<p>OpenAI发布的Sora模型在演示视频中展示了显著的进步，其生成的视频内容在质量上几乎无法被察觉为AI制作。Sora能够生成长达一分钟的视频，这在当时的AI视频中是一个重要的突破。Sora的发展不仅代表了AI技术的一个里程碑，也标志着AI研究的一个重要方向：使AI系统能够理解复杂的用户指令，并将这些理解应用于解决现实世界问题，通过动态和情境丰富的模拟互动来实现这一目标。这表明AI在视频内容创作和模拟现实世界方面的能力正在不断增强，为未来的应用和发展打开了新的可能性。</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240305114338771.png" alt=" "></p>
+<h2 id="🙄Sora的诞生背景"><a href="#🙄Sora的诞生背景" class="headerlink" title="🙄Sora的诞生背景"></a>🙄Sora的诞生背景</h2><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240305115317542.png" alt=" "></p>
+<p>在ChatGPT发布后不久，2023年我们看到了文本到图像产品的商业化，如Stable Diffusion、Midjourney和DALL-E 3，它们允许用户通过文本提示生成高分辨率图像，展示了AI在创意图像生成方面的能力。然而，将这一技术扩展到视频生成领域面临挑战，因为视频需要处理时间维度的复杂性。尽管有显著努力，但大多数现有工具如Pika和Gen-2只能生成几秒钟的视频。</p>
+<p>Sora的出现打破了这一局限，它能够根据文本指令生成长达一分钟的视频，这在生成AI领域是一个重大突破，类似于ChatGPT在自然语言处理（NLP）领域的影响。</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240305141745355.png" alt="对比表格"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/1460000044639206.gif" alt="对比视频"></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240305143208921.png" alt="相关研究"></p>
+<h2 id="😏Sora的技术原理"><a href="#😏Sora的技术原理" class="headerlink" title="😏Sora的技术原理"></a>😏Sora的技术原理</h2><h3 id="技术框架"><a href="#技术框架" class="headerlink" title="技术框架"></a>技术框架</h3><p>Sora模型在算法设计上结合了扩散（diffusion）和变换器（transformer）两种架构，通过时空补丁（spacetime patches）的方式对输入的视频等多种视觉数据进行降维和压缩。这种方法在变换器中替代了语言模型中的tokens，实现了有效的视频数据训练。</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/sora_framework.png" alt=" "></p>
+<p>Sora模型是一个先进的视频生成技术，它的核心架构包括三个主要部分：</p>
+<ol>
+<li><p><strong>时间-空间压缩器</strong>：这是Sora的第一步，负责将原始视频数据压缩成一个低维的潜在空间表示。这个过程涉及到将视频数据转换为一种可以被模型更高效处理的形式。</p>
+</li>
+<li><p>**视觉转换器 (ViT)**：在压缩后，Sora使用视觉转换器来处理这些潜在的数据表示。ViT通常是基于Transformer架构的，它能够处理图像数据，并输出去噪后的、清晰的视频数据表示。</p>
+</li>
+<li><p><strong>智能条件设置机制</strong>：这是Sora的最后阶段，它类似于CLIP模型，使用大语言模型（LLM）增强的用户指令和可能的视觉提示来指导视频生成过程。这允许Sora根据用户的文本指令生成具有特定风格或主题的视频内容。</p>
+</li>
+</ol>
+<p>在经过一系列的去噪步骤后，Sora捕获视频的深层表示，并通过一个专门的解码器将其转换回像素格式，生成最终的视频输出。这种灵活的采样尺寸和多阶段处理方法使得Sora能够生成高质量、风格多样的视频内容。</p>
+<h3 id="数据预处理"><a href="#数据预处理" class="headerlink" title="数据预处理"></a>数据预处理</h3><h4 id="01-自适应视频分辨率"><a href="#01-自适应视频分辨率" class="headerlink" title="01 自适应视频分辨率"></a>01 自适应视频分辨率</h4><ul>
+<li>传统方法常将视频调整尺寸、裁剪或改变宽高比以符合统一的标准（通常是短片段、正方形帧且分辨率固定较低）。这种处理方式通常会在较宽的时间跨度内生成样本，并依靠专门训练的帧插入和分辨率渲染模型作为最终步骤，导致视频内容的不连贯。</li>
+<li>Sora 利用了Diffusion Transformer架构，成为了第一个能够适应视觉数据多样性的模型，它可以处理各种格式的视频和图像，从宽屏1920x1080p到竖屏的1080x1920p，以及介于两者之间的任何尺寸，而不会改变它们的原始尺寸。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/1460000044639215.gif" alt=" "></p>
+<ul>
+<li>Sora 在原始分辨率上训练数据，显著提升了生成视频的构图和画面布局效果，能创造出更加自然流畅的视觉叙事。其生成的视频在画面构成上做得更好，确保了场景中的主体被完整地展现，避免了正方形裁剪所常见的部分视角被切割的问题。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/1460000044639216.gif" alt=" "></p>
+<h4 id="02-视觉编码表征"><a href="#02-视觉编码表征" class="headerlink" title="02 视觉编码表征"></a>02 视觉编码表征</h4><p>为了有效地处理多样化的视觉输入，如不同时长、分辨率和宽高比的图像和视频，Sora采用了一种关键策略，即将这些视觉数据转换为统一的格式。这一策略的核心步骤如下：</p>
+<ol>
+<li><p><strong>视频压缩</strong>：Sora首先使用视频压缩网络将原始视频数据压缩到一个更低维度的潜在空间（latent space）。这一步骤减少了数据的复杂性，使得模型能够更高效地处理和学习视频内容。</p>
+</li>
+<li><p><strong>时空片段分解</strong>：压缩后的视频数据被进一步分解为时空片段（Spacetime Patches）。这些片段是视频数据的基本构建块，包含了空间（图像帧）和时间（连续帧）的信息。通过这种方式，Sora能够捕捉视频中的动态变化和时间序列。</p>
+</li>
+<li><p><strong>统一格式</strong>：通过将视频数据转化为时空片段，Sora能够以统一的格式处理各种视觉输入。这种统一的表示方法简化了模型的训练过程，并提高了生成视频的质量。</p>
+</li>
+</ol>
+<p>这种策略使得Sora能够灵活地处理各种视频格式，同时保持生成视频的高质量和视觉连贯性。通过这种方法，Sora在视频生成领域展现了其强大的能力和潜力。</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240305115559071.png" alt=" "></p>
+<h4 id="03-视频压缩技术"><a href="#03-视频压缩技术" class="headerlink" title="03 视频压缩技术"></a>03 视频压缩技术</h4><p>Sora的视频压缩技术旨在降低视频数据的维度，以便生成一个在时间和空间上都进行了压缩的潜在表示。这一技术基于变分自编码器（VAE）或其变体，如向量量化的VAE（VQ-VAE）。然而，直接将任意尺寸的视觉数据映射到固定大小的潜在空间中存在挑战，特别是当不进行图像调整和裁剪时。</p>
+<p>为了应对这一挑战，Sora可能采用了以下两种实现方法：</p>
+<ol>
+<li><p><strong>空间区块压缩</strong>：这种方法涉及将视频帧分割成固定大小的区块，然后将这些区块编码到潜在空间中。这种处理方式适用于不同分辨率和宽高比的视频，因为它通过处理单个区块来编码整个视频帧。这些空间标记随后按时间顺序排列，形成结合了空间和时间信息的潜在表示。</p>
+</li>
+<li><p><strong>空间-时间片段压缩</strong>：这种方法旨在同时封装视频数据的空间和时间维度，提供一个全面的表示。它通过考虑帧之间的运动和变化来捕捉视频的动态特性。三维卷积（3D convolution）是实现这种整合的有效方法。</p>
+</li>
+</ol>
+<p>这两种方法都涉及到使用预设的卷积核参数，但由于视频输入的特性差异（如不同的持续时间和分辨率），这可能导致潜在空间的维度不一致。为了解决这个问题，可以采用与空间片段压缩类似的方法，这同样适用且有效。</p>
+<p>Sora在设计时可能倾向于使用固定大小的片段，以确保简单性、可扩展性和训练稳定性。然而，也可以使用不同尺寸的片段来保持整体帧或视频在潜在空间中的维度一致，尽管这可能会带来位置编码的问题，并在生成不同尺寸潜在片段的视频时给解码器带来挑战。</p>
+<h4 id="04-时空潜码片段"><a href="#04-时空潜码片段" class="headerlink" title="04 时空潜码片段"></a>04 时空潜码片段</h4><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240305120211417.png" alt="通过片段打包技术，可以使不同分辨率的图像或视频维持其原始的宽高比"></p>
+<p>Sora模型采用了PNP（Patch ‘n’ Pack）技术，这是一种能够将来自不同图像的多个片段整合到一个序列中的技术。这种方法受到了自然语言处理中处理变长输入的打包技术的启发，通过丢弃（dropping）部分词元来适应输入长度的变化。在Sora的视频压缩网络中，首先需要完成的是片段化和词元嵌入步骤。Sora可能还会进一步将这些潜在的特征片段化，以适应扩散变换器的词元需求，类似于扩散变换器本身的操作。</p>
+<p>无论是否进行第二次片段化，Sora都需要解决如何高效打包这些词元，并决定哪些词元应当被丢弃的问题。OpenAI可能采用了一个极长的处理窗口来整合视频中的所有信息片段（Token），尽管这种方法计算成本较高。这是因为多头注意力机制在处理时，其计算成本会随着序列长度的增加而呈二次方增长。</p>
+<p>具体来说，Sora可以将长视频中提取的时空潜在片段（Spacetime Latent Patches）组织在一个序列中，而将多个短视频的信息串联组合在另一个序列中。这种处理方式允许Sora在保持视频内容的高质量和连贯性的同时，有效地处理不同长度的视频数据。</p>
+<h3 id="神经网络架构"><a href="#神经网络架构" class="headerlink" title="神经网络架构"></a>神经网络架构</h3><blockquote>
+<p>仅仅为SORA模型结构猜测，非实际结构</p>
+</blockquote>
+<h4 id="Diffusion-Transformer"><a href="#Diffusion-Transformer" class="headerlink" title="Diffusion Transformer"></a>Diffusion Transformer</h4><p>Sora模型利用扩散模型的原理，通过逐步预测并去除噪声，从噪声补丁中恢复出原始的“干净”视频补丁。这种方法在语言建模、计算机视觉和图像生成等多个领域已经证明了其有效性和扩展性。</p>
+<p>为了生成更长的视频，Sora采用了一种创新的训练策略，即基于上下文帧来预测未来帧。这种策略允许模型在没有外部分类器引导的情况下，自主生成高质量的视频内容。通过首先确定关键帧，然后在这些关键帧之间进行插值，Sora能够实现高时间分辨率的视频生成。这种方法不仅提高了视频的空间分辨率，通过扩散模型将视频内容的空间分辨率提升四倍，而且保持了视频的时间连贯性和流畅性。</p>
+<p>这种分步骤的视频生成方法不仅提升了视频的整体质量，还显著提高了计算效率。通过这种方式，Sora能够在生成高清晰度视频的同时，保持视频内容的全局连贯性，这对于视频内容的创作和编辑具有重要的实际意义。</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240305120751277.png" alt=" "></p>
+<h3 id="提示工程技巧"><a href="#提示工程技巧" class="headerlink" title="提示工程技巧"></a>提示工程技巧</h3><p>在Sora这样的AI模型中，提示（prompt）工程是一种关键技术，它允许用户通过精心设计的输入来引导模型创造出符合特定期望的内容。Sora模型特别擅长结合文本、图片和视频提示来生成内容，这不仅能够吸引观众的注意，还能精确地捕捉和理解用户的意图。</p>
+<h4 id="01-文本提示技巧"><a href="#01-文本提示技巧" class="headerlink" title="01 文本提示技巧"></a>01 文本提示技巧</h4><p>优秀的文本提示设计在于精确选择每一个词汇、详细说明每一个细节，以及深刻理解这些因素如何影响模型的最终输出。</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240305121137793.png" alt=" "></p>
+<ul>
+<li>蓝色高亮部分描述了 Sora 生成的元素，如展现一位时尚女性的形象；而黄色部分则强调了模型如何解释动作、场景和角色造型，展示了一个精心构思的文本提示是如何被转化为一段生动、充满动感的视频故事的。</li>
+</ul>
+<h4 id="02-图像提示"><a href="#02-图像提示" class="headerlink" title="02 图像提示"></a>02 图像提示</h4><p>利用图像提示，Sora 能够将静态图片转化为充满故事性的动态视频，这一过程中既利用了视觉信息也利用了文本信息。</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240305121343449.png" alt=" "></p>
+<ul>
+<li>红色框体突出显示了每个场景的核心元素——多样化设计的怪物、拼成“SORA”的云朵，以及在装饰华丽的大厅中面对巨大潮浪的冲浪者。</li>
+</ul>
+<h4 id="03-视频提示技巧"><a href="#03-视频提示技巧" class="headerlink" title="03 视频提示技巧"></a>03 视频提示技巧</h4><p>这样不仅可以确保模型明确了解到具体的创作目标，比如要展示的特定物体和视觉风格，还能在最终的视频作品中加入创新的变化。</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240305121541095.png" alt=" "></p>
+<ul>
+<li>(a) 视频扩展，模型将视频序列向原始片段的相反方向推进，(b) 视频编辑，根据文本提示对视频中的特定元素，比如场景进行改变，以及 (c) 视频连接，通过两个不同的视频提示将视频片段无缝结合，创造出一个连贯的故事。每个步骤都受到一个视觉焦点的引导，用红色框标出，保证视频内容的连贯性和准确性。</li>
+</ul>
+<h2 id="😁Sora的能力演示"><a href="#😁Sora的能力演示" class="headerlink" title="😁Sora的能力演示"></a>😁Sora的能力演示</h2><h3 id="01-三维一致性"><a href="#01-三维一致性" class="headerlink" title="01 三维一致性"></a>01 三维一致性</h3><p>Sora模型的一个显著特点是其能够生成包含动态摄像机运动的视频。这意味着在生成的视频中，摄像机可以模拟真实的移动和旋转效果，使得人物和场景元素在三维空间中以一种连贯和一致的方式移动。这种能力使得Sora在视频内容创作方面更加先进，因为它能够创造出更加真实和引人入胜的视觉体验。通过这种方式，Sora不仅能够捕捉静态场景的细节，还能够处理和表现复杂的动态交互，从而在视频生成领域提供了一种新的创作工具。</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/1460000044639225.gif" alt=" "></p>
+<h3 id="02-长时连贯性和物体同一性"><a href="#02-长时连贯性和物体同一性" class="headerlink" title="02 长时连贯性和物体同一性"></a>02 长时连贯性和物体同一性</h3><p>在视频生成领域，维持长视频的时间连贯性是一个关键挑战。OpenAI开发的Sora模型在这方面取得了显著进展。Sora能够较好地处理短期和长期的依赖关系，这意味着它能够在视频中保持人物、动物和物体的一致性，即使它们在画面中被遮挡或离开。此外，Sora还能在视频的不同镜头中生成同一角色，并确保角色的外观在整个视频播放过程中保持一致。这些能力显著提高了视频内容的质量和观看体验，尽管在某些情况下，模型可能仍需改进以确保完全的时间连贯性。</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/1460000044639226.gif" alt=" "></p>
+<h3 id="03-物理交互"><a href="#03-物理交互" class="headerlink" title="03 物理交互"></a>03 物理交互</h3><p>Sora模型展现了在模拟影响世界状态的行为方面的能力，尽管这些模拟可能相对简单。例如，它能够生成视频内容，其中一位画家在画布上作画，留下的笔触会随着时间的推移而持续存在。这些例子表明Sora在理解和生成具有物理交互和时间连续性的复杂场景方面取得了一定的成功。然而，这些模拟的准确性和复杂性可能仍有提升空间，特别是在处理更复杂的物理交互和长期时间依赖关系时。</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/1460000044639227.gif" alt=" "></p>
+<h3 id="04-模拟虚拟世界"><a href="#04-模拟虚拟世界" class="headerlink" title="04 模拟虚拟世界"></a>04 模拟虚拟世界</h3><p>Sora模型不仅能够模拟现实世界中的物理交互，还能模拟人造过程，例如视频游戏。它能够控制Minecraft中的玩家角色，并以高保真度渲染游戏世界及其动态变化。通过使用包含“Minecraft”的文本提示，Sora可以无需特定训练即可激活并展示这些能力，这称为zero-shot学习。</p>
+<p>这些能力展示了视频模型在模拟物理和数字世界方面的潜力，包括其中的物体、动物和人类行为。这种技术的进步为未来的内容创作，特别是科幻电影的制作，提供了新的可能性。随着视频模型技术的不断发展，我们可能会看到更加逼真和复杂的虚拟场景被创造出来，从而推动娱乐产业的创新。</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/1460000044639228.gif" alt=" "></p>
+<h3 id="05-图像生成能力"><a href="#05-图像生成能力" class="headerlink" title="05 图像生成能力"></a>05 图像生成能力</h3><p>Sora模型不仅能够生成视频内容，还具备生成图像的能力。为了实现这一点，OpenAI采用了一种技术，将高斯噪声以patch的形式排列在空间网格中，这些patch在时间上对应于视频的单帧。通过这种方法，Sora能够生成不同尺寸的图像，最高分辨率可以达到2048x2048像素。这表明Sora在图像生成方面具有高度的灵活性和高质量的输出能力，使其在视觉内容创作领域具有广泛的应用潜力。</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/uisdc-hs-20240221-1-1.jpg" alt=" "></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/uisdc-hs-20240221-1-2.jpg" alt=" "></p>
+<h2 id="🥰Sora的应用前景"><a href="#🥰Sora的应用前景" class="headerlink" title="🥰Sora的应用前景"></a>🥰Sora的应用前景</h2><h3 id="01-技术亮点"><a href="#01-技术亮点" class="headerlink" title="01 技术亮点"></a>01 技术亮点</h3><p>Sora模型的亮点在于其在多个领域的深远影响和应用潜力：</p>
+<ol>
+<li><p><strong>提升模拟能力</strong>：Sora通过大规模训练，展现出在模拟物理世界方面的强大能力，包括物体的持久性、简单的世界互动以及动态摄像机运动。它甚至能够模拟数字环境如Minecraft，显示出在模拟物理和数字世界复杂性方面的潜力。</p>
+</li>
+<li><p><strong>激发创造力</strong>：Sora允许用户通过文本描述快速生成逼真或风格化的视频，加速设计过程，为艺术家、电影制作人和设计师提供了一个高效的创意探索工具。</p>
+</li>
+<li><p><strong>推动教育创新</strong>：Sora可以将教学内容从文本转换为视频，提高学生的学习效率和参与度。它为教育领域提供了一种新的、动态的教学辅助工具，适用于各种学科和教学场景。</p>
+</li>
+<li><p><strong>增强可访问性</strong>：Sora通过将文字转换为视觉内容，为视障人士等群体提供了新的创作和交流方式，促进了内容创作的包容性。</p>
+</li>
+<li><p><strong>促进新兴应用的发展</strong>：Sora的应用前景广阔，从营销广告的动态内容创建到游戏开发中的定制视觉效果，它为各种行业提供了创新的可能性。</p>
+</li>
+</ol>
+<p>这些亮点表明，Sora不仅在技术上取得了突破，而且在实际应用中具有广泛的潜力，能够推动多个领域的创新和发展。</p>
+<h3 id="02-应用场景"><a href="#02-应用场景" class="headerlink" title="02 应用场景"></a>02 应用场景</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240304105527086.png" alt=" "></p>
+<p>Sora模型在多个领域的应用前景和影响如下：</p>
+<ol>
+<li><p><strong>电影产业</strong>：</p>
+<ul>
+<li>Sora能够通过文本输入自动生成电影风格视频，这标志着电影制作新时代的到来，降低了电影制作的门槛，使得更多人有机会参与电影创作。这种技术的发展预示着电影制作将更加开放和多样化，更好地适应观众的需求。</li>
+</ul>
+</li>
+<li><p><strong>教育革新</strong>：</p>
+<ul>
+<li>视频扩散模型如Sora为教育领域带来了革命性的变化，使得教育内容可以更加个性化和动态。教师可以利用这些模型将教学计划转化为吸引人的视频，提高学生的学习效率和参与度。这种技术的应用有助于教育内容的创新和教学方法的改进。</li>
+</ul>
+</li>
+<li><p><strong>游戏行业</strong>：</p>
+<ul>
+<li>Sora在游戏开发中的应用可以创造出更加真实和沉浸式的游戏体验。通过实时生成动态视频内容和音效，游戏世界可以更加生动和反应灵敏，为玩家提供前所未有的互动体验。这将改变游戏的开发、玩法和故事叙述方式。</li>
+</ul>
+</li>
+<li><p><strong>医疗保健</strong>：</p>
+<ul>
+<li>在医疗领域，Sora等视频扩散模型有助于识别和理解复杂的医疗影像，如细胞凋亡、皮肤病变和人体运动异常。这些模型的集成可以优化诊断流程，提供个性化治疗方案，并在医疗实践中考虑伦理和隐私保护。</li>
+</ul>
+</li>
+<li><p><strong>机器人技术</strong>：</p>
+<ul>
+<li>Sora等模型在机器人领域的应用可以提升机器人的感知和决策能力。通过理解和生成复杂的视频序列，机器人可以更好地与环境互动，执行复杂任务。这种技术的发展为机器人学带来了革命性的进展，使得机器人能够更自然地导航和与环境互动。</li>
+</ul>
+</li>
+</ol>
+<p>总的来说，Sora模型的出现为多个行业带来了创新的可能性，推动了技术的发展和应用，同时也带来了新的挑战，如确保技术的安全性、公平性和伦理性。随着这些技术的不断进步，我们可以期待在这些领域看到更多的创新和变革。</p>
+<h2 id="😘Sora的变现思路"><a href="#😘Sora的变现思路" class="headerlink" title="😘Sora的变现思路"></a><strong>😘Sora的变现思路</strong></h2><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/20240217182030118014.gif" alt=" "></p>
+<p>Sora模型的推出为普通人提供了多种赚钱的机会，以下是一些可能的途径：</p>
+<ol>
+<li><p><strong>售卖Sora账号或邀请码</strong>：如果Sora的访问受到限制，用户可能愿意为获取账号或邀请码付费。</p>
+</li>
+<li><p><strong>自媒体内容创作</strong>：利用Sora生成独特的视频内容，吸引观众并建立自媒体平台，通过广告、赞助或会员制等方式盈利。</p>
+</li>
+<li><p><strong>知识付费教程</strong>：制作关于如何使用Sora的教程，通过在线课程平台或个人网站销售。</p>
+</li>
+<li><p><strong>小说视频推文</strong>：将小说内容转化为视频，为小说作者或出版社提供服务，或在社交媒体上推广小说。</p>
+</li>
+<li><p><strong>直播带货</strong>：在直播中展示Sora生成的视频，推广与Sora相关的付费产品或服务。</p>
+</li>
+<li><p><strong>开发工具和网站</strong>：创建围绕Sora的应用程序或网站，提供额外的功能或服务，吸引用户付费使用。</p>
+</li>
+<li><p><strong>电商</strong>：围绕Sora相关的搜索词进行电商活动，销售相关产品或服务。</p>
+</li>
+<li><p><strong>视频素材销售</strong>：将Sora生成的视频上传到素材网站，通过版权许可或销售视频素材获利。</p>
+</li>
+<li><p><strong>代制作视频</strong>：为客户提供定制化的视频生成服务，根据需求生成特定内容的视频。</p>
+</li>
+<li><p><strong>售卖高质量的视频生成prompt</strong>：创作有效的文本提示，帮助用户更好地利用Sora生成所需视频，通过售卖这些提示获利。</p>
+</li>
+<li><p><strong>套壳服务</strong>：提供Sora的接口或服务的封装，使得非技术用户也能轻松使用Sora的功能。</p>
+</li>
+</ol>
+<p>这些机会展示了Sora模型在商业应用中的潜力，同时也表明了AI技术如何为个人和企业提供新的收入来源。然而，这些商业活动应当遵守相关法律法规，尊重知识产权，并确保用户的隐私和数据安全。</p>
+<h2 id="🤪Sora的参考链接"><a href="#🤪Sora的参考链接" class="headerlink" title="🤪Sora的参考链接"></a>🤪Sora的参考链接</h2><h3 id="DiT网络结构"><a href="#DiT网络结构" class="headerlink" title="DiT网络结构"></a>DiT网络结构</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/facebookresearch/DiT">https://github.com/facebookresearch/DiT</a></li>
+</ul>
+<h3 id="Sora技术报告"><a href="#Sora技术报告" class="headerlink" title="Sora技术报告"></a>Sora技术报告</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://openai.com/research/video-generation-models-as-world-simulators">https://openai.com/research/video-generation-models-as-world-simulators</a></li>
+</ul>
+<h3 id="Sora技术综述"><a href="#Sora技术综述" class="headerlink" title="Sora技术综述"></a>Sora技术综述</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2402.17177v1">https://arxiv.org/abs/2402.17177v1</a></li>
+</ul>
+<h3 id="Sora内测链接"><a href="#Sora内测链接" class="headerlink" title="Sora内测链接"></a>Sora内测链接</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://openai.com/form/red-teaming-network">https://openai.com/form/red-teaming-network</a></li>
+</ul>
+<h2 id="😜-爱研究-AI交流群"><a href="#😜-爱研究-AI交流群" class="headerlink" title="😜**[爱研究]AI交流群**"></a>😜**[爱研究]AI交流群**</h2><blockquote>
+<p>为了方便交流，建立了群聊，后台私信发送：666</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/format%2Cf_auto.jpeg" alt="666"></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Lee Jet</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://lee-jet.github.io/2024/03/05/sora/">https://lee-jet.github.io/2024/03/05/sora/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Lee Jet</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Paper-Reading/">
+                                    <span class="chip bg-color">Paper Reading</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '239ba579785b9bb8ffde',
+        clientSecret: '6b8159892d8d5785b7be9a84c0998462ce8649d4',
+        repo: 'gitalk',
+        owner: 'lee-jet',
+        admin: "lee-jet",
+        id: '2024-03-05T16-28-31',
+        distractionFreeMode: false,  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2024/03/05/sora/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="SORA">
+                        
+                        <span class="card-title">SORA</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-03-05
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper-Reading/" class="post-category">
+                                    Paper Reading
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Paper-Reading/">
+                        <span class="chip bg-color">Paper Reading</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/02/29/aiphone/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="AiPhone">
+                        
+                        <span class="card-title">AiPhone</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-02-29
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper-Reading/" class="post-category">
+                                    Paper Reading
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Paper-Reading/">
+                        <span class="chip bg-color">Paper Reading</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('1'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2023-2024</span>
+            
+            <a href="/about" target="_blank">Lee Jet</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">162k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/lee-jet" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1874087716@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1874087716" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1874087716" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
