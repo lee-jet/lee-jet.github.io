@@ -6,7 +6,7 @@
   <link href="https://lee-jet.github.io/atom.xml" rel="self"/>
   
   <link href="https://lee-jet.github.io/"/>
-  <updated>2024-03-05T08:31:27.709Z</updated>
+  <updated>2024-03-13T04:20:05.967Z</updated>
   <id>https://lee-jet.github.io/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>OOTDiffusion</title>
+    <link href="https://lee-jet.github.io/2024/03/13/ootdiffusion/"/>
+    <id>https://lee-jet.github.io/2024/03/13/ootdiffusion/</id>
+    <published>2024-03-13T04:08:49.000Z</published>
+    <updated>2024-03-13T04:20:05.967Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;6&#39;&gt;&lt;strong&gt;⚡[AIGC服务]TryOn虚拟试衣 | 只需照片即可在线换衣 </summary>
+        
+      
+    
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Multi-LoraComposition</title>
+    <link href="https://lee-jet.github.io/2024/03/06/multi-loracomposition/"/>
+    <id>https://lee-jet.github.io/2024/03/06/multi-loracomposition/</id>
+    <published>2024-03-06T04:00:22.000Z</published>
+    <updated>2024-03-06T04:02:25.069Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;4.5&#39;&gt;&lt;strong&gt;Multi-LoRA Composition |</summary>
+        
+      
+    
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
+    
+  </entry>
   
   <entry>
     <title>SORA</title>
@@ -476,63 +526,6 @@
         
         
     <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;5&#39;&gt;&lt;strong&gt;⚡ AI-ISP最新行业分析</summary>
-        
-      
-    
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>GPT-4Vision</title>
-    <link href="https://lee-jet.github.io/2023/12/15/gpt-4vision/"/>
-    <id>https://lee-jet.github.io/2023/12/15/gpt-4vision/</id>
-    <published>2023-12-15T03:45:14.000Z</published>
-    <updated>2023-12-15T03:48:52.342Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;5&#39;&gt;&lt;strong&gt;⚡ OpenAI推出GPT-4 Vision&lt;/strong&gt;&lt;/font&gt;&lt;/div&gt;
-
-&lt;hr&gt;
-&lt;blockquote&gt;
-&lt;p&gt;本文将向您介绍有关 GPT-4 Vision</summary>
-        
-      
-    
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>202312_Part01</title>
-    <link href="https://lee-jet.github.io/2023/12/14/202312-part01/"/>
-    <id>https://lee-jet.github.io/2023/12/14/202312-part01/</id>
-    <published>2023-12-14T04:00:56.000Z</published>
-    <updated>2023-12-14T04:07:34.085Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;6&#39;&gt;&lt;strong&gt;⚡ Weekly AIGC News | 202312 Part One&lt;/strong&gt;&lt;/font&gt;&lt;/div&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;❤️</summary>
         
       
     
