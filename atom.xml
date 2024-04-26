@@ -6,7 +6,7 @@
   <link href="https://lee-jet.github.io/atom.xml" rel="self"/>
   
   <link href="https://lee-jet.github.io/"/>
-  <updated>2024-03-13T04:20:05.967Z</updated>
+  <updated>2024-04-26T02:46:51.553Z</updated>
   <id>https://lee-jet.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>IDM-VTON</title>
+    <link href="https://lee-jet.github.io/2024/04/26/idm-vton/"/>
+    <id>https://lee-jet.github.io/2024/04/26/idm-vton/</id>
+    <published>2024-04-26T02:44:11.000Z</published>
+    <updated>2024-04-26T02:46:51.553Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;6&#39;&gt;&lt;strong&gt;⚡[AIGC服务]IDM-VTON |</summary>
+        
+      
+    
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
+    
+  </entry>
   
   <entry>
     <title>OOTDiffusion</title>
@@ -501,31 +526,6 @@
         
         
     <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;6&#39;&gt;&lt;strong&gt;⚡ Weekly AIGC News | 202312 Part</summary>
-        
-      
-    
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>AI-ISP-Summary</title>
-    <link href="https://lee-jet.github.io/2023/12/20/ai-isp-summary/"/>
-    <id>https://lee-jet.github.io/2023/12/20/ai-isp-summary/</id>
-    <published>2023-12-20T02:59:31.000Z</published>
-    <updated>2023-12-20T03:05:13.839Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;5&#39;&gt;&lt;strong&gt;⚡ AI-ISP最新行业分析</summary>
         
       
     
