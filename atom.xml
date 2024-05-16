@@ -6,7 +6,7 @@
   <link href="https://lee-jet.github.io/atom.xml" rel="self"/>
   
   <link href="https://lee-jet.github.io/"/>
-  <updated>2024-04-26T02:46:51.553Z</updated>
+  <updated>2024-05-16T08:49:02.421Z</updated>
   <id>https://lee-jet.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>IC-Light</title>
+    <link href="https://lee-jet.github.io/2024/05/16/ic-light/"/>
+    <id>https://lee-jet.github.io/2024/05/16/ic-light/</id>
+    <published>2024-05-16T08:46:47.000Z</published>
+    <updated>2024-05-16T08:49:02.421Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;6&#39;&gt;&lt;strong&gt;⚡[AIGC服务] IC-Light Relighting | 图像重打光 &lt;/strong&gt;&lt;/font&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;本文介绍Impose</summary>
+        
+      
+    
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
+    
+  </entry>
   
   <entry>
     <title>IDM-VTON</title>
@@ -501,31 +529,6 @@
         
         
     <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;5&#39;&gt;&lt;strong&gt;⚡ AISP之突破黑暗：低照度图像增强(LLIE)</summary>
-        
-      
-    
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>202312-Part02</title>
-    <link href="https://lee-jet.github.io/2023/12/22/202312-part02/"/>
-    <id>https://lee-jet.github.io/2023/12/22/202312-part02/</id>
-    <published>2023-12-22T09:47:20.000Z</published>
-    <updated>2023-12-22T09:48:22.267Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;6&#39;&gt;&lt;strong&gt;⚡ Weekly AIGC News | 202312 Part</summary>
         
       
     

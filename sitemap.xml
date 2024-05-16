@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lee-jet.github.io/2024/05/16/ic-light/</loc>
+    
+    <lastmod>2024-05-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://lee-jet.github.io/2024/04/26/idm-vton/</loc>
     
     <lastmod>2024-04-26</lastmod>
@@ -778,7 +787,7 @@
 
   <url>
     <loc>https://lee-jet.github.io/</loc>
-    <lastmod>2024-04-26</lastmod>
+    <lastmod>2024-05-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -786,21 +795,21 @@
   
   <url>
     <loc>https://lee-jet.github.io/tags/Tech-share/</loc>
-    <lastmod>2024-04-26</lastmod>
+    <lastmod>2024-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lee-jet.github.io/tags/Paper-Reading/</loc>
-    <lastmod>2024-04-26</lastmod>
+    <lastmod>2024-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lee-jet.github.io/tags/demos/</loc>
-    <lastmod>2024-04-26</lastmod>
+    <lastmod>2024-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -809,14 +818,14 @@
   
   <url>
     <loc>https://lee-jet.github.io/categories/Tech-share/</loc>
-    <lastmod>2024-04-26</lastmod>
+    <lastmod>2024-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lee-jet.github.io/categories/Paper-Reading/</loc>
-    <lastmod>2024-04-26</lastmod>
+    <lastmod>2024-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
