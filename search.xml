@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>MegActor</title>
+      <link href="/2024/06/04/megactor/"/>
+      <url>/2024/06/04/megactor/</url>
+      
+        <content type="html"><![CDATA[<div align='center' ><font size='6'><strong>⚡[AIGC服务] MegActor | 视频驱动的肖像动画生成 </strong></font></div><blockquote><p>通过原始视频驱动图像，生成肖像动画。即给定一个肖像视频A和一张肖像图像B，即可生成A驱动B的肖像动画。</p></blockquote><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/334372422-1b9dc77c-50da-48bd-bb16-8b2dd56d703f%2000_00_00-00_00_30.gif" alt=" "></p><hr><p>[TOC]</p><h2 id="先睹为快"><a href="#先睹为快" class="headerlink" title="先睹为快"></a>先睹为快</h2><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/334309938-c7d71435-c98a-42b6-9f59-c72cb49851a1%2000_00_00-00_00_30.gif" alt=" "></p><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240604141526864.png" alt=" "></p><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240604141710544.png" alt=" "></p><h2 id="内容简介"><a href="#内容简介" class="headerlink" title="内容简介"></a>内容简介</h2><p>MegActor 是一款无中间表示的肖像动画师，它使用原始视频而不是中间特征作为驱动因素来生成逼真生动的头像视频。</p><ul><li><p>具体来说，我们利用两个 UNet：一个从源图像中提取身份和背景特征，另一个准确地生成并集成直接从原始视频派生的运动特征。 </p></li><li><p>MegActor 可以在低质量的公开数据集上进行训练，并且在面部表情、姿势多样性、微妙的可控性和视觉质量方面表现出色。</p></li></ul><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240604115120043.png" alt=" "></p><h2 id="方法总结"><a href="#方法总结" class="headerlink" title="方法总结"></a>方法总结</h2><h3 id="背景与挑战"><a href="#背景与挑战" class="headerlink" title="背景与挑战"></a>背景与挑战</h3><ul><li>原始驱动视频（raw driving videos）包含比传统肖像动画领域中使用的中间表示（如面部标记）更丰富的面部表情信息，但很少作为研究对象。</li><li>使用原始视频驱动肖像动画存在两个内在挑战：1）显著的身份泄露问题；2）不相关的背景和面部细节（如皱纹）会降低性能。</li></ul><h3 id="数据集和预处理"><a href="#数据集和预处理" class="headerlink" title="数据集和预处理"></a>数据集和预处理</h3><ul><li><p>使用公共数据集VFHQ和CelebV-HQ进行训练。</p></li><li><p>为了解决身份泄露问题，通过AI人脸交换技术和风格化技术（如SDXL）生成训练数据。</p></li><li><p>使用L2CSNet筛选出具有显著眼球运动的数据，以增强模型对眼球运动的控制。</p></li></ul><h3 id="数据增强"><a href="#数据增强" class="headerlink" title="数据增强"></a>数据增强</h3><ul><li><p>使用pyFacer检测视频中的人脸，并只保留面部区域，将其他区域设置为黑色，减少背景信息泄露。</p></li><li><p>对驱动视频进行随机增强，包括灰度转换和随机调整大小及纵横比，以增强模型对不同面部形状的泛化能力。</p></li></ul><h3 id="模型架构"><a href="#模型架构" class="headerlink" title="模型架构"></a>模型架构</h3><ul><li><strong>ReferenceNet</strong>：使用与去噪UNet网络相同架构的UNet，从参考图像中提取细粒度的身份和背景信息。</li><li><strong>DrivenEncoder</strong>：一个轻量级编码器，使用2D卷积层从驱动视频中提取动作特征。</li><li><strong>时间层（Temporal Layer）</strong>：在去噪UNet的每个Res-Trans层后插入时间模块，以执行帧间的时间注意力，增强帧的连续性。</li><li><strong>ImageEncoder</strong>：使用CLIP的图像编码器替代文本编码器，在交叉注意力中使用。</li></ul><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240604141646174.png" alt=" "></p><h3 id="训练技术"><a href="#训练技术" class="headerlink" title="训练技术"></a>训练技术</h3><ul><li><p>训练分为两个阶段：</p><ul><li>第一阶段：不包括时间层，冻结ImageEncoder，只训练DrivenEncoder、去噪UNet和ReferenceNet。</li><li>第二阶段：在去噪UNet中插入时间层，只训练时间层。</li></ul></li><li><p>使用AI人脸交换数据、风格化数据和真实数据作为驱动视频，比例分别为40%、10%和50%。</p></li></ul><h3 id="推理细节"><a href="#推理细节" class="headerlink" title="推理细节"></a>推理细节</h3><ul><li>在推理阶段，采用重叠滑动窗口方法生成长视频，每次推断16帧，重叠8帧，取两个生成结果在重叠区域的平均值作为最终结果。</li></ul><h3 id="贡献与未来工作"><a href="#贡献与未来工作" class="headerlink" title="贡献与未来工作"></a>贡献与未来工作</h3><ul><li>提出了一种新颖的原始驱动视频控制的肖像动画方法，有效提高了动作一致性并减少了身份泄露问题。</li><li>增强了对原始驱动视频中无关信息的鲁棒性，通过参考图像的风格化增强了模型的鲁棒性。</li><li>未来的工作将致力于改进MegActor生成一致视频的能力，特别是在复杂区域如发际线、配饰和嘴巴等，以及评估MegActor流水线与更强大视频生成基础模型（如SDXL）集成的有效性。</li></ul><h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240604141723849.png" alt=" "></p><ol><li><p><strong>数字虚拟角色（Digital Avatars）</strong>：</p><ul><li>创建虚拟形象用于社交媒体、游戏、虚拟现实（VR）和增强现实（AR）体验。</li></ul></li><li><p><strong>人工智能辅助的人际交流</strong>：</p><ul><li>利用动画肖像进行更加自然和逼真的人机交互，例如客服机器人、智能助手等。</li></ul></li><li><p><strong>娱乐和媒体制作</strong>：</p><ul><li>在电影、电视和网络媒体中生成高质量的动画角色，降低传统动作捕捉和动画制作的成本。</li></ul></li><li><p><strong>教育和培训</strong>：</p><ul><li>利用生动的动画角色作为教育工具，提高学习体验的互动性和吸引力。</li></ul></li><li><p><strong>广告和营销</strong>：</p><ul><li>创造吸引人的动画广告，以提高品牌知名度和市场推广效果。</li></ul></li><li><p><strong>个性化内容创作</strong>：</p><ul><li>允许用户生成具有个性化特征的动画内容，用于个人娱乐或内容分享。</li></ul></li><li><p><strong>实时视频会议</strong>：</p><ul><li>在视频会议中使用动画肖像代替真实视频，提供隐私保护或增强表达能力。</li></ul></li><li><p><strong>艺术创作</strong>：</p><ul><li>艺术家和设计师可以利用这项技术创作新颖的数字艺术作品。</li></ul></li><li><p><strong>辅助残障人士</strong>：</p><ul><li>通过动画肖像帮助有语言和听力障碍的人士进行交流。</li></ul></li><li><p><strong>模拟和仿真</strong>：</p><ul><li>在模拟训练和虚拟现实环境中使用动画角色，提供更加真实的交互体验。</li></ul></li><li><p><strong>文化遗产保护</strong>：</p><ul><li>利用肖像动画技术复原历史人物，用于教育和展览。</li></ul></li><li><p><strong>法律和安全</strong>：</p><ul><li>在需要匿名化处理的场景中，使用动画肖像代替真实人物的面部，保护隐私。</li></ul></li></ol><p>随着技术的不断进步和优化，MegActor模型及其衍生技术有望在上述领域中发挥重要作用，推动相关行业的创新和发展。</p><h2 id="免费试用"><a href="#免费试用" class="headerlink" title="免费试用"></a>免费试用</h2><blockquote><p> 需要可私信联系</p></blockquote><h2 id="爱研究-AI交流群"><a href="#爱研究-AI交流群" class="headerlink" title="[爱研究]AI交流群"></a>[爱研究]AI交流群</h2><blockquote><p>为了方便交流，建立了群聊，后台私信发送：666</p></blockquote><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/334309909-ce4e5c19-cdc7-435e-83f3-8bce39f0c04e%2000_00_00-00_00_30.gif" alt=" "></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Paper Reading </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Paper Reading </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>IC-Light</title>
       <link href="/2024/05/16/ic-light/"/>
       <url>/2024/05/16/ic-light/</url>
