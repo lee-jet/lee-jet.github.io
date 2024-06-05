@@ -6,7 +6,7 @@
   <link href="https://lee-jet.github.io/atom.xml" rel="self"/>
   
   <link href="https://lee-jet.github.io/"/>
-  <updated>2024-06-04T06:43:04.056Z</updated>
+  <updated>2024-06-05T04:12:16.682Z</updated>
   <id>https://lee-jet.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>RB-Modulation</title>
+    <link href="https://lee-jet.github.io/2024/06/05/rb-modulation/"/>
+    <id>https://lee-jet.github.io/2024/06/05/rb-modulation/</id>
+    <published>2024-06-05T04:10:26.000Z</published>
+    <updated>2024-06-05T04:12:16.682Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;6&#39;&gt;&lt;strong&gt;⚡[AIGC服务] RB-Modulation | 最新图像风格迁移与内容合成</summary>
+        
+      
+    
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
+    
+  </entry>
   
   <entry>
     <title>MegActor</title>
@@ -501,34 +526,6 @@
 &lt;hr&gt;
 &lt;blockquote&gt;
 &lt;p&gt;本文主要介绍用于</summary>
-        
-      
-    
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SD_timeline</title>
-    <link href="https://lee-jet.github.io/2023/12/26/sd-timeline/"/>
-    <id>https://lee-jet.github.io/2023/12/26/sd-timeline/</id>
-    <published>2023-12-26T06:38:39.000Z</published>
-    <updated>2023-12-26T06:47:44.094Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;6&#39;&gt;&lt;strong&gt;⚡Stable Diffusion 所有版本对比⚡&lt;/strong&gt;&lt;/font&gt;&lt;/div&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;本文主要介绍截止到2023年12月 Stable</summary>
         
       
     

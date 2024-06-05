@@ -4,15 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="LaDI-VTON, AiHub">
-    <meta name="description" content="LaDI-VTON:
-Latent Diffusion Textual-Inversion Enhanced Virtual Try-On
+    <meta name="keywords" content="RB-Modulation, AiHub">
+    <meta name="description" content="⚡[AIGC服务] RB-Modulation | 最新图像风格迁移与内容合成 
 
 
-
-paper https://arxiv.org/abs/2305.13501
-
-code ht">
+给定单个参考图像，RB-Modulation 提供了一种免训练的即插即用解决方案，用于 (a) 风格化和 (b) 具有各种提示的内容风格组合，同时保持样本">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -24,7 +20,7 @@ code ht">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>LaDI-VTON | AiHub</title>
+    <title>RB-Modulation | AiHub</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -344,12 +340,12 @@ code ht">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">LaDI-VTON</h1>
+                    <h1 class="description center-align post-title">RB-Modulation</h1>
                 </div>
             </div>
         </div>
@@ -398,28 +394,28 @@ code ht">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-08-08
+                    2024-06-05
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-08-08
+                    2024-06-05
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    744
+                    2.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    7 分
                 </div>
                 
 
@@ -442,126 +438,174 @@ code ht">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <div align='center' ><font size='4.5'>LaDI-VTON:
-Latent Diffusion Textual-Inversion Enhanced Virtual Try-On</font></div>
+                <div align='center' ><font size='6'><strong>⚡[AIGC服务] RB-Modulation | 最新图像风格迁移与内容合成 </strong></font></div>
 
+<blockquote>
+<p>给定单个参考图像，RB-Modulation 提供了一种免训练的即插即用解决方案，用于 (a) 风格化和 (b) 具有各种提示的内容风格组合，同时保持样本多样性和提示对齐。例如，给定参考样式图像（例如“融化的金色3D渲染样式”）和内容图像（例如（A）“狗”），方法遵循所需的提示，而不会泄漏参考样式图像中的内容，也不会受到限制到参考内容图像的姿势。</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/web1.png" alt=" "></p>
 <hr>
-<ul>
-<li><p>paper <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2305.13501">https://arxiv.org/abs/2305.13501</a></p>
-</li>
-<li><p>code <a target="_blank" rel="noopener" href="https://github.com/miccunifi/ladi-vton">https://github.com/miccunifi/ladi-vton</a></p>
-</li>
+<p>[TOC]</p>
+<h2 id="先睹为快"><a href="#先睹为快" class="headerlink" title="先睹为快"></a>先睹为快</h2><h3 id="01-Stylization-Results"><a href="#01-Stylization-Results" class="headerlink" title="01 Stylization Results"></a>01 Stylization Results</h3><ul>
+<li>在第三行中，StyleAligned 和 StyleDrop 生成一个酒瓶和一本书，类似于参考样式图像中的智能手机。在最后一行，StyleAligned 泄漏了参考图像的房屋和背景； InstantStyle 表现出房屋的颜色泄漏，导致图像颜色相似。我们的方法准确地遵循所需风格的提示。</li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230807102743722.png" alt="image-20230807102743722"></p>
-<hr>
-<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><ol>
-<li>a latent diffusion model （LDMs） extended with a novel additional autoencoder module that exploits learnable skip connections to enhance the generation process preserving the model’s characteristics  使用可学习跳层连接的自编码器模块和隐扩散模型可以提高生成过程中模特特征的保留率</li>
-<li>a textual inversion component that can map the visual features of the garment to the CLIP token embedding space and thus generate a set of pseudo-word token embeddings capable of conditioning the generation process 文本反演组件可以将衣服的视觉特征映射到CLIP的token嵌入空间，因此生成一套伪词tocken嵌入，从而能够影响生成过程，进而保留衣服的纹理和细节</li>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/web2.png" alt=" "></p>
+<ul>
+<li>与最先进的方法（InstantStyle 、StyleAligned 、StyleDrop ）的比较凸显了我们在防止参考样式信息泄漏和更紧密地遵循所需文本提示方面的优势。</li>
+</ul>
+<h3 id="02-Content-Style-Composition-Results"><a href="#02-Content-Style-Composition-Results" class="headerlink" title="02 Content-Style Composition Results"></a>02 Content-Style Composition Results</h3><ul>
+<li>在免训练方法中，InstantStyle 和 IP-Adapter 依赖于 ControlNet [22]，这通常限制了它们准确遵循提示来改变生成内容姿势的能力，例如（b）中的“跳舞”或“行走” （c）中的”。相比之下，我们的方法避免了对 ControlNet 或适配器的需要，并且可以有效地捕获风格和内容图像的独特属性，同时遵循生成多样化图像的提示。</li>
+</ul>
+<p><img src="https://rb-modulation.github.io/data/web3.png" alt=" "></p>
+<ul>
+<li>我们的方法比免训练方法 IP-Adapter 和 InstantStyle 显示出更好的即时对齐和更大的多样性，并且与基于训练的 ZipLoRA 具有竞争性能。</li>
+</ul>
+<h3 id="03-User-Defined-Consistent-Stylization"><a href="#03-User-Defined-Consistent-Stylization" class="headerlink" title="03 User Defined Consistent Stylization"></a>03 User Defined Consistent Stylization</h3><ul>
+<li>由于没有风格描述，我们的结果展示了更多的多样性，同时遵循所需的提示并有效地捕获参考风格。 InstantStyle 结果显示单调的场景，而 StyleAligned 结果存在严重的信息泄漏。我们报告 StyleDrop 结果的完整性，并且已知在没有样式描述和单个训练图像的情况下表现更差 。</li>
+</ul>
+<p><img src="https://rb-modulation.github.io/data/web5.png" alt=" "></p>
+<h3 id="04-Stylization-with-Style-Descriptions"><a href="#04-Stylization-with-Style-Descriptions" class="headerlink" title="04 Stylization with Style Descriptions"></a>04 Stylization <strong>with</strong> Style Descriptions</h3><ul>
+<li>虽然替代方法面临着遵循提示（例如，多架飞机而不是一架飞机）和信息泄漏（例如，玉米片碗上的云和奶昔图像中的吉他）等挑战，但我们的方法在这两个提示上都表现出了强大的性能和风格对齐，样式描述为蓝色。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/web6_1.png" alt=" "></p>
+<h3 id="05-Stylization-without-Style-Descriptions"><a href="#05-Stylization-without-Style-Descriptions" class="headerlink" title="05 Stylization without Style Descriptions"></a>05 Stylization <strong>without</strong> Style Descriptions</h3><ul>
+<li>删除样式描述后，StyleAligned 和 StyleDrop 显示严重的性能下降（例如，参见消防员和猫图像）。 InstantStyle 结果显示更多信息泄漏（例如粉红瓢虫和豹子），而我们的结果中没有观察到明显的性能下降。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/web6_2.png" alt=" "></p>
+<h2 id="方法总结"><a href="#方法总结" class="headerlink" title="方法总结"></a>方法总结</h2><p>本文提出的方法RB-Modulation（Reference-Based Modulation）是一种训练自由的个性化扩散模型技术。以下是该方法的详细细节：</p>
+<h3 id="方法概述"><a href="#方法概述" class="headerlink" title="方法概述"></a>方法概述</h3><p>RB-Modulation旨在解决现有训练自由方法在风格提取、内容泄露和风格与内容有效组合方面的困难。该方法基于随机最优控制理论，通过终端成本来编码所需的属性（如风格），并调整扩散模型逆向动力学中的漂移场。</p>
+<h3 id="关键组件"><a href="#关键组件" class="headerlink" title="关键组件"></a>关键组件</h3><ol>
+<li><p><strong>随机最优控制器（Stochastic Optimal Controller, SOC）</strong>:</p>
+<p> <img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240605120433700.png" alt=" "></p>
+<ul>
+<li>该控制器用于调制扩散模型的逆向动力学中的漂移场。</li>
+<li>控制器的设计基于最优控制理论，特别是Hamilton-Jacobi-Bellman（HJB）方程。</li>
+<li>控制器的终端成本包含风格描述符，用于编码所需的风格属性。</li>
+</ul>
+</li>
+<li><p><strong>注意力特征聚合（Attention Feature Aggregation, AFA）模块</strong>:</p>
+<p> <img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240605120359006.png" alt=" "></p>
+<ul>
+<li>该模块用于在交叉注意力层中分离内容和风格。</li>
+<li>通过独立处理来自文本、风格和内容图像的键（keys）和值（values），AFA能够解耦这些信息。</li>
+<li>最终输出是通过将文本、风格和内容的注意力图平均，以增强模型对文本提示的响应性。</li>
+</ul>
+</li>
 </ol>
-<h2 id="Contributions"><a href="#Contributions" class="headerlink" title="Contributions"></a>Contributions</h2><ol>
-<li>首次使用隐扩散模型LDMs</li>
-<li>通过具有跳层连接的自编码器保留修复区域外的细节</li>
-<li>定义了前向纹理反演模块进一步保留生成过程中输入衣服的纹理信息</li>
-<li>在Benchmarks（DressCode &amp; VITON-HD）上取得SOTA</li>
+<h3 id="实现步骤"><a href="#实现步骤" class="headerlink" title="实现步骤"></a>实现步骤</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240605120238331.png" alt=" "></p>
+<ol>
+<li><p><strong>初始化</strong>:</p>
+<ul>
+<li>初始化扩散过程的最终状态<code>xT</code>为高斯分布。</li>
+</ul>
+</li>
+<li><p><strong>逆向扩散过程</strong>:</p>
+<ul>
+<li>从T到1反向迭代，每一步中：<ul>
+<li>初始化控制器<code>u</code>。</li>
+<li>使用控制器更新当前状态<code>xt</code>，得到受控状态<code>ˆxt</code>。</li>
+<li>计算终端成本，该成本基于参考图像的风格描述符和当前状态的条件期望。</li>
+<li>更新控制器<code>u</code>以最小化终端成本。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>状态更新</strong>:</p>
+<ul>
+<li>使用DDIM（denoising diffusion implicit model）步骤更新状态从<code>xt</code>到<code>xt-1</code>。</li>
+</ul>
+</li>
 </ol>
-<h2 id="Related-Work"><a href="#Related-Work" class="headerlink" title="Related Work"></a>Related Work</h2><ul>
-<li>Image-Based Virtual Try-On  <ul>
-<li>VITON    coarse2fine, TPS, encoder-decoder arch</li>
-<li>learnable TPS, GANs, DMs</li>
-</ul>
-</li>
-<li>Diffusion Models<ul>
-<li>text-to-image synthesis</li>
-<li>image-to-image translation</li>
-<li>image-editting</li>
-<li>inpainting</li>
-<li>和虚拟试衣最相关的task是人体图像生成</li>
-</ul>
-</li>
-<li>Textual Inversion<ul>
-<li>Textual inversion is a recent technique proposed  to learn a pseudo word in the embedding space of the text encoder starting from visual concepts.  </li>
-</ul>
-</li>
-</ul>
-<h2 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h2><p>​        基于Stable Diffusion架构，为了增强文图生成模型虚拟试衣的能力，修改了网络结构使得输入为衣服和模特的姿态，同时为了保留衣服细节，提出了前向textual inversion，最后使用masked skip connections提升SD的图像重建自编码器，从而提高了图像生成质量且更好地保留了模特图的细粒度细节。</p>
+<h3 id="理论依据"><a href="#理论依据" class="headerlink" title="理论依据"></a>理论依据</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240605120316904.png" alt=" "></p>
 <ul>
-<li>Stable Diffusion  文图生成模型</li>
-<li>CLIP  视觉-语言模型，将二者特征对齐到一个共享的特征空间</li>
-</ul>
-<h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230808135322123.png" alt="image-20230808135322123"></p>
-<h3 id="Textual-Inversion"><a href="#Textual-Inversion" class="headerlink" title="Textual Inversion"></a>Textual Inversion</h3><ul>
-<li><p>纹理反演：输入图像，预测CLIP token特征空间中pseudo-word</p>
-</li>
-<li><p>q: 文本提示，通过CLIP变换到特征空间得到true-word</p>
-</li>
-<li><p>VE (visual encoder):  OpenCLIP ViT-H/14 model pre-trained on LAION-2B  </p>
-</li>
-<li><p>单层ViT + 3层MLP + GELU激活 + dropout</p>
-</li>
-</ul>
-<h3 id="Diffusion-Virtual-Try-On-Model"><a href="#Diffusion-Virtual-Try-On-Model" class="headerlink" title="Diffusion Virtual Try-On Model"></a>Diffusion Virtual Try-On Model</h3><ul>
-<li>选择SD的inpainting pipeline</li>
-<li>输入 textual-inverted information 𝑌ˆ of the in-shop garment, the pose map 𝑃, and the garment fitted to the model body shape 𝐶𝑊  （the warped garment）</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230808150225064.png" alt="image-20230808150225064"></p>
-<h3 id="Enhanced-Mask-Aware-Skip-Connections"><a href="#Enhanced-Mask-Aware-Skip-Connections" class="headerlink" title="Enhanced Mask-Aware Skip Connections"></a>Enhanced Mask-Aware Skip Connections</h3><ul>
-<li>EMASC<ul>
-<li>作用于masked image（mask from inpainting）</li>
-<li>目的是学习传播编解码器对应的相关信息</li>
-</ul>
-</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230808143928254.png" alt="image-20230808143928254"></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230808144304322.png" alt="image-20230808144304322"></p>
-<h3 id="CLOTHES-WARPING-PROCEDURE"><a href="#CLOTHES-WARPING-PROCEDURE" class="headerlink" title="CLOTHES WARPING PROCEDURE"></a>CLOTHES WARPING PROCEDURE</h3><p>​    coarse2fine</p>
+<li><p><strong>最优控制与逆向扩散的联系</strong>:</p>
 <ul>
-<li>step1coarse warping<ul>
-<li>TPS：把cloth变形到model的pose和mask shape匹配<ul>
-<li>Toward characteristic-preserving image-based virtual try-on network.  </li>
+<li>通过将最优控制理论应用于扩散模型，展示了如何通过解决HJB方程来导出最优控制器。</li>
+<li>在极限情况下（当终端成本的权重趋于无穷大时），可以得到一个解析解。</li>
 </ul>
 </li>
-</ul>
-</li>
-<li>step2 refine warping<ul>
-<li>U-net: 输入coarse garment, pose, model，输出target warped garment (GT)<ul>
-<li>U-Net: Convolutional Networks for Biomedical Image Segmentation.   </li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230808144448627.png" alt="image-20230808144448627"></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230808144457075.png" alt="image-20230808144457075"></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230808151741401.png" alt="image-20230808151741401"></p>
-<h2 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions"></a>Conclusions</h2><ul>
-<li>第一个基于LDMs的try-on</li>
-</ul>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><p>Stable Diffusion pipeline</p>
+<li><p><strong>风格特征的纳入</strong>:</p>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://huggingface.co/stabilityai/stable-diffusion-2-inpainting">https://huggingface.co/stabilityai/stable-diffusion-2-inpainting</a>  </li>
+<li>使用一致的风格描述符（Consistent Style Descriptor, CSD）来从参考风格图像中提取风格特征。</li>
+<li>将这些风格特征纳入控制器的终端成本中，以指导逆向扩散过程。</li>
 </ul>
 </li>
-<li><p>Textual Inversion: An Image is Worth One Word: Personalizing Text-to-Image Generation using Textual Inversion </p>
+</ul>
+<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>RB-Modulation提供了一种训练自由的方法，通过随机最优控制和注意力机制的结合，实现了对扩散模型的个性化定制。这种方法在风格化和内容风格组合任务中表现出色，为图像生成领域提供了一个有潜力的新方向。</p>
+<h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240605120623047.png" alt=" "></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240605120636794.png" alt="image-20240605120636794"></p>
+<p>本文提出的RB-Modulation方法在图像生成领域具有广泛的应用前景，以下是一些潜在的应用领域：</p>
+<ol>
+<li><p><strong>艺术创作与设计</strong>：</p>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2208.01618">https://arxiv.org/abs/2208.01618</a></li>
-<li><a target="_blank" rel="noopener" href="https://textual-inversion.github.io/">https://textual-inversion.github.io/</a></li>
+<li>艺术家和设计师可以利用RB-Modulation快速实现他们的视觉构想，通过文本提示和风格参考图像生成独特的艺术作品或设计草图。</li>
 </ul>
 </li>
-<li><p>LDMs: High-Resolution Image Synthesis with Latent Diffusion Models</p>
+<li><p><strong>个性化内容生成</strong>：</p>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2112.10752">https://arxiv.org/abs/2112.10752</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/CompVis/latent-diffusion">https://github.com/CompVis/latent-diffusion</a></li>
+<li>用户可以通过提供自己喜欢的风格和内容提示，生成个性化的图像，例如个性化头像、社交媒体图像或特定主题的艺术作品。</li>
 </ul>
 </li>
-<li><p>CLIP: Learning Transferable Visual Models From Natural Language Supervision</p>
+<li><p><strong>游戏和娱乐产业</strong>：</p>
 <ul>
-<li>CLIP (Contrastive Language-Image Pre-Training) </li>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.00020">https://arxiv.org/abs/2103.00020</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/OpenAI/CLIP">https://github.com/OpenAI/CLIP</a></li>
+<li>在游戏设计和电影制作中，RB-Modulation可以用于快速生成场景概念图或角色设计，加速创作过程。</li>
 </ul>
 </li>
+<li><p><strong>广告和营销</strong>：</p>
+<ul>
+<li>营销人员可以使用该技术根据特定的风格要求快速生成吸引人的广告图像，提高广告内容的创意性和吸引力。</li>
 </ul>
+</li>
+<li><p><strong>教育和培训</strong>：</p>
+<ul>
+<li>在教育领域，RB-Modulation可以用来创建教学材料或视觉辅助工具，帮助学生更好地理解和想象复杂的概念。</li>
+</ul>
+</li>
+<li><p><strong>虚拟现实和增强现实</strong>：</p>
+<ul>
+<li>在虚拟现实（VR）和增强现实（AR）应用中，该技术可以用来生成风格化的环境或对象，提供更加丰富和个性化的用户体验。</li>
+</ul>
+</li>
+<li><p><strong>时尚和服装行业</strong>：</p>
+<ul>
+<li>设计师可以利用RB-Modulation探索不同的服装设计和风格，快速迭代并展示他们的设计概念。</li>
+</ul>
+</li>
+<li><p><strong>室内设计和建筑可视化</strong>：</p>
+<ul>
+<li>室内设计师和建筑师可以使用该技术来生成室内设计的视觉表现或建筑渲染图，帮助客户更直观地看到设计成果。</li>
+</ul>
+</li>
+<li><p><strong>辅助工具</strong>：</p>
+<ul>
+<li>对于非专业设计人员，RB-Modulation可以作为一个辅助工具，帮助他们快速创建图像，例如报告插图、演示文稿背景或社交媒体帖子。</li>
+</ul>
+</li>
+<li><p><strong>研究和实验</strong>：</p>
+<ul>
+<li>在学术研究中，研究人员可以使用RB-Modulation来探索不同风格和内容组合的效果，进行视觉心理学或美学研究。</li>
+</ul>
+</li>
+<li><p><strong>社交媒体和内容创作</strong>：</p>
+<ul>
+<li>社交媒体用户和内容创作者可以利用RB-Modulation生成具有特定风格的内容，增加其作品的吸引力和辨识度。</li>
+</ul>
+</li>
+<li><p><strong>版权和法律问题</strong>：</p>
+<ul>
+<li>需要注意的是，生成的艺术作品可能涉及版权和法律问题，尤其是在模仿或复制现有版权材料的风格时。</li>
+</ul>
+</li>
+</ol>
+<p>RB-Modulation的应用前景非常广阔，随着技术的进一步发展和优化，其应用范围可能会进一步扩大。然而，同时也需要注意潜在的伦理和法律问题，确保技术的正当和负责任的使用。</p>
+<h2 id="免费试用"><a href="#免费试用" class="headerlink" title="免费试用"></a>免费试用</h2><blockquote>
+<p> 需要可私信联系</p>
+</blockquote>
+<h2 id="爱研究-AI交流群"><a href="#爱研究-AI交流群" class="headerlink" title="[爱研究]AI交流群"></a>[爱研究]AI交流群</h2><blockquote>
+<p>为了方便交流，建立了群聊，后台私信发送：666</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240605120550499.png" alt=" "></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240605120558820-1717560681505-16.png" alt=" "></p>
 
                 
             </div>
@@ -588,7 +632,7 @@ Latent Diffusion Textual-Inversion Enhanced Virtual Try-On</font></div>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lee-jet.github.io/2023/08/08/ladi-vton/">https://lee-jet.github.io/2023/08/08/ladi-vton/</a>
+                    <a href="https://lee-jet.github.io/2024/06/05/rb-modulation/">https://lee-jet.github.io/2024/06/05/rb-modulation/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -705,7 +749,7 @@ Latent Diffusion Textual-Inversion Enhanced Virtual Try-On</font></div>
         repo: 'gitalk',
         owner: 'lee-jet',
         admin: "lee-jet",
-        id: '2023-08-08T17-17-46',
+        id: '2024-06-05T12-10-26',
         distractionFreeMode: false,  // Facebook-like distraction free mode
     });
 
@@ -733,17 +777,18 @@ Latent Diffusion Textual-Inversion Enhanced Virtual Try-On</font></div>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/08/09/tryondiffusion/">
+                <a href="/2024/06/05/rb-modulation/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="TryOnDiffusion">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="RB-Modulation">
                         
-                        <span class="card-title">TryOnDiffusion</span>
+                        <span class="card-title">RB-Modulation</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -753,9 +798,9 @@ Latent Diffusion Textual-Inversion Enhanced Virtual Try-On</font></div>
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-08-09
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-06-05
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -768,6 +813,7 @@ Latent Diffusion Textual-Inversion Enhanced Virtual Try-On</font></div>
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -786,13 +832,13 @@ Latent Diffusion Textual-Inversion Enhanced Virtual Try-On</font></div>
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/08/04/model-deployment-trition/">
+                <a href="/2024/06/04/megactor/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="model-deployment-trition">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="MegActor">
                         
-                        <span class="card-title">model-deployment-trition</span>
+                        <span class="card-title">MegActor</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -803,12 +849,16 @@ Latent Diffusion Textual-Inversion Enhanced Virtual Try-On</font></div>
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-06-04
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Lee Jet
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper-Reading/" class="post-category">
+                                    Paper Reading
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -816,8 +866,8 @@ Latent Diffusion Textual-Inversion Enhanced Virtual Try-On</font></div>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Tech-share/">
-                        <span class="chip bg-color">Tech share</span>
+                    <a href="/tags/Paper-Reading/">
+                        <span class="chip bg-color">Paper Reading</span>
                     </a>
                     
                 </div>
