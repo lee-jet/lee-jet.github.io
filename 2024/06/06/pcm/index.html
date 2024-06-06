@@ -4,16 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="202312_Part01, AiHub">
-    <meta name="description" content="⚡ Weekly AIGC News | 202312 Part One
+    <meta name="keywords" content="PCM, AiHub">
+    <meta name="description" content="⚡ PCM完爆LCM | 一步即可生成高清图像 
 
 
-❤️ 每周免费分享AIGC相关最新资讯，感兴趣可以关注，喜欢动动小手点个赞，谢谢支持！
-
-
-[TOC]
-😘 Contents
-1️⃣ 脸书发布文生视频EmuVi">
+Phased Consistency Model（PCM）是一种新型的生成模型，旨在解决Latent Consistency Model（LCM）在文本条件高分辨率生成中的局限性。PCM">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -25,7 +20,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>202312_Part01 | AiHub</title>
+    <title>PCM | AiHub</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -345,12 +340,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">202312_Part01</h1>
+                    <h1 class="description center-align post-title">PCM</h1>
                 </div>
             </div>
         </div>
@@ -399,28 +394,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-12-14
+                    2024-06-06
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-12-14
+                    2024-06-06
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.4k
+                    2.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    15 分
+                    7 分
                 </div>
                 
 
@@ -443,126 +438,95 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <div align='center' ><font size='6'><strong>⚡ Weekly AIGC News | 202312 Part One</strong></font></div>
+                <div align='center' ><font size='6'><strong>⚡ PCM完爆LCM | 一步即可生成高清图像 </strong></font></div>
 
 <blockquote>
-<p>❤️ 每周免费分享AIGC相关最新资讯，感兴趣可以关注，喜欢动动小手点个赞，谢谢支持！</p>
+<p>Phased Consistency Model（PCM）是一种新型的生成模型，旨在解决Latent Consistency Model（LCM）在文本条件高分辨率生成中的局限性。PCM通过创新的策略在训练和推理阶段提高了生成质量，并通过广泛的实验验证了其在不同步骤（1步、2步、4步、8步、16步）下与Stable Diffusion和Stable Diffusion XL基础模型的结合效果。</p>
 </blockquote>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/y9kxfy9n.png" alt="img"></p>
-<p>[TOC]</p>
-<h1 id="😘-Contents"><a href="#😘-Contents" class="headerlink" title="😘 Contents"></a>😘 Contents</h1><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231214115811663.png" alt="image-20231214115811663"></p>
-<h2 id="1️⃣-脸书发布文生视频EmuVideo"><a href="#1️⃣-脸书发布文生视频EmuVideo" class="headerlink" title="1️⃣ 脸书发布文生视频EmuVideo"></a>1️⃣ 脸书发布文生视频EmuVideo</h2><blockquote>
-<ul>
-<li>paper：<a target="_blank" rel="noopener" href="https://emu-video.metademolab.com/assets/emu_video.pdf">https://emu-video.metademolab.com/assets/emu_video.pdf</a></li>
-<li>demo：<a target="_blank" rel="noopener" href="https://emu-video.metademolab.com/#/demo">https://emu-video.metademolab.com/#/demo</a></li>
-</ul>
-</blockquote>
-<ul>
-<li><p>随着扩散模型的飞速发展，诞生了 Midjourney、DALL·E 3、Stable Difusion 等一大批出色的文生图模型。但在文生视频领域却进步缓慢，因为文生视频多数采用逐帧生成的方式，这类自回归方法运算效率低下、成本高。即便使用现有生成关键帧，再生成中间帧新方法。如何插值帧数，保证生成视频的连贯性也有很多技术难点。</p>
-</li>
-<li><p><strong>脸书则提出了一种全新的文生视频模型Emu Video</strong></p>
-<ul>
-<li>该模型使用了分解式生成方法，先生成一张图像，再以该图像和文本作为条件生成视频，不仅生成的视频逼真符合文本描述，算力成本也非常低。</li>
-<li><strong>Emu Video的核心技术创新在于，使用了分解式生成方法。之前，其他文生视频模型是直接从文本描述映射到高维视频空间。但由于视频维度非常高，直接映射非常困难。</strong></li>
-<li><strong>Emu Video的策略是首先生成一张图像，然后以该图像和文本作为条件，生成随后的视频帧。由于图像空间维度较低，生成第一帧更容易，然后生成后续帧只需要预测图像如何变化，这样整个任务难度很大程度降低。</strong></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><strong>模块1 文本到图像</strong><ul>
-<li>Emu Video 使用了一个训练好的文本到图像模型，可以生成很逼真的图片。为了让生成的图片更有创意，这个模型在海量的图像和文本描述进行预训练，学到了很多图像的风格，例如，朋克、素描、油画、彩绘等。</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p><strong>模块2 图像到视频</strong></p>
-<ul>
-<li>这个模块使用了跟文本到图像模块类似的结构,也是一个编码器-解码器结构。不同的是增加了处理时间信息的模块，也就是说可以学习如何把图片中的内容变化成一个视频。</li>
-<li>在训练的过程中，研究人员输入一小段视频，随机抽取其中的一帧图片，让这个模块学习根据这张图片和对应的文本生成整段视频。</li>
-<li>在实际使用时，先用第一个模块生成第一帧图片，然后输入这张图片和文本给第二个模块,让它生成整个视频。</li>
-<li>这种分解的方法让第二个模块的任务变得比较简单，只需要预测图片会随着时间而怎么变化和运动，就可以生成流畅逼真的视频。</li>
-</ul>
-</li>
-<li><p><strong>进一步优化</strong></p>
-<ul>
-<li>1）采用零终端信噪比的散度噪声计划，能够直接生成高清视频，无需级联多个模型。之前的计划在训练和测试阶段信噪比存在偏差，导致生成质量下降。</li>
-<li>2）利用预训练文本到图像模型固定参数，保留图像质量和多样性，生成第一帧时不需额外训练数据和计算成本。</li>
-<li>3）设计多阶段训练策略，先在低分辨率训练快速采样视频信息，再在高分辨率进行微调,避免全程高分辨率的计算量大。</li>
-</ul>
-<p>  <img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/20231205110244163.png" alt="对标Gen-2！Meta发布新模型，进军文生视频赛道插图4"></p>
-<p>  <img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231214111134803.png" alt=" "></p>
-<p>  在人类评估中显示，Emu Video生成的4秒长视频比其他方法更具质量和遵循文本的要求。<strong>语义一致性超过86%，质量一致性超过91%，明显优于Gen-2、Pika Labs、Make-A Video等知名商业模型。</strong></p>
-</li>
-<li><p><strong>Demo</strong></p>
-</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231214110649799.png" alt=" "></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231214110736022.png" alt=" "></p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231214110813796.png" alt=" "></p>
-<h2 id="2️⃣-脸书发布图像编辑EmuEdit"><a href="#2️⃣-脸书发布图像编辑EmuEdit" class="headerlink" title="2️⃣  脸书发布图像编辑EmuEdit"></a>2️⃣  脸书发布图像编辑EmuEdit</h2><blockquote>
-<ul>
-<li>paper <a target="_blank" rel="noopener" href="https://emu-edit.metademolab.com/assets/emu_edit.pdf">https://emu-edit.metademolab.com/assets/emu_edit.pdf</a></li>
-<li>demo <a target="_blank" rel="noopener" href="https://emu-edit.metademolab.com/#emu-edit-in-action">https://emu-edit.metademolab.com/#emu-edit-in-action</a></li>
-</ul>
-</blockquote>
-<p><strong>通过输入文本指令，即可编辑图像（包括局部、全局、增加、删除、背景、纹理操作）</strong></p>
-<ul>
-<li><p>我们推出了 Emu Edit，这是一种新颖的方法，旨在简化各种图像处理任务，为图像编辑带来更强的功能和更高的精度。</p>
-</li>
-<li><p>Emu Edit 能够通过指令进行自由格式编辑，包括局部和全局编辑、删除和添加背景、颜色和几何图形转换、检测和分割等任务。目前的方法往往倾向于对各种编辑任务进行过度修改或表现不佳。我们认为，首要目标不应仅仅是生成 “可信 “的图像。相反，模型应专注于只精确修改与编辑请求相关的像素。与当今许多生成式人工智能模型不同，Emu Edit 能精确地遵循指令，确保输入图像中与指令无关的像素不受影响。例如，当在棒球帽上添加文字 “阿罗哈！”时，棒球帽本身应保持不变。</p>
-</li>
-<li><p>我们的主要见解是，将计算机视觉任务作为图像生成模型的指令，可为图像生成和编辑提供前所未有的控制。通过对局部和全局编辑任务的详细研究，我们强调了 Emu Edit 在执行详细编辑指令方面的巨大潜力。</p>
-</li>
-<li><p>为了训练这个模型，我们开发了一个包含 1 千万个合成样本的数据集，每个样本包括一张输入图像、一个待执行任务的描述以及目标输出图像。我们相信这是迄今为止同类数据集中最大的一个。因此，我们的模型在指令忠实性和图像质量方面都取得了前所未有的编辑效果。在我们的评估中，Emu Edit 表现出了优于现有方法的性能，在一系列图像编辑任务的定性和定量评估中都取得了最先进的新结果。</p>
-</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/data_dist.webp" alt=" "></p>
-<ul>
-<li>Demo</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231214111908177.png" alt="image-20231214111908177"></p>
-<h2 id="3️⃣-谷歌终于发布了Gemini"><a href="#3️⃣-谷歌终于发布了Gemini" class="headerlink" title="3️⃣ 谷歌终于发布了Gemini"></a>3️⃣ 谷歌终于发布了Gemini</h2><p>从测试结果来看Gemini Ultra确实很强大，但远没有到超过GPT-4很多的程度，不过也证明了除了Open AI其他公司也是可以训练出和GPT-4相当的LLM模型的。</p>
-<p>你现在已经可以在和Bard用英语交谈的时候使用Gemini Pro模型了，同时Gemini Nano也在Pixel 8 Pro的Recorder总结功能和键盘联想上启用了。</p>
-<p>来看一下具体的介绍：</p>
-<ul>
-<li>Gemini 是多模态的，意味着它可以理解、操作和结合不同类型的信息，包括文本、代码、音频、图像和视频。</li>
-<li>它还非常灵活，能够高效地运行在从数据中心到移动设备上的各种环境中。Gemini 的第一个版本，Gemini 1.0，针对三种不同的大小进行了优化：Gemini Ultra 用于高度复杂的任务，Gemini Pro 适用于广泛的任务，Gemini Nano 用于设备上的任务。</li>
-<li>Gemini Ultra 在 32 个广泛使用的学术基准测试中的 30 个上超越了当前的最新成果，这些基准测试用于大型语言模型的研究和开发。它是第一个在 MMLU（大规模多任务语言理解）上超越人类专家的模型，MMLU 测试了世界知识和在 57 个科目（如数学、物理、历史、法律、医学和伦理）中的解决问题能力。</li>
-<li>Gemini 1.0 被训练用于同时识别和理解文本、图像、音频等，使其在解释数学和物理等复杂科目的推理方面表现出色。它还可以理解、解释和生成流行编程语言（如 Python、Java、C++ 和 Go）中的高质量代码。</li>
-<li>Google 使用其针对 AI 优化的基础设施和自家设计的 Tensor Processing Units (TPUs) v4 和 v5e 来训练 Gemini 1.0。公司还宣布了迄今为止最强大、最高效、最可扩展的 TPU 系统——Cloud TPU v5p，专为训练尖端 AI 模型而设计。</li>
-<li>Gemini 1.0 现在正在逐步应用于各种产品和平台。它将用于 Google 的产品，如 Bard 和 Pixel，开发者和企业客户可以从 12 月 13 日起通过 Google AI Studio 或 Google Cloud Vertex AI 中的 Gemini API 访问 Gemini Pro。安卓开发者也将能够通过 AICore，在安卓 14 上使用 Gemini Nano 开发，该功能将从 Pixel 8 Pro 设备开始提供。</li>
-</ul>
-<p>基于谷歌放出的技术报告Cameron分享了他推测的谷歌在预训练阶段保证数据多样性对Gemini取得这么好的效果有至关重要的影响：</p>
-<p>​    <strong>(1) 数据来源多样化</strong>：我们应尽可能从各种不同来源（比如网络、书籍、代码等）获取预训练数据。不仅仅是文本，我们还需要考虑整合不同形式（如图像、音频、视频）、不同语言和不同领域（比如编程）的数据到预训练过程中。</p>
-<p>​    <strong>(2) 注重 Tokenizer 选择</strong>：许多开发者习惯直接使用现成的预训练 Tokenizer，认为这样就够了。但实际情况并非如此！Tokenization 的问题可能会导致一系列后续问题，影响模型表现。为了获得最佳效果，我们应该在预训练数据集上定制我们自己的 Tokenizer，确保其适应模型将处理的数据类型。Gemini 正是采用了这种方法。</p>
-<p>​    <strong>(3) 数据清洁度至关重要</strong>：处理大型语言模型（LLM）预训练的数据管道非常复杂，包括启发式规则、基于模型的方案、安全性/有害内容过滤等。先前的研究（例如 Falcon LLMs）强调使用简单规则来筛选预训练数据，但 Gemini 在其预训练数据管道中采用了更多手段，力求构建尽可能纯净的预训练数据集。</p>
-<p>​    <strong>(4) 来自 Chinchilla 的经验教训</strong>：2022 年 3 月 Chinchilla 的研究发现至今仍适用。优秀的预训练大型语言模型需要大量的参数和海量的数据。简而言之，许多大型语言模型实际上训练不足！我们应尽可能利用所有可用数据进行预训练，前提是不要因计算成本而使自己陷入困境。</p>
-<p>​    <strong>(5) 数据加权重要</strong>：除了数据混合外，我们从每个预训练数据源采样数据的频率（即数据权重）也十分关键。为了找到最佳数据权重，我们应该用较小的模型和数据集进行调优实验。有趣的是，Gemini 的研究者们还发现，在训练过程中调整数据权重（例如，在训练的后期增加特定领域数据的权重）也可能有益。</p>
-<h2 id="4️⃣-Mymap：AI-生成各种类型的思维导图"><a href="#4️⃣-Mymap：AI-生成各种类型的思维导图" class="headerlink" title="4️⃣ Mymap：AI 生成各种类型的思维导图"></a>4️⃣ Mymap：AI 生成各种类型的思维导图</h2><p>Mymap这个产品打磨的相当可以，非常适合做研究。图表的种类很多，而且会根据你的问题自动选择和询问合适的图表类型。<br>比如我下面就让他列出中国具体的时代和朝代时间表，他选择了思维导图样式，然后我选中了思维导图中的汉朝，让他列出每一位汉朝皇帝的名字和时间，他选择了list。速度很快信息也很准确。<br><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/ryz6fyv3.webp" alt="img"></p>
-<h2 id="5️⃣-VEED：AI-视频编辑应用"><a href="#5️⃣-VEED：AI-视频编辑应用" class="headerlink" title="5️⃣ VEED：AI 视频编辑应用"></a>5️⃣ VEED：AI 视频编辑应用</h2><p>添加炫酷的字幕到你的视频变得非常简单：1. 导入或录制您的视频2. 自动生成字幕3. 快速轻松地修正任何单词或拼写错误4. 选择合适的样式5. 嗨！准备分享到任何地方的精美字幕<br>为什么要添加字幕？字幕（或字幕）可帮助您用视频吸引更多人，并增加参与度。有了字幕，即使听力不太好或声音静音，每个人都可以观看您的视频。</p>
-<p>特征- 自动添加字幕到您的视频- 字幕可用50种不同的语言！- 快速编辑任何单词- 用样式让您的字幕突出- 使用现有视频或录制新视频- 无需上传文件，只需从您的存储中导入它们- 修剪您的视频- 更改视频的宽高比，使其准备好在任何平台上分享。</p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/wew6syx3.webp" alt="img"></p>
-<h2 id="6️⃣-Playground-v2：关注美学表现的-SDXL-架构图像生成模型"><a href="#6️⃣-Playground-v2：关注美学表现的-SDXL-架构图像生成模型" class="headerlink" title="6️⃣ Playground v2：关注美学表现的 SDXL 架构图像生成模型"></a>6️⃣ Playground v2：关注美学表现的 SDXL 架构图像生成模型</h2><p>Playground v2模型开源了权重，用户可以在playground.com或HuggingFace上试用。Playground v2相比Stable Diffusion XL模型在用户评价中更受欢迎2.5倍。然后文章介绍了一个新的基准MJHQ-30K，用于评估模型的审美质量。这个基准使用高质量图像数据集计算FID值。</p>
-<p>最后提到Playground公司也开源了部分模型权重，以推动计算资源有限环境下的研究。同时寻求与用户分享他们使用Playground v2创建的作品。<br><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/ko2kcz8g.png" alt="img"></p>
-<h2 id="7️⃣-Outside：AI-帮你规划你的生活"><a href="#7️⃣-Outside：AI-帮你规划你的生活" class="headerlink" title="7️⃣ Outside：AI 帮你规划你的生活"></a>7️⃣ Outside：AI 帮你规划你的生活</h2><p>Outside 是一种新的生活规划者，它可以帮助成千上万的人实现个性化的新体验。现在，你拥有了一种新的创造力和生产力超级能力。</p>
-<p>Outside 与你的日历连接，通过令人惊叹的摄影将它变得可视化，并在你自己的世界地图上显示你的计划。从计划周末度假或给伴侣带来独特的地方吃饭，Outside 是一个充满活力的社区。<br><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/9nv0u468.webp" alt="img"></p>
-<h2 id="8️⃣-FaceStudio：在几秒钟内将您的脸放到任何地方"><a href="#8️⃣-FaceStudio：在几秒钟内将您的脸放到任何地方" class="headerlink" title="8️⃣ FaceStudio：在几秒钟内将您的脸放到任何地方"></a>8️⃣ FaceStudio：在几秒钟内将您的脸放到任何地方</h2><p>一个保持 AI 画图中人脸特征的技术FaceStudio，可以将你的人脸放在任何地方转换为各种风格，只需要一张照片。<br>目前 SD一张照片的 的方案还是只有 Ipadapter-face，但是效果没有这个演示好，这个演示再叠加昨天发布的magic animat 照片迁移动画就完美了 哈哈。</p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231214114055392.png" alt="image-20231214114055392"></p>
-<h2 id="9️⃣-使用哪种人工智能的意见指南-ChatGPT-周年纪念版"><a href="#9️⃣-使用哪种人工智能的意见指南-ChatGPT-周年纪念版" class="headerlink" title="9️⃣ 使用哪种人工智能的意见指南 ChatGPT 周年纪念版"></a>9️⃣ 使用哪种人工智能的意见指南 ChatGPT 周年纪念版</h2><blockquote>
-<p><a target="_blank" rel="noopener" href="https://www.oneusefulthing.org/p/an-opinionated-guide-to-which-ai">https://www.oneusefulthing.org/p/an-opinionated-guide-to-which-ai</a></p>
-</blockquote>
-<p>生成式人工智能的世界似乎非常混乱，在过去的几个月里发布了大量的大型语言模型，包括谷歌发布的一项重要新声明。因此，考虑到这一切，很多人问我他们究竟应该尝试哪种人工智能。我想从个人用户的角度给你一个答案，他们想尝试使用人工智能，要么是想体验一下人工智能是什么样的，要么是因为他们想将人工智能用于特定用途–教学、提高创造力、改善工作绩效，或者只是为了好玩。</p>
-<p>对于大多数想要使用人工智能的人来说，我的建议非常简单。当然，一旦我告诉你简单的答案，我就会把它复杂化一点，再复杂化一点，但让我们从简单的东西开始：获取 GPT-4。停止使用免费的 ChatGPT。</p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231214120701245.png" alt=" "></p>
-<p>几周前，使用 GPT-4 进行实验的理想方式还很明确。你可以每月支付 20 美元，通过 OpenAI 购买 ChatGPT Plus 的访问权限。这样你就可以访问运行 GPT-4 的最新版 ChatGPT，包括我上面讨论的所有功能。一旦你拥有了它，我建议你尝试用它来完成各种任务，从工作任务（让它帮你创新、总结文档、写邮件、提供建议）到娱乐（用它代替谷歌、写有趣的故事、玩游戏）。有效使用聊天机器人总是有点奇怪，而且也没有指导手册，但我发现在使用 ChatGPT 约 10 小时后，人们就会明白了。你的目标是达到这 10 个小时，而 ChatGPT Plus 是最简单的方法。</p>
-<p>过去几周发生了三件事情： ChatGPT Plus 订阅暂时停止销售，ChatGPT 似乎受到了性能问题和频繁中断的困扰，而且出现了许多使用该系统的新方法。我仍然建议你购买 Plus，但你不能。</p>
-<p>幸运的是，有一大堆方法可以访问 GPT-4，但它们都有点奇怪。目前最好的方法是免费的，而且在全球 169 个国家都可以使用，那就是微软必应。没错，就是<strong>微软的搜索引擎</strong>。</p>
-<p>最后，让我们谈谈谷歌。谷歌一直在测试自己的人工智能，供消费者使用，他们称之为 “Bard”，但它是由各种人工智能模型驱动的。直到最近，它还是一个名为 PaLM 2 的人工智能，而且很糟糕。从今天起，它已被一个名为 Gemini Pro 的模型所取代，我一直在使用它。它的功能要强得多，但仍处于 ChatGPT 的水平。虽然 Bard 的搜索界面和功能非常令人兴奋和流畅，但我一般会谨慎使用这种型号，因为它的性能不如 GPT-4 支持的 Bing。据说，谷歌将在一月份发布第一款打败 GPT-4 的机型，名为 Gemini Ultra。届时，我一定会撰写相关报道，但当前版本的 Gemini 即使不是最先进的，也完全没有问题。</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/case2x2%2000_00_00-00_00_30.gif" alt=" "></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240606171215600.png" alt=" "></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240606171301823.png" alt=" "></p>
 <hr>
-<h2 id="🤝-Thank-you"><a href="#🤝-Thank-you" class="headerlink" title="🤝 Thank you"></a>🤝 Thank you</h2><blockquote>
-<p>❤️ 每周免费分享AIGC相关最新资讯，感兴趣可以关注，喜欢动动小手点个赞，谢谢支持！</p>
+<p>[TOC]</p>
+<h2 id="先睹为快"><a href="#先睹为快" class="headerlink" title="先睹为快"></a>先睹为快</h2><h3 id="01-Stable-diffusion-v1-5-：1步生成"><a href="#01-Stable-diffusion-v1-5-：1步生成" class="headerlink" title="01 Stable diffusion v1.5 ：1步生成"></a>01 Stable diffusion v1.5 ：1步生成</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240606172047884.png" alt=" "></p>
+<h3 id="02-Stable-diffusion-v1-5-：2步生成"><a href="#02-Stable-diffusion-v1-5-：2步生成" class="headerlink" title="02 Stable diffusion v1.5 ：2步生成"></a>02 Stable diffusion v1.5 ：2步生成</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240606172032182.png" alt=" "></p>
+<h3 id="03-Stable-diffusion-v1-5-：4步生成"><a href="#03-Stable-diffusion-v1-5-：4步生成" class="headerlink" title="03 Stable diffusion v1.5 ：4步生成"></a>03 Stable diffusion v1.5 ：4步生成</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240606172103810.png" alt=" "></p>
+<h3 id="04-Stable-diffusion-v1-5-：8步生成"><a href="#04-Stable-diffusion-v1-5-：8步生成" class="headerlink" title="04 Stable diffusion v1.5 ：8步生成"></a>04 Stable diffusion v1.5 ：8步生成</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240606172112951.png" alt=" "></p>
+<h3 id="05-Stable-diffusion-v1-5-：16步生成"><a href="#05-Stable-diffusion-v1-5-：16步生成" class="headerlink" title="05 Stable diffusion v1.5 ：16步生成"></a>05 Stable diffusion v1.5 ：16步生成</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240606172122374.png" alt=" "></p>
+<h3 id="06-SD-SDXL-LCM-PCM-对比-：1-2-4-8-16-步生成"><a href="#06-SD-SDXL-LCM-PCM-对比-：1-2-4-8-16-步生成" class="headerlink" title="06 SD/SDXL+LCM/PCM 对比 ：1,2,4,8,16 步生成"></a>06 SD/SDXL+LCM/PCM 对比 ：1,2,4,8,16 步生成</h3><ul>
+<li>SD + PCM</li>
+</ul>
+<p><img src="https://g-u-n.github.io/projects/pcm/freeu_img_vid/t2i/sd_v15.png" alt=" "></p>
+<ul>
+<li>SDXL + PCM</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/sd_xl.png" alt=" "></p>
+<h3 id="07-Video-generation-PCM"><a href="#07-Video-generation-PCM" class="headerlink" title="07 Video generation + PCM"></a>07 Video generation + PCM</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240606173236672.png" alt=" "></p>
+<h2 id="方法总结"><a href="#方法总结" class="headerlink" title="方法总结"></a>方法总结</h2><h3 id="背景和动机"><a href="#背景和动机" class="headerlink" title="背景和动机"></a>背景和动机</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/motivation.png" alt=" "></p>
+<p>一致性模型（CM）是一种新兴的生成模型，以高质量和快速生成著称。然而，当一致性模型被应用于潜在空间中的高分辨率、文本条件的图像生成时（即潜在一致性模型，Latent Consistency Model, LCM），效果并不理想。PCM 针对 LCM 的三大主要缺陷进行了改进：</p>
+<ol>
+<li><strong>CFG 规模问题</strong>：<ul>
+<li>LCM 只能接受小于 2 的 CFG（分类自由度）规模，更大的值会导致过度曝光问题。PCM 通过改进设计，解决了这一限制，使得模型可以处理更大的 CFG 规模而不产生过度曝光。</li>
+</ul>
+</li>
+<li><strong>推理步骤一致性</strong>：<ul>
+<li>LCM 在不同的推理步骤下无法产生一致的结果，推理步骤过大或过小都会导致结果模糊。PCM 通过分阶段（Phased）的一致性设计，确保在多步生成过程中保持结果一致性，从而提高生成图像的清晰度和质量。</li>
+</ul>
+</li>
+<li><strong>分布一致性损失</strong>：<ul>
+<li>LCM 的损失函数未能有效实现分布一致性，在低步数下生成的图像质量较差。PCM 引入了新的训练和推理策略，改善了低步数生成结果的质量。</li>
+</ul>
+</li>
+</ol>
+<h3 id="训练范式"><a href="#训练范式" class="headerlink" title="训练范式"></a>训练范式</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240606173615460.png" alt=" "></p>
+<p>PCM是如何在训练过程中工作的：</p>
+<ol>
+<li><strong>训练组件</strong>：图示可能展示了PCM训练中涉及的主要组件，包括编码器、ODE求解器、噪声添加模块、以及可选的EMA（指数移动平均）更新等。</li>
+<li><strong>数据流</strong>：通过箭头和流程，图可能描述了数据在训练过程中的流向，从输入的噪声数据到通过PCM模型的转换，再到输出的生成数据。</li>
+<li><strong>训练步骤</strong>：Figure 4 可能将训练过程分解为多个步骤，每个步骤都对应着PCM中的一个特定操作，如参数化、蒸馏目标的计算、对抗性损失的计算等。</li>
+<li><strong>确定性和随机性</strong>：图可能展示了PCM如何在确定性采样和引入随机性之间进行平衡，以改善生成样本的质量和多样性。</li>
+<li><strong>引导式蒸馏</strong>：如果PCM使用引导式蒸馏，图可能展示了如何在训练中应用CFG（分类器自由引导）策略，以及如何通过调整CFG值来增强模型对文本提示的响应性。</li>
+<li><strong>对抗性损失</strong>：图可能展示了如何实现对抗性一致性损失，包括判别器的设计和如何通过最小化生成样本和真实样本之间的分布距离来训练PCM。</li>
+<li><strong>多步生成</strong>：作为PCM的关键特性之一，图可能展示了如何在多步生成中应用PCM，包括如何在每个子轨迹上执行自一致性属性的强制。</li>
+<li><strong>训练和推理的对比</strong>：图可能对比了训练和推理阶段的不同，展示了PCM如何在训练时学习数据分布，并在推理时生成新的样本。</li>
+<li><strong>可选组件</strong>：图可能还包括了一些可选使用的训练技术，如EMA更新，以及它们是如何与PCM的主要训练流程集成的。</li>
+<li><strong>训练目标</strong>：最后，图可能强调了PCM的训练目标，即通过相位一致性蒸馏和对抗性损失来最小化生成样本与真实数据之间的差异。</li>
+</ol>
+<h3 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h3><h4 id="1-ODE轨迹分割"><a href="#1-ODE轨迹分割" class="headerlink" title="1. ODE轨迹分割"></a>1. ODE轨迹分割</h4><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240606173842291.png" alt=" "></p>
+<h4 id="2-一致性函数定义"><a href="#2-一致性函数定义" class="headerlink" title="2. 一致性函数定义"></a>2. 一致性函数定义</h4><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240606173854899.png" alt=" "></p>
+<h4 id="3-参数化"><a href="#3-参数化" class="headerlink" title="3. 参数化"></a>3. 参数化</h4><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240606173909714.png" alt=" "></p>
+<h4 id="4-阶段一致性蒸馏目标"><a href="#4-阶段一致性蒸馏目标" class="headerlink" title="4. 阶段一致性蒸馏目标"></a>4. 阶段一致性蒸馏目标</h4><p>PCM的训练目标是最小化预训练的扩散模型（作为教师模型）和PCM（作为学生模型）之间的差异。这通过最小化一个损失函数来实现，该损失函数衡量了学生模型的输出与教师模型的输出之间的差异。</p>
+<h4 id="5-采样过程"><a href="#5-采样过程" class="headerlink" title="5. 采样过程"></a>5. 采样过程</h4><p>在采样时，PCM可以确定性地沿着每个子轨迹的解点进行采样，而不会累积随机误差。这意味着，给定一个初始样本，PCM可以通过一系列确定性的转换，从噪声数据逐步恢复出清晰的数据。</p>
+<h4 id="6-引导式蒸馏"><a href="#6-引导式蒸馏" class="headerlink" title="6. 引导式蒸馏"></a>6. 引导式蒸馏</h4><p>为了提高文本引导的可控性，PCM在蒸馏过程中以选择不使用分类器自由引导（CFG）策略。这使得PCM能够在推理时使用更大的CFG值，并对负面提示更敏感。</p>
+<h4 id="7-对抗性一致性损失"><a href="#7-对抗性一致性损失" class="headerlink" title="7. 对抗性一致性损失"></a>7. 对抗性一致性损失</h4><p>为了在低步长设置中提高样本质量，PCM引入了对抗性损失。这个损失函数通过训练一个对抗性网络（例如GAN中的判别器）来强制模型学习数据分布，从而改善生成样本的质量。</p>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><p>PCM的优点包括：</p>
+<ol>
+<li><p><strong>高效率</strong>：PCM可以生成高质量图像，效率高于传统的扩散模型。</p>
+</li>
+<li><p><strong>高稳定性</strong>：PCM通过一致性函数实现了一致性，提高了模型的稳定性。</p>
+</li>
+<li><p><strong>零样本图像编辑</strong>：PCM可以实现零样本图像编辑，例如图像超分辨率、修复和上色等任务。</p>
+</li>
+</ol>
+<h3 id="局限性"><a href="#局限性" class="headerlink" title="局限性"></a>局限性</h3><ol>
+<li>低步长生成质量不稳定：尽管PCM能够在少步骤中生成高质量的图像和视频，但当步长非常低，尤其是仅使用单步时，生成的样本质量可能会不稳定。模型可能会产生结构错误或模糊的图像。</li>
+<li>多步细化的需要：为了缓解低步长生成可能带来的质量问题，作者发现通过多步细化可以改善生成结果。这表明尽管PCM在加速生成方面取得了进展，但在极端条件下仍需要额外的细化步骤来确保质量。</li>
+</ol>
+<h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240606174605427.png" alt=" "></p>
+<h3 id="1-高分辨率图像生成"><a href="#1-高分辨率图像生成" class="headerlink" title="1. 高分辨率图像生成"></a>1. 高分辨率图像生成</h3><p>PCM 在高分辨率、文本条件的图像生成任务中表现出色。相比于传统的潜在一致性模型（LCM），PCM 能够在多步生成过程中保持结果的一致性和高质量。它在不同推理步数（1-16步）的设置中均显著优于LCM，同时在单步生成中也表现出色。</p>
+<h3 id="2-视频生成"><a href="#2-视频生成" class="headerlink" title="2. 视频生成"></a>2. 视频生成</h3><p>PCM 不仅在图像生成上表现出色，还能够应用于视频生成。它可以用于训练目前最先进的少步文本到视频生成器。通过其分阶段的一致性设计，PCM 能够在低步数下生成高质量的视频，从而使得视频生成更加高效和稳定。</p>
+<h3 id="3-文本生成图像"><a href="#3-文本生成图像" class="headerlink" title="3. 文本生成图像"></a>3. 文本生成图像</h3><p>PCM 尤其适用于文本条件的图像生成任务。这类任务需要模型根据输入的文本描述生成对应的图像，PCM 通过改进一致性模型，使得在潜在空间中生成的图像更加清晰和符合文本描述。</p>
+<h3 id="4-快速生成需求"><a href="#4-快速生成需求" class="headerlink" title="4. 快速生成需求"></a>4. 快速生成需求</h3><p>在需要快速生成高质量图像的应用场景中，PCM 展现了其卓越的性能。相比于传统生成方法，PCM 可以在较少的生成步数内生成高质量的图像，显著提高了生成速度和效率。</p>
+<h3 id="5-稳定扩散模型"><a href="#5-稳定扩散模型" class="headerlink" title="5. 稳定扩散模型"></a>5. 稳定扩散模型</h3><p>PCM 也适用于需要稳定扩散的模型。通过其创新的分阶段一致性设计，PCM 能够在多步扩散过程中保持结果的一致性，适用于对结果稳定性要求较高的应用场景。</p>
+<h3 id="6-研究与开发"><a href="#6-研究与开发" class="headerlink" title="6. 研究与开发"></a>6. 研究与开发</h3><p>PCM 为研究人员提供了一个强大的工具，用于探索和改进生成模型的设计和性能。它的灵活性和高效性使其成为生成模型研究中的重要方向。</p>
+<h2 id="免费试用"><a href="#免费试用" class="headerlink" title="免费试用"></a>免费试用</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://huggingface.co/spaces/radames/Phased-Consistency-Model-PCM">https://huggingface.co/spaces/radames/Phased-Consistency-Model-PCM</a></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/1717666001022-6.png" alt=" "></p>
+<h2 id="爱研究-AI交流群"><a href="#爱研究-AI交流群" class="headerlink" title="[爱研究]AI交流群"></a>[爱研究]AI交流群</h2><blockquote>
+<p>为了方便交流，建立了群聊，后台私信发送：666</p>
 </blockquote>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20231214120721136.png" alt=" "></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240606175304191.png" alt=" "></p>
 
                 
             </div>
@@ -589,7 +553,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lee-jet.github.io/2023/12/14/202312-part01/">https://lee-jet.github.io/2023/12/14/202312-part01/</a>
+                    <a href="https://lee-jet.github.io/2024/06/06/pcm/">https://lee-jet.github.io/2024/06/06/pcm/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -706,7 +670,7 @@
         repo: 'gitalk',
         owner: 'lee-jet',
         admin: "lee-jet",
-        id: '2023-12-14T12-00-56',
+        id: '2024-06-06T17-47-46',
         distractionFreeMode: false,  // Facebook-like distraction free mode
     });
 
@@ -734,17 +698,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/12/15/gpt-4vision/">
+                <a href="/2024/06/06/pcm/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="GPT-4Vision">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="PCM">
                         
-                        <span class="card-title">GPT-4Vision</span>
+                        <span class="card-title">PCM</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -754,9 +719,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-12-15
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-06-06
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -769,6 +734,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -787,13 +753,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/12/13/aisp/">
+                <a href="/2024/06/05/rb-modulation/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="AISP">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="RB-Modulation">
                         
-                        <span class="card-title">AISP</span>
+                        <span class="card-title">RB-Modulation</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -804,7 +770,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-13
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-06-05
                             </span>
                         <span class="publish-author">
                             

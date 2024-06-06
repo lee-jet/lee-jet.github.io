@@ -6,7 +6,7 @@
   <link href="https://lee-jet.github.io/atom.xml" rel="self"/>
   
   <link href="https://lee-jet.github.io/"/>
-  <updated>2024-06-05T04:12:16.682Z</updated>
+  <updated>2024-06-06T09:53:11.596Z</updated>
   <id>https://lee-jet.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>PCM</title>
+    <link href="https://lee-jet.github.io/2024/06/06/pcm/"/>
+    <id>https://lee-jet.github.io/2024/06/06/pcm/</id>
+    <published>2024-06-06T09:47:46.000Z</published>
+    <updated>2024-06-06T09:53:11.596Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;6&#39;&gt;&lt;strong&gt;⚡ PCM完爆LCM | 一步即可生成高清图像 &lt;/strong&gt;&lt;/font&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Phased Consistency</summary>
+        
+      
+    
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
+    
+  </entry>
   
   <entry>
     <title>RB-Modulation</title>
@@ -497,35 +525,6 @@
         
         
     <summary type="html">&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;6&#39;&gt;&lt;strong&gt;⚡ AIGC绘画 | 清爽风格</summary>
-        
-      
-    
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>TextDiffuser-2</title>
-    <link href="https://lee-jet.github.io/2023/12/27/textdiffuser-2/"/>
-    <id>https://lee-jet.github.io/2023/12/27/textdiffuser-2/</id>
-    <published>2023-12-27T10:25:05.000Z</published>
-    <updated>2023-12-27T10:27:43.988Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;4.5&#39;&gt;&lt;strong&gt;⚡ TextDiffuser-2 | 图像加logo神器&lt;/strong&gt;&lt;/font&gt;&lt;/div&gt;
-
-&lt;hr&gt;
-&lt;blockquote&gt;
-&lt;p&gt;本文主要介绍用于</summary>
         
       
     
