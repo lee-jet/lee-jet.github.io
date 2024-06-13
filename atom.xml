@@ -6,7 +6,7 @@
   <link href="https://lee-jet.github.io/atom.xml" rel="self"/>
   
   <link href="https://lee-jet.github.io/"/>
-  <updated>2024-06-06T09:53:11.596Z</updated>
+  <updated>2024-06-13T03:29:53.606Z</updated>
   <id>https://lee-jet.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SD_V3</title>
+    <link href="https://lee-jet.github.io/2024/06/13/sd-v3/"/>
+    <id>https://lee-jet.github.io/2024/06/13/sd-v3/</id>
+    <published>2024-06-13T03:23:28.000Z</published>
+    <updated>2024-06-13T03:29:53.606Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;6&#39;&gt;&lt;strong&gt;⚡[AI里程碑]StableDiffusion3今日开源 | 首个开源超越Midjourney</summary>
+        
+      
+    
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
+    
+  </entry>
   
   <entry>
     <title>PCM</title>
@@ -500,31 +525,6 @@
 
 &lt;blockquote&gt;
 &lt;p&gt;本文主要介绍超感光降噪技术 Unprocessing</summary>
-        
-      
-    
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CrispMix</title>
-    <link href="https://lee-jet.github.io/2023/12/28/crispmix/"/>
-    <id>https://lee-jet.github.io/2023/12/28/crispmix/</id>
-    <published>2023-12-28T10:02:10.000Z</published>
-    <updated>2023-12-28T10:03:46.969Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;6&#39;&gt;&lt;strong&gt;⚡ AIGC绘画 | 清爽风格</summary>
         
       
     

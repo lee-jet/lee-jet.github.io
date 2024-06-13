@@ -4,13 +4,15 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="SDwithLoRA, AiHub">
-    <meta name="description" content="Using LoRA to quickly fine-tune diffusion models
+    <meta name="keywords" content="SD_V3, AiHub">
+    <meta name="description" content="⚡[AI里程碑]StableDiffusion3今日开源 | 首个开源超越Midjourney 
+
+
+2024年6月12日，Stable Diffusion 3 Medium的开源代表了生成式 AI 发展的一个重要里程碑。
 
 
 
-https://github.com/cloneofsimo/lora
-https://github.com/kohya-ss/sd-s">
+[TOC]">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -22,7 +24,7 @@ https://github.com/kohya-ss/sd-s">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>SDwithLoRA | AiHub</title>
+    <title>SD_V3 | AiHub</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -342,12 +344,12 @@ https://github.com/kohya-ss/sd-s">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">SDwithLoRA</h1>
+                    <h1 class="description center-align post-title">SD_V3</h1>
                 </div>
             </div>
         </div>
@@ -396,28 +398,28 @@ https://github.com/kohya-ss/sd-s">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-09-01
+                    2024-06-13
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-09-01
+                    2024-06-13
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2k
+                    1.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    5 分
                 </div>
                 
 
@@ -440,99 +442,106 @@ https://github.com/kohya-ss/sd-s">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <div align='center' ><font size='4.5'><strong>Using LoRA to quickly fine-tune diffusion models</strong></font></div>
+                <div align='center' ><font size='6'><strong>⚡[AI里程碑]StableDiffusion3今日开源 | 首个开源超越Midjourney </strong></font></div>
 
-<hr>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/cloneofsimo/lora">https://github.com/cloneofsimo/lora</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/kohya-ss/sd-scripts">https://github.com/kohya-ss/sd-scripts</a></li>
-</ul>
-<hr>
-<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/alpha_scale.gif" alt="alpha_scale"></p>
 <blockquote>
-<p>Using LoRA to fine tune on illustration dataset : W=W0+aΔW, where a is the merging ratio. Above gif is scaling alpha from 0 to 1. Setting alpha to 0 is same as using the original model, and setting alpha to 1 is same as using the fully fine-tuned model.</p>
-<ul>
-<li>a : strength (SD生成结果和自定义任务FT结果的blending强度)</li>
-</ul>
+<p>2024年6月12日，Stable Diffusion 3 Medium的开源代表了生成式 AI 发展的一个重要里程碑。</p>
 </blockquote>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/2e56b69f-e774-471c-81d9-0ed37edda1fe.jpeg" alt=" "></p>
+<hr>
+<p>[TOC]</p>
+<h2 id="Stable-Diffusion-3-先睹为快"><a href="#Stable-Diffusion-3-先睹为快" class="headerlink" title="Stable Diffusion 3 先睹为快"></a>Stable Diffusion 3 先睹为快</h2><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240613111849866.png" alt=" "></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/sd3_medium_barbarian.jpg" alt=" "></p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/sd3_cat_medium.jpg" alt=" "></p>
+<h2 id="Stable-Diffusion-3-开源亮点"><a href="#Stable-Diffusion-3-开源亮点" class="headerlink" title="Stable Diffusion 3 开源亮点"></a>Stable Diffusion 3 开源亮点</h2><ul>
+<li>Stable Diffusion 3 Medium 是 Stability AI 迄今为止最先进的文本到图像开放模型。</li>
+<li>该型号尺寸小，非常适合在消费类 PC 和笔记本电脑以及企业级 GPU 上运行。它的大小合适，可以成为文本到图像模型的下一个标准。</li>
+<li>这些权重现在可以在开放的非商业许可证和低成本创建者许可证下使用。如需大规模商业用途，请联系我们获取许可详细信息。</li>
+<li>要尝试 Stable Diffusion 3 模型，请尝试使用 Stability Platform 上的 API，在 Stable Assistant 上注册为期三天的免费试用，然后通过 Discord 尝试 Stable Artisan。</li>
+</ul>
+<h2 id="Stable-Diffusion-3-脱颖而出"><a href="#Stable-Diffusion-3-脱颖而出" class="headerlink" title="Stable Diffusion 3 脱颖而出"></a>Stable Diffusion 3 脱颖而出</h2><p>SD3 Medium 是一个 20 亿参数的 SD3 模型，提供一些显着的功能：</p>
 <ul>
-<li><p>Now, how would we actually use this to update diffusion model? First, we will use Stable-diffusion from <a target="_blank" rel="noopener" href="https://stability.ai/">stability-ai</a>. Their model is nicely ported through Huggingface API, so this repo has built various fine-tuning methods around them. In detail, there are three subtle but important distictions in methods to make this work out.</p>
-<ol>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2208.12242">Dreambooth</a></li>
-</ol>
-<p>  First, there is LoRA applied to Dreambooth. The idea is to use prior-preservation class images to regularize the training process, and use low-occuring tokens. This will keep the model’s generalization capability while keeping high fidelity. If you turn off prior preservation, and train text encoder embedding as well, it will become naive fine tuning.</p>
-<ol start="2">
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2208.01618">Textual Inversion</a></li>
-</ol>
-<p>  Second, there is Textual inversion. There is no room to apply LoRA here, but it is worth mentioning. The idea is to instantiate new token, and learn the token embedding via gradient descent. This is a very powerful method, and it is worth trying out if your use case is not focused on fidelity but rather on inverting conceptual ideas.</p>
-<ol start="3">
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.05744">Pivotal Tuning</a></li>
-</ol>
-<p>  Last method (although originally proposed for GANs) takes the best of both worlds to further benefit. When combined together, this can be implemented as a strict generalization of both methods. Simply you apply textual inversion to get a matching token embedding. Then, you use the token embedding + prior-preserving class image to fine-tune the model. This two-fold nature make this strict generalization of both methods.</p>
+<li>整体质量和照片级真实感：提供具有卓越细节、颜色和照明的图像，实现照片级真实感输出以及灵活风格的高质量输出。通过 16 通道 VAE 等创新，成功解决了其他模型的常见缺陷（例如手和脸的真实感）。</li>
+<li>提示理解：理解涉及空间推理、构图元素、动作和风格的长而复杂的提示。通过使用所有三种文本编码器或组合，用户可以在性能和效率之间进行权衡。</li>
+<li>版式：利用我们的 Diffusion Transformer 架构，实现前所未有的文本质量，减少拼写、字距调整、字母形成和间距方面的错误。</li>
+<li>资源高效利用：由于其 VRAM 占用空间小，非常适合在标准消费类 GPU 上运行而不会降低性能。</li>
+<li>微调：能够从小数据集中吸收细微的细节，使其非常适合定制。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/blog_post.jpg" alt=" "></p>
+<h2 id="Stable-Diffusion-3-网络架构"><a href="#Stable-Diffusion-3-网络架构" class="headerlink" title="Stable Diffusion 3 网络架构"></a>Stable Diffusion 3 网络架构</h2><p>Stable Diffusion 3 (SD3) 是一种文本到图像模型，由 Stability AI 于 2024 年 6 月 12 日发布。他们的模型系列的下一次演变是在去年大约同一时间推出的突破性 SDXL 的基础上进行的。</p>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/mmdit.png" alt=" "></p>
+<h2 id="Stable-Diffusion-3-NVIDIA"><a href="#Stable-Diffusion-3-NVIDIA" class="headerlink" title="Stable Diffusion 3 + NVIDIA"></a>Stable Diffusion 3 + NVIDIA</h2><ul>
+<li>我们与 NVIDIA 合作，利用 NVIDIA® RTX™ GPU 和 TensorRT™ 来增强所有 Stable Diffusion 模型（包括 Stable Diffusion 3 Medium）的性能。 TensorRT 优化版本将提供一流的性能，性能提高 50%。</li>
+<li>Stable Diffusion 3 Medium 中的 MMDiT 可以使用 TensorRT 模型优化器通过 INT8 量化进一步优化。在各种 NVidia GPU 上，比较 TensorRT fp16 和 TensorRT int8 的估计端到端加速为 1.2 倍~1.4 倍。与 fp16 引擎相比，int8 MMDiT 引擎的内存节省约为 2 倍。图像质量可以保持最小到可以忽略不计的下降。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20240613105037417.png" alt=" "></p>
+<h2 id="Stable-Diffusion-3-ComfyUI"><a href="#Stable-Diffusion-3-ComfyUI" class="headerlink" title="Stable Diffusion 3 + ComfyUI"></a>Stable Diffusion 3 + ComfyUI</h2><ul>
+<li>ComfyUI 完全支持 SD3！确保更新到最新版本！</li>
+<li>有两个包含文本编码器的 SD3 检查点：SD3 Medium Incl Clips 和 SD3 Medium Incl Clips_t5xxlfp8</li>
+</ul>
+<p>这些模型可以像 ComfyUI 中的任何常规检查点一样使用。</p>
+<ul>
+<li><code>sd3_medium.safetensors</code> 包括 MMDiT 和 VAE 权重，但不包括任何文本编码器。</li>
+<li><code>sd3_medium_incl_clips_t5xxlfp8.safetensors</code> 包含所有必要的权重，包括 T5XXL 文本编码器的 fp8 版本，提供质量和资源要求之间的平衡。</li>
+<li><code>sd3_medium_incl_clips.safetensors</code> 包括除 T5XXL 文本编码器之外的所有必需权重。它需要最少的资源，但如果没有 T5XXL 文本编码器，模型的性能将会有所不同。</li>
+</ul>
+<p>确保将 sd3_medium_incl_clips.safetensors 或 sd3_medium_incl_clips_t5xxlfp8.safetensors 放入 ComfyUI/models/checkpoints 目录中。</p>
+<p>SD3 Medium 基本文件不包含文本编码器/CLIP 权重，因此您必须单独加载它们才能使用该文件。</p>
+<p>从 Civita 下载文本编码器权重并将其放入您的 ComfyUI/models/clip/ 目录中。 sd3_medium.safetensors 应放在您的 ComfyUI/models/checkpoints/ 目录中。</p>
+<h3 id="简单的-txt2img-工作流程"><a href="#简单的-txt2img-工作流程" class="headerlink" title="简单的 txt2img 工作流程"></a>简单的 txt2img 工作流程</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/workflow_simple.png" alt=" "></p>
+<h3 id="多提示工作流程"><a href="#多提示工作流程" class="headerlink" title="多提示工作流程"></a>多提示工作流程</h3><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/workflow_multi.png" alt=" "></p>
+<h2 id="Stable-Diffusion-3-Diffusers"><a href="#Stable-Diffusion-3-Diffusers" class="headerlink" title="Stable Diffusion 3 + Diffusers"></a>Stable Diffusion 3 + Diffusers</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> torch
+<span class="token keyword">from</span> diffusers <span class="token keyword">import</span> StableDiffusion3Pipeline
+
+pipe <span class="token operator">=</span> StableDiffusion3Pipeline<span class="token punctuation">.</span>from_pretrained<span class="token punctuation">(</span><span class="token string">"stabilityai/stable-diffusion-3-medium-diffusers"</span><span class="token punctuation">,</span> torch_dtype<span class="token operator">=</span>torch<span class="token punctuation">.</span>float16<span class="token punctuation">)</span>
+pipe <span class="token operator">=</span> pipe<span class="token punctuation">.</span>to<span class="token punctuation">(</span><span class="token string">"cuda"</span><span class="token punctuation">)</span>
+
+image <span class="token operator">=</span> pipe<span class="token punctuation">(</span>
+    <span class="token string">"A cat holding a sign that says hello world"</span><span class="token punctuation">,</span>
+    negative_prompt<span class="token operator">=</span><span class="token string">""</span><span class="token punctuation">,</span>
+    num_inference_steps<span class="token operator">=</span><span class="token number">28</span><span class="token punctuation">,</span>
+    guidance_scale<span class="token operator">=</span><span class="token number">7.0</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">.</span>images<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+image<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="Stable-Diffusion-3-数据集"><a href="#Stable-Diffusion-3-数据集" class="headerlink" title="Stable Diffusion 3 数据集"></a>Stable Diffusion 3 数据集</h2><p>我们使用合成数据并过滤公开可用的数据来训练我们的模型。</p>
+<ul>
+<li>该模型已针对 10 亿张图像进行了预训练。</li>
+<li>微调数据包括3000万张专注于特定视觉内容和风格的高质量美学图像，以及300万张偏好数据图像。</li>
+</ul>
+<h2 id="Stable-Diffusion-3-模型下载"><a href="#Stable-Diffusion-3-模型下载" class="headerlink" title="Stable Diffusion 3 模型下载"></a>Stable Diffusion 3 模型下载</h2><p>您可以在此处从 Civitai 下载所有 SD3 safetensors、文本编码器和示例 ComfyUI 工作流程。</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://civitai.com/models/497255?modelVersionId=552771">SD3 Medium</a> (4.2 GB)</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://civitai.com/models/497255?modelVersionId=568278">SD3 Medium Incl Clips</a> (5.8 GB)</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://civitai.com/models/497255?modelVersionId=568392">SD3 Medium Incl Clips T5XXLFP8</a> (10.6 GB)</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://civitai.com/models/497255?modelVersionId=568347">Text Encoder Clip L</a> (234 MB)</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://civitai.com/models/497255?modelVersionId=568378">Text Encoder Clip G</a> (1.3 GB)</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://civitai.com/models/497255?modelVersionId=568405">Text Encoder t5xxl_fp8_e4m3fn</a> (4.7 GB)</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://civitai.com/models/497255?modelVersionId=568485">Text Encoder t5xxl_fp16</a> (9.5 GB)</p>
 </li>
 </ul>
-<h2 id="Main-Features"><a href="#Main-Features" class="headerlink" title="Main Features"></a>Main Features</h2><ul>
-<li>Fine-tune Stable diffusion models twice as fast than dreambooth method, by Low-rank Adaptation</li>
-<li>Get insanely small end result (1MB ~ 6MB), easy to share and download.</li>
-<li>Compatible with <code>diffusers</code></li>
-<li>Support for inpainting</li>
-<li>Sometimes <em>even better performance</em> than full fine-tuning (but left as future work for extensive comparisons)</li>
-<li>Merge checkpoints + Build recipes by merging LoRAs together</li>
-<li>Pipeline to fine-tune CLIP + Unet + token to gain better results.</li>
-<li>Out-of-the box multi-vector pivotal tuning inversion</li>
+<h2 id="Stable-Diffusion-3-许可注意事项"><a href="#Stable-Diffusion-3-许可注意事项" class="headerlink" title="Stable Diffusion 3 许可注意事项"></a>Stable Diffusion 3 许可注意事项</h2><ul>
+<li>SD3 有许可证注意事项！ Stable Diffusion 3 Medium 是根据 Stability AI 非商业研究社区许可证发布的。</li>
+<li>该模型可免费用于学术研究等非商业目的。</li>
+<li>如果没有 Stability 的单独商业许可，该模型不可用于商业用途。</li>
+<li>Stability AI 员工通过 Reddit 宣布，他们将在完成培训后免费发布其他 SD3 模型版本，包括 Small（1B 参数）、Large（4B 参数）和 Huge（8B 参数）版本。</li>
 </ul>
-<h2 id="LoRA-Applications"><a href="#LoRA-Applications" class="headerlink" title="LoRA Applications"></a>LoRA Applications</h2><h3 id="1-Character-LoRA"><a href="#1-Character-LoRA" class="headerlink" title="1 Character LoRA"></a>1 Character LoRA</h3><p>根据特定角色（如卡通或视频游戏角色）训练的模型。角色 LoRA 能够准确再现角色的外观和感觉，以及与之相关的任何关键特征。这是最常见的 LoRA 类型，因为在没有这种训练数据的情况下生成角色往往很棘手，而且不连贯。应用角色 LoRA 可以快速生成具有真实外观的角色，使其成为 AI 插图、角色概念图甚至参考表的完美选择。根据模型的训练情况，角色可能会适合某种服装、特定发型甚至某种面部表情。不过，有些角色 LoRA 可以为您选择的角色换上新的服装和设置，使其魅力倍增。</p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/lora_character.png" alt="character lora"></p>
-<ul>
-<li><strong>Model used</strong>: <a target="_blank" rel="noopener" href="https://civitai.com/models/1274/dreamlike-diffusion-10">Dreamlike Diffusion 1.0</a></li>
-<li><strong>LoRA used</strong>: <a target="_blank" rel="noopener" href="https://civitai.com/models/55339/the-joker-or-photorealistic-joker-lora">The Joker | Photorealistic</a></li>
-<li><strong>Prompt used</strong>: portrait of the joker, high quality, 8k</li>
+<h2 id="Stable-Diffusion-3-免费试用"><a href="#Stable-Diffusion-3-免费试用" class="headerlink" title="Stable Diffusion 3 免费试用"></a>Stable Diffusion 3 免费试用</h2><ul>
+<li>SD3  <a target="_blank" rel="noopener" href="https://huggingface.co/stabilityai/stable-diffusion-3-medium">https://huggingface.co/stabilityai/stable-diffusion-3-medium</a></li>
+<li>SD3 + tensorrt <a target="_blank" rel="noopener" href="https://huggingface.co/stabilityai/stable-diffusion-3-medium-tensorrt">https://huggingface.co/stabilityai/stable-diffusion-3-medium-tensorrt</a></li>
 </ul>
-<h3 id="2-Style-LoRA"><a href="#2-Style-LoRA" class="headerlink" title="2 Style LoRA"></a>2 Style LoRA</h3><p>风格 LoRA 与角色 LoRA 有许多相似之处，但它不是针对特定角色或对象进行训练，而是侧重于一种艺术风格。这种类型的模型通常是针对特定艺术家的艺术作品进行训练，让您可以在自己的作品中使用他们的标志性风格。风格 LoRA 可用于从参考图像的风格化到以相同风格创作原创作品等任何用途。顾名思义，这些模型是根据特定风格进行训练的，如动画片、水彩画、线描等的特定外观。有了这种 LoRA 模型，您就可以轻松地为您的人工智能作品赋予独特的风格，使其在众多作品中脱颖而出！</p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/lora_style.png" alt="style lora"></p>
-<ul>
-<li><strong>Model used</strong>: <a target="_blank" rel="noopener" href="https://civitai.com/models/23900?modelVersionId=29792">AnyLoRA - Checkpoint</a></li>
-<li><strong>LoRA used</strong>: <a target="_blank" rel="noopener" href="https://civitai.com/models/7094/arcane-style-lora">Arcane Style LoRA</a></li>
-<li><strong>Prompt used</strong>: arcane style, 1girl, pink hair, long hair, one braid, white shirt, coat, yellow eyes, looking at viewer, city street</li>
-</ul>
-<h3 id="3-Pose-LoRA"><a href="#3-Pose-LoRA" class="headerlink" title="3 Pose LoRA"></a>3 Pose LoRA</h3><p>将姿势 LoRA 应用到生成中的效果和它听起来一样–它会以特定的方式摆出角色的姿势。这非常适合生成动态场景，在动态场景中，您可以制作特定的姿势和动作，而这些姿势和动作通常很难或无法通过常规的提示工程来实现。姿势 LoRA 模型更侧重于角色的姿势，而不是其风格或特征。例如，如果您要将姿势 LoRA 模型应用到人形角色上，它会为他们创建不同的姿势，如奔跑、跳跃或坐姿，但不会改变他们的特征、服装，也不会改变您所使用模型的风格。</p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/lora_pose.png" alt="pose lora"></p>
-<ul>
-<li><strong>Model used</strong>: <a target="_blank" rel="noopener" href="https://civitai.com/models/36520/ghostmix">GhostMix</a></li>
-<li><strong>LoRA used</strong>: <a target="_blank" rel="noopener" href="https://civitai.com/models/51900/shinji-in-a-chair-or-meme">Shinji in a Chair | Meme</a></li>
-<li><strong>Prompt used</strong>: solo, male focus, sitting, head down, short black hair, hooded jacket, jeans, sneakers</li>
-</ul>
-<h3 id="4-Clothing-LoRa"><a href="#4-Clothing-LoRa" class="headerlink" title="4 Clothing LoRa"></a>4 Clothing LoRa</h3><p>另一个有用的模型是服装 LoRA。正如您所期望的那样，这种 LoRA 模型旨在更换人物的服装和配饰。有了它，您可以快速、轻松地为任何角色换上新衣服，无论是现代风格还是历史风格。这些模型最棒的地方在于它们适用于任何类型的角色。只需一个模型，您就可以应用各种不同民族的风格和设计！例如，如果您想创建一个人物穿着传统中式服装的场景，只需将您选择的服装 LoRA 套用到您的世代上，然后就可以了–即刻就可以穿上传统的中式服装！</p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/lora_clothing.png" alt="clothing lora"></p>
-<ul>
-<li><strong>Model used</strong>: <a target="_blank" rel="noopener" href="https://civitai.com/models/36520/ghostmix">GhostMix</a></li>
-<li><strong>LoRA used</strong>: <a target="_blank" rel="noopener" href="https://civitai.com/models/15365/hanfu">hanfu</a></li>
-<li><strong>Prompt used</strong>: girl, blue hanfu, full body</li>
-</ul>
-<h3 id="5-Object-LoRA"><a href="#5-Object-LoRA" class="headerlink" title="5 Object LoRA"></a>5 Object LoRA</h3><p>最后是物体 LoRA。这是一大类 LoRA 模型，用于生成家具、植物甚至车辆等物品。当然，您可以使用这些模型创建的物品类型取决于您使用的特定模型和您提供的提示。不过，这个术语也适用于用于创建更抽象对象的 LoRA，例如游戏或网站的用户界面元素。这对于为您的项目创建更具凝聚力的外观和感觉非常有用。对于需要高效创建资产的艺术家、游戏开发人员、网页设计师和其他创意专业人员来说，对象 LoRA 都是一种宝贵的工具。能够生成具有自定义设计的对象，让您可以自由地尝试和探索不同的视觉效果，直到找到适合您项目的完美效果。</p>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/lora_object.png" alt="object lora"></p>
-<ul>
-<li><strong>Model used</strong>: <a target="_blank" rel="noopener" href="https://civitai.com/models/57931/szechuan-special-sauce?modelVersionId=62378">Szechuan Special Sauce</a></li>
-<li><strong>LoRA used</strong>: <a target="_blank" rel="noopener" href="https://civitai.com/models/58247/product-design-dark-minimalism-eddiemauro-lora">Product Design (Dark minimalism-eddiemauro)</a></li>
-<li><strong>Prompt used</strong>: futuristic kettle, a computer rendering, minimalism, 4k</li>
-</ul>
-<h2 id="Captions"><a href="#Captions" class="headerlink" title="Captions"></a>Captions</h2><ul>
-<li>如果我们要训练一个角色，那么所有图片的说明都是同一个角色，这样它才能被识别。把一个女孩（a girl）换成初音未来（Hatsune Miku）</li>
-<li>如果我们要训练的是一种风格，所以会描述除了图片风格之外的一切，因此我们不会使用“插画（an illustration of）”或者“照片（a photo of）”之类的术语。基本而言，我们希望对想要改变的一切进行说明，</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/image-20230901101936968.png" alt="image-20230901101936968"></p>
-<pre class="line-numbers language-txt" data-language="txt"><code class="language-txt">这个案例中，“一个绿色长发在空中飘扬的女孩（a girl wiht long green hair is flying through the air）”描述相当准确，但还不够精准。我要描述的是一个蓝绿色眼睛、绿色双马尾长发的少女（a teenage girl with teal eyes and long teal hair in twin tails），然后删掉其余所有描述，将在空中飞扬（flying through the air）留在最后。
-
-那么，除了上述特征之外，她还有什么特点？可以看到，她穿了一件白色衬衫，白色短裙，黑色毛衣围在腰间，还穿了一件蓝色连衣裙，腿部暴露在外，还有一双蓝绿色溜冰鞋。随后，还可以看到蓝天白云。
-
-完整说明文字：a teenage girl with teal eyes and long teal hair in twin tails, wearing a white colored blouse, white skirt, black sweater tied around waist, blue dress, exposed legs, teal rollerskated, blue sky with white clouds, flying through the air
-
-那么，我为何要在这里描述的这么具体呢？如果我不在这里描述，那就意味着我希望LoRA学习这些东西，如果我不描述蓝绿色眼睛，那么最终生成的所有角色都会有蓝绿色眼睛。所以，一定要将能够改变的所有东西描述出来。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="Inference-Speed"><a href="#Inference-Speed" class="headerlink" title="Inference Speed"></a>Inference Speed</h2><p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/46439983bbac8f07270f47143758571c.png" alt="img"></p>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://softwarekeep.com/help-center/how-to-use-stable-diffusion-lora-models">https://softwarekeep.com/help-center/how-to-use-stable-diffusion-lora-models</a></li>
-</ul>
+<h2 id="爱研究-AI交流群"><a href="#爱研究-AI交流群" class="headerlink" title="[爱研究]AI交流群"></a>[爱研究]AI交流群</h2><blockquote>
+<p>为了方便交流，建立了群聊，后台私信发送：666</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/lee-jet/Figure_Bed/main/out-0-1718249387745-10.webp" alt="out-0"></p>
 
                 
             </div>
@@ -559,7 +568,7 @@ https://github.com/kohya-ss/sd-s">
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lee-jet.github.io/2023/09/01/sdwithlora/">https://lee-jet.github.io/2023/09/01/sdwithlora/</a>
+                    <a href="https://lee-jet.github.io/2024/06/13/sd-v3/">https://lee-jet.github.io/2024/06/13/sd-v3/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -676,7 +685,7 @@ https://github.com/kohya-ss/sd-s">
         repo: 'gitalk',
         owner: 'lee-jet',
         admin: "lee-jet",
-        id: '2023-09-01T10-50-52',
+        id: '2024-06-13T11-23-28',
         distractionFreeMode: false,  // Facebook-like distraction free mode
     });
 
@@ -704,17 +713,18 @@ https://github.com/kohya-ss/sd-s">
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/09/07/vae/">
+                <a href="/2024/06/13/sd-v3/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="VAE">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="SD_V3">
                         
-                        <span class="card-title">VAE</span>
+                        <span class="card-title">SD_V3</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -724,9 +734,9 @@ https://github.com/kohya-ss/sd-s">
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-09-07
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-06-13
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -739,6 +749,7 @@ https://github.com/kohya-ss/sd-s">
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -757,13 +768,13 @@ https://github.com/kohya-ss/sd-s">
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/08/31/lora/">
+                <a href="/2024/06/06/pcm/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="LoRA">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="PCM">
                         
-                        <span class="card-title">LoRA</span>
+                        <span class="card-title">PCM</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -774,7 +785,7 @@ https://github.com/kohya-ss/sd-s">
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-31
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-06-06
                             </span>
                         <span class="publish-author">
                             
