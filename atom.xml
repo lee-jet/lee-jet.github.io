@@ -6,7 +6,7 @@
   <link href="https://lee-jet.github.io/atom.xml" rel="self"/>
   
   <link href="https://lee-jet.github.io/"/>
-  <updated>2024-06-13T03:29:53.606Z</updated>
+  <updated>2024-07-19T06:15:25.230Z</updated>
   <id>https://lee-jet.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LivePortrait</title>
+    <link href="https://lee-jet.github.io/2024/07/19/liveportrait/"/>
+    <id>https://lee-jet.github.io/2024/07/19/liveportrait/</id>
+    <published>2024-07-19T06:12:53.000Z</published>
+    <updated>2024-07-19T06:15:25.230Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;6&#39;&gt;&lt;strong&gt;⚡[AIGC服务] LivePortrait | 视频控制的数字人动画&lt;/strong&gt;&lt;/font&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Live Portrait</summary>
+        
+      
+    
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
+    
+    
+    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
+    
+  </entry>
   
   <entry>
     <title>SD_V3</title>
@@ -497,34 +525,6 @@
         
         
     <summary type="html">&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;5&#39;&gt;&lt;strong&gt;⚡ AIGC绘画|艺术字及古诗意境生成</summary>
-        
-      
-    
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/categories/Paper-Reading/"/>
-    
-    
-    <category term="Paper Reading" scheme="https://lee-jet.github.io/tags/Paper-Reading/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LLIE_denoise</title>
-    <link href="https://lee-jet.github.io/2023/12/29/llie-denoise/"/>
-    <id>https://lee-jet.github.io/2023/12/29/llie-denoise/</id>
-    <published>2023-12-29T08:20:24.000Z</published>
-    <updated>2024-01-02T10:29:45.900Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;div align=&#39;center&#39; &gt;&lt;font size=&#39;5&#39;&gt;&lt;strong&gt;⚡ AISP之超感光降噪与暗光增强 ⚡&lt;/strong&gt;&lt;/font&gt;&lt;/div&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;本文主要介绍超感光降噪技术 Unprocessing</summary>
         
       
     
